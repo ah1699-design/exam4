@@ -1566,7 +1566,7 @@
                 diagnosticLogs.length, diagnosticLogs.join(" | "), itemsText
             );
         }
-
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbwQnum1bAGvOb-dv5hL08S0pzMB93_gN0ZmoqCQtUjKFYOT-vs8Df0iTT6OMpx_sb6pjg/exec';
         function sendDataToSheet(name, hp, time, rescueT, rescueF, errorCount, errorDetails, cards) {
             if(!scriptURL) return;
             let formData = new URLSearchParams();
