@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>基本電學 - 抽卡特訓班 (多卡包擴充版)</title>
+    <title>微處理機 - 抽卡特訓班 (多卡包擴充版)</title>
     <style>
         body {
             font-family: '微軟正黑體', sans-serif; 
@@ -159,7 +159,7 @@
 
     <div class="container">
         <div id="student-setup">
-            <h1>🏀 期末特訓：測驗大挑戰！</h1>
+            <h1>🏀 微處理機特訓：測驗大挑戰！</h1>
             <div class="subtitle">連續答對 2 題即可抽卡！(滿5張特定卡可覺醒神卡)</div>
             <input type="text" id="student-name" placeholder="請輸入 班級+座號+姓名">
             
@@ -302,907 +302,907 @@
             }
         };
 
-        // ==========================================
-        // 教師設定區：基本電學全冊總複習 (全新 45 題魔王版) + 豪華娛樂題
+      // ==========================================
+        // 教師設定區：微處理機全冊總複習 (45題魔王版) + WBC經典賽
         // ==========================================
         const quizData = {
-            // --- 第 1 關：電荷與電壓 ---
+            // --- 第 1 關：微處理機基礎 ---
             "q1": {
-                tag: "第 1 關：基本概念",
-                text: "1 個電子的電量非常微小，大約等於多少庫侖 (C)？",
+                tag: "第 1 關：微處理機基礎",
+                text: "微處理機 (MPU) 內部主要由哪兩個重要的單元所組成？",
                 options: [
-                    { text: "A. 1.6 × 10⁻¹⁹ 庫侖", next: "q2", isCorrect: true },
-                    { text: "B. 6.25 × 10¹⁸ 庫侖", next: "q1_help", log: "Q1錯: 這是 1 庫侖包含的電子數量" },
-                    { text: "C. 9.8 × 10⁹ 庫侖", next: "q1_help", log: "Q1錯: 這是重力加速度的數值干擾" },
-                    { text: "D. 1.6 × 10⁻²⁷ 庫侖", next: "q1_help", log: "Q1錯: 指數錯誤" }
+                    { text: "A. 算術邏輯單元 (ALU) 與 控制單元 (CU)", next: "q2", isCorrect: true },
+                    { text: "B. 記憶體 (Memory) 與 輸出入單元 (I/O)", next: "q1_help", log: "Q1錯: 這是微電腦系統的其他部分" },
+                    { text: "C. 暫存器 (Register) 與 匯流排 (Bus)", next: "q1_help", log: "Q1錯: 暫存器在內部，但匯流排是通道" },
+                    { text: "D. 唯讀記憶體 (ROM) 與 隨機存取記憶體 (RAM)", next: "q1_help", log: "Q1錯: 這是記憶體單元" }
                 ]
             },
             "q1_help": {
-                tag: "💊 救援任務：微小的基本電荷",
-                text: "知識拆解：電子的電量是自然界中最小的電荷單位。它的數值開頭是 1.6，並且因為非常非常小，所以指數是負的 19 次方。",
+                tag: "💊 救援任務：大腦的核心",
+                text: "知識拆解：CPU 是電腦的大腦，它必須具備「計算運算」的能力以及「指揮控制」整個系統的能力。這兩個單元的英文簡稱是？",
                 options: [
-                    { text: "A. 1.6 × 10⁻¹⁹ 庫侖", next: "q1", isCorrect: true },
-                    { text: "B. 6.25 × 10¹⁸ 庫侖", next: "q1_help", log: "Q1救錯: 6.25×10¹⁸ 是「一整包(1庫侖)」裡面有幾顆電子喔！" }
+                    { text: "A. ALU 與 CU", next: "q1", isCorrect: true },
+                    { text: "B. ROM 與 RAM", next: "q1_help", log: "Q1救錯: ROM跟RAM是負責記憶的，不是負責計算跟控制的喔！" }
                 ]
             },
 
-            // --- 第 2 關：色碼電阻 ---
+            // --- 第 2 關：匯流排 ---
             "q2": {
-                tag: "第 2 關：色碼電阻",
-                text: "一個「五環」色碼電阻的顏色依序為「棕、黑、黑、紅、棕」，請問它的阻值與誤差為何？",
+                tag: "第 2 關：系統匯流排",
+                text: "在系統匯流排中，哪一種匯流排是「單向」的，專門由 CPU 傳送位置信號給記憶體或 I/O 設備？",
                 options: [
-                    { text: "A. 10 kΩ，± 1%", next: "q3", isCorrect: true },
-                    { text: "B. 1 kΩ，± 1%", next: "q2_help", log: "Q2錯: 第四環紅色是乘 100" },
-                    { text: "C. 10 kΩ，± 5%", next: "q2_help", log: "Q2錯: 誤差棕色是 1%" },
-                    { text: "D. 100 Ω，± 2%", next: "q2_help", log: "Q2錯: 紅色誤差才是 2%" }
+                    { text: "A. 位址匯流排 (Address Bus)", next: "q3", isCorrect: true },
+                    { text: "B. 資料匯流排 (Data Bus)", next: "q2_help", log: "Q2錯: 資料匯流排是雙向的" },
+                    { text: "C. 控制匯流排 (Control Bus)", next: "q2_help", log: "Q2錯: 控制匯流排負責傳送控制訊號" },
+                    { text: "D. 內部匯流排 (Internal Bus)", next: "q2_help", log: "Q2錯: 這是 CPU 內部的通道" }
                 ]
             },
             "q2_help": {
-                tag: "💊 救援任務：五環的密碼",
-                text: "知識拆解：五環電阻前三環都是數字！棕(1)、黑(0)、黑(0) = 100。第四環紅色代表加兩個 0，變成 10000 (10k)。最後一環棕色的誤差是多少？",
+                tag: "💊 救援任務：單向的導航",
+                text: "知識拆解：CPU 就像快遞中心，它必須先發送出「地址」告訴大家包裹要送去哪裡，這個指出目標位置的通道是單向出發的。英文是？",
                 options: [
-                    { text: "A. ± 1%", next: "q2", isCorrect: true },
-                    { text: "B. ± 5%", next: "q2_help", log: "Q2救錯: 金色誤差才是 5%，棕色是很精準的 1%！" }
+                    { text: "A. 位址匯流排 (Address Bus)", next: "q2", isCorrect: true },
+                    { text: "B. 資料匯流排 (Data Bus)", next: "q2_help", log: "Q2救錯: 資料是可以讀進來寫出去的，所以是雙向喔！" }
                 ]
             },
 
-            // --- 第 3 關：電導率 ---
+            // --- 第 3 關：哈佛架構 ---
             "q3": {
-                tag: "第 3 關：電阻定律",
-                text: "我們知道「電阻 (R)」的倒數是「電導 (G)」。那麼，代表材料本身阻礙電流特性的「電阻率 (ρ)」，它的倒數稱為什麼？",
+                tag: "第 3 關：電腦架構",
+                text: "將「程式記憶體 (ROM)」與「資料記憶體 (RAM)」分開，具有獨立匯流排可以同時存取指令與資料的架構稱為？",
                 options: [
-                    { text: "A. 電導率 (σ)", next: "q4", isCorrect: true },
-                    { text: "B. 電容率 (ε)", next: "q3_help", log: "Q3錯: 這是與電容介電質有關的常數" },
-                    { text: "C. 導磁率 (μ)", next: "q3_help", log: "Q3錯: 這是與磁場有關的常數" },
-                    { text: "D. 溫度係數 (α)", next: "q3_help", log: "Q3錯: 這是電阻隨溫度變化的比例" }
+                    { text: "A. 哈佛架構 (Harvard Architecture)", next: "q4", isCorrect: true },
+                    { text: "B. 馮紐曼架構 (Von Neumann Architecture)", next: "q3_help", log: "Q3錯: 馮紐曼是程式與資料共用同一記憶體" },
+                    { text: "C. 范紐曼架構", next: "q3_help", log: "Q3錯: 同上" },
+                    { text: "D. 普林斯頓架構", next: "q3_help", log: "Q3錯: 普林斯頓架構即為馮紐曼架構" }
                 ]
             },
             "q3_help": {
-                tag: "💊 救援任務：字面對稱",
-                text: "知識拆解：物理名詞非常有對稱性！「電阻」的倒數叫「電導」，那「電阻『率』」的倒數當然就叫作什麼？",
+                tag: "💊 救援任務：分工合作的雙通道",
+                text: "知識拆解：傳統的「馮紐曼」是大家擠同一條路；而新型的微控制器為求快速，把指令和資料分成兩條路走。這個以知名大學命名的架構是？",
                 options: [
-                    { text: "A. 電導率", next: "q3", isCorrect: true },
-                    { text: "B. 電容率", next: "q3_help", log: "Q3救錯: 這是電阻家族的屬性，跟電容無關喔！" }
+                    { text: "A. 哈佛架構", next: "q3", isCorrect: true },
+                    { text: "B. 馮紐曼架構", next: "q3_help", log: "Q3救錯: 馮紐曼是共用通道，會產生瓶頸(馮紐曼瓶頸)喔！" }
                 ]
             },
 
-            // --- 第 4 關：絕對溫度 ---
+            // --- 第 4 關：單晶片 ---
             "q4": {
-                tag: "第 4 關：溫度換算",
-                text: "在計算電阻溫度係數時，常會用到「絕對溫度 (K)」。若現在室溫是攝氏 27 度 (27°C)，換算成絕對溫度大約是多少 K？",
+                tag: "第 4 關：微電腦系統",
+                text: "將 CPU、記憶體 (RAM/ROM) 及 I/O 介面電路全部整合在同一顆 IC 晶片中，稱為？",
                 options: [
-                    { text: "A. 300 K", next: "q5", isCorrect: true },
-                    { text: "B. 246 K", next: "q4_help", log: "Q4錯: 這是用減的，公式是相加" },
-                    { text: "C. 273 K", next: "q4_help", log: "Q4錯: 這是 0°C 的絕對溫度" },
-                    { text: "D. 327 K", next: "q4_help", log: "Q4錯: 加錯數字了" }
+                    { text: "A. 微控制器 (MCU / 單晶片)", next: "q5", isCorrect: true },
+                    { text: "B. 微處理機 (MPU)", next: "q4_help", log: "Q4錯: MPU 通常只有 CPU 功能，需外接記憶體" },
+                    { text: "C. 數位訊號處理器 (DSP)", next: "q4_help", log: "Q4錯: 這是專門處理數位訊號運算的" },
+                    { text: "D. 顯示卡 (GPU)", next: "q4_help", log: "Q4錯: 這是專門處理圖形運算的" }
                 ]
             },
             "q4_help": {
-                tag: "💊 救援任務：冰點的起點",
-                text: "知識拆解：絕對零度是攝氏 -273度。所以要把攝氏換算成絕對溫度，只要加上 273 就可以了。27 + 273 = ?",
+                tag: "💊 救援任務：麻雀雖小五臟俱全",
+                text: "知識拆解：把整台電腦必備的元件通通塞進一顆晶片裡，讓它可以獨立「控制」外部設備，例如我們實習課常用的 8051 或 Arduino 核心。這叫？",
                 options: [
-                    { text: "A. 300 K", next: "q4", isCorrect: true },
-                    { text: "B. 273 K", next: "q4_help", log: "Q4救錯: 要記得把原本的 27 度加進去喔！" }
+                    { text: "A. 微控制器 (MCU)", next: "q4", isCorrect: true },
+                    { text: "B. 微處理機 (MPU)", next: "q4_help", log: "Q4救錯: MPU 只有大腦，沒有記憶體等周邊喔！" }
                 ]
             },
 
-            // 🎵 第 5 關：TWICE
+            // ⚾ 第 5 關：WBC 國防部長
             "q5": {
-                tag: "🎵 第 5 關：大腦休息 (K-POP)",
-                text: "放鬆一下！風靡全球的韓國人氣女團 TWICE，是透過 JYP 娛樂於 2015 年舉辦的哪一個生存實境選秀節目出道的？",
+                tag: "⚾ 第 5 關：大腦休息 (WBC)",
+                text: "熱血一下！在 2023 年 WBC 經典賽中，台灣隊有一位重砲手因為優異的打擊表現，只要一上壘全場就會對他「敬禮」，更被球迷封為「國防部長」。他是誰？",
                 options: [
-                    { text: "A. SIXTEEN", next: "q6", isCorrect: true },
-                    { text: "B. PRODUCE 101", next: "q5_help", log: "Q5錯: 這是誕生 I.O.I 等團體的節目" },
-                    { text: "C. Nizi Project", next: "q5_help", log: "Q5錯: 這是誕生 NiziU 的節目" },
-                    { text: "D. Girls Planet 999", next: "q5_help", log: "Q5錯: 這是誕生 Kep1er 的節目" }
+                    { text: "A. 張育成", next: "q6", isCorrect: true },
+                    { text: "B. 林立", next: "q5_help", log: "Q5錯: 林立沒有這個稱號" },
+                    { text: "C. 吉力吉撈．鞏冠", next: "q5_help", log: "Q5錯: 雖然也打出全壘打，但不是國防部長" },
+                    { text: "D. 吳念庭", next: "q5_help", log: "Q5錯: 吳念庭表現優異，但稱號是得點圈之鬼" }
                 ]
             },
             "q5_help": {
-                tag: "💊 提示：殘酷的數字",
-                text: "這個節目名稱直接代表了當時參加選秀的練習生總人數：「16位少女爭奪出道名額」。英文的 16 怎麼拼？",
+                tag: "💊 提示：永遠的國防部長",
+                text: "他原本因為兵役問題受到質疑，但後來以超狂的全壘打和打點表現讓全台灣球迷折服，招牌動作是舉手敬禮！",
                 options: [
-                    { text: "A. SIXTEEN", next: "q5", isCorrect: true },
-                    { text: "B. PRODUCE 101", next: "q5_help", log: "Q5救錯: 101 個人太多了啦！" }
+                    { text: "A. 張育成", next: "q5", isCorrect: true },
+                    { text: "B. 林立", next: "q5_help", log: "Q5救錯: 敬禮手勢是張育成的招牌啦！" }
                 ]
             },
 
-            // --- 第 6 關：馬力換算 ---
+            // --- 第 6 關：二補數 ---
             "q6": {
-                tag: "第 6 關：電功率",
-                text: "我們常聽到冷氣或馬達是「幾匹馬力」，在電學計算中，1 單位馬力 (hp) 大約等於多少瓦特 (W)？",
+                tag: "第 6 關：數字系統",
+                text: "在電腦中，為了簡化減法運算，負數通常以「二補數 (2's complement)」來表示。二補數的求法為何？",
                 options: [
-                    { text: "A. 746 W", next: "q7", isCorrect: true },
-                    { text: "B. 1000 W", next: "q6_help", log: "Q6錯: 這是 1 千瓦 (kW)" },
-                    { text: "C. 3.6 W", next: "q6_help", log: "Q6錯: 這是與焦耳換算有關的數字" },
-                    { text: "D. 860 W", next: "q6_help", log: "Q6錯: 這是與卡路里換算的數字" }
+                    { text: "A. 1 的補數加 1", next: "q7", isCorrect: true },
+                    { text: "B. 全部反相即為答案", next: "q6_help", log: "Q6錯: 這是 1 的補數" },
+                    { text: "C. 最高位元改為 1，其餘不變", next: "q6_help", log: "Q6錯: 這是符號與大小表示法" },
+                    { text: "D. 1 的補數減 1", next: "q6_help", log: "Q6錯: 應該是加 1" }
                 ]
             },
             "q6_help": {
-                tag: "💊 救援任務：死背密碼",
-                text: "知識拆解：這是統測必考的常數！記住口訣「去死了(746)」，1 匹馬力拉東西拉到快累死，就是 746 瓦特！",
+                tag: "💊 救援任務：反相再加一",
+                text: "知識拆解：先把二進位數字全部 0 變 1、1 變 0 (這叫 1 的補數)，然後最後在尾巴加上一個 1，就可以得到完美的負數表示法！",
                 options: [
-                    { text: "A. 746 W", next: "q6", isCorrect: true },
-                    { text: "B. 1000 W", next: "q6_help", log: "Q6救錯: 1 千瓦是發電或電費在用的喔！" }
+                    { text: "A. 1 的補數加 1", next: "q6", isCorrect: true },
+                    { text: "B. 全部反相", next: "q6_help", log: "Q6救錯: 只有反相的話，那是 1 的補數喔，還差一步！" }
                 ]
             },
 
-            // --- 第 7 關：效率計算 ---
+            // --- 第 7 關：ASCII ---
             "q7": {
-                tag: "第 7 關：電能與效率",
-                text: "有一台抽水馬達，輸入的電功率為 1000W，但因為會發熱損耗，最後實際輸出的機械功率只有 800W。請問這台馬達的效率 (η) 是多少？",
+                tag: "第 7 關：資料表示法",
+                text: "標準的 ASCII 碼使用幾個位元 (bits) 來表示一個字元？",
                 options: [
-                    { text: "A. 80%", next: "q8", isCorrect: true },
-                    { text: "B. 20%", next: "q7_help", log: "Q7錯: 這是損耗掉的比例" },
-                    { text: "C. 125%", next: "q7_help", log: "Q7錯: 效率不可能大於 100%" },
-                    { text: "D. 90%", next: "q7_help", log: "Q7錯: 計算錯誤" }
+                    { text: "A. 7 個位元", next: "q8", isCorrect: true },
+                    { text: "B. 8 個位元", next: "q7_help", log: "Q7錯: 延伸型才是 8 位元" },
+                    { text: "C. 16 個位元", next: "q7_help", log: "Q7錯: 這是 Unicode" },
+                    { text: "D. 4 個位元", next: "q7_help", log: "Q7錯: 這是 BCD 碼的一半" }
                 ]
             },
             "q7_help": {
-                tag: "💊 救援任務：有幾分力做幾分事",
-                text: "知識拆解：效率的公式永遠是「輸出 ÷ 輸入」。你吃進去 1000 的能量，只做了 800 的事情。800 ÷ 1000 = ?",
+                tag: "💊 救援任務：128種組合",
+                text: "知識拆解：標準 ASCII 可以表示 128 種不同的字元 (包含大小寫英文字母、數字、控制碼)。2 的幾次方等於 128？",
                 options: [
-                    { text: "A. 80%", next: "q7", isCorrect: true },
-                    { text: "B. 20%", next: "q7_help", log: "Q7救錯: 20% 是變成廢熱跑掉的能量啦！" }
+                    { text: "A. 7 個位元", next: "q7", isCorrect: true },
+                    { text: "B. 8 個位元", next: "q7_help", log: "Q7救錯: 2 的 8 次方是 256，那是後來擴充的延伸碼喔！" }
                 ]
             },
 
-            // --- 第 8 關：串聯分壓 ---
+            // --- 第 8 關：溢位 Overflow ---
             "q8": {
-                tag: "第 8 關：串並聯電路",
-                text: "在「串聯電路」中，因為流過每個元件的電流都相等，根據歐姆定律 (V=IR)，每個電阻分到的「電壓」與其「電阻值」成什麼關係？",
+                tag: "第 8 關：二進位運算",
+                text: "使用 8 位元來表示二補數的帶符號整數，當發生什麼情況時，代表運算產生了「溢位 (Overflow)」？",
                 options: [
-                    { text: "A. 正比 (電阻越大，分到電壓越多)", next: "q9", isCorrect: true },
-                    { text: "B. 反比 (電阻越大，分到電壓越少)", next: "q8_help", log: "Q8錯: 這是並聯分流的特性" },
-                    { text: "C. 平方正比", next: "q8_help", log: "Q8錯: 這是功率的關係" },
-                    { text: "D. 無關 (大家平分)", next: "q8_help", log: "Q8錯: 除非電阻剛好一樣大" }
+                    { text: "A. 兩個正數相加結果變負數，或兩個負數相加結果變正數", next: "q9", isCorrect: true },
+                    { text: "B. 進位到最高位元外", next: "q8_help", log: "Q8錯: 這是 Carry，不一定代表 Overflow" },
+                    { text: "C. 正數與負數相加", next: "q8_help", log: "Q8錯: 一正一負相加絕對不可能溢位" },
+                    { text: "D. 結果為零", next: "q8_help", log: "Q8錯: 正常現象" }
                 ]
             },
             "q8_help": {
-                tag: "💊 救援任務：出力推石頭",
-                text: "知識拆解：電流是固定水流。電阻越大，代表那條路越難走，電池就必須花「更多」的力氣(電壓)把水流推過去。所以阻力跟花費的力氣成？",
+                tag: "💊 救援任務：超出邏輯的荒謬",
+                text: "知識拆解：溢位就是「數字大到裝不下」，導致最高位元(符號位元)被破壞。這會發生非常荒謬的事：比如你有錢加有錢，算出來卻變負債！",
                 options: [
-                    { text: "A. 正比", next: "q8", isCorrect: true },
-                    { text: "B. 反比", next: "q8_help", log: "Q8救錯: 反比是阻力大分得少，違反物理常識喔！" }
+                    { text: "A. 兩正相加變負，兩負相加變正", next: "q8", isCorrect: true },
+                    { text: "B. 進位到最高位元外", next: "q8_help", log: "Q8救錯: 二補數運算有進位丟掉是正常的，不一定是溢位喔！" }
                 ]
             },
 
-            // --- 第 9 關：並聯速算 ---
+            // --- 第 9 關：16進位 ---
             "q9": {
-                tag: "第 9 關：串並聯電路",
-                text: "電路速算！如果有兩個阻值「皆為 10Ω」的電阻並聯在一起，總等效電阻會變成多少？",
+                tag: "第 9 關：數字系統",
+                text: "在組合語言中常用 16 進位 (Hexadecimal) 來縮短 2 進位長度。1 個 16 進位的數字，可以對應到幾個 2 進位的位元 (Bits)？",
                 options: [
-                    { text: "A. 5 Ω", next: "q10", isCorrect: true },
-                    { text: "B. 20 Ω", next: "q9_help", log: "Q9錯: 這是串聯的算法" },
-                    { text: "C. 10 Ω", next: "q9_help", log: "Q9錯: 並聯總電阻一定會變小" },
-                    { text: "D. 2.5 Ω", next: "q9_help", log: "Q9錯: 算太小了" }
+                    { text: "A. 4 個", next: "q10", isCorrect: true },
+                    { text: "B. 8 個", next: "q9_help", log: "Q9錯: 8 個位元是 1 Byte，需要 2 個 16 進位字元" },
+                    { text: "C. 2 個", next: "q9_help", log: "Q9錯: 太少" },
+                    { text: "D. 16 個", next: "q9_help", log: "Q9錯: 不是對應 16 個" }
                 ]
             },
             "q9_help": {
-                tag: "💊 救援任務：多開一條路",
-                text: "知識拆解：完全相同的電阻並聯，速算法就是「阻值 ÷ 數量」。10 歐姆有 2 個並聯，10 ÷ 2 = ?",
+                tag: "💊 救援任務：2的幾次方",
+                text: "知識拆解：16 進位有 0~15 (0~F) 共 16 種狀態。要用 2 進位的 0 和 1 組合出 16 種狀態，需要 2 的幾次方？",
                 options: [
-                    { text: "A. 5 Ω", next: "q9", isCorrect: true },
-                    { text: "B. 20 Ω", next: "q9_help", log: "Q9救錯: 並聯是多開一條路，阻力一定會變小啦！" }
+                    { text: "A. 4 個", next: "q9", isCorrect: true },
+                    { text: "B. 8 個", next: "q9_help", log: "Q9救錯: 2的8次方是 256，太多啦！" }
                 ]
             },
 
-            // 💙 第 10 關：蕾姆
+            // ⚾ 第 10 關：WBC 世紀對決
             "q10": {
-                tag: "💙 第 10 關：大腦休息 (動漫)",
-                text: "動漫時間！在經典作品《Re:從零開始的異世界生活》中，對主角昴一往情深、擁有超高人氣的女僕「蕾姆 (Rem)」，她的標誌性髮色是什麼顏色？",
+                tag: "⚾ 第 10 關：大腦休息 (WBC)",
+                text: "日本隊在 2023 WBC 決賽奪冠的最後一個出局數，堪稱棒球史上的「世紀對決」。由投手大谷翔平，三振掉了他在美國職棒天使隊的哪一位神級隊友？",
                 options: [
-                    { text: "A. 藍色", next: "q11", isCorrect: true },
-                    { text: "B. 粉紅色", next: "q10_help", log: "Q10錯: 這是雙胞胎姐姐拉姆的髮色" },
-                    { text: "C. 銀色", next: "q10_help", log: "Q10錯: 這是愛蜜莉雅的髮色" },
-                    { text: "D. 金色", next: "q10_help", log: "Q10錯: 這是貝蒂的髮色" }
+                    { text: "A. 楚奧特 (Mike Trout)", next: "q11", isCorrect: true },
+                    { text: "B. 賈吉 (Aaron Judge)", next: "q10_help", log: "Q10錯: 賈吉沒有參加這屆經典賽" },
+                    { text: "C. 貝茲 (Mookie Betts)", next: "q10_help", log: "Q10錯: 雖然在場上但不是最後一個打者" },
+                    { text: "D. 達比修有", next: "q10_help", log: "Q10錯: 這是日本隊自己的隊友" }
                 ]
             },
             "q10_help": {
-                tag: "💊 提示：水屬性女僕",
-                text: "她擅長水屬性魔法，家事萬能，而且她的雙胞胎姐姐拉姆是粉紅色的。她的顏色像天空一樣，是？",
+                tag: "💊 提示：神鱒",
+                text: "他是美國隊的隊長，外號「神鱒」，也是大谷翔平在大聯盟天使隊最要好的老大哥。最後大谷用一顆犀利的滑球將他三振！",
                 options: [
-                    { text: "A. 藍色", next: "q10", isCorrect: true },
-                    { text: "B. 粉紅色", next: "q10_help", log: "Q10救錯: 粉紅色的是只會削馬鈴薯的姐姐拉姆！" }
+                    { text: "A. 楚奧特 (Mike Trout)", next: "q10", isCorrect: true },
+                    { text: "B. 賈吉 (Aaron Judge)", next: "q10_help", log: "Q10救錯: 法官賈吉是洋基隊的啦！" }
                 ]
             },
 
-            // --- 第 11 關：重疊定理 ---
+            // --- 第 11 關：PC 暫存器 ---
             "q11": {
-                tag: "第 11 關：網路定理",
-                text: "使用「重疊定理」計算有多個電源的電路時，我們必須一次只留一個電源。請問對於暫時不看的「理想電壓源」，我們應該將它如何處理？",
+                tag: "第 11 關：CPU 暫存器",
+                text: "在 CPU 中，負責存放「下一個要執行的指令位址」的暫存器是哪一個？",
                 options: [
-                    { text: "A. 短路 (Short, 視為一條線)", next: "q12", isCorrect: true },
-                    { text: "B. 開路 (Open, 剪斷)", next: "q11_help", log: "Q11錯: 這是對待電流源的方法" },
-                    { text: "C. 換成 1Ω 電阻", next: "q11_help", log: "Q11錯: 沒有這種做法" },
-                    { text: "D. 保持原狀", next: "q11_help", log: "Q11錯: 這樣就沒有重疊簡化了" }
+                    { text: "A. 程式計數器 (PC)", next: "q12", isCorrect: true },
+                    { text: "B. 指令暫存器 (IR)", next: "q11_help", log: "Q11錯: 這是放『正在執行』的指令" },
+                    { text: "C. 累加器 (ACC)", next: "q11_help", log: "Q11錯: 這是放運算結果的" },
+                    { text: "D. 記憶體位址暫存器 (MAR)", next: "q11_help", log: "Q11錯: 這是放準備存取記憶體的位址" }
                 ]
             },
             "q11_help": {
-                tag: "💊 救援任務：電壓變成 0",
-                text: "知識拆解：要把電壓源的影響力歸零，就是讓它兩端的電位差變成 0V。把兩條電線直接「接在一起」電壓就會是零了！這叫？",
+                tag: "💊 救援任務：指路明燈",
+                text: "知識拆解：它就像是一個排隊叫號機，永遠看著「下一步」要去哪裡拿指令。英文叫 Program Counter。",
                 options: [
-                    { text: "A. 短路 (Short)", next: "q11", isCorrect: true },
-                    { text: "B. 開路 (Open)", next: "q11_help", log: "Q11救錯: 開路會讓電流變零，那是用來對付電流源的！" }
+                    { text: "A. 程式計數器 (PC)", next: "q11", isCorrect: true },
+                    { text: "B. 指令暫存器 (IR)", next: "q11_help", log: "Q11救錯: IR 是肚子已經吞進來的指令，PC 才是指著下一個！" }
                 ]
             },
 
-            // --- 第 12 關：戴維寧電阻 ---
+            // --- 第 12 關：IR 暫存器 ---
             "q12": {
-                tag: "第 12 關：網路定理",
-                text: "在求取「戴維寧等效電阻 (Rth)」時，除了要把負載拔掉，還必須將電路內部的電源「消除」。消除電源的方法與哪一個定理完全一樣？",
+                tag: "第 12 關：CPU 暫存器",
+                text: "承上題，當 CPU 把指令從記憶體抓進來之後，在進行「解碼 (Decode)」前，必須先把這個指令存放在哪裡？",
                 options: [
-                    { text: "A. 重疊定理", next: "q13", isCorrect: true },
-                    { text: "B. 諾頓定理", next: "q12_help", log: "Q12錯: 諾頓是另一種等效方法" },
-                    { text: "C. 密爾門定理", next: "q12_help", log: "Q12錯: 這是用來算節點電壓的" },
-                    { text: "D. 克希荷夫定律", next: "q12_help", log: "Q12錯: 這是用來列方程式的" }
+                    { text: "A. 指令暫存器 (IR)", next: "q13", isCorrect: true },
+                    { text: "B. 程式計數器 (PC)", next: "q12_help", log: "Q12錯: 這是指下一個位址的" },
+                    { text: "C. 狀態暫存器 (Flag)", next: "q12_help", log: "Q12錯: 這是記錄運算狀態(如進位、零)的" },
+                    { text: "D. 堆疊指標 (SP)", next: "q12_help", log: "Q12錯: 這是管堆疊的" }
                 ]
             },
             "q12_help": {
-                tag: "💊 救援任務：電壓短路電流開路",
-                text: "知識拆解：求 Rth 的時候要把電壓源短路、電流源開路。這招「消除其他電源」的武功心法，就是上個題目我們才剛學過的那個定理！",
+                tag: "💊 救援任務：解碼準備室",
+                text: "知識拆解：指令(Instruction)被抓進大腦後，要先放在一個暫存器(Register)裡面，讓控制單元去翻譯它。縮寫就是 I 和 R。",
                 options: [
-                    { text: "A. 重疊定理", next: "q12", isCorrect: true },
-                    { text: "B. 諾頓定理", next: "q12_help", log: "Q12救錯: 求諾頓等效電阻的方法跟戴維寧一樣，但源頭都是重疊定理！" }
+                    { text: "A. 指令暫存器 (IR)", next: "q12", isCorrect: true },
+                    { text: "B. 程式計數器 (PC)", next: "q12_help", log: "Q12救錯: PC 的任務是給地址，抓回來的貨要放在 IR 裡喔！" }
                 ]
             },
 
-            // --- 第 13 關：諾頓等效 ---
+            // --- 第 13 關：機器週期 ---
             "q13": {
-                tag: "第 13 關：網路定理",
-                text: "戴維寧定理是將複雜電路化簡為「電壓源串聯電阻」。那麼它的兄弟「諾頓定理 (Norton)」，是將電路化簡成什麼形式？",
+                tag: "第 13 關：指令執行",
+                text: "CPU 執行一個指令的完整過程稱為機器週期 (Machine Cycle)。最基本的兩個階段依序為何？",
                 options: [
-                    { text: "A. 電流源『並聯』電阻", next: "q14", isCorrect: true },
-                    { text: "B. 電流源『串聯』電阻", next: "q13_help", log: "Q13錯: 電流源串聯電阻無法對外分流" },
-                    { text: "C. 電壓源『並聯』電阻", next: "q13_help", log: "Q13錯: 電壓源並聯電阻無意義" },
-                    { text: "D. 只有一個單純的電流源", next: "q13_help", log: "Q13錯: 必須包含內部阻力" }
+                    { text: "A. 擷取 (Fetch) ➡️ 執行 (Execute)", next: "q14", isCorrect: true },
+                    { text: "B. 執行 (Execute) ➡️ 擷取 (Fetch)", next: "q13_help", log: "Q13錯: 順序顛倒了" },
+                    { text: "C. 解碼 (Decode) ➡️ 存檔 (Store)", next: "q13_help", log: "Q13錯: 漏了最前面去拿指令" },
+                    { text: "D. 讀取 (Read) ➡️ 寫入 (Write)", next: "q13_help", log: "Q13錯: 這是記憶體的動作" }
                 ]
             },
             "q13_help": {
-                tag: "💊 救援任務：電源轉換公式",
-                text: "知識拆解：根據電源轉換定理，電壓變電流，原本的「串聯」就必須翻轉變成「並聯」。",
+                tag: "💊 救援任務：先拿貨再做事",
+                text: "知識拆解：大腦要先去記憶體把指令「抓取 (Fetch)」進來，解碼翻譯後，才能命令手腳去「執行 (Execute)」動作。",
                 options: [
-                    { text: "A. 電流源並聯電阻", next: "q13", isCorrect: true },
-                    { text: "B. 電流源串聯電阻", next: "q13_help", log: "Q13救錯: 都變成電流源了，怎麼還在串聯啦！" }
+                    { text: "A. 擷取 ➡️ 執行", next: "q13", isCorrect: true },
+                    { text: "B. 執行 ➡️ 擷取", next: "q13_help", log: "Q13救錯: 還沒拿到劇本怎麼可能先演戲(執行)啦！" }
                 ]
             },
 
-            // --- 第 14 關：最大功率效率 ---
+            // --- 第 14 關：管線化 Pipeline ---
             "q14": {
-                tag: "第 14 關：網路定理",
-                text: "統測愛考的觀念陷阱！當負載電阻 R_L 等於戴維寧等效電阻 R_th 時，可獲得「最大功率」。請問此時整個電路的「傳輸效率」為多少？",
+                tag: "第 14 關：CPU 效能提升",
+                text: "為了加快 CPU 執行速度，現代處理器將指令執行分成多個階段（如抓取、解碼、執行），讓不同指令可以「重疊」在不同階段同時進行。這項技術稱為？",
                 options: [
-                    { text: "A. 50%", next: "q15", isCorrect: true },
-                    { text: "B. 100%", next: "q14_help", log: "Q14錯: 內部電阻會吃掉一半的能量" },
-                    { text: "C. 0%", next: "q14_help", log: "Q14錯: 有功率傳輸出去了" },
-                    { text: "D. 75.5%", next: "q14_help", log: "Q14錯: 數值不對" }
+                    { text: "A. 管線化 (Pipelining)", next: "q15", isCorrect: true },
+                    { text: "B. 多核心 (Multi-core)", next: "q14_help", log: "Q14錯: 多核心是直接放多個大腦" },
+                    { text: "C. 快取 (Cache)", next: "q14_help", log: "Q14錯: 這是加速記憶體讀取" },
+                    { text: "D. 超頻 (Overclocking)", next: "q14_help", log: "Q14錯: 這是提高時脈頻率" }
                 ]
             },
             "q14_help": {
-                tag: "💊 救援任務：一人一半感情不散",
-                text: "知識拆解：既然 R_L = R_th (內外電阻一樣大)，代表總電壓會被他們兩個「平分」。外面只拿到一半的電壓，所以效率最高只能到？",
+                tag: "💊 救援任務：工廠生產線",
+                text: "知識拆解：就像汽車工廠的流水線一樣。第一站在裝輪胎時，第二站可以同時幫上一台車裝車門，不用等整台車做完才做下一台。這叫什麼技術？",
                 options: [
-                    { text: "A. 50%", next: "q14", isCorrect: true },
-                    { text: "B. 100%", next: "q14_help", log: "Q14救錯: 內阻一定會發熱吃電，不可能 100% 完美傳輸喔！" }
+                    { text: "A. 管線化 (Pipelining)", next: "q14", isCorrect: true },
+                    { text: "B. 多核心 (Multi-core)", next: "q14_help", log: "Q14救錯: 多核心是蓋好幾間工廠，管線化是一間工廠裡的生產線流水作業！" }
                 ]
             },
 
-            // 🎸 第 15 關：孤獨搖滾
+            // ⚾ 第 15 關：WBC 捷克傳奇
             "q15": {
-                tag: "🎸 第 15 關：大腦休息 (動漫)",
-                text: "休息一下！現象級動漫《孤獨搖滾！》中，極度社恐的主角「後藤一里（小孤獨）」在團結Band 樂團中擔任哪一個位置？",
+                tag: "⚾ 第 15 關：大腦休息 (WBC)",
+                text: "2023 WBC 賽場上有一支充滿熱血的歐洲隊伍，他們的球員本業多半是消防員、地理老師或財務分析師，卻靠著下班後的練習打進了最高殿堂，甚至三振了大谷翔平。這是哪一國的代表隊？",
                 options: [
-                    { text: "A. 主吉他手", next: "q16", isCorrect: true },
-                    { text: "B. 鼓手", next: "q15_help", log: "Q15錯: 鼓手是活潑的伊地知虹夏" },
-                    { text: "C. 貝斯手", next: "q15_help", log: "Q15錯: 貝斯手是酷酷的涼" },
-                    { text: "D. 主唱", next: "q15_help", log: "Q15錯: 主唱是喜多" }
+                    { text: "A. 捷克", next: "q16", isCorrect: true },
+                    { text: "B. 義大利", next: "q15_help", log: "Q15錯: 義大利有很多大聯盟球員" },
+                    { text: "C. 荷蘭", next: "q15_help", log: "Q15錯: 荷蘭隊實力非常強勁" },
+                    { text: "D. 英國", next: "q15_help", log: "Q15錯: 英國隊雖然是首度參賽，但不是業餘傳奇的主角" }
                 ]
             },
             "q15_help": {
-                tag: "💊 提示：躲在壁櫥裡的英雄",
-                text: "她為了受歡迎而苦練了三年的樂器，每天躲在壁櫥裡彈奏，甚至在網路上化名為「吉他英雄」。",
+                tag: "💊 提示：中歐的奇蹟",
+                text: "這支球隊的帽子上有個大大的 'C'，他們的努力精神感動了全世界，就連日本隊也對他們脫帽致敬。",
                 options: [
-                    { text: "A. 主吉他手", next: "q15", isCorrect: true },
-                    { text: "B. 鼓手", next: "q15_help", log: "Q15救錯: 在壁櫥裡打鼓早就被鄰居報警抓走啦！" }
+                    { text: "A. 捷克 (Czech)", next: "q15", isCorrect: true },
+                    { text: "B. 荷蘭", next: "q15_help", log: "Q15救錯: 荷蘭有很多 MLB 巨星，不是業餘球員喔！" }
                 ]
             },
 
-            // --- 第 16 關：電容物理結構 ---
+            // --- 第 16 關：RISC vs CISC ---
             "q16": {
-                tag: "第 16 關：電容與靜電",
-                text: "平板電容器的電容量 (C) 大小，與極板的「面積 (A)」成什麼關係？",
+                tag: "第 16 關：指令集架構",
+                text: "微處理機的指令集架構主要分為 CISC 與 RISC。其中，強調「指令長度固定、指令數量少且簡單、高度管線化」的是哪一種架構？",
                 options: [
-                    { text: "A. 正比", next: "q17", isCorrect: true },
-                    { text: "B. 反比", next: "q16_help", log: "Q16錯: 面積越大，能儲存的電荷越多" },
-                    { text: "C. 平方正比", next: "q16_help", log: "Q16錯: 只是一次方正比" },
-                    { text: "D. 無關", next: "q16_help", log: "Q16錯: 面積是決定電容的三大要素之一" }
+                    { text: "A. RISC (精簡指令集)", next: "q17", isCorrect: true },
+                    { text: "B. CISC (複雜指令集)", next: "q16_help", log: "Q16錯: CISC 的指令長短不一且複雜" },
+                    { text: "C. VLIW", next: "q16_help", log: "Q16錯: 這是超長指令字架構" },
+                    { text: "D. EPIC", next: "q16_help", log: "Q16錯: 這是明確平行指令運算" }
                 ]
             },
             "q16_help": {
-                tag: "💊 救援任務：大水缸裝得多",
-                text: "知識拆解：極板面積就像是水缸的底面積。水缸越大，能裝的水(電荷)就越多。所以容量跟面積成？",
+                tag: "💊 救援任務：簡約就是快",
+                text: "知識拆解：CISC 的 C 是 Complex (複雜)，RISC 的 R 是 Reduced (精簡)。手機裡的 ARM 處理器就是這類「精簡、固定長度、跑得快」的代表。",
                 options: [
-                    { text: "A. 正比", next: "q16", isCorrect: true },
-                    { text: "B. 反比", next: "q16_help", log: "Q16救錯: 反比代表越小裝越多，這違反常理喔！" }
+                    { text: "A. RISC", next: "q16", isCorrect: true },
+                    { text: "B. CISC", next: "q16_help", log: "Q16救錯: 題目說「少且簡單」，CISC是複雜的喔！" }
                 ]
             },
 
-            // --- 第 17 關：電容串聯 ---
+            // --- 第 17 關：立即定址 ---
             "q17": {
-                tag: "第 17 關：電容與靜電",
-                text: "有兩個電容分別為 3μF 與 6μF，若將它們「串聯」接在一起，總電容量為多少？",
+                tag: "第 17 關：定址模式",
+                text: "在組合語言的定址模式中，如果指令後面的運算元「直接就是一個數值資料」（例如：MOV A, #55H），這稱為什麼定址法？",
                 options: [
-                    { text: "A. 2 μF", next: "q18", isCorrect: true },
-                    { text: "B. 9 μF", next: "q17_help", log: "Q17錯: 這是並聯的算法" },
-                    { text: "C. 4.5 μF", next: "q17_help", log: "Q17錯: 不是平均值" },
-                    { text: "D. 18 μF", next: "q17_help", log: "Q17錯: 不能直接相乘" }
+                    { text: "A. 立即定址 (Immediate Addressing)", next: "q18", isCorrect: true },
+                    { text: "B. 直接定址 (Direct Addressing)", next: "q17_help", log: "Q17錯: 直接定址是給記憶體地址" },
+                    { text: "C. 暫存器定址 (Register Addressing)", next: "q17_help", log: "Q17錯: 這是資料放在暫存器裡" },
+                    { text: "D. 間接定址 (Indirect Addressing)", next: "q17_help", log: "Q17錯: 這是透過指標找資料" }
                 ]
             },
             "q17_help": {
-                tag: "💊 救援任務：與電阻相反的叛徒",
-                text: "知識拆解：電容的串並聯算法跟電阻「剛好相反」。電容串聯要用「相乘除以相加」(也就是電阻並聯的算法)。 (3×6) / (3+6) = ?",
+                tag: "💊 救援任務：所見即所得",
+                text: "知識拆解：不需要去記憶體找，也不用去暫存器翻。指令寫 55，資料就是 55，CPU 抓進來「立刻」就可以用。這叫？",
                 options: [
-                    { text: "A. 2 μF", next: "q17", isCorrect: true },
-                    { text: "B. 9 μF", next: "q17_help", log: "Q17救錯: 9 μF 是加起來，那是並聯的算法啦！" }
+                    { text: "A. 立即定址", next: "q17", isCorrect: true },
+                    { text: "B. 直接定址", next: "q17_help", log: "Q17救錯: 直接定址是給門牌號碼，還要走去拿；立即定址是直接把現金塞給你！" }
                 ]
             },
 
-            // --- 第 18 關：法拉第定律 ---
+            // --- 第 18 關：暫存器定址 ---
             "q18": {
-                tag: "第 18 關：電磁與電感",
-                text: "決定線圈感應電動勢「大小」的定律：感應電壓與磁通量隨時間的「變化率」成正比。這是誰提出的定律？",
+                tag: "第 18 關：定址模式",
+                text: "接續上題，如果指令是寫成「ADD A, R1」，代表要把 A 和 R1 這兩個「暫存器」裡面的內容相加。這稱為什麼定址法？",
                 options: [
-                    { text: "A. 法拉第定律 (Faraday's Law)", next: "q19", isCorrect: true },
-                    { text: "B. 楞次定律 (Lenz's Law)", next: "q18_help", log: "Q18錯: 楞次是決定電壓的『方向』" },
-                    { text: "C. 安培定律", next: "q18_help", log: "Q18錯: 這是算電流產生磁場的" },
-                    { text: "D. 庫侖定律", next: "q18_help", log: "Q18錯: 這是算靜電力的" }
+                    { text: "A. 暫存器定址 (Register Addressing)", next: "q19", isCorrect: true },
+                    { text: "B. 立即定址", next: "q18_help", log: "Q18錯: 沒有直接給數值" },
+                    { text: "C. 直接定址", next: "q18_help", log: "Q18錯: 不是給記憶體位址" },
+                    { text: "D. 索引定址", next: "q18_help", log: "Q18錯: 這是加法計算位址用的" }
                 ]
             },
             "q18_help": {
-                tag: "💊 救援任務：發電機之父",
-                text: "知識拆解：公式 e = N (ΔΦ/Δt)。這位科學家發現了磁可以生電，奠定了人類發電機的基礎。",
+                tag: "💊 救援任務：看名字選答案",
+                text: "知識拆解：資料就放在 CPU 內部的「暫存器(Register)」裡面，這也是執行速度最快的一種定址方式。中文叫？",
                 options: [
-                    { text: "A. 法拉第", next: "q18", isCorrect: true },
-                    { text: "B. 楞次", next: "q18_help", log: "Q18救錯: 楞次是在公式前面加上負號(代表反抗)的那個人！" }
+                    { text: "A. 暫存器定址", next: "q18", isCorrect: true },
+                    { text: "B. 直接定址", next: "q18_help", log: "Q18救錯: R1 是暫存器，不是記憶體位址喔！" }
                 ]
             },
 
-            // --- 第 19 關：楞次定律 ---
+            // --- 第 19 關：組合語言特性 ---
             "q19": {
-                tag: "第 19 關：電磁與電感",
-                text: "承上題，決定感應電動勢「方向」的定律：感應電流的方向永遠會去「反抗」原本造成它的磁通量變化。這是誰提出的定律？",
+                tag: "第 19 關：程式語言分類",
+                text: "關於「組合語言 (Assembly Language)」，下列敘述何者正確？",
                 options: [
-                    { text: "A. 楞次定律 (Lenz's Law)", next: "q20", isCorrect: true },
-                    { text: "B. 法拉第定律", next: "q19_help", log: "Q19錯: 法拉第只管大小" },
-                    { text: "C. 高斯定律", next: "q19_help", log: "Q19錯: 這是算電通量的" },
-                    { text: "D. 焦耳定律", next: "q19_help", log: "Q19錯: 這是算電熱的" }
+                    { text: "A. 屬於低階語言，與硬體 CPU 架構高度相關", next: "q20", isCorrect: true },
+                    { text: "B. 屬於高階語言，人類很容易閱讀", next: "q19_help", log: "Q19錯: 高階語言是 C, Python 等" },
+                    { text: "C. 寫好的程式可以在任何不同廠牌的 CPU 上直接執行", next: "q19_help", log: "Q19錯: 組合語言不可攜，換 CPU 就要重寫" },
+                    { text: "D. 電腦可以直接看懂，不需要透過組譯器轉換", next: "q19_help", log: "Q19錯: 電腦只懂 0 和 1 (機器語言)" }
                 ]
             },
             "q19_help": {
-                tag: "💊 救援任務：傲嬌的線圈",
-                text: "知識拆解：線圈就像個傲嬌，外加磁場變強它就想削弱你，磁場變弱它就想補充你。這種「唱反調(-)」的特性是誰提出的？",
+                tag: "💊 救援任務：貼近硬體的語言",
+                text: "知識拆解：組合語言是用 ADD, MOV 這些助憶碼來寫的，它是直接操控暫存器的「低階語言」。因為每家廠商(Intel, ARM)硬體不同，所以指令也不共通。",
                 options: [
-                    { text: "A. 楞次定律", next: "q19", isCorrect: true },
-                    { text: "B. 法拉第定律", next: "q19_help", log: "Q19救錯: 法拉第發現現象，楞次才補上代表方向的負號！" }
+                    { text: "A. 低階語言，與硬體高度相關", next: "q19", isCorrect: true },
+                    { text: "B. 可在任何 CPU 直接執行", next: "q19_help", log: "Q19救錯: 不能跨平台喔！Intel 的組合語言放進 Apple 的晶片會完全看不懂。" }
                 ]
             },
 
-            // ⚔️ 第 20 關：進擊的巨人
+            // ⚾ 第 20 關：WBC 投球限制
             "q20": {
-                tag: "⚔️ 第 20 關：大腦休息 (動漫)",
-                text: "娛樂時間！在神作動漫《進擊的巨人》中，主角艾連·葉卡為了追求自由不斷前進，他體內所擁有的九大巨人名稱為何？",
+                tag: "⚾ 第 20 關：大腦休息 (WBC)",
+                text: "WBC 經典賽為了保護各國職棒的投手，不讓他們在春訓期間手臂過度疲勞，特別訂定了一項嚴格的賽制規定。請問是哪一項？",
                 options: [
-                    { text: "A. 進擊的巨人", next: "q21", isCorrect: true },
-                    { text: "B. 鎧之巨人", next: "q20_help", log: "Q20錯: 這是萊納的巨人" },
-                    { text: "C. 超大型巨人", next: "q20_help", log: "Q20錯: 這是貝爾托特的巨人" },
-                    { text: "D. 獸之巨人", next: "q20_help", log: "Q20錯: 這是吉克的巨人" }
+                    { text: "A. 單場最高用球數限制 (如第一輪最多 65 球)", next: "q21", isCorrect: true },
+                    { text: "B. 限制投手球速不能超過 150 公里", next: "q20_help", log: "Q20錯: 球速沒有限制" },
+                    { text: "C. 規定不能投變化球", next: "q20_help", log: "Q20錯: 球種沒有限制" },
+                    { text: "D. 一場比賽每個投手只能投一局", next: "q20_help", log: "Q20錯: 是看球數，不是強制一局" }
                 ]
             },
             "q20_help": {
-                tag: "💊 提示：直接點題",
-                text: "這題是送分題！這部作品的名字，其實就是主角體內那尊巨人的名字喔！",
+                tag: "💊 提示：保護黃金手臂",
+                text: "因為比賽在三月打，很多投手還沒完全開機。大聯盟嚴格要求大會，一旦投手丟超過「特定的顆數」，就算解決到一半也必須強制換人。",
                 options: [
-                    { text: "A. 進擊的巨人", next: "q20", isCorrect: true },
-                    { text: "B. 鎧之巨人", next: "q20_help", log: "Q20救錯: 鎧之巨人是那個整天想找死的萊納啦！" }
+                    { text: "A. 用球數限制", next: "q20", isCorrect: true },
+                    { text: "B. 限制投球局數", next: "q20_help", log: "Q20救錯: 是算球數的！如果被瘋狂打界外，可能半局就下班了。" }
                 ]
             },
 
-            // --- 第 21 關：RC 時間常數 ---
+            // --- 第 21 關：SRAM vs DRAM ---
             "q21": {
-                tag: "第 21 關：直流暫態",
-                text: "在 RC (電阻-電容) 串聯充電電路中，決定充電快慢的「時間常數 (τ，tau)」公式為何？",
+                tag: "第 21 關：記憶體元件",
+                text: "電腦主機板上的記憶體分為很多種。其中，哪一種記憶體速度最快，不需要週期性充電(Refresh)，通常被用來做為 CPU 內部的「快取記憶體 (Cache)」？",
                 options: [
-                    { text: "A. τ = R × C", next: "q22", isCorrect: true },
-                    { text: "B. τ = R / C", next: "q21_help", log: "Q21錯: 單位會不對" },
-                    { text: "C. τ = C / R", next: "q21_help", log: "Q21錯: 單位會不對" },
-                    { text: "D. τ = 1 / (RC)", next: "q21_help", log: "Q21錯: 這是求頻率的" }
+                    { text: "A. SRAM (靜態隨機存取記憶體)", next: "q22", isCorrect: true },
+                    { text: "B. DRAM (動態隨機存取記憶體)", next: "q21_help", log: "Q21錯: 這是主記憶體，需要充電" },
+                    { text: "C. ROM (唯讀記憶體)", next: "q21_help", log: "Q21錯: ROM 速度慢且無法隨意寫入" },
+                    { text: "D. Flash (快閃記憶體)", next: "q21_help", log: "Q21錯: 這是隨身碟用的" }
                 ]
             },
             "q21_help": {
-                tag: "💊 救援任務：最直觀的公式",
-                text: "知識拆解：水管阻力(R)越大充越慢，水缸(C)越大也要充越久。兩者都讓時間變長，所以時間常數跟兩者都是正比。直接相乘就是答案！",
+                tag: "💊 救援任務：靜靜的很快",
+                text: "知識拆解：由正反器(Flip-flop)組成的記憶體，只要通電資料就穩穩在那邊「靜態(Static)」保存，速度極快但造價昂貴。開頭字母是 S。",
                 options: [
-                    { text: "A. τ = R × C", next: "q21", isCorrect: true },
-                    { text: "B. τ = R / C", next: "q21_help", log: "Q21救錯: 除以 C 的話，電容越大反而充越快，這不合理喔！" }
+                    { text: "A. SRAM", next: "q21", isCorrect: true },
+                    { text: "B. DRAM", next: "q21_help", log: "Q21救錯: DRAM 是用小電容做的，會漏電需要一直動態(Dynamic)補水(充電)喔！" }
                 ]
             },
 
-            // --- 第 22 關：RL 時間常數 ---
+            // --- 第 22 關：DRAM 充放電 ---
             "q22": {
-                tag: "第 22 關：直流暫態",
-                text: "在 RL (電阻-電感) 串聯電路中，「時間常數 (τ)」的公式與 RC 電路不同。請問 RL 電路的時間常數公式為何？",
+                tag: "第 22 關：記憶體元件",
+                text: "承上題，電腦的「主記憶體」通常是插好幾根 8GB、16GB 的記憶體條，它們是使用 DRAM 技術。為什麼 DRAM 必須要不斷地進行「更新 (Refresh)」動作？",
                 options: [
-                    { text: "A. τ = L / R", next: "q23", isCorrect: true },
-                    { text: "B. τ = R / L", next: "q22_help", log: "Q22錯: 顛倒了" },
-                    { text: "C. τ = R × L", next: "q22_help", log: "Q22錯: 這是 RC 的專利" },
-                    { text: "D. τ = 1 / (RL)", next: "q22_help", log: "Q22錯: 單位錯誤" }
+                    { text: "A. 因為 DRAM 內部使用小電容儲存電荷，會隨時間漏電", next: "q23", isCorrect: true },
+                    { text: "B. 為了讓 CPU 讀取速度變快", next: "q22_help", log: "Q22錯: 更新動作反而會暫停讀寫，拖慢速度" },
+                    { text: "C. 因為資料會被磁場干擾", next: "q22_help", log: "Q22錯: 這是磁碟機的問題" },
+                    { text: "D. 為了清除不要的垃圾資料", next: "q22_help", log: "Q22錯: 這是軟體作業系統在做的事" }
                 ]
             },
             "q22_help": {
-                tag: "💊 救援任務：L 在上",
-                text: "知識拆解：RL 電路的時間常數，電感 L 喜歡高高在上（分子），電阻 R 被壓在下面（分母）。",
+                tag: "💊 救援任務：漏水的小水桶",
+                text: "知識拆解：DRAM (動態記憶體) 裡面是由一個電晶體加一個微小的「電容器」組成的。電容就像裝水的小水桶，時間久了水會漏掉(資料不見)，所以必須一直補水(充電更新)。",
                 options: [
-                    { text: "A. τ = L / R", next: "q22", isCorrect: true },
-                    { text: "B. τ = R × L", next: "q22_help", log: "Q22救錯: 只有 RC 才能直接相乘喔！" }
+                    { text: "A. 因為電容會漏電", next: "q22", isCorrect: true },
+                    { text: "B. 為了讓速度變快", next: "q22_help", log: "Q22救錯: 更新的時候 CPU 不能讀取，其實會稍微拖累一點速度喔！" }
                 ]
             },
 
-            // --- 第 23 關：暫態 5tau ---
+            // --- 第 23 關：DMA ---
             "q23": {
-                tag: "第 23 關：直流暫態",
-                text: "無論是 RC 還是 RL 電路，充電時電壓或電流會呈指數曲線上升。在工程上，通常經過幾個時間常數 (τ) 後，我們就視為「達到穩態」？",
+                tag: "第 23 關：I/O 存取技術",
+                text: "當硬碟需要傳送大量資料到記憶體時，為了不讓 CPU 一直傻等做苦工，會將匯流排的控制權交給一個「專門的晶片」來搬運資料。這項技術簡稱為何？",
                 options: [
-                    { text: "A. 5 個 (5τ)", next: "q24", isCorrect: true },
-                    { text: "B. 1 個 (1τ)", next: "q23_help", log: "Q23錯: 1τ 只充了 63.2%" },
-                    { text: "C. 3 個 (3τ)", next: "q23_help", log: "Q23錯: 3τ 充了 95%，還不夠滿" },
-                    { text: "D. 10 個 (10τ)", next: "q23_help", log: "Q23錯: 不需要等那麼久" }
+                    { text: "A. DMA (直接記憶體存取)", next: "q24", isCorrect: true },
+                    { text: "B. Interrupt (中斷)", next: "q23_help", log: "Q23錯: 中斷還是要 CPU 親自處理" },
+                    { text: "C. Polling (輪詢)", next: "q23_help", log: "Q23錯: 這是 CPU 最浪費時間的做法" },
+                    { text: "D. USB (通用序列匯流排)", next: "q23_help", log: "Q23錯: 這是外部傳輸介面" }
                 ]
             },
             "q23_help": {
-                tag: "💊 救援任務：99.3%的完美",
-                text: "知識拆解：1τ 是 63.2%，然後越來越慢。大約經過一個手掌的手指頭數量，數值達到 99.3%，我們就當作它已經充滿 100% 了。",
+                tag: "💊 救援任務：搬磚外包公司",
+                text: "知識拆解：Direct Memory Access。讓周邊設備「直接(Direct)」跟記憶體連線搬東西，CPU 就可以去旁邊睡覺或做其他高階運算。縮寫是？",
                 options: [
-                    { text: "A. 5 個", next: "q23", isCorrect: true },
-                    { text: "B. 10 個", next: "q23_help", log: "Q23救錯: 5 個就滿了啦，不用等到 10！" }
+                    { text: "A. DMA", next: "q23", isCorrect: true },
+                    { text: "B. Interrupt (中斷)", next: "q23_help", log: "Q23救錯: 中斷是指叫 CPU 停下來幫忙，但我們現在是希望 CPU 去旁邊休息不要管！" }
                 ]
             },
 
-            // --- 第 24 關：電感穩態 ---
+            // --- 第 24 關：中斷處理 ---
             "q24": {
-                tag: "第 24 關：暫態終點",
-                text: "在直流電路達到「穩態 (t=∞)」後，因為電流不再變化 (ΔI=0)，此時「電感器 (L)」在電路中等效於什麼狀態？",
+                tag: "第 24 關：中斷機制",
+                text: "當 CPU 正在執行主程式時，突然發生「中斷 (Interrupt)」，CPU 必須暫停手邊工作去處理突發事件。此時 CPU 會將目前的「程式計數器 (PC)」等重要資料，暫時保存在哪裡？",
                 options: [
-                    { text: "A. 短路 (Short, 視為一條電線)", next: "q25", isCorrect: true },
-                    { text: "B. 開路 (Open, 視為斷線)", next: "q24_help", log: "Q24錯: 這是電容的穩態" },
-                    { text: "C. 理想電壓源", next: "q24_help", log: "Q24錯: 它無法持續發電" },
-                    { text: "D. 極大電阻", next: "q24_help", log: "Q24錯: 它阻力為 0" }
+                    { text: "A. 堆疊 (Stack)", next: "q25", isCorrect: true },
+                    { text: "B. 硬碟 (Hard Drive)", next: "q24_help", log: "Q24錯: 硬碟太慢了，來不及存" },
+                    { text: "C. 算術邏輯單元 (ALU)", next: "q24_help", log: "Q24錯: ALU 只有算數學，不能存資料" },
+                    { text: "D. 唯讀記憶體 (ROM)", next: "q24_help", log: "Q24錯: ROM 不能寫入資料" }
                 ]
             },
             "q24_help": {
-                tag: "💊 救援任務：不再反抗的線圈",
-                text: "知識拆解：電感只有在電流「改變」時才會產生阻力。穩態時電流平靜無波，電感就只是一圈普通的銅線，毫無阻力可言。這叫做？",
+                tag: "💊 救援任務：書籤夾在書本裡",
+                text: "知識拆解：就像你看書看到一半被媽媽叫去買醬油，你要把書籤夾進去才不會忘記看到哪裡。CPU 會把目前的狀態「推入 (Push)」到記憶體中一個「後進先出(LIFO)」的特殊區域。這叫？",
                 options: [
-                    { text: "A. 短路 (視為一條線)", next: "q24", isCorrect: true },
-                    { text: "B. 開路 (視為斷線)", next: "q24_help", log: "Q24救錯: 開路是完全流不過去，那是電容的特性！" }
+                    { text: "A. 堆疊 (Stack)", next: "q24", isCorrect: true },
+                    { text: "B. 硬碟", next: "q24_help", log: "Q24救錯: 存在硬碟太慢了，處理完突發狀況回來會等很久喔！" }
                 ]
             },
 
-            // 👑 第 25 關：(G)I-DLE
+            // ⚾ 第 25 關：WBC 村上宗隆
             "q25": {
-                tag: "👑 第 25 關：大腦休息 (K-POP)",
-                text: "提神時間！韓國人氣女團 (G)I-DLE 發行的第二張正規專輯《2》，主打歌以強烈的「超級女英雄」為概念，展現女力的歌名為何？",
+                tag: "⚾ 第 25 關：大腦休息 (WBC)",
+                text: "2023 WBC 準決賽 日本對戰墨西哥，日本隊九局下半落後 1 分。當時陷入低潮被全網狂罵的日本強打者，頂住巨大壓力揮出了「再見二壘安打」逆轉晉級，完成救贖。這位打者是誰？",
                 options: [
-                    { text: "A. Super Lady", next: "q26", isCorrect: true },
-                    { text: "B. Queencard", next: "q25_help", log: "Q25錯: Queencard 是前一張專輯的" },
-                    { text: "C. TOMBOY", next: "q25_help", log: "Q25錯: TOMBOY 是更早之前的神曲" },
-                    { text: "D. Nxde", next: "q25_help", log: "Q25錯: 這首是瑪麗蓮夢露概念" }
+                    { text: "A. 村上宗隆", next: "q26", isCorrect: true },
+                    { text: "B. 吉田正尚", next: "q25_help", log: "Q25錯: 吉田在前面打出了追平三分砲，也很關鍵" },
+                    { text: "C. 大谷翔平", next: "q25_help", log: "Q25錯: 大谷是敲出二壘安打帶動攻勢上壘的那個人" },
+                    { text: "D. 山川穗高", next: "q25_help", log: "Q25錯: 關鍵時刻代打的是山川，但這球不是他打的" }
                 ]
             },
             "q25_help": {
-                tag: "💊 提示：字面翻譯",
-                text: "這題超簡單，直接把「超級女英雄」翻成英文就是答案了！",
+                tag: "💊 提示：村神降臨",
+                text: "他在日職打出破紀錄的單季 56 轟，被日本球迷尊稱為「村神」。雖然經典賽前幾場狂被三振，但最後一棒把大谷和周東送回本壘！",
                 options: [
-                    { text: "A. Super Lady", next: "q25", isCorrect: true },
-                    { text: "B. Queencard", next: "q25_help", log: "Q25救錯: Queencard 是「撲克牌女王」啦！" }
+                    { text: "A. 村上宗隆", next: "q25", isCorrect: true },
+                    { text: "B. 吉田正尚", next: "q25_help", log: "Q25救錯: 吉田正尚是那個超穩定的猛男，沒有陷入低潮啦！" }
                 ]
             },
 
-            // --- 第 26 關：交流有效值 ---
+            // --- 第 26 關：記憶體對應 I/O ---
             "q26": {
-                tag: "第 26 關：交流基本量",
-                text: "家裡插座常說的「110V 交流電」，這個 110V 是指交流波形能產生與直流電等效熱能的數值。請問這稱為什麼值？",
+                tag: "第 26 關：I/O 存取",
+                text: "在微電腦設計中，如果把外部設備（如鍵盤、螢幕）當作「記憶體的一部份」，給它一個記憶體位址，CPU 可以用一般的 MOV 指令來存取它。這稱為什麼架構？",
                 options: [
-                    { text: "A. 有效值 (RMS)", next: "q27", isCorrect: true },
-                    { text: "B. 最大值 (Peak)", next: "q26_help", log: "Q26錯: 交流最大值其實是大約 155V" },
-                    { text: "C. 平均值 (Avg)", next: "q26_help", log: "Q26錯: 弦波一整週期的平均值是 0" },
-                    { text: "D. 峰對峰值 (Vp-p)", next: "q26_help", log: "Q26錯: 那會高達 310V" }
+                    { text: "A. 記憶體對應 I/O (Memory-Mapped I/O)", next: "q27", isCorrect: true },
+                    { text: "B. 獨立式 I/O (Isolated I/O)", next: "q26_help", log: "Q26錯: 這是把 I/O 位址跟記憶體分開的架構" },
+                    { text: "C. 中斷式 I/O", next: "q26_help", log: "Q26錯: 這是傳輸觸發方式，不是位址架構" },
+                    { text: "D. 直接記憶體存取 (DMA)", next: "q26_help", log: "Q26錯: 這是晶片代工搬資料的技術" }
                 ]
             },
             "q26_help": {
-                tag: "💊 救援任務：有作功的效果",
-                text: "知識拆解：交流電忽大忽小，我們通常用它「實際能發熱、有作功的等效數值」來標示它。這個「有效」的數值英文簡稱 RMS。",
+                tag: "💊 救援任務：名稱就在題目裡",
+                text: "知識拆解：題目說「把外部設備當作『記憶體』來『對應』」。所以這個架構的名字非常直白，就叫做？",
                 options: [
-                    { text: "A. 有效值 (RMS)", next: "q26", isCorrect: true },
-                    { text: "B. 最大值 (Peak)", next: "q26_help", log: "Q26救錯: 最大值只是一瞬間的事情，不能代表整體的發熱能力喔！" }
+                    { text: "A. 記憶體對應 I/O", next: "q26", isCorrect: true },
+                    { text: "B. 獨立式 I/O", next: "q26_help", log: "Q26救錯: 獨立式是 I/O 自己有專屬的地址空間(如 IN/OUT 指令)，跟記憶體分開的！" }
                 ]
             },
 
-            // --- 第 27 關：角頻率 ---
+            // --- 第 27 關：輪詢 Polling ---
             "q27": {
-                tag: "第 27 關：交流波形方程式",
-                text: "有一個交流電壓方程式為 v(t) = 141.4 sin(377t) V。請問此波形的「角頻率 (ω)」為多少？",
+                tag: "第 27 關：I/O 存取",
+                text: "早期電腦讀取鍵盤的方式，是 CPU 寫一個無窮迴圈「一直不斷去問鍵盤：你有沒有被按下？」。這種極度浪費 CPU 效能的方式稱為？",
                 options: [
-                    { text: "A. 377 rad/s", next: "q28", isCorrect: true },
-                    { text: "B. 141.4 V", next: "q27_help", log: "Q27錯: 這是最大值 Vm" },
-                    { text: "C. 60 Hz", next: "q27_help", log: "Q27錯: 這是頻率 f" },
-                    { text: "D. 0 rad/s", next: "q27_help", log: "Q27錯: 這樣波形不會動" }
+                    { text: "A. 輪詢 (Polling)", next: "q28", isCorrect: true },
+                    { text: "B. 中斷 (Interrupt)", next: "q27_help", log: "Q27錯: 中斷是鍵盤按下了才主動去叫 CPU" },
+                    { text: "C. 握手 (Handshaking)", next: "q27_help", log: "Q27錯: 這是資料傳輸前的確認協議" },
+                    { text: "D. 多工 (Multitasking)", next: "q27_help", log: "Q27錯: 這是作業系統同時跑多個程式的能力" }
                 ]
             },
             "q27_help": {
-                tag: "💊 救援任務：對照公式位置",
-                text: "知識拆解：標準公式是 v(t) = Vm * sin(ωt + θ)。所以跟在時間 t 前面的那個數字，就是角頻率 ω。",
+                tag: "💊 救援任務：像警察巡邏",
+                text: "知識拆解：CPU 就像警察一樣，一個個去「輪流查詢」所有的周邊設備有沒有事。英文叫 Polling。",
                 options: [
-                    { text: "A. 377 rad/s", next: "q27", isCorrect: true },
-                    { text: "B. 141.4 V", next: "q27_help", log: "Q27救錯: 141.4 站在最前面，它是最高峰的電壓最大值啦！" }
+                    { text: "A. 輪詢 (Polling)", next: "q27", isCorrect: true },
+                    { text: "B. 中斷 (Interrupt)", next: "q27_help", log: "Q27救錯: 中斷比較聰明，是鍵盤有事才去報警，不會浪費警察時間！" }
                 ]
             },
 
-            // --- 第 28 關：有效值換算 ---
+            // --- 第 28 關：看門狗計時器 ---
             "q28": {
-                tag: "第 28 關：交流換算",
-                text: "承上題，該電壓波形 v(t) = 141.4 sin(377t) V，若用三用電表測量它，電表上顯示的「有效值」大約是多少？",
+                tag: "第 28 關：單晶片周邊",
+                text: "單晶片(MCU)放在工業環境中，可能會因為雜訊干擾而當機(死機)。為了防止系統卡死，常會內建一個計時器，如果程式當掉沒有定時去「餵」它，它就會強制把系統 Reset 重開機。這個元件稱為？",
                 options: [
-                    { text: "A. 100 V", next: "q29", isCorrect: true },
-                    { text: "B. 141.4 V", next: "q28_help", log: "Q28錯: 三用電表量到的是有效值，不是最大值" },
-                    { text: "C. 200 V", next: "q28_help", log: "Q28錯: 算太高了" },
-                    { text: "D. 0 V", next: "q28_help", log: "Q28錯: 電表會把交流轉正，不會是 0" }
+                    { text: "A. 看門狗計時器 (Watchdog Timer, WDT)", next: "q29", isCorrect: true },
+                    { text: "B. 脈寬調變器 (PWM)", next: "q28_help", log: "Q28錯: 這是用來控制馬達轉速或LED亮度的" },
+                    { text: "C. 類比數位轉換器 (ADC)", next: "q28_help", log: "Q28錯: 這是讀取類比訊號的" },
+                    { text: "D. 即時時鐘 (RTC)", next: "q28_help", log: "Q28錯: 這是顯示現在幾點幾分用的" }
                 ]
             },
             "q28_help": {
-                tag: "💊 救援任務：除以根號二",
-                text: "知識拆解：正弦波的 有效值 = 最大值 / √2 (約 1.414)。所以把公式前面的最大值 141.4 拿來除以 1.414，答案很漂亮！",
+                tag: "💊 救援任務：會咬人的狗",
+                text: "知識拆解：這個計時器就像一隻兇猛的狗。正常運作時，程式每一段時間都會去「餵食(Clear)」牠。如果程式死當忘了餵，牠餓過頭就會咬系統一口，強制重開機！",
                 options: [
-                    { text: "A. 100 V", next: "q28", isCorrect: true },
-                    { text: "B. 141.4 V", next: "q28_help", log: "Q28救錯: 141.4 是波峰，電表量到的是平均後的效力(除以1.414)喔！" }
+                    { text: "A. 看門狗計時器 (WDT)", next: "q28", isCorrect: true },
+                    { text: "B. 即時時鐘 (RTC)", next: "q28_help", log: "Q28救錯: RTC 只是個時鐘，不會強制重開機喔！" }
                 ]
             },
 
-            // --- 第 29 關：純電感相位 ---
+            // --- 第 29 關：PWM 脈寬調變 ---
             "q29": {
-                tag: "第 29 關：交流相位",
-                text: "在「純電感 (L)」的交流電路中，電壓 (V) 與電流 (I) 的相位關係為何？",
+                tag: "第 29 關：單晶片周邊",
+                text: "若想利用單晶片的「數位腳位 (只有 0V 和 5V)」來控制馬達的速度或是 LED 的漸暗漸亮，最常使用的是哪一種技術來模擬類比電壓？",
                 options: [
-                    { text: "A. 電壓 (V) 超前電流 (I) 90 度", next: "q30", isCorrect: true },
-                    { text: "B. 電流 (I) 超前電壓 (V) 90 度", next: "q29_help", log: "Q29錯: 這是純電容的特性" },
-                    { text: "C. 電壓與電流同相 (0度)", next: "q29_help", log: "Q29錯: 這是純電阻的特性" },
-                    { text: "D. 兩者反相 (180度)", next: "q29_help", log: "Q29錯: 單一元件不會反相" }
+                    { text: "A. PWM (脈寬調變)", next: "q30", isCorrect: true },
+                    { text: "B. UART (非同步收發)", next: "q29_help", log: "Q29錯: 這是用來跟電腦傳輸資料的" },
+                    { text: "C. I2C 匯流排", next: "q29_help", log: "Q29錯: 這是感測器通訊協定" },
+                    { text: "D. WDT (看門狗)", next: "q29_help", log: "Q29錯: 這是防止當機的" }
                 ]
             },
             "q29_help": {
-                tag: "💊 救援任務：統測必背口訣",
-                text: "知識拆解：口訣「ELI (伊萊)」。中間的 L 代表電感，E(電壓) 排在 I(電流) 的前面。所以是誰超前誰？",
+                tag: "💊 救援任務：開關的藝術",
+                text: "知識拆解：PWM (Pulse Width Modulation) 是透過極快地切換「開(5V)」與「關(0V)」的比例。如果 80% 時間開、20% 時間關，平均起來就像是輸出了 4V 的類比電壓。",
                 options: [
-                    { text: "A. 電壓超前電流 90 度", next: "q29", isCorrect: true },
-                    { text: "B. 電流超前電壓 90 度", next: "q29_help", log: "Q29救錯: 那是 ICE (電容) 的口訣啦！" }
+                    { text: "A. PWM (脈寬調變)", next: "q29", isCorrect: true },
+                    { text: "B. UART", next: "q29_help", log: "Q29救錯: UART 是 TX/RX 傳送文字資料用的，不能控馬達喔！" }
                 ]
             },
 
-            // 📖 第 30 關：哲學
+            // ⚾ 第 30 關：WBC 應援團
             "q30": {
-                tag: "📖 第 30 關：大腦休息 (哲學)",
-                text: "人文素養時間！哪一位法國哲學家提出了名言「我思故我在」(I think, therefore I am)，同時他也是直角坐標系的發明者？",
+                tag: "⚾ 第 30 關：大腦休息 (WBC)",
+                text: "2023 WBC A組預賽在台灣台中洲際棒球場舉行。比賽期間，令大聯盟官網記者與外國球隊震撼不已，甚至稱之為「世界奇觀」的場邊特色是什麼？",
                 options: [
-                    { text: "A. 笛卡兒 (Descartes)", next: "q31", isCorrect: true },
-                    { text: "B. 蘇格拉底 (Socrates)", next: "q30_help", log: "Q30錯: 蘇格拉底名言是『我只知道一件事，就是我一無所知』" },
-                    { text: "C. 柏拉圖 (Plato)", next: "q30_help", log: "Q30錯: 柏拉圖是理想國的作者" },
-                    { text: "D. 尼采 (Nietzsche)", next: "q30_help", log: "Q30錯: 尼采名言是『上帝已死』" }
+                    { text: "A. 兩萬人站立齊唱與啦啦隊的「台式應援」", next: "q31", isCorrect: true },
+                    { text: "B. 球場賣的超巨大熱狗堡", next: "q30_help", log: "Q30錯: 這不是重點" },
+                    { text: "C. 台灣球迷都戴著斗笠看球", next: "q30_help", log: "Q30錯: 並沒有這種習俗" },
+                    { text: "D. 比賽中會施放無人機煙火", next: "q30_help", log: "Q30錯: 只有開幕或特定儀式才有" }
                 ]
             },
             "q30_help": {
-                tag: "💊 提示：數學與哲學的天才",
-                text: "我們現在數學課畫的 x軸、y軸，正式名稱就叫做「OO兒坐標系」，就是為了紀念這位偉大的哲學家兼數學家。",
+                tag: "💊 提示：Team Taiwan",
+                text: "大聯盟記者在推特上發文：「這聽起來像是一場有兩萬人的搖滾演唱會」。女孩們的帶動跳與每一位球員專屬的應援曲，徹底震撼了世界。",
                 options: [
-                    { text: "A. 笛卡兒", next: "q30", isCorrect: true },
-                    { text: "B. 蘇格拉底", next: "q30_help", log: "Q30救錯: 蘇格拉底是古希臘人，那時候還沒有發明現在的坐標系喔！" }
+                    { text: "A. 啦啦隊的「台式應援」", next: "q30", isCorrect: true },
+                    { text: "B. 球場賣的超巨大熱狗堡", next: "q30_help", log: "Q30救錯: 雖然食物很好吃，但震撼外國人的是聲音跟氣氛啦！" }
                 ]
             },
 
-            // --- 第 31 關：純電容相位 ---
+            // --- 第 31 關：串列傳輸 UART ---
             "q31": {
-                tag: "第 31 關：交流相位",
-                text: "換到「純電容 (C)」的交流電路中，電壓 (V) 與電流 (I) 的相位關係為何？",
+                tag: "第 31 關：通訊介面",
+                text: "單晶片(如 Arduino)最常透過 USB 線與電腦顯示視窗進行「串列通訊」。這種只需要 TX (傳送) 和 RX (接收) 兩條資料線就能雙向溝通的介面簡稱為何？",
                 options: [
-                    { text: "A. 電流 (I) 超前電壓 (V) 90 度", next: "q32", isCorrect: true },
-                    { text: "B. 電壓 (V) 超前電流 (I) 90 度", next: "q31_help", log: "Q31錯: 這是上一題純電感的特性" },
-                    { text: "C. 電壓與電流同相 (0度)", next: "q31_help", log: "Q31錯: 這是純電阻的特性" },
-                    { text: "D. 兩者落後 180 度", next: "q31_help", log: "Q31錯: 錯誤" }
+                    { text: "A. UART", next: "q32", isCorrect: true },
+                    { text: "B. LPT", next: "q31_help", log: "Q31錯: 這是早期的並列印表機埠" },
+                    { text: "C. HDMI", next: "q31_help", log: "Q31錯: 這是影音傳輸線" },
+                    { text: "D. VGA", next: "q31_help", log: "Q31錯: 這是早期的類比螢幕線" }
                 ]
             },
             "q31_help": {
-                tag: "💊 救援任務：吃冰塊口訣",
-                text: "知識拆解：背出口訣「ICE (冰塊)」。中間的 C 代表電容，I(電流) 排在 E(電壓) 的前面。所以是誰跑在前面？",
+                tag: "💊 救援任務：通用非同步收發",
+                text: "知識拆解：Universal Asynchronous Receiver/Transmitter。它是最經典的非同步串列傳輸，因為不共用時脈線，所以雙方必須約定好一樣的「鮑率(Baud Rate)」。",
                 options: [
-                    { text: "A. 電流超前電壓 90 度", next: "q31", isCorrect: true },
-                    { text: "B. 電壓超前電流 90 度", next: "q31_help", log: "Q31救錯: 電容跟電感是死對頭，特性剛好完全相反啦！" }
+                    { text: "A. UART", next: "q31", isCorrect: true },
+                    { text: "B. HDMI", next: "q31_help", log: "Q31救錯: HDMI 線裡面有十九根腳位，不是只有兩根線喔！" }
                 ]
             },
 
-            // --- 第 32 關：阻抗 ---
+            // --- 第 32 關：鮑率 Baud Rate ---
             "q32": {
-                tag: "第 32 關：交流阻抗",
-                text: "在交流電路中，將負責發熱的「電阻 (R)」與負責產生相移的「電抗 (X)」用畢氏定理加總起來，代表電路整體阻礙電流的能力，稱為什麼？(符號為 Z)",
+                tag: "第 32 關：通訊介面",
+                text: "承上題，在設定 UART 序列埠通訊時，我們常常需要設定一個數值如「9600」。這個代表「每秒傳輸多少個位元」的速度單位稱為什麼？",
                 options: [
-                    { text: "A. 阻抗 (Impedance)", next: "q33", isCorrect: true },
-                    { text: "B. 導納 (Admittance)", next: "q32_help", log: "Q32錯: 導納是阻抗的倒數" },
-                    { text: "C. 電阻率 (Resistivity)", next: "q32_help", log: "Q32錯: 這是材料導電特性" },
-                    { text: "D. 實功率 (Real Power)", next: "q32_help", log: "Q32錯: 這是消耗的能量" }
+                    { text: "A. 鮑率 (Baud Rate / bps)", next: "q33", isCorrect: true },
+                    { text: "B. 赫茲 (Hz)", next: "q32_help", log: "Q32錯: 這是頻率單位" },
+                    { text: "C. 瓦特 (Watt)", next: "q32_help", log: "Q32錯: 這是功率單位" },
+                    { text: "D. 浮點數 (Flops)", next: "q32_help", log: "Q32錯: 這是運算效能單位" }
                 ]
             },
             "q32_help": {
-                tag: "💊 救援任務：綜合抵抗力",
-                text: "知識拆解：電阻 + 電流的相角抵抗 = 總抵抗力。這個總稱的中文叫做「阻抗」。",
+                tag: "💊 救援任務：傳輸的速度",
+                text: "知識拆解：bps = bits per second。在早期的數據機時代，這個字被用來紀念電報發明人 Baudot，所以我們中文都直接音譯。",
                 options: [
-                    { text: "A. 阻抗", next: "q32", isCorrect: true },
-                    { text: "B. 導納", next: "q32_help", log: "Q32救錯: 導納(Y) 是暢通的程度，剛好是阻抗的倒數喔！" }
+                    { text: "A. 鮑率 (Baud Rate)", next: "q32", isCorrect: true },
+                    { text: "B. 赫茲 (Hz)", next: "q32_help", log: "Q32救錯: Hz 是指時脈一秒震動幾次，傳輸資料的速度是用 bps (鮑率) 喔！" }
                 ]
             },
 
-            // --- 第 33 關：無效功率 ---
+            // --- 第 33 關：ADC 解析度 ---
             "q33": {
-                tag: "第 33 關：交流功率",
-                text: "交流電路中，有一種功率只在電源與電感/電容之間來回交換，但「完全不作功」(不會發熱或發光)。這種功率稱為什麼？",
+                tag: "第 33 關：單晶片周邊",
+                text: "若一個單晶片內建了「10位元」的 ADC (類比轉數位轉換器)。這代表它可以將讀取到的電壓值，切割成多少個不同刻度的數位數值？",
                 options: [
-                    { text: "A. 無效功率 (虛功率, Q)", next: "q34", isCorrect: true },
-                    { text: "B. 有效功率 (實功率, P)", next: "q33_help", log: "Q33錯: 有效功率會產生實際熱能" },
-                    { text: "C. 視在功率 (S)", next: "q33_help", log: "Q33錯: 這是台電送出的總功率" },
-                    { text: "D. 瞬間功率", next: "q33_help", log: "Q33錯: 這是任一瞬間的功率值" }
+                    { text: "A. 1024 個 (2的10次方)", next: "q34", isCorrect: true },
+                    { text: "B. 10 個", next: "q33_help", log: "Q33錯: 不是直接對應位元數" },
+                    { text: "C. 256 個 (2的8次方)", next: "q33_help", log: "Q33錯: 這是 8 位元的解析度" },
+                    { text: "D. 1000 個", next: "q33_help", log: "Q33錯: 二進位世界沒有剛好 1000 的整數" }
                 ]
             },
             "q33_help": {
-                tag: "💊 救援任務：虛張聲勢的能量",
-                text: "知識拆解：既然它「完全不作功」，對我們來說就是沒有真實效益的虛幻能量。中文顧名思義就叫做？",
+                tag: "💊 救援任務：二的十次方",
+                text: "知識拆解：二進位的世界是算 2 的次方。8 位元是 256 (0~255)；往上乘兩次，9位元是 512，10位元是？",
                 options: [
-                    { text: "A. 無效功率 (虛功率)", next: "q33", isCorrect: true },
-                    { text: "B. 有效功率 (實功率)", next: "q33_help", log: "Q33救錯: 它不發熱不發光，所以是『無效』的啦！" }
+                    { text: "A. 1024 個", next: "q33", isCorrect: true },
+                    { text: "B. 1000 個", next: "q33_help", log: "Q33救錯: 1k 在二進位世界精確的數字是 1024 啦！" }
                 ]
             },
 
-            // --- 第 34 關：視在功率單位 ---
+            // --- 第 34 關：累加器 ACC ---
             "q34": {
-                tag: "第 34 關：交流功率",
-                text: "台電發電機送出來的總功率，包含了有效與無效功率，合稱為「視在功率 (S)」。其公式為 電壓(V) × 電流(I)，請問單位為何？",
+                tag: "第 34 關：CPU 暫存器",
+                text: "在執行算術運算 (如加法) 時，最忙碌的暫存器是哪一個？它通常負責提供其中一個運算元，並且在算完後「把結果存回自己肚子裡」。",
                 options: [
-                    { text: "A. 伏安 (VA)", next: "q35", isCorrect: true },
-                    { text: "B. 瓦特 (W)", next: "q34_help", log: "Q34錯: 這是有效功率的單位" },
-                    { text: "C. 乏 (VAR)", next: "q34_help", log: "Q34錯: 這是無效功率的單位" },
-                    { text: "D. 焦耳 (J)", next: "q34_help", log: "Q34錯: 這是能量單位" }
+                    { text: "A. 累加器 (ACC)", next: "q35", isCorrect: true },
+                    { text: "B. 程式計數器 (PC)", next: "q34_help", log: "Q34錯: 這是管地址的" },
+                    { text: "C. 堆疊指標 (SP)", next: "q34_help", log: "Q34錯: 這是管堆疊深度的" },
+                    { text: "D. 指令暫存器 (IR)", next: "q34_help", log: "Q34錯: 這是存指令的" }
                 ]
             },
             "q34_help": {
-                tag: "💊 救援任務：公式即單位",
-                text: "知識拆解：最直觀的命名法！電壓(V)的單位是「伏特」，電流(I)的單位是「安培」。把它們兩個乘在一起唸出來就是了！",
+                tag: "💊 救援任務：一直疊加",
+                text: "知識拆解：因為運算結果會一直加回到它身上累積起來 (A = A + B)，所以英文叫 Accumulator。簡稱是？",
                 options: [
-                    { text: "A. 伏安 (VA)", next: "q34", isCorrect: true },
-                    { text: "B. 瓦特 (W)", next: "q34_help", log: "Q34救錯: W 是有作功的有效功率專屬的單位！" }
+                    { text: "A. 累加器 (ACC)", next: "q34", isCorrect: true },
+                    { text: "B. 程式計數器 (PC)", next: "q34_help", log: "Q34救錯: PC 是指引方向的，不負責算數學喔！" }
                 ]
             },
 
-            // 👑 第 35 關：TWICE 2
+            // ⚾ 第 35 關：WBC 突破僵局
             "q35": {
-                tag: "👑 第 35 關：大腦休息 (K-POP)",
-                text: "TWICE 中最受台灣粉絲喜愛，在偶像運動會上因為「射箭長髮飄逸」的絕美畫面而引爆熱搜的台灣籍成員是誰？",
+                tag: "⚾ 第 35 關：大腦休息 (WBC)",
+                text: "為了解決棒球比賽打到延長賽過於漫長、拖垮投手手臂的問題，WBC 經典賽從第 10 局開始會採用「突破僵局制」。請問其規則是什麼？",
                 options: [
-                    { text: "A. 周子瑜 (Tzuyu)", next: "q36", isCorrect: true },
-                    { text: "B. 葉舒華 (Shuhua)", next: "q35_help", log: "Q35錯: 舒華是 (G)I-DLE 的成員" },
-                    { text: "C. 湊崎紗夏 (Sana)", next: "q35_help", log: "Q35錯: Sana 是日本籍成員" },
-                    { text: "D. 平井桃 (Momo)", next: "q35_help", log: "Q35錯: Momo 是日本籍主舞" }
+                    { text: "A. 開局直接奉送二壘有人，且無人出局", next: "q36", isCorrect: true },
+                    { text: "B. 開局直接滿壘", next: "q35_help", log: "Q35錯: 滿壘太容易得分了" },
+                    { text: "C. 兩出局開始打", next: "q35_help", log: "Q35錯: 這樣反而很難得分" },
+                    { text: "D. 雙方教練猜拳決定勝負", next: "q35_help", log: "Q35錯: 這不是正規比賽做法" }
                 ]
             },
             "q35_help": {
-                tag: "💊 提示：台南之光",
-                text: "她出生於台灣台南市，是 TWICE 中的「忙內（年紀最小）」，身高也是全團最高的喔！",
+                tag: "💊 提示：得點圈有人",
+                text: "為了加快得分速度，裁判會讓前一局最後出局的打者直接站上「得點圈」，只要一支安打就有極大機率得分。",
                 options: [
-                    { text: "A. 周子瑜", next: "q35", isCorrect: true },
-                    { text: "B. 葉舒華", next: "q35_help", log: "Q35救錯: 雖然都是台灣人，但舒華在隔壁團啦！" }
+                    { text: "A. 無人出局，二壘有人", next: "q35", isCorrect: true },
+                    { text: "B. 開局直接滿壘", next: "q35_help", log: "Q35救錯: 滿壘的話投手壓力太大了，目前是放二壘而已喔！" }
                 ]
             },
 
-            // --- 第 36 關：功率因數 ---
+            // --- 第 36 關：記憶體容量計算 ---
             "q36": {
-                tag: "第 36 關：交流功率",
-                text: "「功率因數 (Power Factor, PF)」代表設備使用電力的效率。它的數學定義是哪兩個功率的比值？",
+                tag: "第 36 關：系統匯流排",
+                text: "若一顆 CPU 的「位址匯流排 (Address Bus)」共有 16 根線 (16 bits)。這代表這顆 CPU 最大可以定址(存取)多少容量的記憶體空間？",
                 options: [
-                    { text: "A. 有效功率 (P) / 視在功率 (S)", next: "q37", isCorrect: true },
-                    { text: "B. 無效功率 (Q) / 有效功率 (P)", next: "q36_help", log: "Q36錯: 這是 tanθ 的定義" },
-                    { text: "C. 視在功率 (S) / 有效功率 (P)", next: "q36_help", log: "Q36錯: 上下顛倒了" },
-                    { text: "D. 電阻 / 電抗", next: "q36_help", log: "Q36錯: 公式錯誤" }
+                    { text: "A. 64 KB (2的16次方)", next: "q37", isCorrect: true },
+                    { text: "B. 16 KB", next: "q36_help", log: "Q36錯: 不是直接加 K" },
+                    { text: "C. 1 MB", next: "q36_help", log: "Q36錯: 1MB 需要 20 根位址線 (2^20)" },
+                    { text: "D. 4 GB", next: "q36_help", log: "Q36錯: 4GB 需要 32 根位址線 (2^32)" }
                 ]
             },
             "q36_help": {
-                tag: "💊 救援任務：效率的本質",
-                text: "知識拆解：效率就是「你真正用到的(有效 P)」除以「台電總共給你多少(總和 S)」。台電給你 100，你只拿 80 來作功，PF 就是 0.8！",
+                tag: "💊 救援任務：指數的威力",
+                text: "知識拆解：10 根線 = 2^10 = 1024 = 1K。 16 根線等於 2^16，也就是把它拆成 2^6 乘上 2^10。 2的6次方是 64，配上後面的 K，所以是？",
                 options: [
-                    { text: "A. 有效功率 (P) / 視在功率 (S)", next: "q36", isCorrect: true },
-                    { text: "B. 視在功率 (S) / 有效功率 (P)", next: "q36_help", log: "Q36救錯: 這樣算出來效率大於 1，違反宇宙法則啦！" }
+                    { text: "A. 64 KB", next: "q36", isCorrect: true },
+                    { text: "B. 1 MB", next: "q36_help", log: "Q36救錯: 要 1 MB 必須要有 20 根線 (2^20) 喔！" }
                 ]
             },
 
-            // --- 第 37 關：改善功率因數 ---
+            // --- 第 37 關：旗標暫存器 ---
             "q37": {
-                tag: "第 37 關：功率因數改善",
-                text: "工廠裡有很多馬達（屬於電感性負載），會造成功率因數低落被台電罰錢。我們通常會在馬達旁邊「並聯」什麼元件來改善功率因數？",
+                tag: "第 37 關：CPU 暫存器",
+                text: "CPU 在做完數學運算後，如果發生了「進位 (Carry)」、「結果為零 (Zero)」、或「溢位 (Overflow)」，這些特殊的狀態會記錄在哪一個暫存器中？",
                 options: [
-                    { text: "A. 電容器", next: "q38", isCorrect: true },
-                    { text: "B. 電感器", next: "q37_help", log: "Q37錯: 加電感會讓情況更糟" },
-                    { text: "C. 電阻器", next: "q37_help", log: "Q37錯: 加電阻只會增加耗熱，不能抵消相角" },
-                    { text: "D. 變壓器", next: "q37_help", log: "Q37錯: 變壓器是用來改變電壓的" }
+                    { text: "A. 狀態 / 旗標暫存器 (Status / Flag Register)", next: "q38", isCorrect: true },
+                    { text: "B. 累加器 (ACC)", next: "q37_help", log: "Q37錯: ACC 放的是運算『結果的數值』，不是狀態" },
+                    { text: "C. 程式計數器 (PC)", next: "q37_help", log: "Q37錯: PC 放的是地址" },
+                    { text: "D. 指令暫存器 (IR)", next: "q37_help", log: "Q37錯: IR 存放指令" }
                 ]
             },
             "q37_help": {
-                tag: "💊 救援任務：死對頭互相抵消",
-                text: "知識拆解：電感(L)跟電容(C)的相位剛好差 180 度，是天生的死對頭。馬達有太多的電感成分，我們就要派誰去抵消它？",
+                tag: "💊 救援任務：舉起信號旗",
+                text: "知識拆解：就像賽車場上，如果有人車禍，裁判就會舉起「黃旗」警告大家。CPU 如果算數算到爆掉(進位)，它的這個暫存器裡面的某個位元就會變成 1 (舉旗)。",
                 options: [
-                    { text: "A. 電容器", next: "q37", isCorrect: true },
-                    { text: "B. 電感器", next: "q37_help", log: "Q37救錯: 再加電感只會病入膏肓被台電罰更多錢喔！" }
+                    { text: "A. 旗標暫存器 (Flag)", next: "q37", isCorrect: true },
+                    { text: "B. 累加器 (ACC)", next: "q37_help", log: "Q37救錯: ACC 放的是答案(比如 5+3=8 的 8)，進位與否是存在旁邊的旗標裡！" }
                 ]
             },
 
-            // --- 第 38 關：串聯諧振阻抗 ---
+            // --- 第 38 關：大小端 Endianness ---
             "q38": {
-                tag: "第 38 關：諧振電路",
-                text: "在 RLC「串聯」電路發生諧振 (Resonance) 時，感抗 (XL) 與容抗 (XC) 剛好完全抵消。請問此時電路的「總阻抗 (Z)」會達到什麼狀態？",
+                tag: "第 38 關：資料儲存",
+                text: "當我們把一筆很大的 32 位元資料 (例如 0x12345678) 存進 8 位元的記憶體時，如果把最低位的位元組 (78) 存在記憶體最低的位址，這種排列方式稱為？",
                 options: [
-                    { text: "A. 達到最小值 (Z = R)", next: "q39", isCorrect: true },
-                    { text: "B. 達到最大值", next: "q38_help", log: "Q38錯: 這是並聯諧振的狀態" },
-                    { text: "C. 變成無限大", next: "q38_help", log: "Q38錯: 這樣就斷路了" },
-                    { text: "D. 變成零", next: "q38_help", log: "Q38錯: 還有電阻R在，不會是零" }
+                    { text: "A. 小端序 (Little-Endian)", next: "q39", isCorrect: true },
+                    { text: "B. 大端序 (Big-Endian)", next: "q38_help", log: "Q38錯: 大端序是把最高位(12)存在最低位址" },
+                    { text: "C. 循序存取", next: "q38_help", log: "Q38錯: 這是磁帶的存取特性" },
+                    { text: "D. 隨機存取", next: "q38_help", log: "Q38錯: 這是 RAM 的特性" }
                 ]
             },
             "q38_help": {
-                tag: "💊 救援任務：阻力消失術",
-                text: "知識拆解：原本總阻力 Z 是 R 加上 (XL - XC)。現在 XL 跟 XC 互相抵消不見了，總阻抗只剩下孤獨的 R，所以阻抗降到了？",
+                tag: "💊 救援任務：尾巴先放",
+                text: "知識拆解：最低位(Least Significant Byte) 就是數字的尾巴。如果尾巴(小的一端)優先排在記憶體的最前面，英文就叫做 Little-Endian。",
                 options: [
-                    { text: "A. 最小值", next: "q38", isCorrect: true },
-                    { text: "B. 最大值", next: "q38_help", log: "Q38救錯: 干擾物都不見了，阻力當然是降到最小啦！" }
+                    { text: "A. 小端序 (Little-Endian)", next: "q38", isCorrect: true },
+                    { text: "B. 大端序 (Big-Endian)", next: "q38_help", log: "Q38救錯: 大端序是頭部(高位)先放進去喔！" }
                 ]
             },
 
-            // --- 第 39 關：並聯諧振阻抗 ---
+            // --- 第 39 關：三態緩衝器 ---
             "q39": {
-                tag: "第 39 關：諧振電路",
-                text: "反過來說，若是在 RLC「並聯」電路發生諧振時，電路的「總阻抗 (Z)」會呈現什麼狀態？",
+                tag: "第 39 關：匯流排控制",
+                text: "系統匯流排是共用的通道。為了避免兩個裝置同時把資料丟上匯流排造成「撞車短路」，每個裝置的出口都會加上一個控制開關。當它不傳資料時，會呈現「高阻抗」狀態宛如斷線。這個元件是？",
                 options: [
-                    { text: "A. 達到最大值", next: "q40", isCorrect: true },
-                    { text: "B. 達到最小值", next: "q39_help", log: "Q39錯: 這是串聯諧振的狀態" },
-                    { text: "C. 變成零", next: "q39_help", log: "Q39錯: 並不是短路" },
-                    { text: "D. 維持不變", next: "q39_help", log: "Q39錯: 頻率改變阻抗一定會變" }
+                    { text: "A. 三態緩衝器 (Tri-state Buffer)", next: "q40", isCorrect: true },
+                    { text: "B. 解碼器 (Decoder)", next: "q39_help", log: "Q39錯: 這是把位址轉成選擇信號用的" },
+                    { text: "C. 加法器 (Adder)", next: "q39_help", log: "Q39錯: 這是運算單元" },
+                    { text: "D. 多工器 (Multiplexer)", next: "q39_help", log: "Q39錯: 這是多選一的開關" }
                 ]
             },
             "q39_help": {
-                tag: "💊 救援任務：相反的世界",
-                text: "知識拆解：並聯諧振就像在河道中間築起一座大水壩，這時候 LC 槽路內部瘋狂循環，但對外面的電源來說，就像一堵牆一樣推不過去。阻力變得？",
+                tag: "💊 救援任務：第三種狀態",
+                text: "知識拆解：數位邏輯一般只有 0 和 1 兩個狀態。但為了保護匯流排，發明了第 3 種狀態：「高阻抗(Hi-Z)」，也就是不理你、假裝自己斷線。有三種狀態的緩衝器叫做？",
                 options: [
-                    { text: "A. 最大值", next: "q39", isCorrect: true },
-                    { text: "B. 最小值", next: "q39_help", log: "Q39救錯: 串聯最小，並聯相反，當然是最大啦！" }
+                    { text: "A. 三態緩衝器", next: "q39", isCorrect: true },
+                    { text: "B. 多工器", next: "q39_help", log: "Q39救錯: 多工器是 N 個輸入選 1 個輸出，無法切斷與匯流排的連結喔！" }
                 ]
             },
 
-            // 💙 第 40 關：蕾姆 2
+            // ⚾ 第 40 關：WBC 佐佐木朗希
             "q40": {
-                tag: "💙 第 40 關：大腦休息 (動漫)",
-                text: "再次回到異世界！在《Re:從零開始的異世界生活》中，身為鬼族倖存者的蕾姆，戰鬥時主要使用的武器是什麼？",
+                tag: "⚾ 第 40 關：大腦休息 (WBC)",
+                text: "日本隊在 2023 WBC 有一位被稱為「令和怪物」的年輕強投，他曾投出 164 公里的恐怖火球，甚至在比賽中不小心砸到捷克隊打者，賽後還親自提著兩大袋零食去對手飯店道歉。他是誰？",
                 options: [
-                    { text: "A. 流星錘 (鐵球)", next: "q41", isCorrect: true },
-                    { text: "B. 日本刀", next: "q40_help", log: "Q40錯: 她不用刀" },
-                    { text: "C. 魔法法杖", next: "q40_help", log: "Q40錯: 雖然會魔法但主要武器是近戰" },
-                    { text: "D. 弓箭", next: "q40_help", log: "Q40錯: 不是遠程武器" }
+                    { text: "A. 佐佐木朗希", next: "q41", isCorrect: true },
+                    { text: "B. 山本由伸", next: "q40_help", log: "Q40錯: 山本是極其精準的王牌，後來去躲人隊了" },
+                    { text: "C. 今永昇太", next: "q40_help", log: "Q40錯: 今永是決賽先發左投" },
+                    { text: "D. 達比修有", next: "q40_help", log: "Q40錯: 達比修是老大哥精神領袖" }
                 ]
             },
             "q40_help": {
-                tag: "💊 提示：暴力的反差萌",
-                text: "雖然長得很可愛，但她一旦暴走頭上長出角，就會甩著一個連著長長鐵鍊、佈滿尖刺的巨大鐵球砸爛魔獸。",
+                tag: "💊 提示：令和怪物",
+                text: "他在日職投出過完全比賽，最誇張的是連續三振了 13 名打者！因為太年輕又太猛，被媒體冠上「令和怪物」的稱號。",
                 options: [
-                    { text: "A. 流星錘", next: "q40", isCorrect: true },
-                    { text: "B. 魔法法杖", next: "q40_help", log: "Q40救錯: 鬼族都是用超暴力的物理近戰啦！" }
+                    { text: "A. 佐佐木朗希", next: "q40", isCorrect: true },
+                    { text: "B. 達比修有", next: "q40_help", log: "Q40救錯: 達比修有年紀比較大，不是新生代的令和怪物啦！" }
                 ]
             },
 
-            // --- 第 41 關：諧振頻率公式 ---
+            // --- 第 41 關：快取對映 ---
             "q41": {
-                tag: "第 41 關：諧振電路",
-                text: "發生諧振時的頻率稱為「諧振頻率 (fr)」。統測必背公式：fr = 1 / (2π * ____ )。請問底線空格處應填入什麼？",
+                tag: "第 41 關：記憶體架構",
+                text: "快取記憶體 (Cache) 的對映方式中，哪一種方式讓主記憶體的每一塊，都只能固定塞進 Cache 的「唯一一個特定位置」？(優點是硬體最簡單找得快，缺點是容易發生衝突被踢掉)",
                 options: [
-                    { text: "A. √LC (根號 LC)", next: "q42", isCorrect: true },
-                    { text: "B. LC", next: "q41_help", log: "Q41錯: 漏了開根號" },
-                    { text: "C. RLC", next: "q41_help", log: "Q41錯: 諧振點跟 R 無關" },
-                    { text: "D. L/C", next: "q41_help", log: "Q41錯: 單位完全不對" }
+                    { text: "A. 直接對映 (Direct Mapping)", next: "q42", isCorrect: true },
+                    { text: "B. 全關聯對映 (Fully Associative)", next: "q41_help", log: "Q41錯: 全關聯是可以隨便塞任何空位" },
+                    { text: "C. 集合關聯對映 (Set Associative)", next: "q41_help", log: "Q41錯: 這是折衷方案" },
+                    { text: "D. 虛擬記憶體對映", next: "q41_help", log: "Q41錯: 這是硬碟與RAM之間的關係" }
                 ]
             },
             "q41_help": {
-                tag: "💊 救援任務：公式的推導",
-                text: "知識拆解：諧振條件是 XL = XC。 也就是 2πfL = 1 / (2πfC)。把 f 移到同一邊會變成 f²，所以解出來最後一定會有什麼符號？",
+                tag: "💊 救援任務：一個蘿蔔一個坑",
+                text: "知識拆解：1 號記憶體只能住 1 號房，2 號只能住 2 號房。「直接」規定死死的，沒有任何彈性。這叫什麼對映？",
                 options: [
-                    { text: "A. 根號 (√)", next: "q41", isCorrect: true },
-                    { text: "B. 沒有根號的 LC", next: "q41_help", log: "Q41救錯: 平方移過去一定要開根號喔！" }
+                    { text: "A. 直接對映", next: "q41", isCorrect: true },
+                    { text: "B. 全關聯對映", next: "q41_help", log: "Q41救錯: 全關聯是隨便你住哪間都可以，最自由但也最難找喔！" }
                 ]
             },
 
-            // --- 第 42 關：三相 Y 接 ---
+            // --- 第 42 關：USB 架構 ---
             "q42": {
-                tag: "第 42 關：三相電源",
-                text: "在平衡的「三相 Y 型接法」中，外部的「線電壓 (VL)」與內部的「相電壓 (Vp)」大小關係為何？",
+                tag: "第 42 關：匯流排與介面",
+                text: "目前電腦最普及的 USB (通用序列匯流排)，在網路拓撲結構上，是屬於哪一種連接形狀？(允許透過 Hub 擴充，最多連接 127 個裝置)",
                 options: [
-                    { text: "A. VL = √3 Vp", next: "q43", isCorrect: true },
-                    { text: "B. VL = Vp", next: "q42_help", log: "Q42錯: 這是 Δ 接法的特性" },
-                    { text: "C. VL = 3 Vp", next: "q42_help", log: "Q42錯: 交流相加倍率是根號3" },
-                    { text: "D. VL = Vp / √3", next: "q42_help", log: "Q42錯: 線電壓比較大" }
+                    { text: "A. 樹狀拓撲 (Tree / Tiered Star)", next: "q43", isCorrect: true },
+                    { text: "B. 環狀拓撲 (Ring)", next: "q42_help", log: "Q42錯: USB不是頭尾相連的環" },
+                    { text: "C. 網狀拓撲 (Mesh)", next: "q42_help", log: "Q42錯: 裝置間不會互相連來連去" },
+                    { text: "D. 匯流排拓撲 (Bus)", next: "q42_help", log: "Q42錯: 雖然名字有匯流排，但物理結構不是一條主幹拉到底" }
                 ]
             },
             "q42_help": {
-                tag: "💊 救援任務：Y字跨步",
-                text: "知識拆解：Y 型接法就像兩腿劈開，外部的「線」跨越了兩條腿(兩個相)。因為有 120 度相位差，電壓相加後會放大成經典的交流電常數：",
+                tag: "💊 救援任務：主機長出枝葉",
+                text: "知識拆解：電腦主機(Root)接出一個 Hub，這個 Hub 又可以分接好幾個設備，就像大樹的樹幹長出樹枝，樹枝又長出樹葉一樣。這叫什麼拓撲？",
                 options: [
-                    { text: "A. √3 倍", next: "q42", isCorrect: true },
-                    { text: "B. 相等", next: "q42_help", log: "Q42救錯: 跨越了兩個繞組，電壓一定會變大！" }
+                    { text: "A. 樹狀拓撲", next: "q42", isCorrect: true },
+                    { text: "B. 環狀拓撲", next: "q42_help", log: "Q42救錯: 你滑鼠的線並不會去連鍵盤形成一個圈圈啊！" }
                 ]
             },
 
-            // --- 第 43 關：三相 Δ 接 ---
+            // --- 第 43 關：不可遮罩中斷 ---
             "q43": {
-                tag: "第 43 關：三相電源",
-                text: "在平衡的「三相 Δ 型 (三角) 接法」中，外部的「線電流 (IL)」與內部的「相電流 (Ip)」大小關係為何？",
+                tag: "第 43 關：中斷機制",
+                text: "在 CPU 的中斷接腳中，有一種最高緊急等級的中斷，軟體「絕對無法」忽略或關閉它，通常用於嚴重的硬體故障（如電源快沒電了）。這稱為？",
                 options: [
-                    { text: "A. IL = √3 Ip", next: "q44", isCorrect: true },
-                    { text: "B. IL = Ip", next: "q43_help", log: "Q43錯: 這是 Y 接法的特性" },
-                    { text: "C. IL = 3 Ip", next: "q43_help", log: "Q43錯: 交流相加倍率是根號3" },
-                    { text: "D. VL = √3 Vp", next: "q43_help", log: "Q43錯: 題目問的是電流" }
+                    { text: "A. 不可遮罩中斷 (NMI)", next: "q44", isCorrect: true },
+                    { text: "B. 可遮罩中斷 (INTR)", next: "q43_help", log: "Q43錯: 這個可以用軟體 CLI 指令關閉" },
+                    { text: "C. 軟體中斷 (Software Interrupt)", next: "q43_help", log: "Q43錯: 這是程式自己呼叫的" },
+                    { text: "D. 內部中斷 (Internal Interrupt)", next: "q43_help", log: "Q43錯: 例如除以零錯誤" }
                 ]
             },
             "q43_help": {
-                tag: "💊 救援任務：Δ節點匯流",
-                text: "知識拆解：Δ 接法的每個頂點都有兩條繞組匯合流出去。水管匯流「電流」就會變大，倍率一樣是交流電神聖的那個常數：",
+                tag: "💊 救援任務：無法閉上眼睛",
+                text: "知識拆解：Mask 有遮罩、面具、無視的意思。既然這個中斷緊急到「不能無視、不能遮起來」，那它的英文簡稱 Non-Maskable Interrupt 翻譯過來是？",
                 options: [
-                    { text: "A. √3 倍", next: "q43", isCorrect: true },
-                    { text: "B. 相等", next: "q43_help", log: "Q43救錯: 兩條水管匯流一定會變大！" }
+                    { text: "A. 不可遮罩中斷 (NMI)", next: "q43", isCorrect: true },
+                    { text: "B. 可遮罩中斷 (INTR)", next: "q43_help", log: "Q43救錯: 可遮罩代表 CPU 可以設定不要理它，但電源快斷了不能不理啊！" }
                 ]
             },
 
-            // --- 第 44 關：雙瓦特計 ---
+            // --- 第 44 關：PCIe ---
             "q44": {
-                tag: "第 44 關：功率測量",
-                text: "測量三相電路總功率最常用的方法是「雙瓦特計法」。若兩顆瓦特計的讀值分別為 W1 和 W2，則三相「總有效功率 (P)」等於多少？",
+                tag: "第 44 關：匯流排與介面",
+                text: "現代電腦顯示卡與主機板連接的主流介面是 PCIe (PCI Express)。與早期的 PCI 相比，PCIe 最大的技術突破是將傳輸方式從「並列(Parallel)」改成了什麼？",
                 options: [
-                    { text: "A. W1 + W2", next: "q45", isCorrect: true },
-                    { text: "B. W1 - W2", next: "q44_help", log: "Q44錯: 相減是求無效功率用的" },
-                    { text: "C. √3 (W1 + W2)", next: "q44_help", log: "Q44錯: 不需要乘根號3" },
-                    { text: "D. (W1 + W2) / 2", next: "q44_help", log: "Q44錯: 不需要除以2" }
+                    { text: "A. 高速串列傳輸 (Serial)", next: "q45", isCorrect: true },
+                    { text: "B. 無線傳輸 (Wireless)", next: "q44_help", log: "Q44錯: 顯示卡還是要插在主機板上" },
+                    { text: "C. 類比傳輸 (Analog)", next: "q44_help", log: "Q44錯: 電腦內部都是數位信號" },
+                    { text: "D. 光纖傳輸 (Optical)", next: "q44_help", log: "Q44錯: 雖然有光纖技術，但主機板槽仍是銅線" }
                 ]
             },
             "q44_help": {
-                tag: "💊 救援任務：直觀的總和",
-                text: "知識拆解：雙瓦特計法最神奇的地方，就是不管電路平不平衡，總發熱量(總有效功率)就是直接把兩顆電表讀到的數字「加起來」！",
+                tag: "💊 救援任務：排隊比並排快",
+                text: "知識拆解：以前以為幾十條線「並排」傳輸比較快，但頻率變高後線跟線之間會互相干擾。後來發現只用幾對線做「高速排成一列 (串列)」反而能飆出極速！",
                 options: [
-                    { text: "A. W1 + W2", next: "q44", isCorrect: true },
-                    { text: "B. W1 - W2", next: "q44_help", log: "Q44救錯: 相減再乘根號三是用來算無效功率 Q 喔！" }
+                    { text: "A. 高速串列傳輸", next: "q44", isCorrect: true },
+                    { text: "B. 類比傳輸", next: "q44_help", log: "Q44救錯: 數位時代早就淘汰類比傳輸了！" }
                 ]
             },
 
-            // 🏆 第 45 關：魔王題 ---
+            // 🏆 第 45 關：大谷翔平的再見滑球
             "q45": {
-                tag: "🏆 最終關：雙瓦特極端狀況",
-                text: "大魔王！使用雙瓦特計法時，如果發現 W1 與 W2 的讀值「大小相等，但符號相反 (如 +1000W 和 -1000W)」。這代表此負載的功率因數 (PF) 等於多少？",
+                tag: "🏆 最終關：大腦休息 (WBC)",
+                text: "最後一題！2023 WBC 冠軍戰，九局上半兩出局滿球數，大谷翔平對決楚奧特投出的「最後一顆球」，以極其誇張的橫向位移讓他揮棒落空。請問大谷這顆魔球是什麼球種？",
                 options: [
-                    { text: "A. 0 (純電抗負載)", next: "end", isCorrect: true },
-                    { text: "B. 1.0 (純電阻負載)", next: "q45_help", log: "Q45錯: 若為 1.0，兩表會完全相同且皆為正" },
-                    { text: "C. 0.5", next: "q45_help", log: "Q45錯: 若為 0.5，會有一表讀數為 0" },
-                    { text: "D. 0.866", next: "q45_help", log: "Q45錯: 數值錯誤" }
+                    { text: "A. 滑球 (Sweeper / Slider)", next: "end", isCorrect: true },
+                    { text: "B. 快速直球 (Fastball)", next: "q45_help", log: "Q45錯: 大谷前面投過 100 mph 的直球，但最後一球不是" },
+                    { text: "C. 指叉球 (Splitter)", next: "q45_help", log: "Q45錯: 這是大谷也很擅長的下墜球種，但最後一顆不是" },
+                    { text: "D. 變速球 (Changeup)", next: "q45_help", log: "Q45錯: 大谷較少投變速球" }
                 ]
             },
             "q45_help": {
-                tag: "💊 救援任務：完美的抵消",
-                text: "知識拆解：總功率 P = W1 + W2。 一正一負加起來 P 就等於 0。完全不作功(P=0)代表這個設備全部都是假動作的電感或電容。沒有半點真實效率，所以 PF = ?",
+                tag: "💊 提示：橫掃千軍",
+                text: "這顆球從好球帶中間，硬生生地向外側「橫向滑動」了將近 43 公分，就像是用掃把橫掃過去一樣，被美國媒體稱為 Sweeper。",
                 options: [
-                    { text: "A. 0", next: "q45", isCorrect: true },
-                    { text: "B. 1.0", next: "q45_help", log: "Q45救錯: 1.0 代表 100% 發熱作功，但這題加起來是 0 瓦特耶！" }
+                    { text: "A. 滑球 (Sweeper)", next: "q45", isCorrect: true },
+                    { text: "B. 快速直球", next: "q45_help", log: "Q45救錯: 直球是不會這樣誇張橫向轉彎的！" }
                 ]
             }
         };
