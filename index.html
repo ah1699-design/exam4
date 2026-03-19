@@ -153,13 +153,13 @@
     <div id="collection-modal">
         <div class="collection-header" id="collection-title">🏆 專屬集卡冊</div>
         <div id="collection-content" style="width: 100%; display: flex; flex-direction: column; align-items: center;">
-            </div>
+        </div>
         <button class="close-btn" onclick="closeCollection()">返回首頁</button>
     </div>
 
     <div class="container">
         <div id="student-setup">
-            <h1>🏀 期末特訓：45題大魔王！</h1>
+            <h1>🏀 期末特訓：測驗大挑戰！</h1>
             <div class="subtitle">連續答對 2 題即可抽卡！(滿5張特定卡可覺醒神卡)</div>
             <input type="text" id="student-name" placeholder="請輸入 班級+座號+姓名">
             
@@ -229,15 +229,12 @@
 
         // ==========================================
         // 📦 系統擴充：多階段卡包架構
-        // 每個卡包機率各自獨立加總為 100%
         // ==========================================
         const cardPacks = {
             "phase1": {
                 name: "⚡ 第一階段卡包",
                 cards: [
                     { id: "c_sp1", name: "【SP】超古代覺醒・裂空座", rarity: "SP", chance: 0, image: "images/SP1.jpg" },
-                    { id: "c_sp2", name: "【SPR】見證歷史單場83分・Adebayo", rarity: "SP", chance: 0, image: "images/SP2.png" },
-
                     { id: "c1", name: "【UR】暗黑・洛奇亞", rarity: "UR", chance: 0.375, image: "images/UR1.jpg" },
                     { id: "c2", name: "【UR】光明・洛奇亞", rarity: "UR", chance: 0.375, image: "images/UR2.jpg" },
                     { id: "c3", name: "【UR】光明・鳳王", rarity: "UR", chance: 0.375, image: "images/UR3.jpg" },
@@ -246,27 +243,23 @@
                     { id: "c6", name: "【UR】籃球之神・喬丹", rarity: "UR", chance: 0.375, image: "images/MJ_UR.png" },
                     { id: "c31", name: "【UR】期間限定・子瑜", rarity: "UR", chance: 0.375, image: "images/UR6.png" },
                     { id: "c32", name: "【UR】期間限定・娜璉", rarity: "UR", chance: 0.375, image: "images/UR7.png" },
-
                     { id: "c7", name: "【SSR】全圖洛奇亞", rarity: "SSR", chance: 1.5, image: "images/SSR1.jpg" },
                     { id: "c8", name: "【SSR】異色洛奇亞", rarity: "SSR", chance: 1.5, image: "images/SSR2.jpg" },
                     { id: "c9", name: "【SSR】浮雕洛奇亞", rarity: "SSR", chance: 1.5, image: "images/SSR3.jpg" },
                     { id: "c10", name: "【SSR】全圖鳳王", rarity: "SSR", chance: 1.5, image: "images/SSR4.jpg" },
                     { id: "c11", name: "【SSR】三分神射・Curry", rarity: "SSR", chance: 1.5, image: "images/SC_SSR.png" },
                     { id: "c12", name: "【SSR】死神・KD", rarity: "SSR", chance: 1.5, image: "images/KD_SSR.png" },
-
                     { id: "c13", name: "【SR】洛奇亞ex", rarity: "SR", chance: 3.0, image: "images/SR1.jpg" },
                     { id: "c14", name: "【SR】鳳王ex", rarity: "SR", chance: 3.0, image: "images/SR2.jpg" },
                     { id: "c15", name: "【SR】浴火狀元・康寧漢", rarity: "SR", chance: 3.0, image: "images/CC_SR.png" },
                     { id: "c16", name: "【SR】鬍鬚張・哈登", rarity: "SR", chance: 3.0, image: "images/JH_SR.png" },
                     { id: "c17", name: "【SR】城堡哥・Stephon Castle", rarity: "SR", chance: 3.0, image: "images/SC_SR.png" },
-
                     { id: "c18", name: "【R】洛奇亞", rarity: "R", chance: 4.0, image: "images/R1.jpg" },
                     { id: "c19", name: "【R】鳳王", rarity: "R", chance: 4.0, image: "images/R2.jpg" },
                     { id: "c20", name: "【R】NBA陳奕迅・Tuner", rarity: "R", chance: 4.0, image: "images/MT_R.png" },
                     { id: "c21", name: "【R】拳王・追夢綠", rarity: "R", chance: 4.0, image: "images/DG_R.png" },
                     { id: "c22", name: "【R】泳池派聚・普爾", rarity: "R", chance: 4.0, image: "images/JP_R.png" },
                     { id: "c23", name: "【R】冷凍王・苦命家", rarity: "R", chance: 4.0, image: "images/JK_R.png" },
-
                     { id: "c24", name: "【N】小山豬", rarity: "N", chance: 7.0, image: "images/N1.jpg", synthTarget: "c_sp1" },
                     { id: "c25", name: "【N】阿羅拉小拳石", rarity: "N", chance: 7.0, image: "images/N2.jpg", synthTarget: "c_sp1" },
                     { id: "c26", name: "【N】小火龍", rarity: "N", chance: 7.0, image: "images/N3.jpg", synthTarget: "c_sp1" },
@@ -279,29 +272,24 @@
             "phase2": {
                 name: "🏀 第二階段卡包",
                 cards: [
-                    { id: "n_sp1", name: "【SP】歷史・WBC臺灣首勝韓國", rarity: "SP", chance: 0, image: "images1/SP1.png" },
-                    
-                    { id: "n_u1", name: "【UR】特典版・Jokić", rarity: "UR", chance: 1.0, image: "images1/UR1.png" },
-                    { id: "n_u2", name: "【UR】特典版・SGA", rarity: "UR", chance: 1.0, image: "images1/UR2.png" }, 
-                    { id: "n_u3", name: "【UR】期間限定・多賢", rarity: "UR", chance: 1.0, image: "images1/UR3.png" },
-                    
-                    { id: "n_ss1", name: "【SSR】炫彩版・Jokic", rarity: "SSR", chance: 4.5, image: "images1/SSR1.png" },
-                    { id: "n_ss2", name: "【SSR】炫彩版・SGA", rarity: "SSR", chance: 4.5, image: "images1/SSR2.png" },
-                    
-                    { id: "n_s1", name: "【SR】特效版・字母哥", rarity: "SR", chance: 15.0, image: "images1/SR1.png" },
-                    
-                    { id: "n_r1", name: "【R】小丑皇・Nikola Jokić", rarity: "R", chance: 6.0, image: "images1/R1.png" },
-                    { id: "n_r2", name: "【R】新雷帝・SGA", rarity: "R", chance: 6.0, image: "images1/R2.png" },
-                    { id: "n_r3", name: "【R】字母哥・Giannis", rarity: "R", chance: 6.0, image: "images1/R3.png" },
-                    { id: "n_r4", name: "【R】亞洲統神", rarity: "R", chance: 6.0, image: "images1/R4.png" },
-                    
-                    { id: "n_n1", name: "【N】國動", rarity: "N", chance: 7.0, image: "images1/N6.png", synthTarget: "n_sp1" },
-                    { id: "n_n2", name: "【N】閃電鳥", rarity: "N", chance: 7.0, image: "images1/N1.jpg", synthTarget: "n_sp1" },
-                    { id: "n_n3", name: "【N】風速狗", rarity: "N", chance: 7.0, image: "images1/N2.jpg", synthTarget: "n_sp1" },
-                    { id: "n_n4", name: "【N】狗仔包", rarity: "N", chance: 7.0, image: "images1/N3.jpg", synthTarget: "n_sp1" },
-                    { id: "n_n5", name: "【N】新葉喵", rarity: "N", chance: 7.0, image: "images1/N4.jpg", synthTarget: "n_sp1" },
-                    { id: "n_n6", name: "【N】炭小侍", rarity: "N", chance: 7.0, image: "images1/N5.jpg", synthTarget: "n_sp1" },
-                    { id: "n_n7", name: "【N】古月鳥", rarity: "N", chance: 7.0, image: "images1/N6.jpg", synthTarget: "n_sp1" }
+                    { id: "n_sp1", name: "【SP】歷史・WBC臺灣首勝韓國", rarity: "SP", chance: 0, image: "images/SP1.png" },
+                    { id: "n_u1", name: "【UR】特典版・Jokić", rarity: "UR", chance: 1.0, image: "images/UR1.png" },
+                    { id: "n_u2", name: "【UR】特典版・SGA", rarity: "UR", chance: 1.0, image: "images/UR1.png" }, 
+                    { id: "n_u3", name: "【UR】期間限定・多賢", rarity: "UR", chance: 1.0, image: "images/UR3.png" },
+                    { id: "n_ss1", name: "【SSR】炫彩版・Jokic", rarity: "SSR", chance: 4.5, image: "images/SSR1.png" },
+                    { id: "n_ss2", name: "【SSR】炫彩版・SGA", rarity: "SSR", chance: 4.5, image: "images/SSR2.png" },
+                    { id: "n_s1", name: "【SR】特效版・字母哥", rarity: "SR", chance: 15.0, image: "images/SR1.png" },
+                    { id: "n_r1", name: "【R】小丑皇・Nikola Jokić", rarity: "R", chance: 6.0, image: "images/R1.png" },
+                    { id: "n_r2", name: "【R】新雷帝・SGA", rarity: "R", chance: 6.0, image: "images/R2.png" },
+                    { id: "n_r3", name: "【R】字母哥・Giannis", rarity: "R", chance: 6.0, image: "images/R3.png" },
+                    { id: "n_r4", name: "【R】亞洲統神", rarity: "R", chance: 6.0, image: "images/R4.png" },
+                    { id: "n_n1", name: "【N】國動", rarity: "N", chance: 7.0, image: "images/R5.png", synthTarget: "n_sp1" },
+                    { id: "n_n2", name: "【N】閃電鳥", rarity: "N", chance: 7.0, image: "images/N1.jpg", synthTarget: "n_sp1" },
+                    { id: "n_n3", name: "【N】風速狗", rarity: "N", chance: 7.0, image: "images/N2.jpg", synthTarget: "n_sp1" },
+                    { id: "n_n4", name: "【N】狗仔包", rarity: "N", chance: 7.0, image: "images/N3.jpg", synthTarget: "n_sp1" },
+                    { id: "n_n5", name: "【N】新葉喵", rarity: "N", chance: 7.0, image: "images/N4.jpg", synthTarget: "n_sp1" },
+                    { id: "n_n6", name: "【N】炭小侍", rarity: "N", chance: 7.0, image: "images/N5.jpg", synthTarget: "n_sp1" },
+                    { id: "n_n7", name: "【N】古月鳥", rarity: "N", chance: 7.0, image: "images/N6.jpg", synthTarget: "n_sp1" }
                 ]
             },
             "phase3": {
@@ -310,7 +298,7 @@
             }
         };
 
-       // ==========================================
+        // ==========================================
         // 教師設定區：電子學全冊總複習 (45題魔王版) + 指定娛樂穿插
         // ==========================================
         const quizData = {
@@ -1215,6 +1203,7 @@
             }
         };
 
+
         // ==========================================
         // 系統變數與遊戲邏輯
         // ==========================================
@@ -1231,16 +1220,19 @@
         let rescueFails = 0;
         let isTransitioning = false; 
         
-        // 🚨 修正預設卡包對應正確的 Key
-        let currentPackId = "phase1"; 
-	const scriptURL = 'https://script.google.com/macros/s/AKfycbwQnum1bAGvOb-dv5hL08S0pzMB93_gN0ZmoqCQtUjKFYOT-vs8Df0iTT6OMpx_sb6pjg/exec';
+        // 🚨 預設卡包改為第二階段 (phase2)
+        let currentPackId = "phase2"; 
 
-        // 初始化卡包選單 (立即執行，不依賴 window.onload 以防某些平台吃掉事件)
+        // 確保網頁載入完成後才執行選單初始化
+        document.addEventListener('DOMContentLoaded', () => {
+            initPackSelector();
+        });
+
         function initPackSelector() {
             const selector = document.getElementById('pack-selector');
+            if (!selector) return;
             selector.innerHTML = '';
             Object.keys(cardPacks).forEach(key => {
-                // 如果卡包裡面沒有卡片，就不顯示該選項
                 if (cardPacks[key].cards.length > 0) {
                     const div = document.createElement('div');
                     div.className = `pack-option ${key === currentPackId ? 'active' : ''}`;
@@ -1250,7 +1242,6 @@
                 }
             });
         }
-        initPackSelector();
 
         function selectPack(packId, el) {
             currentPackId = packId;
@@ -1519,7 +1510,6 @@
         function drawCard() {
             const cardObj = document.getElementById('revealed-card');
             
-            // 安全性防呆：確保所選卡包存在
             if (!cardPacks[currentPackId]) currentPackId = "phase1";
             
             let currentPool = cardPacks[currentPackId].cards;
@@ -1578,6 +1568,7 @@
         }
 
         function sendDataToSheet(name, hp, time, rescueT, rescueF, errorCount, errorDetails, cards) {
+            if(!scriptURL) return;
             let formData = new URLSearchParams();
             formData.append('name', name);
             formData.append('hp', hp);
@@ -1591,7 +1582,7 @@
             let storageKey = "gachaCollection_" + name;
             let fullCollection = localStorage.getItem(storageKey) || "[]";
             formData.append('fullCollection', fullCollection);
-            fetch(scriptURL, { method: 'POST', body: formData });
+            fetch(scriptURL, { method: 'POST', body: formData }).catch(e=>console.log(e));
         }
 
         async function syncCloudData() {
