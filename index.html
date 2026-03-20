@@ -303,906 +303,906 @@
         };
 
 // ==========================================
-        // 教師設定區：數位邏輯全冊總複習 (45題魔王版) + 8.3Km 路跑知識
+        // 教師設定區：統測英文單字總複習 (45題魔王版) + 時事英文
         // ==========================================
         const quizData = {
-            // --- 第 1 關：數字系統 ---
+            // --- 第 1 關：科技與 AI ---
             "q1": {
-                tag: "第 1 關：數字系統",
-                text: "將二進位數 (1011.01)₂ 轉換為十進位數，其值為多少？",
+                tag: "第 1 關：科技與 AI",
+                text: "ChatGPT 等「生成式」人工智慧正在改變世界。請問「人工的、人造的」英文是？",
                 options: [
-                    { text: "A. 11.25", next: "q2", isCorrect: true },
-                    { text: "B. 11.5", next: "q1_help", log: "Q1錯: 小數點後第一位是 0.5，第二位是 0.25" },
-                    { text: "C. 13.25", next: "q1_help", log: "Q1錯: 整數部分算錯" },
-                    { text: "D. 10.25", next: "q1_help", log: "Q1錯: 8+2+1=11" }
+                    { text: "A. artificial", next: "q2", isCorrect: true },
+                    { text: "B. authentic", next: "q1_help", log: "Q1錯: authentic 是「真實的、道地的」" },
+                    { text: "C. automatic", next: "q1_help", log: "Q1錯: automatic 是「自動的」，不是人工的" },
+                    { text: "D. artistic", next: "q1_help", log: "Q1錯: artistic 是「藝術的」" }
                 ]
             },
             "q1_help": {
-                tag: "💊 救援任務：權重展開法",
-                text: "知識拆解：整數部分 1011 = 8 + 0 + 2 + 1 = 11。小數點後第一位權重是 0.5，第二位是 0.25。所以 0.01 代表 0 + 0.25。加起來是多少？",
+                tag: "💊 救援任務：字首拆解",
+                text: "知識拆解：AI 的 A 就是這個字。字首 art- 有「技巧、人為」的意思（如藝術 art）。非天然的、由人類技巧製造出來的，英文是？",
                 options: [
-                    { text: "A. 11.25", next: "q1", isCorrect: true },
-                    { text: "B. 11.5", next: "q1_help", log: "Q1救錯: 小數點後第一位是 0，沒有 0.5 喔！" }
+                    { text: "A. artificial", next: "q1", isCorrect: true },
+                    { text: "B. automatic", next: "q1_help", log: "Q1救錯: auto- 是「自己」，所以 automatic 是自動的喔！" }
                 ]
             },
 
-            // --- 第 2 關：補數 ---
+            // --- 第 2 關：科技與 AI ---
             "q2": {
-                tag: "第 2 關：數字系統",
-                text: "在 8 位元系統中，十進位數 -13 的「二補數 (2's complement)」表示法為何？",
+                tag: "第 2 關：科技與 AI",
+                text: "生成式 AI 可以「產生、產出」文章和圖片。請問「產生、發電」的動詞是？",
                 options: [
-                    { text: "A. 11110011", next: "q3", isCorrect: true },
-                    { text: "B. 10001101", next: "q2_help", log: "Q2錯: 這是符號與大小表示法" },
-                    { text: "C. 11110010", next: "q2_help", log: "Q2錯: 這是 1 的補數" },
-                    { text: "D. 00001101", next: "q2_help", log: "Q2錯: 這是正 13" }
+                    { text: "A. generate", next: "q3", isCorrect: true },
+                    { text: "B. generalize", next: "q2_help", log: "Q2錯: generalize 是「概括、歸納」" },
+                    { text: "C. graduate", next: "q2_help", log: "Q2錯: graduate 是「畢業」" },
+                    { text: "D. guarantee", next: "q2_help", log: "Q2錯: guarantee 是「保證」" }
                 ]
             },
             "q2_help": {
-                tag: "💊 救援任務：反相再加一",
-                text: "知識拆解：先寫出 +13 也就是 00001101。接著全部反相(0變1、1變0)得到 11110010。最後尾巴再加 1，就會變成？",
+                tag: "💊 救援任務：字根基因",
+                text: "知識拆解：字根 gen- 有「出生、產生」的意思（如基因 gene、世代 generation）。產生出東西的動詞是？",
                 options: [
-                    { text: "A. 11110011", next: "q2", isCorrect: true },
-                    { text: "B. 11110010", next: "q2_help", log: "Q2救錯: 這是 1 的補數，還少加了 1 喔！" }
+                    { text: "A. generate", next: "q2", isCorrect: true },
+                    { text: "B. guarantee", next: "q2_help", log: "Q2救錯: guarantee 是保證，跟產生沒有關係喔！" }
                 ]
             },
 
-            // --- 第 3 關：葛雷碼 ---
+            // --- 第 3 關：科技與 AI ---
             "q3": {
-                tag: "第 3 關：數位編碼",
-                text: "哪一種編碼在相鄰的兩個數值之間，永遠只有「一個位元」發生改變，因此常被用於光學編碼器或卡諾圖中以減少錯誤？",
+                tag: "第 3 關：科技與 AI",
+                text: "社群媒體的「演算法」會決定你看到哪些貼文。請問「演算法」的英文是？",
                 options: [
-                    { text: "A. 葛雷碼 (Gray Code)", next: "q4", isCorrect: true },
-                    { text: "B. BCD 碼", next: "q3_help", log: "Q3錯: BCD 碼是二進位編碼十進位" },
-                    { text: "C. ASCII 碼", next: "q3_help", log: "Q3錯: 這是文字編碼" },
-                    { text: "D. 超三碼 (Excess-3)", next: "q3_help", log: "Q3錯: 這是無加權碼" }
+                    { text: "A. algorithm", next: "q4", isCorrect: true },
+                    { text: "B. rhythm", next: "q3_help", log: "Q3錯: rhythm 是「節奏」" },
+                    { text: "C. arithmetic", next: "q3_help", log: "Q3錯: arithmetic 是「算術」" },
+                    { text: "D. algebra", next: "q3_help", log: "Q3錯: algebra 是「代數」" }
                 ]
             },
             "q3_help": {
-                tag: "💊 救援任務：防錯的密碼",
-                text: "知識拆解：為了怕機器讀錯，這種密碼規定每次跳下一號時，只能有一個開關改變狀態（例如 00 變 01，再變 11）。這是有名的什麼碼？",
+                tag: "💊 救援任務：科技常見字",
+                text: "知識拆解：這個字常在 YouTube 或 IG 討論中出現。它指的是電腦運算的邏輯規則。開頭是 algo-。",
                 options: [
-                    { text: "A. 葛雷碼", next: "q3", isCorrect: true },
-                    { text: "B. ASCII 碼", next: "q3_help", log: "Q3救錯: ASCII 是鍵盤打字在用的字元碼啦！" }
+                    { text: "A. algorithm", next: "q3", isCorrect: true },
+                    { text: "B. rhythm", next: "q3_help", log: "Q3救錯: rhythm 是音樂的節奏喔！" }
                 ]
             },
 
-            // --- 第 4 關：邏輯閘 ---
+            // --- 第 4 關：科技與 AI ---
             "q4": {
-                tag: "第 4 關：基本邏輯閘",
-                text: "當輸入 A 與 B 的狀態「不同」時，輸出才為 1；若狀態「相同」時，輸出為 0。這是哪一種邏輯閘的特性？",
+                tag: "第 4 關：科技與 AI",
+                text: "現在很多活動都改為線上舉行。VR 設備中的 V 代表「虛擬的」，英文是？",
                 options: [
-                    { text: "A. XOR 閘 (互斥或閘)", next: "q5", isCorrect: true },
-                    { text: "B. XNOR 閘 (反互斥或閘)", next: "q4_help", log: "Q4錯: XNOR 是相同才輸出 1 (同或閘)" },
-                    { text: "C. NAND 閘", next: "q4_help", log: "Q4錯: 有 0 即 1" },
-                    { text: "D. NOR 閘", next: "q4_help", log: "Q4錯: 有 1 即 0" }
+                    { text: "A. virtual", next: "q5", isCorrect: true },
+                    { text: "B. visual", next: "q4_help", log: "Q4錯: visual 是「視覺的」" },
+                    { text: "C. vital", next: "q4_help", log: "Q4錯: vital 是「極其重要的」" },
+                    { text: "D. viral", next: "q4_help", log: "Q4錯: viral 是「病毒式的、爆紅的」" }
                 ]
             },
             "q4_help": {
-                tag: "💊 救援任務：相異為真",
-                text: "知識拆解：「互斥」的意思就是我們兩個不一樣！你 0 我 1，或者你 1 我 0 的時候，輸出才會是 1。這個邏輯閘叫？",
+                tag: "💊 救援任務：易混淆字",
+                text: "知識拆解：VR 全名是 Virtual Reality (虛擬實境)。visual 是視覺的，viral 是爆紅的。要選有 virt- 開頭的！",
                 options: [
-                    { text: "A. XOR 閘", next: "q4", isCorrect: true },
-                    { text: "B. XNOR 閘", next: "q4_help", log: "Q4救錯: XNOR 多了個 N，變成「相同才為真」喔！" }
+                    { text: "A. virtual", next: "q4", isCorrect: true },
+                    { text: "B. visual", next: "q4_help", log: "Q4救錯: visual 是視力的、視覺的，不是虛擬喔！" }
                 ]
             },
 
-            // --- 第 5 關：萬用閘 ---
+            // --- 第 5 關：科技與 AI ---
             "q5": {
-                tag: "第 5 關：基本邏輯閘",
-                text: "在數位邏輯中，有兩種邏輯閘被稱為「萬用閘 (Universal Gates)」，因為只要單獨使用其中一種，就能兜出所有的邏輯運算。請問是哪兩種？",
+                tag: "第 5 關：科技與 AI",
+                text: "使用網路服務時要注意保護個人「隱私」。請問隱私的英文名詞是？",
                 options: [
-                    { text: "A. NAND 閘 與 NOR 閘", next: "q6", isCorrect: true },
-                    { text: "B. AND 閘 與 OR 閘", next: "q5_help", log: "Q5錯: 這兩個無法兜出 NOT 功能" },
-                    { text: "C. XOR 閘 與 XNOR 閘", next: "q5_help", log: "Q5錯: 這無法組成全部基本閘" },
-                    { text: "D. AND 閘 與 NOT 閘", next: "q5_help", log: "Q5錯: 雖然可以組合，但本身是兩種閘" }
+                    { text: "A. privacy", next: "q6", isCorrect: true },
+                    { text: "B. policy", next: "q5_help", log: "Q5錯: policy 是「政策」" },
+                    { text: "C. privilege", next: "q5_help", log: "Q5錯: privilege 是「特權」" },
+                    { text: "D. property", next: "q5_help", log: "Q5錯: property 是「財產」" }
                 ]
             },
             "q5_help": {
-                tag: "💊 救援任務：自帶反相的王者",
-                text: "知識拆解：要成為萬用閘，它自己必須自帶「反相(NOT)」的功能，這樣只要把輸入端綁在一起就能當 NOT 閘用。所以一定是 N 開頭的兩種閘！",
+                tag: "💊 救援任務：私人的名詞",
+                text: "知識拆解：形容詞 private 是「私人的」，把結尾改成 -cy 就會變成名詞「隱私」。",
                 options: [
-                    { text: "A. NAND 與 NOR", next: "q5", isCorrect: true },
-                    { text: "B. AND 與 OR", next: "q5_help", log: "Q5救錯: 沒有反相小圓圈，變不出 NOT 閘啦！" }
+                    { text: "A. privacy", next: "q5", isCorrect: true },
+                    { text: "B. policy", next: "q5_help", log: "Q5救錯: policy 是政策 (如隱私權政策 privacy policy)。" }
                 ]
             },
 
-            // --- 第 6 關：第摩根定理 ---
+            // --- 第 6 關：經濟時事 ---
             "q6": {
-                tag: "第 6 關：布林代數",
-                text: "根據「第摩根定理 (DeMorgan's Law)」，請問 (A + B)' 展開後等於什麼？",
+                tag: "第 6 關：經濟時事",
+                text: "近年來物價持續上漲，這種「通貨膨脹」現象讓大家錢包縮水。請問通膨的英文是？",
                 options: [
-                    { text: "A. A' · B'", next: "q7", isCorrect: true },
-                    { text: "B. A' + B'", next: "q6_help", log: "Q6錯: 符號要變號" },
-                    { text: "C. A · B", next: "q6_help", log: "Q6錯: 變數要反相" },
-                    { text: "D. A' + B", next: "q6_help", log: "Q6錯: B 也要反相" }
+                    { text: "A. inflation", next: "q7", isCorrect: true },
+                    { text: "B. infection", next: "q6_help", log: "Q6錯: infection 是「感染」" },
+                    { text: "C. influence", next: "q6_help", log: "Q6錯: influence 是「影響」" },
+                    { text: "D. investment", next: "q6_help", log: "Q6錯: investment 是「投資」" }
                 ]
             },
             "q6_help": {
-                tag: "💊 救援任務：斬斷長條，變換符號",
-                text: "知識拆解：第摩根定理口訣：「長條斬斷，符號變換」。把上面的長霸斬斷分給 A 跟 B (變成 A' 和 B')，中間的加號 (+) 就要翻轉變成乘號 (·)！",
+                tag: "💊 救援任務：字首拆解",
+                text: "知識拆解：字首 in- (進入) + flat- (吹氣，如打氣筒 inflate)。把氣吹進去讓物價膨脹起來，名詞是？",
                 options: [
-                    { text: "A. A' · B'", next: "q6", isCorrect: true },
-                    { text: "B. A' + B'", next: "q6_help", log: "Q6救錯: 斬斷之後，中間的加號也要記得變號喔！" }
+                    { text: "A. inflation", next: "q6", isCorrect: true },
+                    { text: "B. infection", next: "q6_help", log: "Q6救錯: infection 是生病感染，不是物價上漲喔！" }
                 ]
             },
 
-            // --- 第 7 關：布林簡化 ---
+            // --- 第 7 關：經濟時事 ---
             "q7": {
-                tag: "第 7 關：布林代數",
-                text: "布林代數基本化簡：方程式 Y = A + A'B 可以化簡為何？",
+                tag: "第 7 關：經濟時事",
+                text: "房價太高，許多年輕人找不到「負擔得起的」住房。請問「負擔得起的」英文是？",
                 options: [
-                    { text: "A. A + B", next: "q8", isCorrect: true },
-                    { text: "B. A", next: "q7_help", log: "Q7錯: B 不會消失" },
-                    { text: "C. B", next: "q7_help", log: "Q7錯: A 不會消失" },
-                    { text: "D. 1", next: "q7_help", log: "Q7錯: 不是恆為真" }
+                    { text: "A. affordable", next: "q8", isCorrect: true },
+                    { text: "B. adorable", next: "q7_help", log: "Q7錯: adorable 是「可愛的」" },
+                    { text: "C. adaptable", next: "q7_help", log: "Q7錯: adaptable 是「能適應的」" },
+                    { text: "D. available", next: "q7_help", log: "Q7錯: available 是「可獲得的、有空的」" }
                 ]
             },
             "q7_help": {
-                tag: "💊 救援任務：分配律的妙用",
-                text: "知識拆解：利用分配律展開：A + A'B = (A + A')(A + B)。因為 A + A' 永遠等於 1，所以最後只剩下什麼？",
+                tag: "💊 救援任務：動詞轉形容詞",
+                text: "知識拆解：動詞 afford 是「買得起、負擔得起」。加上字尾 -able (可以...的) 就變成形容詞了。",
                 options: [
-                    { text: "A. A + B", next: "q7", isCorrect: true },
-                    { text: "B. 1", next: "q7_help", log: "Q7救錯: (A+A')是 1，但它還要乘上後面的括號啊！" }
+                    { text: "A. affordable", next: "q7", isCorrect: true },
+                    { text: "B. available", next: "q7_help", log: "Q7救錯: available 是有庫存、買得到，但不一定便宜喔！" }
                 ]
             },
 
-            // --- 第 8 關：卡諾圖 ---
+            // --- 第 8 關：經濟時事 ---
             "q8": {
-                tag: "第 8 關：卡諾圖化簡",
-                text: "使用卡諾圖 (Karnaugh Map) 進行邏輯化簡時，圈選 1 的數量必須是 2 的幾次方。若我們圈選了一個「包含 4 個 1 的方塊」，可以消去幾個變數？",
+                tag: "第 8 關：經濟時事",
+                text: "為了刺激經濟，政府發放了許多「補助金、津貼」。請問這個字的英文是？",
                 options: [
-                    { text: "A. 2 個變數", next: "q9", isCorrect: true },
-                    { text: "B. 1 個變數", next: "q8_help", log: "Q8錯: 圈 2 個才能消去 1 個變數" },
-                    { text: "C. 3 個變數", next: "q8_help", log: "Q8錯: 圈 8 個才能消去 3 個變數" },
-                    { text: "D. 4 個變數", next: "q8_help", log: "Q8錯: 圈 16 個才能消去 4 個變數" }
+                    { text: "A. subsidy", next: "q9", isCorrect: true },
+                    { text: "B. substitute", next: "q8_help", log: "Q8錯: substitute 是「替代品」" },
+                    { text: "C. salary", next: "q8_help", log: "Q8錯: salary 是「薪水」" },
+                    { text: "D. penalty", next: "q8_help", log: "Q8錯: penalty 是「罰款、處罰」" }
                 ]
             },
             "q8_help": {
-                tag: "💊 救援任務：2的次方規律",
-                text: "知識拆解：圈 2 個消 1 個，圈 4 個消 2 個，圈 8 個消 3 個。所以包住 4 格 (2的2次方) 可以殺掉幾個變數？",
+                tag: "💊 救援任務：字首拆解",
+                text: "知識拆解：字首 sub- 有「在下面、從下面支援」的意思。從下面給予金錢支援的「津貼」是？",
                 options: [
-                    { text: "A. 2 個變數", next: "q8", isCorrect: true },
-                    { text: "B. 1 個變數", next: "q8_help", log: "Q8救錯: 圈 2 個 1 的時候才只能消掉 1 個變數喔！" }
+                    { text: "A. subsidy", next: "q8", isCorrect: true },
+                    { text: "B. penalty", next: "q8_help", log: "Q8救錯: penalty 是做錯事被罰錢，跟補助剛好相反！" }
                 ]
             },
 
-            // --- 第 9 關：半加法器 ---
+            // --- 第 9 關：經濟時事 ---
             "q9": {
-                tag: "第 9 關：組合邏輯",
-                text: "「半加法器 (Half Adder)」用來計算兩個位元 (A, B) 的相加。它的總和 (Sum) 輸出與進位 (Carry) 輸出，分別是由哪兩個邏輯閘構成？",
+                tag: "第 9 關：經濟時事",
+                text: "因為戰爭與氣候變遷，許多國家正面臨嚴重的糧食「危機」。請問危機的英文是？",
                 options: [
-                    { text: "A. Sum 用 XOR，Carry 用 AND", next: "q10", isCorrect: true },
-                    { text: "B. Sum 用 OR，Carry 用 AND", next: "q9_help", log: "Q9錯: 1+1 時 OR 會給 1，但總和應該是 0" },
-                    { text: "C. Sum 用 AND，Carry 用 XOR", next: "q9_help", log: "Q9錯: 完全相反了" },
-                    { text: "D. Sum 用 XOR，Carry 用 OR", next: "q9_help", log: "Q9錯: Carry 要兩者皆為 1 才會進位" }
+                    { text: "A. crisis", next: "q10", isCorrect: true },
+                    { text: "B. critic", next: "q9_help", log: "Q9錯: critic 是「評論家」" },
+                    { text: "C. credit", next: "q9_help", log: "Q9錯: credit 是「信用」" },
+                    { text: "D. crime", next: "q9_help", log: "Q9錯: crime 是「犯罪」" }
                 ]
             },
             "q9_help": {
-                tag: "💊 救援任務：加法的真值",
-                text: "知識拆解：1+0=1, 0+1=1，但 1+1 時總和(Sum)會變 0 (相異為1)，所以是 XOR。而進位(Carry)只有在 1+1 時才會發生(兩者皆為1)，所以是 AND。",
+                tag: "💊 救援任務：時事常見字",
+                text: "知識拆解：經濟危機 (economic crisis)、能源危機 (energy crisis) 都是這個字。注意它的複數形是不規則的 crises。",
                 options: [
-                    { text: "A. Sum用 XOR，Carry用 AND", next: "q9", isCorrect: true },
-                    { text: "B. Sum用 OR，Carry用 AND", next: "q9_help", log: "Q9救錯: 1加1的總和是0，OR 閘會給你 1，算錯啦！" }
+                    { text: "A. crisis", next: "q9", isCorrect: true },
+                    { text: "B. crime", next: "q9_help", log: "Q9救錯: crime 是犯罪行為，不是大環境的危機喔！" }
                 ]
             },
 
-            // 🏃 第 10 關：路跑配速
+            // --- 第 10 關：經濟時事 ---
             "q10": {
-                tag: "🏃 第 10 關：大腦休息 (路跑)",
-                text: "休息一下，來點運動知識！如果你報名了一場 8.3Km 的路跑，打算用「6分速」穩穩跑完。這代表你跑 1 公里需要 6 分鐘。請問你大約會花多少時間完賽？",
+                tag: "第 10 關：經濟時事",
+                text: "政府希望能藉由發放消費券來「促進、提升」國內消費。請問「促進、推動」的動詞是？",
                 options: [
-                    { text: "A. 大約 50 分鐘", next: "q11", isCorrect: true },
-                    { text: "B. 大約 30 分鐘", next: "q10_help", log: "Q10錯: 這要跑到 3.5 分速了，是國手等級" },
-                    { text: "C. 大約 70 分鐘", next: "q10_help", log: "Q10錯: 這是 8 分半速" },
-                    { text: "D. 大約 90 分鐘", next: "q10_help", log: "Q10錯: 這是慢慢走的時長" }
+                    { text: "A. boost", next: "q11", isCorrect: true },
+                    { text: "B. boast", next: "q10_help", log: "Q10錯: boast 是「自誇、吹噓」" },
+                    { text: "C. boot", next: "q10_help", log: "Q10錯: boot 是「靴子、開機」" },
+                    { text: "D. block", next: "q10_help", log: "Q10錯: block 是「阻擋」" }
                 ]
             },
             "q10_help": {
-                tag: "💊 提示：簡單乘法",
-                text: "知識拆解：1 公里 6 分鐘，8.3 公里就是 8.3 × 6 = 49.8。四捨五入大約是幾分鐘？",
+                tag: "💊 救援任務：易混淆字",
+                text: "知識拆解：打遊戲時常吃到「加速器」讓車子暴衝，那個字就是 boost。boast (有 a) 則是愛吹牛。",
                 options: [
-                    { text: "A. 大約 50 分鐘", next: "q10", isCorrect: true },
-                    { text: "B. 大約 30 分鐘", next: "q10_help", log: "Q10救錯: 30 分鐘跑完 8.3K 你會飛起來吧！" }
+                    { text: "A. boost", next: "q10", isCorrect: true },
+                    { text: "B. boast", next: "q10_help", log: "Q10救錯: boast 是自誇，不要跟促進搞混了！" }
                 ]
             },
 
-            // --- 第 11 關：全加法器 ---
+            // --- 第 11 關：環境 ESG ---
             "q11": {
-                tag: "第 11 關：組合邏輯",
-                text: "全加法器 (Full Adder) 可以處理前一個位元的進位。請問一個全加法器共有幾個輸入端？幾個輸出端？",
+                tag: "第 11 關：環境與永續",
+                text: "企業現在非常重視 ESG，其中強調企業發展必須是「永續的」。請問「永續的」英文是？",
                 options: [
-                    { text: "A. 3 個輸入，2 個輸出", next: "q12", isCorrect: true },
-                    { text: "B. 2 個輸入，2 個輸出", next: "q11_help", log: "Q11錯: 這是半加法器" },
-                    { text: "C. 3 個輸入，3 個輸出", next: "q11_help", log: "Q11錯: 輸出只有 Sum 和 Carry" },
-                    { text: "D. 2 個輸入，1 個輸出", next: "q11_help", log: "Q11錯: 這是基本的邏輯閘" }
+                    { text: "A. sustainable", next: "q12", isCorrect: true },
+                    { text: "B. suitable", next: "q11_help", log: "Q11錯: suitable 是「適合的」" },
+                    { text: "C. suspicious", next: "q11_help", log: "Q11錯: suspicious 是「可疑的」" },
+                    { text: "D. superficial", next: "q11_help", log: "Q11錯: superficial 是「表面的」" }
                 ]
             },
             "q11_help": {
-                tag: "💊 救援任務：加法的完全體",
-                text: "知識拆解：全加法器要算本位的 A、B，還要加上低位傳來的進位(Cin)，所以有 3 個輸入。算完後會產生本位總和(Sum)與給下一位的進位(Cout)，所以有 2 個輸出。",
+                tag: "💊 救援任務：字首拆解",
+                text: "知識拆解：動詞 sustain 意思是「維持、支撐」。加上 -able 變成「可以長久維持下去的」，也就是永續的。",
                 options: [
-                    { text: "A. 3 個輸入，2 個輸出", next: "q11", isCorrect: true },
-                    { text: "B. 2 個輸入，2 個輸出", next: "q11_help", log: "Q11救錯: 只有 2 個輸入的是半加法器啦！" }
+                    { text: "A. sustainable", next: "q11", isCorrect: true },
+                    { text: "B. suitable", next: "q11_help", log: "Q11救錯: suitable 只是適合，sustainable 才是永續發展喔！" }
                 ]
             },
 
-            // --- 第 12 關：解碼器 ---
+            // --- 第 12 關：環境 ESG ---
             "q12": {
-                tag: "第 12 關：解碼器",
-                text: "解碼器 (Decoder) 能將二進位的輸入碼轉換成唯一的對應輸出腳。若一個解碼器有 3 個輸入端，它最多會有幾個輸出端？",
+                tag: "第 12 關：環境與永續",
+                text: "為了減緩全球暖化，各國承諾要減少溫室氣體的「排放」。請問排放(物)的英文是？",
                 options: [
-                    { text: "A. 8 個", next: "q13", isCorrect: true },
-                    { text: "B. 3 個", next: "q12_help", log: "Q12錯: 這是輸入端數量" },
-                    { text: "C. 4 個", next: "q12_help", log: "Q12錯: 這是 2 對 4 解碼器" },
-                    { text: "D. 16 個", next: "q12_help", log: "Q12錯: 這需要 4 個輸入端" }
+                    { text: "A. emission", next: "q13", isCorrect: true },
+                    { text: "B. emotion", next: "q12_help", log: "Q12錯: emotion 是「情緒」" },
+                    { text: "C. mission", next: "q12_help", log: "Q12錯: mission 是「任務」" },
+                    { text: "D. omission", next: "q12_help", log: "Q12錯: omission 是「省略、遺漏」" }
                 ]
             },
             "q12_help": {
-                tag: "💊 救援任務：二的N次方",
-                text: "知識拆解：解碼器是 n 對 2ⁿ。3 條輸入線可以組合出 000 到 111 共幾種狀態？ 2³ 等於多少？",
+                tag: "💊 救援任務：字根拆解",
+                text: "知識拆解：動詞 emit (發出、散發)，名詞字尾變成 -ssion。零碳排就是 zero emissions。",
                 options: [
-                    { text: "A. 8 個", next: "q12", isCorrect: true },
-                    { text: "B. 4 個", next: "q12_help", log: "Q12救錯: 2的3次方是 8 喔！" }
+                    { text: "A. emission", next: "q12", isCorrect: true },
+                    { text: "B. emotion", next: "q12_help", log: "Q12救錯: emotion 裡面有 motion(動)，是情緒的意思喔！" }
                 ]
             },
 
-            // --- 第 13 關：編碼器 ---
+            // --- 第 13 關：環境 ESG ---
             "q13": {
-                tag: "第 13 關：編碼器",
-                text: "電腦鍵盤按下去時，系統要把 10 個數字鍵轉換成 BCD 碼給電腦看。這種將多個輸入轉換成較少二進位輸出的電路稱為？",
+                tag: "第 13 關：環境與永續",
+                text: "面對極端氣候，我們必須「保護、節約」水資源與森林。請問「節約、保護」的動詞是？",
                 options: [
-                    { text: "A. 編碼器 (Encoder)", next: "q14", isCorrect: true },
-                    { text: "B. 解碼器 (Decoder)", next: "q13_help", log: "Q13錯: 解碼是把機器碼變回人類看的" },
-                    { text: "C. 多工器 (Multiplexer)", next: "q13_help", log: "Q13錯: 多工器是資料選擇器" },
-                    { text: "D. 暫存器 (Register)", next: "q13_help", log: "Q13錯: 這是記憶元件" }
+                    { text: "A. conserve", next: "q14", isCorrect: true },
+                    { text: "B. observe", next: "q13_help", log: "Q13錯: observe 是「觀察」" },
+                    { text: "C. deserve", next: "q13_help", log: "Q13錯: deserve 是「應得」" },
+                    { text: "D. reserve", next: "q13_help", log: "Q13錯: reserve 是「預訂、保留」" }
                 ]
             },
             "q13_help": {
-                tag: "💊 救援任務：幫人類翻譯給機器",
-                text: "知識拆解：人類按下大大的「9」，電腦不懂 9，必須把它「編寫」成 1001 的二進位密碼。這個負責把十進位轉二進位的電路叫作？",
+                tag: "💊 救援任務：serve 家族",
+                text: "知識拆解：字首 con- (一起) + serve (保存)。把大自然的心血一起保存下來不浪費，就是節約/保育。",
                 options: [
-                    { text: "A. 編碼器 (Encoder)", next: "q13", isCorrect: true },
-                    { text: "B. 解碼器 (Decoder)", next: "q13_help", log: "Q13救錯: 解碼是倒過來，把密碼解開變成人類看的文字喔！" }
+                    { text: "A. conserve", next: "q13", isCorrect: true },
+                    { text: "B. reserve", next: "q13_help", log: "Q13救錯: reserve 通常指去餐廳「預訂」位子，conserve 才是節約能源！" }
                 ]
             },
 
-            // --- 第 14 關：多工器 ---
+            // --- 第 14 關：環境 ESG ---
             "q14": {
-                tag: "第 14 關：多工器 MUX",
-                text: "多工器 (Multiplexer, MUX) 被稱為「數位選接器」。若一個多工器有 8 條資料輸入線，請問它需要幾條「選擇線 (Select Lines)」來決定讓哪一條資料通過？",
+                tag: "第 14 關：環境與永續",
+                text: "發展風力、太陽能等「替代的」能源是減少碳排的關鍵。請問「替代的、另類的」英文是？",
                 options: [
-                    { text: "A. 3 條", next: "q15", isCorrect: true },
-                    { text: "B. 2 條", next: "q14_help", log: "Q14錯: 2 條只能選 4 個輸入" },
-                    { text: "C. 4 條", next: "q14_help", log: "Q14錯: 4 條可以選 16 個輸入" },
-                    { text: "D. 8 條", next: "q14_help", log: "Q14錯: 選擇線數量是取 log2" }
+                    { text: "A. alternative", next: "q15", isCorrect: true },
+                    { text: "B. attractive", next: "q14_help", log: "Q14錯: attractive 是「有吸引力的」" },
+                    { text: "C. aggressive", next: "q14_help", log: "Q14錯: aggressive 是「具攻擊性的」" },
+                    { text: "D. absolute", next: "q14_help", log: "Q14錯: absolute 是「絕對的」" }
                 ]
             },
             "q14_help": {
-                tag: "💊 救援任務：選台器的按鈕",
-                text: "知識拆解：多工器就像電視機選台器。你有 8 台可以選，選擇線就等於遙控器的二進位密碼。要表達出 8 種狀態，需要幾個位元(選擇線)？ 2的幾次方是 8？",
+                tag: "💊 救援任務：字首拆解",
+                text: "知識拆解：字首 alter- 有「改變、其他的」之意。alternative energy 就是不用石油，改用「其他的」能源。",
                 options: [
-                    { text: "A. 3 條", next: "q14", isCorrect: true },
-                    { text: "B. 4 條", next: "q14_help", log: "Q14救錯: 2 的 4 次方就變成 16 台了啦！" }
+                    { text: "A. alternative", next: "q14", isCorrect: true },
+                    { text: "B. attractive", next: "q14_help", log: "Q14救錯: attractive 是吸引人的，跟替代方案無關喔！" }
                 ]
             },
 
-            // --- 第 15 關：七段顯示器 ---
+            // --- 第 15 關：環境 ESG ---
             "q15": {
-                tag: "第 15 關：組合邏輯應用",
-                text: "在「共陰極 (Common Cathode)」的七段顯示器中，如果要讓某一個燈管發亮，我們必須給那個腳位輸入什麼訊號？",
+                tag: "第 15 關：環境與永續",
+                text: "塑膠垃圾對海洋生態造成了巨大的「衝擊、影響」。請問衝擊的英文是？",
                 options: [
-                    { text: "A. 高電位 (1)", next: "q16", isCorrect: true },
-                    { text: "B. 低電位 (0)", next: "q15_help", log: "Q15錯: 這是共陽極的點亮方式" },
-                    { text: "C. 高阻抗 (Z)", next: "q15_help", log: "Q15錯: 這樣不通電不會亮" },
-                    { text: "D. 負電壓", next: "q15_help", log: "Q15錯: 數位電路通常給正電壓" }
+                    { text: "A. impact", next: "q16", isCorrect: true },
+                    { text: "B. compact", next: "q15_help", log: "Q15錯: compact 是「緊湊的」" },
+                    { text: "C. contract", next: "q15_help", log: "Q15錯: contract 是「合約」" },
+                    { text: "D. contact", next: "q15_help", log: "Q15錯: contact 是「聯絡」" }
                 ]
             },
             "q15_help": {
-                tag: "💊 救援任務：電流的方向",
-                text: "知識拆解：共「陰」極代表所有 LED 的負極(接地)都綁在一起了。既然下面已經接地(0V)，上面就必須給予高電壓(1)，電流才能流過去發光！",
+                tag: "💊 救援任務：易混淆字",
+                text: "知識拆解：字首 im- (進入) + pact (壓/撞擊)。強大的力量撞擊進來，產生了巨大的「影響/衝擊」。",
                 options: [
-                    { text: "A. 高電位 (1)", next: "q15", isCorrect: true },
-                    { text: "B. 低電位 (0)", next: "q15_help", log: "Q15救錯: 大家都已經在低電位(陰)了，你再給低電位就沒有電壓差了！" }
+                    { text: "A. impact", next: "q15", isCorrect: true },
+                    { text: "B. contact", next: "q15_help", log: "Q15救錯: contact 是接觸聯絡 (如隱形眼鏡 contact lens)！" }
                 ]
             },
 
-            // --- 第 16 關：同位元檢查 ---
+            // --- 第 16 關：職場商用 ---
             "q16": {
-                tag: "第 16 關：錯誤偵測",
-                text: "數位傳輸時常會加上 1 個「同位元 (Parity Bit)」來檢查有沒有傳錯。在「偶同位 (Even Parity)」系統中，若資料為 1011001，我們加上的同位元應該是 0 還是 1？",
+                tag: "第 16 關：職場商用",
+                text: "畢業季到了，求職者必須準備一份吸引人的「履歷表」。請問履歷的英文是？",
                 options: [
-                    { text: "A. 0", next: "q17", isCorrect: true },
-                    { text: "B. 1", next: "q16_help", log: "Q16錯: 加上 1 總共會有 5 個 1，變成奇同位" },
-                    { text: "C. 視距離而定", next: "q16_help", log: "Q16錯: 同位元只跟資料中 1 的個數有關" },
-                    { text: "D. 可有可無", next: "q16_help", log: "Q16錯: 同位元必須精準設定" }
+                    { text: "A. resume", next: "q17", isCorrect: true },
+                    { text: "B. receipt", next: "q16_help", log: "Q16錯: receipt 是「收據」" },
+                    { text: "C. recipe", next: "q16_help", log: "Q16錯: recipe 是「食譜」" },
+                    { text: "D. result", next: "q16_help", log: "Q16錯: result 是「結果」" }
                 ]
             },
             "q16_help": {
-                tag: "💊 救援任務：湊成偶數",
-                text: "知識拆解：偶同位就是要讓整包資料加起來「1 的總數是偶數」。現在 1011001 裡面已經有 4 個 1 了。4 已經是偶數，所以我們不用再加 1 了，只要補上？",
+                tag: "💊 救援任務：發音陷阱",
+                text: "知識拆解：這個字當動詞念 re-ZUME 是「恢復」，但當名詞念 RE-su-may 時，就是求職必備的「履歷表」！",
                 options: [
-                    { text: "A. 0", next: "q16", isCorrect: true },
-                    { text: "B. 1", next: "q16_help", log: "Q16救錯: 再補 1 個上去就變 5 個 1，變成奇數了啦！" }
+                    { text: "A. resume", next: "q16", isCorrect: true },
+                    { text: "B. receipt", next: "q16_help", log: "Q16救錯: receipt 是你去超商買東西拿到的收據喔！" }
                 ]
             },
 
-            // --- 第 17 關：比較器設計 ---
+            // --- 第 17 關：職場商用 ---
             "q17": {
-                tag: "第 17 關：數位比較器",
-                text: "1 位元的數位比較器用來比較 A、B 兩數。當 A = B 時，輸出高電位 (1)。請問此功能可以由哪一種邏輯閘獨立實現？",
+                tag: "第 17 關：職場商用",
+                text: "在辦公室裡，要學會如何與「同事」保持良好的合作關係。請問同事的英文是？",
                 options: [
-                    { text: "A. XNOR 閘 (反互斥或閘)", next: "q18", isCorrect: true },
-                    { text: "B. XOR 閘", next: "q17_help", log: "Q17錯: 這是 A ≠ B 時才輸出 1" },
-                    { text: "C. AND 閘", next: "q17_help", log: "Q17錯: AND 只有 1=1 時為 1，0=0 時為 0" },
-                    { text: "D. OR 閘", next: "q17_help", log: "Q17錯: 只要有 1 就為 1" }
+                    { text: "A. colleague", next: "q18", isCorrect: true },
+                    { text: "B. college", next: "q17_help", log: "Q17錯: college 是「大學」" },
+                    { text: "C. client", next: "q17_help", log: "Q17錯: client 是「客戶」" },
+                    { text: "D. crew", next: "q17_help", log: "Q17錯: crew 是「全體工作人員(如機組員)」" }
                 ]
             },
             "q17_help": {
-                tag: "💊 救援任務：相同為真",
-                text: "知識拆解：「A=B」代表他們兩個完全一樣(00 或 11)。「相同才輸出 1」的邏輯閘，就是互斥或閘(XOR)加上反相(NOT)。也就是？",
+                tag: "💊 救援任務：易混淆字",
+                text: "知識拆解：長得很像大學(college)，但結尾是 -gue。字首 col- (一起) + league (聯盟)。一起結盟工作的人就是同事。",
                 options: [
-                    { text: "A. XNOR 閘", next: "q17", isCorrect: true },
-                    { text: "B. XOR 閘", next: "q17_help", log: "Q17救錯: XOR 叫做『互斥』，是不一樣才會輸出 1 喔！" }
+                    { text: "A. colleague", next: "q17", isCorrect: true },
+                    { text: "B. college", next: "q17_help", log: "Q17救錯: college 拼法較短，是大學的意思啦！" }
                 ]
             },
 
-            // --- 第 18 關：加法器與減法器 ---
+            // --- 第 18 關：職場商用 ---
             "q18": {
-                tag: "第 18 關：組合邏輯應用",
-                text: "在數位電路中，要將加法器變成「減法器 (A - B)」，我們通常會將被減數 B 轉換成二補數後再相加。實務上會用什麼邏輯閘加上控制訊號，來決定 B 要不要反相？",
+                tag: "第 18 關：職場商用",
+                text: "蘋果公司預計在下個月「推出、發表」最新款的手機。請問「推出(產品)」的動詞是？",
                 options: [
-                    { text: "A. XOR 閘", next: "q19", isCorrect: true },
-                    { text: "B. AND 閘", next: "q18_help", log: "Q18錯: AND 無法做受控反相" },
-                    { text: "C. OR 閘", next: "q18_help", log: "Q18錯: OR 無法做受控反相" },
-                    { text: "D. NOT 閘", next: "q18_help", log: "Q18錯: NOT 閘會永久反相，無法控制加減切換" }
+                    { text: "A. launch", next: "q19", isCorrect: true },
+                    { text: "B. lunch", next: "q18_help", log: "Q18錯: lunch 是「午餐」" },
+                    { text: "C. lounge", next: "q18_help", log: "Q18錯: lounge 是「休息室」" },
+                    { text: "D. laundry", next: "q18_help", log: "Q18錯: laundry 是「洗衣」" }
                 ]
             },
             "q18_help": {
-                tag: "💊 救援任務：可控的反相器",
-                text: "知識拆解：XOR 閘有個超強特性：當控制端為 0，B 原封不動過去(做加法)；當控制端為 1，B 就會反相變成 B'(做減法前置作業)。這顆神奇的閘是？",
+                tag: "💊 救援任務：火箭升空",
+                text: "知識拆解：這個字原本是指「發射火箭」或「船隻下水」。現在商業界用來比喻一個新產品「重磅發行、推出」。",
                 options: [
-                    { text: "A. XOR 閘", next: "q18", isCorrect: true },
-                    { text: "B. NOT 閘", next: "q18_help", log: "Q18救錯: NOT 閘永遠都是反的，這樣電路就只能做減法不能做加法了！" }
+                    { text: "A. launch", next: "q18", isCorrect: true },
+                    { text: "B. lunch", next: "q18_help", log: "Q18救錯: lunch 沒有 a，吃午餐不能發表手機啦！" }
                 ]
             },
 
-            // --- 第 19 關：循序與組合的差異 ---
+            // --- 第 19 關：職場商用 ---
             "q19": {
-                tag: "第 19 關：循序邏輯基礎",
-                text: "「循序邏輯電路 (Sequential Logic)」與「組合邏輯電路 (Combinational Logic)」最根本的差別，在於循序邏輯具備了什麼特性？",
+                tag: "第 19 關：職場商用",
+                text: "業務員必須具備良好的溝通技巧，才能成功與客戶「談判、協商」合約。請問談判的英文是？",
                 options: [
-                    { text: "A. 具有記憶功能 (有回授路徑)", next: "q20", isCorrect: true },
-                    { text: "B. 速度比較快", next: "q19_help", log: "Q19錯: 循序邏輯有記憶元件，速度通常受限於時脈" },
-                    { text: "C. 不需要電源", next: "q19_help", log: "Q19錯: 兩者皆需要電源" },
-                    { text: "D. 只能做加減法", next: "q19_help", log: "Q19錯: 這是組合邏輯(加法器)的任務" }
+                    { text: "A. negotiate", next: "q20", isCorrect: true },
+                    { text: "B. navigate", next: "q19_help", log: "Q19錯: navigate 是「導航」" },
+                    { text: "C. neglect", next: "q19_help", log: "Q19錯: neglect 是「忽視」" },
+                    { text: "D. notify", next: "q19_help", log: "Q19錯: notify 是「通知」" }
                 ]
             },
             "q19_help": {
-                tag: "💊 救援任務：記住過去",
-                text: "知識拆解：加法器算完就忘記了。但紅綠燈必須「記住」現在是綠燈，下一秒才知道要換黃燈。這種把輸出繞回輸入的電路，擁有了什麼功能？",
+                tag: "💊 救援任務：高頻商用字",
+                text: "知識拆解：多益跟統測必考單字！在會議桌上你來我往地討論價格跟條件，這個動作叫做 negotiate。",
                 options: [
-                    { text: "A. 記憶功能", next: "q19", isCorrect: true },
-                    { text: "B. 速度快", next: "q19_help", log: "Q19救錯: 多了記憶元件反而會讓時序變複雜喔！" }
+                    { text: "A. negotiate", next: "q19", isCorrect: true },
+                    { text: "B. navigate", next: "q19_help", log: "Q19救錯: navigate 是 Google Map 在做的事情(導航)喔！" }
                 ]
             },
 
-            // 🏃 第 20 關：路跑呼吸
+            // --- 第 20 關：職場商用 ---
             "q20": {
-                tag: "🏃 第 20 關：大腦休息 (路跑)",
-                text: "路跑知識補充！在跑 8.3Km 時，為了避免跑到一半岔氣肚子痛，教練通常會建議新手採用怎樣的「呼吸節奏」最能穩定供氧？",
+                tag: "第 20 關：職場商用",
+                text: "為了增加公司的市佔率，經理提出了一個全新的行銷「策略」。請問策略的英文是？",
                 options: [
-                    { text: "A. 兩吸兩吐 (吸吸-吐吐，配合腳步)", next: "q21", isCorrect: true },
-                    { text: "B. 全程憋氣衝刺", next: "q20_help", log: "Q20錯: 這樣會缺氧暈倒" },
-                    { text: "C. 嘴巴大口猛吸", next: "q20_help", log: "Q20錯: 容易口乾舌燥並吃進冷空氣" },
-                    { text: "D. 不規律喘氣", next: "q20_help", log: "Q20錯: 不規律容易打亂心率引發岔氣" }
+                    { text: "A. strategy", next: "q21", isCorrect: true },
+                    { text: "B. tragedy", next: "q20_help", log: "Q20錯: tragedy 是「悲劇」" },
+                    { text: "C. category", next: "q20_help", log: "Q20錯: category 是「種類」" },
+                    { text: "D. storage", next: "q20_help", log: "Q20錯: storage 是「儲存」" }
                 ]
             },
             "q20_help": {
-                tag: "💊 提示：節奏感是王道",
-                text: "長跑最講究規律。配合左右腳落地的節奏，鼻子深吸兩次，嘴巴穩穩吐出兩次，是最經典的長跑心法！",
+                tag: "💊 救援任務：統測常客",
+                text: "知識拆解：打電動常說的「戰略遊戲 (Strategy Game)」。在商場上，為了達成目標而規劃的長遠計畫就是 strategy。",
                 options: [
-                    { text: "A. 兩吸兩吐", next: "q20", isCorrect: true },
-                    { text: "B. 嘴巴大口猛吸", next: "q20_help", log: "Q20救錯: 這樣很快就會口乾舌燥，無法撐完 8.3 公里！" }
+                    { text: "A. strategy", next: "q20", isCorrect: true },
+                    { text: "B. tragedy", next: "q20_help", log: "Q20救錯: tragedy 是悲劇(如羅密歐與茱麗葉)，提這計畫老闆會生氣的！" }
                 ]
             },
 
-            // --- 第 21 關：SR 閂鎖器 ---
+            // --- 第 21 關：職場商用 ---
             "q21": {
-                tag: "第 21 關：正反器",
-                text: "在使用 NOR 閘組成的基本「SR 閂鎖器 (Latch)」中，S (Set) 與 R (Reset) 絕對不可以同時輸入 1。因為這會導致什麼結果？",
+                tag: "第 21 關：職場商用",
+                text: "主管在每季末都會「評估」員工的工作績效。請問評估的動詞是？",
                 options: [
-                    { text: "A. 輸出狀態無法預測 (禁忌狀態)", next: "q22", isCorrect: true },
-                    { text: "B. 輸出進入切換狀態 (Toggle)", next: "q21_help", log: "Q21錯: 這是 JK 或 T 正反器的功能" },
-                    { text: "C. 輸出保持不變", next: "q21_help", log: "Q21錯: 這是 S=0, R=0 的狀態" },
-                    { text: "D. 晶片會立刻燒毀", next: "q21_help", log: "Q21錯: 只是邏輯錯亂，不會物理燒毀" }
+                    { text: "A. evaluate", next: "q22", isCorrect: true },
+                    { text: "B. evacuate", next: "q21_help", log: "Q21錯: evacuate 是「撤離、疏散」" },
+                    { text: "C. elevate", next: "q21_help", log: "Q21錯: elevate 是「提升、舉起」" },
+                    { text: "D. eliminate", next: "q21_help", log: "Q21錯: eliminate 是「消除、淘汰」" }
                 ]
             },
             "q21_help": {
-                tag: "💊 救援任務：矛盾的大對決",
-                text: "知識拆解：S(Set)是叫它變成1，R(Reset)是叫它變成0。你同時命令它變1又要變0，它會精神分裂，導致 Q 和 Q' 違背反相原則。這被稱為什麼？",
+                tag: "💊 救援任務：字首字根",
+                text: "知識拆解：字首 e- (出) + value (價值) + -ate (動詞)。把一個人的價值算出來，這個動作就是「評估」。",
                 options: [
-                    { text: "A. 禁忌狀態 (無法預測)", next: "q21", isCorrect: true },
-                    { text: "B. 切換狀態 (Toggle)", next: "q21_help", log: "Q21救錯: SR 正反器沒有 Toggle 的能力，只會當機給你看！" }
+                    { text: "A. evaluate", next: "q21", isCorrect: true },
+                    { text: "B. evacuate", next: "q21_help", log: "Q21救錯: evacuate 是火災時逃跑撤離，不是打考績啦！" }
                 ]
             },
 
-            // --- 第 22 關：D 正反器 ---
+            // --- 第 22 關：職場商用 ---
             "q22": {
-                tag: "第 22 關：正反器",
-                text: "為了解決 SR 正反器會產生禁忌狀態的問題，我們把 S 和 R 中間加一個 NOT 閘串在一起，變成只有一個輸入端。這形成了哪一種正反器？",
+                tag: "第 22 關：職場商用",
+                text: "公司決定下個月開始「實施、執行」新的打卡規定。請問實施的動詞是？",
                 options: [
-                    { text: "A. D 正反器 (Data / Delay)", next: "q23", isCorrect: true },
-                    { text: "B. T 正反器", next: "q22_help", log: "Q22錯: T 是由 JK 綁在一起變成的" },
-                    { text: "C. JK 正反器", next: "q22_help", log: "Q22錯: JK 是改良 SR 回授路徑解決禁忌" },
-                    { text: "D. RS 正反器", next: "q22_help", log: "Q22錯: 這是原本的" }
+                    { text: "A. implement", next: "q23", isCorrect: true },
+                    { text: "B. compliment", next: "q22_help", log: "Q22錯: compliment 是「讚美」" },
+                    { text: "C. supplement", next: "q22_help", log: "Q22錯: supplement 是「補充物」" },
+                    { text: "D. experiment", next: "q22_help", log: "Q22錯: experiment 是「實驗」" }
                 ]
             },
             "q22_help": {
-                tag: "💊 救援任務：輸入什麼就存什麼",
-                text: "知識拆解：把 S 和 R 用反相器連起來，保證永遠是一正一反，絕不會有 1,1 出現。這種乖乖聽話，輸入 1 輸出就跟著 1 的正反器叫？",
+                tag: "💊 救援任務：動詞與名詞同形",
+                text: "知識拆解：這個字當名詞是「工具/器具」，當動詞時就是「把計畫變成實際行動（拿工具做事）」，也就是實施/執行。",
                 options: [
-                    { text: "A. D 正反器", next: "q22", isCorrect: true },
-                    { text: "B. T 正反器", next: "q22_help", log: "Q22救錯: T 正反器會切換狀態，D 才是完全複製資料 (Data) 的喔！" }
+                    { text: "A. implement", next: "q22", isCorrect: true },
+                    { text: "B. compliment", next: "q22_help", log: "Q22救錯: compliment 是稱讚，發音很像但意思完全不同！" }
                 ]
             },
 
-            // --- 第 23 關：JK 正反器 ---
+            // --- 第 23 關：職場商用 ---
             "q23": {
-                tag: "第 23 關：正反器",
-                text: "號稱「萬能正反器」的 JK 正反器，不僅解決了禁忌狀態，還多了一個新功能。當 J=1 且 K=1，並打入一個時脈 (Clock) 時，輸出狀態會如何？",
+                tag: "第 23 關：職場商用",
+                text: "買家電通常會附上一年的維修「保證、保固」。請問保證的英文是？",
                 options: [
-                    { text: "A. 反轉 / 切換 (Toggle)", next: "q24", isCorrect: true },
-                    { text: "B. 保持不變 (No Change)", next: "q23_help", log: "Q23錯: 這是 J=0, K=0 時" },
-                    { text: "C. 強制設為 1 (Set)", next: "q23_help", log: "Q23錯: 這是 J=1, K=0 時" },
-                    { text: "D. 進入禁忌狀態", next: "q23_help", log: "Q23錯: JK 已經消除了禁忌" }
+                    { text: "A. guarantee", next: "q24", isCorrect: true },
+                    { text: "B. guard", next: "q23_help", log: "Q23錯: guard 是「守衛」" },
+                    { text: "C. guideline", next: "q23_help", log: "Q23錯: guideline 是「指導方針」" },
+                    { text: "D. grocery", next: "q23_help", log: "Q23錯: grocery 是「雜貨」" }
                 ]
             },
             "q23_help": {
-                tag: "💊 救援任務：0變1，1變0",
-                text: "知識拆解：JK 的最大賣點！當兩個開關都催到滿(1,1)，每按一次時鐘，燈泡就會 0變1，再按一次又 1變0。這個閃爍動作稱為？",
+                tag: "💊 救援任務：法語外來字",
+                text: "知識拆解：結尾是 -ee (表示被動或相關事物)。它當動詞是「保證」，當名詞就是保證書。常跟 warranty 替換使用。",
                 options: [
-                    { text: "A. 切換 (Toggle)", next: "q23", isCorrect: true },
-                    { text: "B. 保持不變", next: "q23_help", log: "Q23救錯: 保持不變是甚麼都沒做(0,0)的時候啦！" }
+                    { text: "A. guarantee", next: "q23", isCorrect: true },
+                    { text: "B. guard", next: "q23_help", log: "Q23救錯: guard 只是保全守衛，沒有維修保固的意思喔！" }
                 ]
             },
 
-            // --- 第 24 關：觸發方式 ---
+            // --- 第 24 關：職場商用 ---
             "q24": {
-                tag: "第 24 關：時脈觸發",
-                text: "在正反器的符號中，如果 Clock 輸入端有一個「小三角形 (▷)」，這代表該正反器是採用哪一種觸發方式？",
+                tag: "第 24 關：職場商用",
+                text: "請記得在下週五的「截止日期」前，把報告「提交」給主管。請問「提交」的動詞是？",
                 options: [
-                    { text: "A. 邊緣觸發 (Edge Trigger)", next: "q25", isCorrect: true },
-                    { text: "B. 準位觸發 (Level Trigger)", next: "q24_help", log: "Q24錯: 準位觸發沒有三角形" },
-                    { text: "C. 異步觸發 (Asynchronous)", next: "q24_help", log: "Q24錯: 時脈本身就是用來同步的" },
-                    { text: "D. 負邏輯觸發", next: "q24_help", log: "Q24錯: 負邏輯會有小圓圈" }
+                    { text: "A. submit", next: "q25", isCorrect: true },
+                    { text: "B. admit", next: "q24_help", log: "Q24錯: admit 是「承認」" },
+                    { text: "C. permit", next: "q24_help", log: "Q24錯: permit 是「允許」" },
+                    { text: "D. commit", next: "q24_help", log: "Q24錯: commit 是「承諾、犯罪」" }
                 ]
             },
             "q24_help": {
-                tag: "💊 救援任務：瞬間的判定",
-                text: "知識拆解：準位觸發是「只要在高電位就會一直動作」，容易出錯。畫上小三角形代表它只在時脈「上升或下降的那一瞬間(邊緣)」才抓取資料！",
+                tag: "💊 救援任務：字首拆解",
+                text: "知識拆解：字首 sub- (在下方) + mit (送出)。下屬從下方把文件「送交」給上司，這個動作就是提交。",
                 options: [
-                    { text: "A. 邊緣觸發", next: "q24", isCorrect: true },
-                    { text: "B. 準位觸發", next: "q24_help", log: "Q24救錯: 沒有三角形的才叫準位觸發喔！" }
+                    { text: "A. submit", next: "q24", isCorrect: true },
+                    { text: "B. admit", next: "q24_help", log: "Q24救錯: admit (ad+mit) 是允許進入或是承認錯誤喔！" }
                 ]
             },
 
-            // --- 第 25 關：T 正反器除頻 ---
+            // --- 第 25 關：職場商用 ---
             "q25": {
-                tag: "第 25 關：正反器應用",
-                text: "如果我們把一個時脈頻率為 1000 Hz 的方波，輸入到一個 T=1 的「T 正反器」中。請問輸出的頻率會變成多少？",
+                tag: "第 25 關：職場商用",
+                text: "承上題，專案或報告必須趕在「截止日期」前完成。請問截止日期的英文是？",
                 options: [
-                    { text: "A. 500 Hz", next: "q26", isCorrect: true },
-                    { text: "B. 2000 Hz", next: "q25_help", log: "Q25錯: 正反器無法倍頻" },
-                    { text: "C. 1000 Hz", next: "q25_help", log: "Q25錯: 經過 Toggle 頻率會減半" },
-                    { text: "D. 0 Hz", next: "q25_help", log: "Q25錯: 波形還在震盪" }
+                    { text: "A. deadline", next: "q26", isCorrect: true },
+                    { text: "B. headline", next: "q25_help", log: "Q25錯: headline 是「新聞頭條」" },
+                    { text: "C. guideline", next: "q25_help", log: "Q25錯: guideline 是「方針」" },
+                    { text: "D. outline", next: "q25_help", log: "Q25錯: outline 是「大綱」" }
                 ]
             },
             "q25_help": {
-                tag: "💊 救援任務：砍半神器",
-                text: "知識拆解：T 正反器(Toggle)每看到兩次輸入的上升緣，輸出才會完成一次高低變化。也就是說，它天生具備「除以 2 (除頻)」的功能。1000 除以 2 是？",
+                tag: "💊 救援任務：合成字",
+                text: "知識拆解：dead (死的) + line (線)。踩過這條線你就死定了（專案來不及交被當掉），這就是「死線/截止日」。",
                 options: [
-                    { text: "A. 500 Hz", next: "q25", isCorrect: true },
-                    { text: "B. 2000 Hz", next: "q25_help", log: "Q25救錯: 正反器會把頻率變慢，不會變快啦！" }
+                    { text: "A. deadline", next: "q25", isCorrect: true },
+                    { text: "B. headline", next: "q25_help", log: "Q25救錯: headline 是報紙最上面(head)的頭條新聞！" }
                 ]
             },
 
-            // --- 第 26 關：時間參數 ---
+            // --- 第 26 關：核心動詞 ---
             "q26": {
-                tag: "第 26 關：循序邏輯特性",
-                text: "為了確保正反器能正確抓到資料，資料必須在時脈邊緣到來「之前」，就先穩定保持一段時間。這段前置作業時間稱為？",
+                tag: "第 26 關：統測核心動詞",
+                text: "這對雙胞胎長得太像了，我根本無法「分辨」誰是誰。請問「分辨、區分」的動詞是？",
                 options: [
-                    { text: "A. 建立時間 (Setup Time)", next: "q27", isCorrect: true },
-                    { text: "B. 維持時間 (Hold Time)", next: "q26_help", log: "Q26錯: 這是時脈『之後』要撐住的時間" },
-                    { text: "C. 傳遞延遲 (Propagation Delay)", next: "q26_help", log: "Q26錯: 這是電路輸出反應所需的時間" },
-                    { text: "D. 週期時間 (Cycle Time)", next: "q26_help", log: "Q26錯: 這是時脈的長度" }
+                    { text: "A. distinguish", next: "q27", isCorrect: true },
+                    { text: "B. extinguish", next: "q26_help", log: "Q26錯: extinguish 是「熄滅(火)」" },
+                    { text: "C. disguise", next: "q26_help", log: "Q26錯: disguise 是「偽裝」" },
+                    { text: "D. disgust", next: "q26_help", log: "Q26錯: disgust 是「作嘔、厭惡」" }
                 ]
             },
             "q26_help": {
-                tag: "💊 救援任務：拍照請擺好Pose",
-                text: "知識拆解：時脈邊緣就像照相機快門。在按下快門「前」，你要先擺好 Pose 站穩(建立狀態)。按完快門後還要撐住一下(維持)。題目問的是「之前」！",
+                tag: "💊 救援任務：字根拆解",
+                text: "知識拆解：字首 dis- (分開) + stingu (刺/做記號)。把事物分開做上記號，就是為了能「區分、分辨」它們。常搭配 from 使用 (A from B)。",
                 options: [
-                    { text: "A. 建立時間", next: "q26", isCorrect: true },
-                    { text: "B. 維持時間", next: "q26_help", log: "Q26救錯: 維持是按完快門『之後』的事情喔！" }
+                    { text: "A. distinguish", next: "q26", isCorrect: true },
+                    { text: "B. extinguish", next: "q26_help", log: "Q26救錯: extinguish 有 ex(出)，是把火給撲滅喔！" }
                 ]
             },
 
-            // --- 第 27 關：非同步計數器 ---
+            // --- 第 27 關：核心動詞 ---
             "q27": {
-                tag: "第 27 關：計數器",
-                text: "「非同步計數器 (Asynchronous Counter)」又稱為漣波計數器。其最大的特徵是什麼？",
+                tag: "第 27 關：統測核心動詞",
+                text: "警方請目擊者幫忙「指認、識別」嫌犯的長相。請問識別的動詞是？",
                 options: [
-                    { text: "A. 時脈 (Clock) 只接給第一顆正反器，後面的正反器由前一顆的輸出觸發", next: "q28", isCorrect: true },
-                    { text: "B. 所有的正反器都接在同一個時脈 (Clock) 訊號上", next: "q27_help", log: "Q27錯: 這是同步計數器的特徵" },
-                    { text: "C. 只能往下倒數計數，不能上數", next: "q27_help", log: "Q27錯: 它可以設計成上數或下數" },
-                    { text: "D. 不會產生任何時間延遲", next: "q27_help", log: "Q27錯: 非同步的致命缺點就是延遲會累積" }
+                    { text: "A. identify", next: "q28", isCorrect: true },
+                    { text: "B. identical", next: "q27_help", log: "Q27錯: identical 是形容詞「完全相同的」" },
+                    { text: "C. justify", next: "q27_help", log: "Q27錯: justify 是「證明...有理」" },
+                    { text: "D. modify", next: "q27_help", log: "Q27錯: modify 是「修改」" }
                 ]
             },
             "q27_help": {
-                tag: "💊 救援任務：骨牌效應",
-                text: "知識拆解：「非同步」就是大家不同步！時鐘只有老大看得到，老大動了才去推老二，老二動了再推老三。像漣波(水波)一樣傳遞。",
+                tag: "💊 救援任務：名詞找動詞",
+                text: "知識拆解：身分證叫做 ID card (Identity card)。把身分(Identity)找出來的「動詞化(-ify)」，就是識別！",
                 options: [
-                    { text: "A. 時脈只接給第一顆，像骨牌一樣傳遞", next: "q27", isCorrect: true },
-                    { text: "B. 大家接同一個時脈", next: "q27_help", log: "Q27救錯: 大家看同一個時鐘就變成「同步」計數器了啦！" }
+                    { text: "A. identify", next: "q27", isCorrect: true },
+                    { text: "B. identical", next: "q27_help", log: "Q27救錯: 結尾是 -cal 的是形容詞(相同的)，我們要找動詞 -ify！" }
                 ]
             },
 
-            // --- 第 28 關：計數器模數 ---
+            // --- 第 28 關：核心動詞 ---
             "q28": {
-                tag: "第 28 關：計數器設計",
-                text: "如果我們用 4 顆正反器來設計一個二進位上數計數器，它最多可以計數幾個不同的狀態 (Modulus)？",
+                tag: "第 28 關：統測核心動詞",
+                text: "這家餐廳的牛排非常好吃，我強烈「推薦」你點。請問推薦的英文是？",
                 options: [
-                    { text: "A. 16 個 (Mod-16)", next: "q29", isCorrect: true },
-                    { text: "B. 4 個 (Mod-4)", next: "q28_help", log: "Q28錯: 正反器數量不等於狀態數" },
-                    { text: "C. 8 個 (Mod-8)", next: "q28_help", log: "Q28錯: 這是 3 顆正反器的極限" },
-                    { text: "D. 10 個 (Mod-10)", next: "q28_help", log: "Q28錯: 雖然 4 顆能做十進位，但『最多』可到 16" }
+                    { text: "A. recommend", next: "q29", isCorrect: true },
+                    { text: "B. command", next: "q28_help", log: "Q28錯: command 是「命令」" },
+                    { text: "C. comment", next: "q28_help", log: "Q28錯: comment 是「評論」" },
+                    { text: "D. commit", next: "q28_help", log: "Q28錯: commit 是「承諾」" }
                 ]
             },
             "q28_help": {
-                tag: "💊 救援任務：二的魔法",
-                text: "知識拆解：1 顆正反器有 0, 1 兩種狀態。串連 4 顆，可以從 0000 數到 1111。2 的 4 次方等於多少？",
+                tag: "💊 救援任務：再三稱讚",
+                text: "知識拆解：字首 re- (一再地) + commend (稱讚)。你一再地稱讚某個東西，就是要把它「推薦」給別人！",
                 options: [
-                    { text: "A. 16 個", next: "q28", isCorrect: true },
-                    { text: "B. 8 個", next: "q28_help", log: "Q28救錯: 2 × 2 × 2 × 2 = 16 喔！" }
+                    { text: "A. recommend", next: "q28", isCorrect: true },
+                    { text: "B. comment", next: "q28_help", log: "Q28救錯: comment (留YT底下那個) 只是評論，不一定是說好話喔！" }
                 ]
             },
 
-            // --- 第 29 關：BCD 計數器 ---
+            // --- 第 29 關：核心動詞 ---
             "q29": {
-                tag: "第 29 關：計數器應用",
-                text: "承上題，如果我們需要一個「十進位計數器 (Mod-10 / BCD)」，數到 9 (1001) 之後就要歸零跳回 0。請問我們「最少」需要幾顆正反器才能兜出來？",
+                tag: "第 29 關：統測核心動詞",
+                text: "銷售員花了半小時，終於「說服」顧客買下那台吸塵器。請問說服的動詞是？",
                 options: [
-                    { text: "A. 4 顆", next: "q30", isCorrect: true },
-                    { text: "B. 3 顆", next: "q29_help", log: "Q29錯: 3 顆最多只能數到 7 (8種狀態)" },
-                    { text: "C. 10 顆", next: "q29_help", log: "Q29錯: 不需要這麼多" },
-                    { text: "D. 5 顆", next: "q29_help", log: "Q29錯: 雖然 5 顆可以，但不是『最少』" }
+                    { text: "A. persuade", next: "q30", isCorrect: true },
+                    { text: "B. pursue", next: "q29_help", log: "Q29錯: pursue 是「追求」" },
+                    { text: "C. purchase", next: "q29_help", log: "Q29錯: purchase 是「購買」" },
+                    { text: "D. provide", next: "q29_help", log: "Q29錯: provide 是「提供」" }
                 ]
             },
             "q29_help": {
-                tag: "💊 救援任務：強迫提早下車",
-                text: "知識拆解：十進位需要 10 個狀態。3 顆正反器只有 8 種(不夠用)，所以我們必須升級用 4 顆(有16種)。然後用邏輯閘強迫它在數到 10 的瞬間強制歸零。最少需要幾顆？",
+                tag: "💊 救援任務：字首拆解",
+                text: "知識拆解：字首 per- (完全、貫穿) + suade (勸告)。用言語完全打動對方，就是說服 (persuade sb to do sth)。",
                 options: [
-                    { text: "A. 4 顆", next: "q29", isCorrect: true },
-                    { text: "B. 3 顆", next: "q29_help", log: "Q29救錯: 3 顆極限只有 8 種，裝不下 10 個數字啦！" }
+                    { text: "A. persuade", next: "q29", isCorrect: true },
+                    { text: "B. pursue", next: "q29_help", log: "Q29救錯: pursue 是去追求夢想或追捕犯人，發音有點像但意思不同！" }
                 ]
             },
 
-            // 🏃 第 30 關：路跑裝備
+            // --- 第 30 關：核心動詞 ---
             "q30": {
-                tag: "🏃 第 30 關：大腦休息 (路跑)",
-                text: "跑 8.3Km 時，為了避免身體過熱與摩擦破皮，絕對「不建議」穿著哪一種材質的衣服去跑步？",
+                tag: "第 30 關：統測核心動詞",
+                text: "只要不放棄，你一定能「克服」學習上的所有困難。請問克服的英文是？",
                 options: [
-                    { text: "A. 100% 純棉 T-shirt", next: "q31", isCorrect: true },
-                    { text: "B. 聚酯纖維排汗衫", next: "q30_help", log: "Q30錯: 這是最棒的跑衣材質" },
-                    { text: "C. 輕薄緊身跑褲", next: "q30_help", log: "Q30錯: 緊身褲能減少大腿摩擦" },
-                    { text: "D. 運動機能襪", next: "q30_help", log: "Q30錯: 機能襪能防起水泡" }
+                    { text: "A. overcome", next: "q31", isCorrect: true },
+                    { text: "B. overtake", next: "q30_help", log: "Q30錯: overtake 是「超車、趕上」" },
+                    { text: "C. overlook", next: "q30_help", log: "Q30錯: overlook 是「忽視、俯瞰」" },
+                    { text: "D. overhear", next: "q30_help", log: "Q30錯: overhear 是「無意中聽到」" }
                 ]
             },
             "q30_help": {
-                tag: "💊 提示：吸水變鐵甲",
-                text: "這種材質雖然平常穿很舒服，但一吸滿汗水就會變得很重，而且完全不透氣，貼在皮膚上一直摩擦會超級痛！",
+                tag: "💊 救援任務：越過障礙",
+                text: "知識拆解：字首 over- (越過、在上方) + come (來)。走過來並「跨越」了障礙物，代表你成功「克服」了困難！",
                 options: [
-                    { text: "A. 100% 純棉", next: "q30", isCorrect: true },
-                    { text: "B. 聚酯纖維排汗衫", next: "q30_help", log: "Q30救錯: 排汗衫是人造纖維，是跑步的最佳神隊友喔！" }
+                    { text: "A. overcome", next: "q30", isCorrect: true },
+                    { text: "B. overlook", next: "q30_help", log: "Q30救錯: over(在上方)+look(看) = 從上面看過去沒注意到(忽視)！" }
                 ]
             },
 
-            // --- 第 31 關：環形計數器 ---
+            // --- 第 31 關：易混淆字 ---
             "q31": {
-                tag: "第 31 關：移位暫存器",
-                text: "將移位暫存器的「最後一個輸出 (Q_last)」直接拉回去接「第一個輸入 (D_first)」，形成一個 1 在裡面不斷繞圈圈的電路，稱為什麼？",
+                tag: "第 31 關：統測易混淆字",
+                text: "出國留學需要一段時間來「適應」新的文化和環境。請問適應的英文是？",
                 options: [
-                    { text: "A. 環形計數器 (Ring Counter)", next: "q32", isCorrect: true },
-                    { text: "B. 強生計數器 (Johnson Counter)", next: "q31_help", log: "Q31錯: 強生計數器是拉反相輸出回去" },
-                    { text: "C. 漣波計數器", next: "q31_help", log: "Q31錯: 這是用 T 正反器串聯的" },
-                    { text: "D. 隨機亂數產生器", next: "q31_help", log: "Q31錯: 這個電路規律很固定" }
+                    { text: "A. adapt", next: "q32", isCorrect: true },
+                    { text: "B. adopt", next: "q31_help", log: "Q31錯: adopt 是「採納、收養」" },
+                    { text: "C. adept", next: "q31_help", log: "Q31錯: adept 是形容詞「熟練的」" },
+                    { text: "D. addict", next: "q31_help", log: "Q31錯: addict 是「沉迷、上癮」" }
                 ]
             },
             "q31_help": {
-                tag: "💊 救援任務：首尾相連",
-                text: "知識拆解：頭接尾，尾接頭，形成一個完美的圓圈。燈號 1000 ➡️ 0100 ➡️ 0010 ➡️ 0001 ➡️ 1000 一直跑。這叫什麼形狀？",
+                tag: "💊 救援任務：a 跟 o 的差別",
+                text: "知識拆解：字根 apt 有「適合」的意思。ad-apt 是去讓自己適合新環境(適應)。而 ad-opt (o像眼睛) 是看中並「收養/採納」。",
                 options: [
-                    { text: "A. 環形計數器", next: "q31", isCorrect: true },
-                    { text: "B. 強生計數器", next: "q31_help", log: "Q31救錯: 強生計數器是把尾巴『反相(打結)』後才接回去喔！" }
+                    { text: "A. adapt", next: "q31", isCorrect: true },
+                    { text: "B. adopt", next: "q31_help", log: "Q31救錯: adopt 中間有 o，常用在領養小孩或採納意見喔！" }
                 ]
             },
 
-            // --- 第 32 關：強生計數器 ---
+            // --- 第 32 關：易混淆字 ---
             "q32": {
-                tag: "第 32 關：移位暫存器",
-                text: "承上題，如果使用 4 顆正反器做成「強生計數器 (Johnson Counter, 扭環形)」，它一個循環總共會有幾個不同的狀態？",
+                tag: "第 32 關：統測易混淆字",
+                text: "這家公司決定「採納」員工的建議，實施彈性工時。同時這個字也有「收養」的意思。請問是？",
                 options: [
-                    { text: "A. 8 個 (2N)", next: "q33", isCorrect: true },
-                    { text: "B. 4 個 (N)", next: "q32_help", log: "Q32錯: 這是普通環形計數器的狀態數" },
-                    { text: "C. 16 個 (2^N)", next: "q32_help", log: "Q32錯: 這是二進位計數器的極限" },
-                    { text: "D. 10 個", next: "q32_help", log: "Q32錯: 數量不對" }
+                    { text: "A. adopt", next: "q33", isCorrect: true },
+                    { text: "B. adapt", next: "q32_help", log: "Q32錯: adapt 是「適應」" },
+                    { text: "C. adore", next: "q32_help", log: "Q32錯: adore 是「愛慕、熱愛」" },
+                    { text: "D. adjust", next: "q32_help", log: "Q32錯: adjust 是「調整」" }
                 ]
             },
             "q32_help": {
-                tag: "💊 救援任務：加倍奉還",
-                text: "知識拆解：N 個正反器，環形計數器只有 N 個狀態；但強生計數器因為尾巴加了反相(扭了一下)，狀態數會變成原本的兩倍 (2N)。4 顆的兩倍是？",
+                tag: "💊 救援任務：選項挑選",
+                text: "知識拆解：字根 opt 是「選擇」(如 option 選擇)。ad-opt 就是把別人的孩子或建議「選過來變成自己的」，也就是收養/採納。",
                 options: [
-                    { text: "A. 8 個", next: "q32", isCorrect: true },
-                    { text: "B. 16 個", next: "q32_help", log: "Q32救錯: 16 個是普通二進位的計算法(2的N次方)啦！" }
+                    { text: "A. adopt", next: "q32", isCorrect: true },
+                    { text: "B. adapt", next: "q32_help", log: "Q32救錯: adapt 是去「適應」環境，不是收養喔！" }
                 ]
             },
 
-            // --- 第 33 關：暫存器傳輸形式 ---
+            // --- 第 33 關：易混淆字 ---
             "q33": {
-                tag: "第 33 關：資料傳輸",
-                text: "如果我們要把一個 8-bit 的資料，透過「一條實體線路」傳送給另一個暫存器。我們應該使用哪一種形式的移位暫存器？",
+                tag: "第 33 關：統測易混淆字",
+                text: "這本雜誌「揭露」了那位政治人物收受賄賂的醜聞。請問揭露、洩露的英文是？",
                 options: [
-                    { text: "A. PISO (並列輸入，串列輸出)", next: "q34", isCorrect: true },
-                    { text: "B. PIPO (並列輸入，並列輸出)", next: "q33_help", log: "Q33錯: 這樣需要 8 條線" },
-                    { text: "C. SIPO (串列輸入，並列輸出)", next: "q33_help", log: "Q33錯: 這是接收端的處理方式" },
-                    { text: "D. D-Flip-Flop 直連", next: "q33_help", log: "Q33錯: 沒有移位功能" }
+                    { text: "A. reveal", next: "q34", isCorrect: true },
+                    { text: "B. conceal", next: "q33_help", log: "Q33錯: conceal 是「隱藏」" },
+                    { text: "C. cancel", next: "q33_help", log: "Q33錯: cancel 是「取消」" },
+                    { text: "D. rival", next: "q33_help", log: "Q33錯: rival 是「競爭對手」" }
                 ]
             },
             "q33_help": {
-                tag: "💊 救援任務：擠進單行道",
-                text: "知識拆解：你有 8 個兵要過一座很窄的獨木橋(一條線)。所以必須大家先同時排好隊(並列輸入 Parallel-In)，然後一個一個走過橋(串列輸出 Serial-Out)。簡稱是？",
+                tag: "💊 救援任務：掀開面紗",
+                text: "知識拆解：字首 re- (反向、退回) + veil (面紗)。把蓋在上面的面紗拉開，真相就「揭露」出來了！",
                 options: [
-                    { text: "A. PISO", next: "q33", isCorrect: true },
-                    { text: "B. PIPO", next: "q33_help", log: "Q33救錯: PIPO 是並排過橋，需要蓋 8 座橋(8條線)才行喔！" }
+                    { text: "A. reveal", next: "q33", isCorrect: true },
+                    { text: "B. conceal", next: "q33_help", log: "Q33救錯: conceal 剛好完全相反，是把東西藏起來(隱藏)！" }
                 ]
             },
 
-            // --- 第 34 關：Moore 與 Mealy ---
+            // --- 第 34 關：易混淆字 ---
             "q34": {
-                tag: "第 34 關：狀態機模型",
-                text: "在設計循序邏輯的狀態機 (State Machine) 時，「Moore 機 (摩爾機)」的最大特徵是其「輸出 (Output)」只跟什麼有關？",
+                tag: "第 34 關：統測易混淆字",
+                text: "近年來因為少子化，台灣的出生率逐年「下降」。這個字當動詞也有「委婉拒絕」的意思。請問是？",
                 options: [
-                    { text: "A. 僅跟電路『目前的狀態 (Present State)』有關", next: "q35", isCorrect: true },
-                    { text: "B. 跟『目前狀態』與『外部輸入 (Input)』都有關", next: "q34_help", log: "Q34錯: 這是 Mealy 機的特徵" },
-                    { text: "C. 僅跟『外部輸入』有關", next: "q34_help", log: "Q34錯: 那就退化成組合邏輯了" },
-                    { text: "D. 只跟時脈 (Clock) 頻率有關", next: "q34_help", log: "Q34錯: 時脈只決定切換速度" }
+                    { text: "A. decline", next: "q35", isCorrect: true },
+                    { text: "B. incline", next: "q34_help", log: "Q34錯: incline 是「傾向於」" },
+                    { text: "C. recline", next: "q34_help", log: "Q34錯: recline 是「向後倚靠」" },
+                    { text: "D. define", next: "q34_help", log: "Q34錯: define 是「定義」" }
                 ]
             },
             "q34_help": {
-                tag: "💊 救援任務：不受外界干擾",
-                text: "知識拆解：統測愛考名詞比較！Mealy 機的輸出會被外人(輸入)影響；而 Moore (摩爾) 機很自我，輸出只由「自己肚子裡的現在狀態」決定。所以是？",
+                tag: "💊 救援任務：向下傾斜",
+                text: "知識拆解：字首 de- (向下) + cline (傾斜)。數字圖表向下傾斜就是「下降」；對別人的邀請態度往下低頭就是「婉拒」。",
                 options: [
-                    { text: "A. 僅跟『目前狀態』有關", next: "q34", isCorrect: true },
-                    { text: "B. 跟『目前狀態』與『外部輸入』有關", next: "q34_help", log: "Q34救錯: 這是 Mealy (米利) 機的特徵喔！" }
+                    { text: "A. decline", next: "q34", isCorrect: true },
+                    { text: "B. incline", next: "q34_help", log: "Q34救錯: in- 是向內，incline 是「傾向於」做某事喔！" }
                 ]
             },
 
-            // --- 第 35 關：狀態圖 ---
+            // --- 第 35 關：易混淆字 ---
             "q35": {
-                tag: "第 35 關：狀態圖設計",
-                text: "設計計數器時畫的「狀態圖 (State Diagram)」中，『圓圈』和『箭頭』分別代表什麼意義？",
+                tag: "第 35 關：統測易混淆字",
+                text: "這家公司計畫明年將業務「擴張」到歐洲市場。請問擴張、擴大的英文是？",
                 options: [
-                    { text: "A. 圓圈代表「狀態」，箭頭代表「狀態轉換(條件)」", next: "q36", isCorrect: true },
-                    { text: "B. 圓圈代表「輸入」，箭頭代表「輸出」", next: "q35_help", log: "Q35錯: 圓圈裡面寫的是 Q 的狀態值" },
-                    { text: "C. 圓圈代表「邏輯閘」，箭頭代表「電線」", next: "q35_help", log: "Q35錯: 這是電路圖，不是狀態圖" },
-                    { text: "D. 圓圈代表「正反器」，箭頭代表「時脈」", next: "q35_help", log: "Q35錯: 不對" }
+                    { text: "A. expand", next: "q36", isCorrect: true },
+                    { text: "B. expend", next: "q35_help", log: "Q35錯: expend 是「花費、耗盡」" },
+                    { text: "C. extend", next: "q35_help", log: "Q35錯: extend 是「延長(時間/長度)」" },
+                    { text: "D. expect", next: "q35_help", log: "Q35錯: expect 是「期待」" }
                 ]
             },
             "q35_help": {
-                tag: "💊 救援任務：大富翁的格子",
-                text: "知識拆解：狀態圖就像大富翁！地上的「圓圈」是你現在站的位置(狀態)，而指引你走到下一格的「箭頭」就是轉換的過程與條件。所以是？",
+                tag: "💊 救援任務：空間的變大",
+                text: "知識拆解：注意字尾！expAnd (有A) 是指體積、空間或事業版圖的「擴張」；而 expEnd (有E) 則是花費(Expense)。",
                 options: [
-                    { text: "A. 圓圈=狀態，箭頭=轉換", next: "q35", isCorrect: true },
-                    { text: "B. 圓圈=輸入，箭頭=輸出", next: "q35_help", log: "Q35救錯: 輸出通常寫在圓圈裡面(Moore)或箭頭旁邊(Mealy)，圓圈本身是狀態！" }
+                    { text: "A. expand", next: "q35", isCorrect: true },
+                    { text: "B. extend", next: "q35_help", log: "Q35救錯: extend 是把線拉長或時間『延長』(如延期 deadline)，不是體積變大！" }
                 ]
             },
 
-            // --- 第 36 關：CMOS 優點 ---
+            // --- 第 36 關：核心形容詞 ---
             "q36": {
-                tag: "第 36 關：邏輯族特性",
-                text: "現代數位 IC 幾乎全面捨棄早期的 TTL 而採用 CMOS 技術。請問 CMOS 最大的優點是什麼？",
+                tag: "第 36 關：統測核心詞彙",
+                text: "水和空氣是人類生存「不可或缺的、必要的」東西。請問不可或缺的英文是？",
                 options: [
-                    { text: "A. 靜態消耗功率極低 (非常省電)", next: "q37", isCorrect: true },
-                    { text: "B. 工作速度比 TTL 快非常多", next: "q36_help", log: "Q36錯: 早期 CMOS 其實比 TTL 慢" },
-                    { text: "C. 完全不怕靜電破壞", next: "q36_help", log: "Q36錯: CMOS 最怕靜電 (ESD)" },
-                    { text: "D. 只能接受 5V 電壓", next: "q36_help", log: "Q36錯: CMOS 電壓範圍很寬 (如3V~15V)" }
+                    { text: "A. essential", next: "q37", isCorrect: true },
+                    { text: "B. optional", next: "q36_help", log: "Q36錯: optional 是「可選擇的、非強制的」" },
+                    { text: "C. emotional", next: "q36_help", log: "Q36錯: emotional 是「情緒的」" },
+                    { text: "D. potential", next: "q36_help", log: "Q36錯: potential 是「潛在的」" }
                 ]
             },
             "q36_help": {
-                tag: "💊 救援任務：手機的命脈",
-                text: "知識拆解：因為 CMOS 是用 PMOS 和 NMOS 互補，只要沒有在切換(0變1或1變0)，電路幾乎是斷路的，不會漏電。這讓手機能待機一整天！最大的優點是？",
+                tag: "💊 救援任務：事物的本質",
+                text: "知識拆解：名詞 essence 是「本質、精華」。變成形容詞 essential，就是指構成事物本質的，也就是「絕對必要的、不可或缺的」。",
                 options: [
-                    { text: "A. 非常省電", next: "q36", isCorrect: true },
-                    { text: "B. 完全不怕靜電", next: "q36_help", log: "Q36救錯: CMOS 的二氧化矽層超薄，手一摸靜電就會把它擊穿燒毀！" }
+                    { text: "A. essential", next: "q36", isCorrect: true },
+                    { text: "B. optional", next: "q36_help", log: "Q36救錯: optional (由 option 變化來) 是隨便你選的，不是必需品喔！" }
                 ]
             },
 
-            // --- 第 37 關：Fan-out 扇出數 ---
+            // --- 第 37 關：核心形容詞 ---
             "q37": {
-                tag: "第 37 關：邏輯族特性",
-                text: "數位電路規格中的「扇出數 (Fan-out)」，代表什麼意思？",
+                tag: "第 37 關：統測核心詞彙",
+                text: "在面試時，穿著「適當的、合宜的」服裝是非常重要的。請問適當的英文是？",
                 options: [
-                    { text: "A. 一個邏輯閘的輸出，最多能安全推動幾個相同邏輯閘的輸入", next: "q38", isCorrect: true },
-                    { text: "B. 一個邏輯閘最多可以有幾個輸入端", next: "q37_help", log: "Q37錯: 這是 Fan-in (扇入數)" },
-                    { text: "C. 邏輯閘內部的散熱風扇數量", next: "q37_help", log: "Q37錯: 這是搞笑選項" },
-                    { text: "D. 訊號從輸入傳到輸出的時間延遲", next: "q37_help", log: "Q37錯: 這是傳遞延遲 (Propagation Delay)" }
+                    { text: "A. appropriate", next: "q38", isCorrect: true },
+                    { text: "B. appreciate", next: "q37_help", log: "Q37錯: appreciate 是動詞「感激、欣賞」" },
+                    { text: "C. approximate", next: "q37_help", log: "Q37錯: approximate 是「大約的」" },
+                    { text: "D. absolute", next: "q37_help", log: "Q37錯: absolute 是「絕對的」" }
                 ]
             },
             "q37_help": {
-                tag: "💊 救援任務：老大帶小弟",
-                text: "知識拆解：Fan-OUT 的 Out 代表「輸出端」。這就像一個大哥(輸出端)的體力極限，最多能帶領幾個小弟(別人的輸入端)而不被拖垮電壓。這叫？",
+                tag: "💊 救援任務：合乎場合",
+                text: "知識拆解：這個字常配 prepositions 使用 (appropriate for...)，意思是完全符合某個場合的規矩。長得很像「感激(appreciate)」，但結尾是 priate。",
                 options: [
-                    { text: "A. 最多能推動幾個輸入", next: "q37", isCorrect: true },
-                    { text: "B. 最多能有幾個輸入", next: "q37_help", log: "Q37救錯: 問輸入端數量的是 Fan-IN (扇入數) 喔！" }
+                    { text: "A. appropriate", next: "q37", isCorrect: true },
+                    { text: "B. approximate", next: "q37_help", log: "Q37救錯: approximate 是大約、估計的數字喔！" }
                 ]
             },
 
-            // --- 第 38 關：Noise Margin 雜訊邊際 ---
+            // --- 第 38 關：核心形容詞 ---
             "q38": {
-                tag: "第 38 關：邏輯族特性",
-                text: "「雜訊邊際 (Noise Margin)」是衡量邏輯電路好壞的重要指標。它代表什麼意義？",
+                tag: "第 38 關：統測核心詞彙",
+                text: "這位女歌手的嗓音非常「獨特的」，讓人一聽就能認出來。請問獨特的英文是？",
                 options: [
-                    { text: "A. 電路能容忍外界雜訊干擾，而不造成誤判的最大電壓值", next: "q39", isCorrect: true },
-                    { text: "B. 邏輯閘運作時自己產生的雜訊大小", next: "q38_help", log: "Q38錯: 這是測量抗干擾能力，不是產生雜訊的能力" },
-                    { text: "C. 輸出高低電位的電壓差", next: "q38_help", log: "Q38錯: 這是信號擺幅" },
-                    { text: "D. 0 和 1 切換時的模糊地帶", next: "q38_help", log: "Q38錯: 雜訊邊際是安全區，不是模糊地帶" }
+                    { text: "A. unique", next: "q39", isCorrect: true },
+                    { text: "B. united", next: "q38_help", log: "Q38錯: united 是「團結的、聯合的」" },
+                    { text: "C. universal", next: "q38_help", log: "Q38錯: universal 是「宇宙的、通用的」" },
+                    { text: "D. usual", next: "q38_help", log: "Q38錯: usual 是「平常的」" }
                 ]
             },
             "q38_help": {
-                tag: "💊 救援任務：防護罩有多厚",
-                text: "知識拆解：Margin 有邊界、餘地的意思。雜訊邊際越大，代表電路的「防護罩」越厚，就算有突波打進來，0 也不會被誤判成 1。所以它是測量什麼？",
+                tag: "💊 救援任務：唯一無二",
+                text: "知識拆解：字首 uni- 是「單一、一」的意思 (如獨角獸 unicorn)。世上只有這一個，所以是「獨一無二的、獨特的」。",
                 options: [
-                    { text: "A. 能容忍雜訊而不誤判的最大電壓", next: "q38", isCorrect: true },
-                    { text: "B. 電路自己產生的雜訊", next: "q38_help", log: "Q38救錯: 我們是希望抗雜訊能力越大越好，誰希望自己產生大雜訊啦！" }
+                    { text: "A. unique", next: "q38", isCorrect: true },
+                    { text: "B. universal", next: "q38_help", log: "Q38救錯: universal 是全世界(universe)都在用的「通用版」，剛好相反喔！" }
                 ]
             },
 
-            // --- 第 39 關：記憶體 RAM/ROM ---
+            // --- 第 39 關：核心名詞 ---
             "q39": {
-                tag: "第 39 關：記憶元件",
-                text: "關於 ROM (唯讀記憶體) 與 RAM (隨機存取記憶體)，下列敘述何者正確？",
+                tag: "第 39 關：統測核心詞彙",
+                text: "這場車禍的「調查」結果顯示，肇事駕駛當時正在滑手機。請問調查(名詞)的英文是？",
                 options: [
-                    { text: "A. 關閉電源後，ROM 的資料會保留，RAM 的資料會消失", next: "q40", isCorrect: true },
-                    { text: "B. ROM 只能讀不能寫，所以隨身碟是 RAM", next: "q39_help", log: "Q39錯: 隨身碟是 Flash ROM，斷電不消失" },
-                    { text: "C. RAM 速度慢，適合長期存檔", next: "q39_help", log: "Q39錯: RAM 速度快，但斷電即消失" },
-                    { text: "D. 兩者斷電後資料都會保留", next: "q39_help", log: "Q39錯: 只有 ROM (非揮發性) 會保留" }
+                    { text: "A. investigation", next: "q40", isCorrect: true },
+                    { text: "B. investment", next: "q39_help", log: "Q39錯: investment 是「投資」" },
+                    { text: "C. invention", next: "q39_help", log: "Q39錯: invention 是「發明」" },
+                    { text: "D. invitation", next: "q39_help", log: "Q39錯: invitation 是「邀請」" }
                 ]
             },
             "q39_help": {
-                tag: "💊 救援任務：揮發的記憶",
-                text: "知識拆解：RAM 稱為「揮發性記憶體」，只要一拔掉插頭，裡面記的東西就會瞬間忘光光；ROM 是「非揮發性」，斷電依然牢記。所以？",
+                tag: "💊 救援任務：FBI的縮寫",
+                text: "知識拆解：美國聯邦調查局 (FBI) 的 I 就是這個字！(Federal Bureau of Investigation)。動詞 investigate。",
                 options: [
-                    { text: "A. ROM 斷電保留，RAM 斷電消失", next: "q39", isCorrect: true },
-                    { text: "B. 隨身碟是 RAM", next: "q39_help", log: "Q39救錯: 隨身碟拔出來(斷電)資料還在，所以它是 ROM 家族的 Flash ROM 喔！" }
+                    { text: "A. investigation", next: "q39", isCorrect: true },
+                    { text: "B. investment", next: "q39_help", log: "Q39救錯: investment 有 vest(背心)，把錢放在背心口袋裡拿去「投資」！" }
                 ]
             },
 
-            // 🏃 第 40 關：路跑補水
+            // --- 第 40 關：核心名詞 ---
             "q40": {
-                tag: "🏃 第 40 關：大腦休息 (路跑)",
-                text: "路跑知識補充！在跑 8.3Km 時，通常路上會設有「進水站」。專業跑者進水站拿紙杯喝水時，為了不嗆到又不用完全停下腳步，通常會怎麼做？",
+                tag: "第 40 關：統測核心詞彙",
+                text: "在國外旅遊時，遇到緊急「情況、事件」可以撥打當地的求救專線。請問緊急情況的英文是？",
                 options: [
-                    { text: "A. 把紙杯捏扁成尖嘴狀，小口吸水", next: "q41", isCorrect: true },
-                    { text: "B. 停下來用雙手捧著喝完再跑", next: "q40_help", log: "Q40錯: 停下來會打亂節奏，重新起步很痛苦" },
-                    { text: "C. 直接往臉上潑水解渴", next: "q40_help", log: "Q40錯: 水進不到肚子裡，只會更渴" },
-                    { text: "D. 仰頭大口一次灌完", next: "q40_help", log: "Q40錯: 跑步中大口灌水極易嗆到" }
+                    { text: "A. emergency", next: "q41", isCorrect: true },
+                    { text: "B. energy", next: "q40_help", log: "Q40錯: energy 是「能量」" },
+                    { text: "C. agency", next: "q40_help", log: "Q40錯: agency 是「代理機構」" },
+                    { text: "D. surgery", next: "q40_help", log: "Q40錯: surgery 是「外科手術」" }
                 ]
             },
             "q40_help": {
-                tag: "💊 提示：控制水流量",
-                text: "邊跑邊喝圓口杯的水一定會灑得滿臉都是，甚至嗆到氣管。聰明的跑者會把杯口改變形狀，控制水流變小。這要怎麼做？",
+                tag: "💊 救援任務：急診室 ER",
+                text: "知識拆解：醫院急診室的縮寫是 ER (Emergency Room)。動詞 emerge 是浮現、浮出水面，突然跑出來的事情就是緊急事件！",
                 options: [
-                    { text: "A. 把紙杯捏成尖嘴狀小口喝", next: "q40", isCorrect: true },
-                    { text: "B. 停下來用雙手捧著喝", next: "q40_help", log: "Q40救錯: 長跑停下來再跑腳會超像綁了鉛塊，能不停就不停！" }
+                    { text: "A. emergency", next: "q40", isCorrect: true },
+                    { text: "B. agency", next: "q40_help", log: "Q40救錯: agency 是機構(如旅行社 travel agency)，拼法有點像要注意！" }
                 ]
             },
 
-            // --- 第 41 關：ADC 解析度 ---
+            // --- 第 41 關：片語 ---
             "q41": {
-                tag: "第 41 關：類比與數位轉換",
-                text: "一顆「8 位元」的 ADC (類比轉數位轉換器)，可以將輸入的類比電壓值，切割成幾個不同的階層刻度？",
+                tag: "第 41 關：統測必考片語",
+                text: "片語題：當你「依靠、依賴」某人或某物時，除了 depend on，你還可以使用哪一個片語？",
                 options: [
-                    { text: "A. 256 個 (2的8次方)", next: "q42", isCorrect: true },
-                    { text: "B. 8 個", next: "q41_help", log: "Q41錯: 這只是線路數量" },
-                    { text: "C. 128 個", next: "q41_help", log: "Q41錯: 這是 7 位元" },
-                    { text: "D. 1024 個", next: "q41_help", log: "Q41錯: 這是 10 位元" }
+                    { text: "A. rely on", next: "q42", isCorrect: true },
+                    { text: "B. result in", next: "q41_help", log: "Q41錯: result in 是「導致」" },
+                    { text: "C. refer to", next: "q41_help", log: "Q41錯: refer to 是「提及、參考」" },
+                    { text: "D. respond to", next: "q41_help", log: "Q41錯: respond to 是「回應」" }
                 ]
             },
             "q41_help": {
-                tag: "💊 救援任務：二進位的乘法",
-                text: "知識拆解：N 個位元可以表達 2 的 N 次方種組合。8 位元就是 2 乘自己 8 次 (2×2×2×2×2×2×2×2)。算出來是多少？",
+                tag: "💊 救援任務：信賴的好夥伴",
+                text: "知識拆解：動詞 rely 意思是信賴、依賴。它的形容詞 reliable (可靠的) 在統測也超級常考喔！",
                 options: [
-                    { text: "A. 256 個", next: "q41", isCorrect: true },
-                    { text: "B. 1024 個", next: "q41_help", log: "Q41救錯: 1024 是單晶片常見的 10位元 (2^10) 解析度喔！" }
+                    { text: "A. rely on", next: "q41", isCorrect: true },
+                    { text: "B. refer to", next: "q41_help", log: "Q41救錯: refer to 通常是指參考字典，或是談話中提到某事！" }
                 ]
             },
 
-            // --- 第 42 關：PLA 與 PAL ---
+            // --- 第 42 關：片語 ---
             "q42": {
-                tag: "第 42 關：可程式邏輯陣列",
-                text: "在可程式邏輯元件 (PLD) 中，有 PLA 和 PAL 兩種。其中「PAL」的內部結構是什麼陣列可以燒錄(Programmable)，什麼陣列固定(Fixed)？",
+                tag: "第 42 關：統測必考片語",
+                text: "片語題：這場大雨「導致」比賽被迫取消。請問「導致、造成(結果)」的片語是？",
                 options: [
-                    { text: "A. AND 陣列可程式，OR 陣列固定", next: "q43", isCorrect: true },
-                    { text: "B. AND 陣列固定，OR 陣列可程式", next: "q42_help", log: "Q42錯: 這是 PROM 的結構" },
-                    { text: "C. 兩者皆可程式", next: "q42_help", log: "Q42錯: 這是 PLA 的結構" },
-                    { text: "D. 兩者皆固定", next: "q42_help", log: "Q42錯: 這樣就不能燒錄了" }
+                    { text: "A. result in", next: "q43", isCorrect: true },
+                    { text: "B. result from", next: "q42_help", log: "Q42錯: result from 是「起因於」" },
+                    { text: "C. consist of", next: "q42_help", log: "Q42錯: consist of 是「由...組成」" },
+                    { text: "D. recover from", next: "q42_help", log: "Q42錯: recover from 是「從...恢復」" }
                 ]
             },
             "q42_help": {
-                tag: "💊 救援任務：英文簡寫還原",
-                text: "知識拆解：PAL = Programmable AND Array Logic。名字裡直接點名了「AND 陣列是可程式化的」。為了省成本，另一半的 OR 陣列就是固定燒死的。所以？",
+                tag: "💊 救援任務：進進出出",
+                text: "知識拆解：這個片語最容易搞混！往前走到結果裡面 (in) = 導致。如果是從後面退回來 (from) = 起因於...。",
                 options: [
-                    { text: "A. AND 可程式，OR 固定", next: "q42", isCorrect: true },
-                    { text: "B. 兩者皆可程式", next: "q42_help", log: "Q42救錯: 兩邊都可以燒錄的是更貴的 PLA 喔！" }
+                    { text: "A. result in", next: "q42", isCorrect: true },
+                    { text: "B. result from", next: "q42_help", log: "Q42救錯: from 的後面要接原因(因為下雨)，in 的後面才是接結果(比賽取消)！" }
                 ]
             },
 
-            // --- 第 43 關：DAC R-2R ---
+            // --- 第 43 關：片語 ---
             "q43": {
-                tag: "第 43 關：數位轉類比",
-                text: "在使用「R-2R 階梯型電路」製作的 DAC (數位轉類比) 中，最大的優點是什麼？",
+                tag: "第 43 關：統測必考片語",
+                text: "片語題：出門前別忘了「關掉」冷氣和電燈。請問「關閉(電源)」的片語是？",
                 options: [
-                    { text: "A. 只需使用兩種阻值的電阻 (R 和 2R)，容易製作且精準", next: "q44", isCorrect: true },
-                    { text: "B. 不需要運算放大器 OPA", next: "q43_help", log: "Q43錯: 還是需要 OPA 來做加總與緩衝" },
-                    { text: "C. 解析度永遠是無限大", next: "q43_help", log: "Q43錯: 解析度受限於輸入位元數" },
-                    { text: "D. 轉換速度是所有 DAC 中最快的", next: "q43_help", log: "Q43錯: 速度最快的是快閃型(Flash) ADC" }
+                    { text: "A. turn off", next: "q44", isCorrect: true },
+                    { text: "B. turn out", next: "q43_help", log: "Q43錯: turn out 是「結果變成是...」" },
+                    { text: "C. turn up", next: "q43_help", log: "Q43錯: turn up 是「調大聲、出現」" },
+                    { text: "D. turn down", next: "q43_help", log: "Q43錯: turn down 是「拒絕、調小聲」" }
                 ]
             },
             "q43_help": {
-                tag: "💊 救援任務：工廠量產的思維",
-                text: "知識拆解：傳統的加權電阻 DAC 需要 1R, 2R, 4R, 8R... 非常多種不常見的電阻，工廠很難備料。R-2R 就像積木，整張電路板只用到 10k 和 20k 兩種電阻。這有什麼好處？",
+                tag: "💊 救援任務：離開電源",
+                text: "知識拆解：off 有脫離、離開的狀態。把電路的開關轉到脫離不通電的狀態，就是「關閉」。同義詞還有 switch off。",
                 options: [
-                    { text: "A. 只有兩種電阻，容易製作又精準", next: "q43", isCorrect: true },
-                    { text: "B. 不需要 OPA", next: "q43_help", log: "Q43救錯: 最後還是需要 OPA 把電流轉回電壓喔！" }
+                    { text: "A. turn off", next: "q43", isCorrect: true },
+                    { text: "B. turn down", next: "q43_help", log: "Q43救錯: turn down 只能把冷氣溫度調低(變冷)，或者拒絕別人的表白！" }
                 ]
             },
 
-            // --- 第 44 關：TTL 浮接輸入 ---
+            // --- 第 44 關：時事 ---
             "q44": {
-                tag: "第 44 關：邏輯族實務",
-                text: "實習工場大魔王！當我們在使用 TTL 邏輯晶片 (如 7400 系列) 時，如果有某一個輸入腳「忘記接線 (浮接, Floating)」，TTL 內部電路會將這個腳位視為什麼狀態？",
+                tag: "第 44 關：疫情復甦",
+                text: "隨著各國解封，國際旅遊正快速「恢復」到疫情前的水準。請問「恢復、康復」的動詞是？",
                 options: [
-                    { text: "A. 視為邏輯「1」 (高電位)", next: "q45", isCorrect: true },
-                    { text: "B. 視為邏輯「0」 (低電位)", next: "q44_help", log: "Q44錯: 要接地才會是 0" },
-                    { text: "C. 視為雜訊，隨機跳動", next: "q44_help", log: "Q44錯: 這是 CMOS 晶片浮接的恐怖下場" },
-                    { text: "D. 晶片直接燒毀", next: "q44_help", log: "Q44錯: TTL 浮接不會燒毀" }
+                    { text: "A. recover", next: "q45", isCorrect: true },
+                    { text: "B. discover", next: "q44_help", log: "Q44錯: discover 是「發現」" },
+                    { text: "C. cover", next: "q44_help", log: "Q44錯: cover 是「覆蓋」" },
+                    { text: "D. uncover", next: "q44_help", log: "Q44錯: uncover 是「揭開」" }
                 ]
             },
             "q44_help": {
-                tag: "💊 救援任務：TTL與CMOS的差異",
-                text: "知識拆解：統測超愛考！如果是 CMOS (4000系列) 浮接，會因為靜電亂跳 0和1 甚至燒毀。但 TTL 內部是 BJT 結構，沒接線時電流流不出去，會預設它處於高電壓。也就是？",
+                tag: "💊 救援任務：找回失去的",
+                text: "知識拆解：字首 re- (再次) + cover (拿回)。把失去的健康或業績「再次拿回來」，就是復甦、康復。常接 from (從...中恢復)。",
                 options: [
-                    { text: "A. 視為邏輯「1」", next: "q44", isCorrect: true },
-                    { text: "B. 視為隨機跳動的雜訊", next: "q44_help", log: "Q44救錯: 那是比較先進也比較嬌弱的 CMOS 才會發生的慘劇！" }
+                    { text: "A. recover", next: "q44", isCorrect: true },
+                    { text: "B. discover", next: "q44_help", log: "Q44救錯: dis(不)+cover(蓋住)=把蓋子拿掉，所以是『發現』新大陸喔！" }
                 ]
             },
 
-            // 🏃 第 45 關：終點衝刺與收操
+            // 🏆 第 45 關：最終魔王 ---
             "q45": {
-                tag: "🏆 最終關：大腦休息 (路跑)",
-                text: "最後一題！恭喜你跑完 8.3Km 衝過終點線了！為了保護心臟與雙腿，衝過終點後你「最不應該」立刻做什麼事？",
+                tag: "🏆 最終關：魔王字義題",
+                text: "最後一題大魔王！請選出空格中最合適的單字：Due to the global _______, the prices of daily goods have increased significantly. (由於全球的_____，民生日用品的價格大幅上漲了。)",
                 options: [
-                    { text: "A. 立刻原地一屁股坐下或躺下休息", next: "end", isCorrect: true },
-                    { text: "B. 慢慢走動 5 到 10 分鐘讓心跳緩和", next: "q45_help", log: "Q45錯: 這是非常正確的做法 (Cool down)" },
-                    { text: "C. 喝幾口水或運動飲料補充流失水分", next: "q45_help", log: "Q45錯: 這也是正確的" },
-                    { text: "D. 針對大小腿進行靜態拉筋伸展", next: "q45_help", log: "Q45錯: 緩和後拉筋有助於排乳酸" }
+                    { text: "A. inflation (通貨膨脹)", next: "end", isCorrect: true },
+                    { text: "B. invention (發明)", next: "q45_help", log: "Q45錯: 發明不會導致物價全面上漲" },
+                    { text: "C. isolation (隔離)", next: "q45_help", log: "Q45錯: 隔離與物價無直接絕對關聯" },
+                    { text: "D. inspection (調查/視察)", next: "q45_help", log: "Q45錯: 視察不會導致物價上漲" }
                 ]
             },
             "q45_help": {
-                tag: "💊 提示：血液回流機制",
-                text: "剛劇烈運動完，心臟還在大量把血液打到腿部。如果不靠著慢慢走動讓小腿肌肉像幫浦一樣把血擠回心臟，腦部會瞬間缺血！所以絕對不能怎樣？",
+                tag: "💊 救援任務：找關鍵字",
+                text: "知識拆解：句子的後半段說 prices(價格) 已經 increased(增加)。能直接造成大範圍物價上漲的全球性經濟現象是什麼？",
                 options: [
-                    { text: "A. 立刻坐下或躺下", next: "q45", isCorrect: true },
-                    { text: "B. 慢慢走動", next: "q45_help", log: "Q45救錯: 慢慢走是保命關鍵，不可以省喔！" }
+                    { text: "A. inflation", next: "q45", isCorrect: true },
+                    { text: "B. isolation", next: "q45_help", log: "Q45救錯: isolation 是孤立隔離(如疫情期間)，題目線索是 prices increased！" }
                 ]
             }
         };
