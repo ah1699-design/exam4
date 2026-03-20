@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>微處理機 - 抽卡特訓班 (多卡包擴充版)</title>
+    <title>英文 - 抽卡特訓班 (多卡包擴充版)</title>
     <style>
         body {
             font-family: '微軟正黑體', sans-serif; 
@@ -1589,7 +1589,8 @@
 
         async function syncCloudData() {
             let inputName = document.getElementById('student-name').value.trim();
-            if(!inputName) { alert("⚠️ 請先輸入您的姓名，才能尋找雲端存檔喔！"); return; }
+           if(!inputName) { alert("⚠️ 請先輸入您的姓名，才能尋找雲端存檔喔！"); return; }
+            if(!scriptURL) { alert("⚠️ 尚未設定 Google Sheet 網址，無法同步！"); return; }
 
             let syncBtn = document.getElementById('btn-sync');
             let originalText = syncBtn.innerText;
@@ -1597,12 +1598,32 @@
             syncBtn.disabled = true;
 
             try {
-                let response = await fetch(scriptURL + "?name=" + encodeURIComponent(inputName), { method: "GET" });
+                // 💡 防護 1：在網址最後面加上時間戳記 (&t=...)，強迫瀏覽器每次都要去雲端抓最新資料，拒絕快取！
+                let fetchUrl = scriptURL + "?name=" + encodeURIComponent(inputName) + "&t=" + new Date().getTime();
+                let response = await fetch(fetchUrl, { method: "GET" });
                 let result = await response.json();
 
                 if(result.status === "success") {
-                    localStorage.setItem("gachaCollection_" + inputName, result.data);
-                    alert("✅ 雲端同步成功！已為您載入最新的圖鑑進度！\n您可以點擊「查看我的圖鑑」確認。");
+                    // 💡 防護 2：智慧合併！不直接覆蓋，而是比對雲端與本地的卡片數量，永遠保留「數量最多」的紀錄！
+                    let cloudData = JSON.parse(result.data);
+                    let storageKey = "gachaCollection_" + inputName;
+                    let localData = JSON.parse(localStorage.getItem(storageKey)) || [];
+
+                    cloudData.forEach(cloudCard => {
+                        let existing = localData.find(c => c.id === cloudCard.id);
+                        if (existing) {
+                            // 如果兩邊都有這張卡，取數量較多的 (避免被空的進度洗掉)
+                            existing.count = Math.max(existing.count, cloudCard.count); 
+                        } else {
+                            // 本地沒有的卡，從雲端加進來
+                            localData.push(cloudCard);
+                        }
+                    });
+
+                    // 存回本地端
+                    localStorage.setItem(storageKey, JSON.stringify(localData));
+                    
+                    alert("✅ 雲端同步成功！已為您載入最新圖鑑進度！\n(系統已自動比對並保留您的最高進度)");
                 } else {
                     alert("🆕 找不到您的雲端存檔。\n如果您是第一次玩，這是正常的，系統將為您建立全新圖鑑！");
                 }
