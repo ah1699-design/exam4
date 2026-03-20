@@ -302,911 +302,910 @@
             }
         };
 
-      // ==========================================
-        // 教師設定區：微處理機全冊總複習 (45題魔王版) + WBC經典賽
+// ==========================================
+        // 教師設定區：數位邏輯全冊總複習 (45題魔王版) + 8.3Km 路跑知識
         // ==========================================
         const quizData = {
-            // --- 第 1 關：微處理機基礎 ---
+            // --- 第 1 關：數字系統 ---
             "q1": {
-                tag: "第 1 關：微處理機基礎",
-                text: "微處理機 (MPU) 內部主要由哪兩個重要的單元所組成？",
+                tag: "第 1 關：數字系統",
+                text: "將二進位數 (1011.01)₂ 轉換為十進位數，其值為多少？",
                 options: [
-                    { text: "A. 算術邏輯單元 (ALU) 與 控制單元 (CU)", next: "q2", isCorrect: true },
-                    { text: "B. 記憶體 (Memory) 與 輸出入單元 (I/O)", next: "q1_help", log: "Q1錯: 這是微電腦系統的其他部分" },
-                    { text: "C. 暫存器 (Register) 與 匯流排 (Bus)", next: "q1_help", log: "Q1錯: 暫存器在內部，但匯流排是通道" },
-                    { text: "D. 唯讀記憶體 (ROM) 與 隨機存取記憶體 (RAM)", next: "q1_help", log: "Q1錯: 這是記憶體單元" }
+                    { text: "A. 11.25", next: "q2", isCorrect: true },
+                    { text: "B. 11.5", next: "q1_help", log: "Q1錯: 小數點後第一位是 0.5，第二位是 0.25" },
+                    { text: "C. 13.25", next: "q1_help", log: "Q1錯: 整數部分算錯" },
+                    { text: "D. 10.25", next: "q1_help", log: "Q1錯: 8+2+1=11" }
                 ]
             },
             "q1_help": {
-                tag: "💊 救援任務：大腦的核心",
-                text: "知識拆解：CPU 是電腦的大腦，它必須具備「計算運算」的能力以及「指揮控制」整個系統的能力。這兩個單元的英文簡稱是？",
+                tag: "💊 救援任務：權重展開法",
+                text: "知識拆解：整數部分 1011 = 8 + 0 + 2 + 1 = 11。小數點後第一位權重是 0.5，第二位是 0.25。所以 0.01 代表 0 + 0.25。加起來是多少？",
                 options: [
-                    { text: "A. ALU 與 CU", next: "q1", isCorrect: true },
-                    { text: "B. ROM 與 RAM", next: "q1_help", log: "Q1救錯: ROM跟RAM是負責記憶的，不是負責計算跟控制的喔！" }
+                    { text: "A. 11.25", next: "q1", isCorrect: true },
+                    { text: "B. 11.5", next: "q1_help", log: "Q1救錯: 小數點後第一位是 0，沒有 0.5 喔！" }
                 ]
             },
 
-            // --- 第 2 關：匯流排 ---
+            // --- 第 2 關：補數 ---
             "q2": {
-                tag: "第 2 關：系統匯流排",
-                text: "在系統匯流排中，哪一種匯流排是「單向」的，專門由 CPU 傳送位置信號給記憶體或 I/O 設備？",
+                tag: "第 2 關：數字系統",
+                text: "在 8 位元系統中，十進位數 -13 的「二補數 (2's complement)」表示法為何？",
                 options: [
-                    { text: "A. 位址匯流排 (Address Bus)", next: "q3", isCorrect: true },
-                    { text: "B. 資料匯流排 (Data Bus)", next: "q2_help", log: "Q2錯: 資料匯流排是雙向的" },
-                    { text: "C. 控制匯流排 (Control Bus)", next: "q2_help", log: "Q2錯: 控制匯流排負責傳送控制訊號" },
-                    { text: "D. 內部匯流排 (Internal Bus)", next: "q2_help", log: "Q2錯: 這是 CPU 內部的通道" }
+                    { text: "A. 11110011", next: "q3", isCorrect: true },
+                    { text: "B. 10001101", next: "q2_help", log: "Q2錯: 這是符號與大小表示法" },
+                    { text: "C. 11110010", next: "q2_help", log: "Q2錯: 這是 1 的補數" },
+                    { text: "D. 00001101", next: "q2_help", log: "Q2錯: 這是正 13" }
                 ]
             },
             "q2_help": {
-                tag: "💊 救援任務：單向的導航",
-                text: "知識拆解：CPU 就像快遞中心，它必須先發送出「地址」告訴大家包裹要送去哪裡，這個指出目標位置的通道是單向出發的。英文是？",
+                tag: "💊 救援任務：反相再加一",
+                text: "知識拆解：先寫出 +13 也就是 00001101。接著全部反相(0變1、1變0)得到 11110010。最後尾巴再加 1，就會變成？",
                 options: [
-                    { text: "A. 位址匯流排 (Address Bus)", next: "q2", isCorrect: true },
-                    { text: "B. 資料匯流排 (Data Bus)", next: "q2_help", log: "Q2救錯: 資料是可以讀進來寫出去的，所以是雙向喔！" }
+                    { text: "A. 11110011", next: "q2", isCorrect: true },
+                    { text: "B. 11110010", next: "q2_help", log: "Q2救錯: 這是 1 的補數，還少加了 1 喔！" }
                 ]
             },
 
-            // --- 第 3 關：哈佛架構 ---
+            // --- 第 3 關：葛雷碼 ---
             "q3": {
-                tag: "第 3 關：電腦架構",
-                text: "將「程式記憶體 (ROM)」與「資料記憶體 (RAM)」分開，具有獨立匯流排可以同時存取指令與資料的架構稱為？",
+                tag: "第 3 關：數位編碼",
+                text: "哪一種編碼在相鄰的兩個數值之間，永遠只有「一個位元」發生改變，因此常被用於光學編碼器或卡諾圖中以減少錯誤？",
                 options: [
-                    { text: "A. 哈佛架構 (Harvard Architecture)", next: "q4", isCorrect: true },
-                    { text: "B. 馮紐曼架構 (Von Neumann Architecture)", next: "q3_help", log: "Q3錯: 馮紐曼是程式與資料共用同一記憶體" },
-                    { text: "C. 范紐曼架構", next: "q3_help", log: "Q3錯: 同上" },
-                    { text: "D. 普林斯頓架構", next: "q3_help", log: "Q3錯: 普林斯頓架構即為馮紐曼架構" }
+                    { text: "A. 葛雷碼 (Gray Code)", next: "q4", isCorrect: true },
+                    { text: "B. BCD 碼", next: "q3_help", log: "Q3錯: BCD 碼是二進位編碼十進位" },
+                    { text: "C. ASCII 碼", next: "q3_help", log: "Q3錯: 這是文字編碼" },
+                    { text: "D. 超三碼 (Excess-3)", next: "q3_help", log: "Q3錯: 這是無加權碼" }
                 ]
             },
             "q3_help": {
-                tag: "💊 救援任務：分工合作的雙通道",
-                text: "知識拆解：傳統的「馮紐曼」是大家擠同一條路；而新型的微控制器為求快速，把指令和資料分成兩條路走。這個以知名大學命名的架構是？",
+                tag: "💊 救援任務：防錯的密碼",
+                text: "知識拆解：為了怕機器讀錯，這種密碼規定每次跳下一號時，只能有一個開關改變狀態（例如 00 變 01，再變 11）。這是有名的什麼碼？",
                 options: [
-                    { text: "A. 哈佛架構", next: "q3", isCorrect: true },
-                    { text: "B. 馮紐曼架構", next: "q3_help", log: "Q3救錯: 馮紐曼是共用通道，會產生瓶頸(馮紐曼瓶頸)喔！" }
+                    { text: "A. 葛雷碼", next: "q3", isCorrect: true },
+                    { text: "B. ASCII 碼", next: "q3_help", log: "Q3救錯: ASCII 是鍵盤打字在用的字元碼啦！" }
                 ]
             },
 
-            // --- 第 4 關：單晶片 ---
+            // --- 第 4 關：邏輯閘 ---
             "q4": {
-                tag: "第 4 關：微電腦系統",
-                text: "將 CPU、記憶體 (RAM/ROM) 及 I/O 介面電路全部整合在同一顆 IC 晶片中，稱為？",
+                tag: "第 4 關：基本邏輯閘",
+                text: "當輸入 A 與 B 的狀態「不同」時，輸出才為 1；若狀態「相同」時，輸出為 0。這是哪一種邏輯閘的特性？",
                 options: [
-                    { text: "A. 微控制器 (MCU / 單晶片)", next: "q5", isCorrect: true },
-                    { text: "B. 微處理機 (MPU)", next: "q4_help", log: "Q4錯: MPU 通常只有 CPU 功能，需外接記憶體" },
-                    { text: "C. 數位訊號處理器 (DSP)", next: "q4_help", log: "Q4錯: 這是專門處理數位訊號運算的" },
-                    { text: "D. 顯示卡 (GPU)", next: "q4_help", log: "Q4錯: 這是專門處理圖形運算的" }
+                    { text: "A. XOR 閘 (互斥或閘)", next: "q5", isCorrect: true },
+                    { text: "B. XNOR 閘 (反互斥或閘)", next: "q4_help", log: "Q4錯: XNOR 是相同才輸出 1 (同或閘)" },
+                    { text: "C. NAND 閘", next: "q4_help", log: "Q4錯: 有 0 即 1" },
+                    { text: "D. NOR 閘", next: "q4_help", log: "Q4錯: 有 1 即 0" }
                 ]
             },
             "q4_help": {
-                tag: "💊 救援任務：麻雀雖小五臟俱全",
-                text: "知識拆解：把整台電腦必備的元件通通塞進一顆晶片裡，讓它可以獨立「控制」外部設備，例如我們實習課常用的 8051 或 Arduino 核心。這叫？",
+                tag: "💊 救援任務：相異為真",
+                text: "知識拆解：「互斥」的意思就是我們兩個不一樣！你 0 我 1，或者你 1 我 0 的時候，輸出才會是 1。這個邏輯閘叫？",
                 options: [
-                    { text: "A. 微控制器 (MCU)", next: "q4", isCorrect: true },
-                    { text: "B. 微處理機 (MPU)", next: "q4_help", log: "Q4救錯: MPU 只有大腦，沒有記憶體等周邊喔！" }
+                    { text: "A. XOR 閘", next: "q4", isCorrect: true },
+                    { text: "B. XNOR 閘", next: "q4_help", log: "Q4救錯: XNOR 多了個 N，變成「相同才為真」喔！" }
                 ]
             },
 
-            // ⚾ 第 5 關：WBC 國防部長
+            // --- 第 5 關：萬用閘 ---
             "q5": {
-                tag: "⚾ 第 5 關：大腦休息 (WBC)",
-                text: "熱血一下！在 2023 年 WBC 經典賽中，台灣隊有一位重砲手因為優異的打擊表現，只要一上壘全場就會對他「敬禮」，更被球迷封為「國防部長」。他是誰？",
+                tag: "第 5 關：基本邏輯閘",
+                text: "在數位邏輯中，有兩種邏輯閘被稱為「萬用閘 (Universal Gates)」，因為只要單獨使用其中一種，就能兜出所有的邏輯運算。請問是哪兩種？",
                 options: [
-                    { text: "A. 張育成", next: "q6", isCorrect: true },
-                    { text: "B. 林立", next: "q5_help", log: "Q5錯: 林立沒有這個稱號" },
-                    { text: "C. 吉力吉撈．鞏冠", next: "q5_help", log: "Q5錯: 雖然也打出全壘打，但不是國防部長" },
-                    { text: "D. 吳念庭", next: "q5_help", log: "Q5錯: 吳念庭表現優異，但稱號是得點圈之鬼" }
+                    { text: "A. NAND 閘 與 NOR 閘", next: "q6", isCorrect: true },
+                    { text: "B. AND 閘 與 OR 閘", next: "q5_help", log: "Q5錯: 這兩個無法兜出 NOT 功能" },
+                    { text: "C. XOR 閘 與 XNOR 閘", next: "q5_help", log: "Q5錯: 這無法組成全部基本閘" },
+                    { text: "D. AND 閘 與 NOT 閘", next: "q5_help", log: "Q5錯: 雖然可以組合，但本身是兩種閘" }
                 ]
             },
             "q5_help": {
-                tag: "💊 提示：永遠的國防部長",
-                text: "他原本因為兵役問題受到質疑，但後來以超狂的全壘打和打點表現讓全台灣球迷折服，招牌動作是舉手敬禮！",
+                tag: "💊 救援任務：自帶反相的王者",
+                text: "知識拆解：要成為萬用閘，它自己必須自帶「反相(NOT)」的功能，這樣只要把輸入端綁在一起就能當 NOT 閘用。所以一定是 N 開頭的兩種閘！",
                 options: [
-                    { text: "A. 張育成", next: "q5", isCorrect: true },
-                    { text: "B. 林立", next: "q5_help", log: "Q5救錯: 敬禮手勢是張育成的招牌啦！" }
+                    { text: "A. NAND 與 NOR", next: "q5", isCorrect: true },
+                    { text: "B. AND 與 OR", next: "q5_help", log: "Q5救錯: 沒有反相小圓圈，變不出 NOT 閘啦！" }
                 ]
             },
 
-            // --- 第 6 關：二補數 ---
+            // --- 第 6 關：第摩根定理 ---
             "q6": {
-                tag: "第 6 關：數字系統",
-                text: "在電腦中，為了簡化減法運算，負數通常以「二補數 (2's complement)」來表示。二補數的求法為何？",
+                tag: "第 6 關：布林代數",
+                text: "根據「第摩根定理 (DeMorgan's Law)」，請問 (A + B)' 展開後等於什麼？",
                 options: [
-                    { text: "A. 1 的補數加 1", next: "q7", isCorrect: true },
-                    { text: "B. 全部反相即為答案", next: "q6_help", log: "Q6錯: 這是 1 的補數" },
-                    { text: "C. 最高位元改為 1，其餘不變", next: "q6_help", log: "Q6錯: 這是符號與大小表示法" },
-                    { text: "D. 1 的補數減 1", next: "q6_help", log: "Q6錯: 應該是加 1" }
+                    { text: "A. A' · B'", next: "q7", isCorrect: true },
+                    { text: "B. A' + B'", next: "q6_help", log: "Q6錯: 符號要變號" },
+                    { text: "C. A · B", next: "q6_help", log: "Q6錯: 變數要反相" },
+                    { text: "D. A' + B", next: "q6_help", log: "Q6錯: B 也要反相" }
                 ]
             },
             "q6_help": {
-                tag: "💊 救援任務：反相再加一",
-                text: "知識拆解：先把二進位數字全部 0 變 1、1 變 0 (這叫 1 的補數)，然後最後在尾巴加上一個 1，就可以得到完美的負數表示法！",
+                tag: "💊 救援任務：斬斷長條，變換符號",
+                text: "知識拆解：第摩根定理口訣：「長條斬斷，符號變換」。把上面的長霸斬斷分給 A 跟 B (變成 A' 和 B')，中間的加號 (+) 就要翻轉變成乘號 (·)！",
                 options: [
-                    { text: "A. 1 的補數加 1", next: "q6", isCorrect: true },
-                    { text: "B. 全部反相", next: "q6_help", log: "Q6救錯: 只有反相的話，那是 1 的補數喔，還差一步！" }
+                    { text: "A. A' · B'", next: "q6", isCorrect: true },
+                    { text: "B. A' + B'", next: "q6_help", log: "Q6救錯: 斬斷之後，中間的加號也要記得變號喔！" }
                 ]
             },
 
-            // --- 第 7 關：ASCII ---
+            // --- 第 7 關：布林簡化 ---
             "q7": {
-                tag: "第 7 關：資料表示法",
-                text: "標準的 ASCII 碼使用幾個位元 (bits) 來表示一個字元？",
+                tag: "第 7 關：布林代數",
+                text: "布林代數基本化簡：方程式 Y = A + A'B 可以化簡為何？",
                 options: [
-                    { text: "A. 7 個位元", next: "q8", isCorrect: true },
-                    { text: "B. 8 個位元", next: "q7_help", log: "Q7錯: 延伸型才是 8 位元" },
-                    { text: "C. 16 個位元", next: "q7_help", log: "Q7錯: 這是 Unicode" },
-                    { text: "D. 4 個位元", next: "q7_help", log: "Q7錯: 這是 BCD 碼的一半" }
+                    { text: "A. A + B", next: "q8", isCorrect: true },
+                    { text: "B. A", next: "q7_help", log: "Q7錯: B 不會消失" },
+                    { text: "C. B", next: "q7_help", log: "Q7錯: A 不會消失" },
+                    { text: "D. 1", next: "q7_help", log: "Q7錯: 不是恆為真" }
                 ]
             },
             "q7_help": {
-                tag: "💊 救援任務：128種組合",
-                text: "知識拆解：標準 ASCII 可以表示 128 種不同的字元 (包含大小寫英文字母、數字、控制碼)。2 的幾次方等於 128？",
+                tag: "💊 救援任務：分配律的妙用",
+                text: "知識拆解：利用分配律展開：A + A'B = (A + A')(A + B)。因為 A + A' 永遠等於 1，所以最後只剩下什麼？",
                 options: [
-                    { text: "A. 7 個位元", next: "q7", isCorrect: true },
-                    { text: "B. 8 個位元", next: "q7_help", log: "Q7救錯: 2 的 8 次方是 256，那是後來擴充的延伸碼喔！" }
+                    { text: "A. A + B", next: "q7", isCorrect: true },
+                    { text: "B. 1", next: "q7_help", log: "Q7救錯: (A+A')是 1，但它還要乘上後面的括號啊！" }
                 ]
             },
 
-            // --- 第 8 關：溢位 Overflow ---
+            // --- 第 8 關：卡諾圖 ---
             "q8": {
-                tag: "第 8 關：二進位運算",
-                text: "使用 8 位元來表示二補數的帶符號整數，當發生什麼情況時，代表運算產生了「溢位 (Overflow)」？",
+                tag: "第 8 關：卡諾圖化簡",
+                text: "使用卡諾圖 (Karnaugh Map) 進行邏輯化簡時，圈選 1 的數量必須是 2 的幾次方。若我們圈選了一個「包含 4 個 1 的方塊」，可以消去幾個變數？",
                 options: [
-                    { text: "A. 兩個正數相加結果變負數，或兩個負數相加結果變正數", next: "q9", isCorrect: true },
-                    { text: "B. 進位到最高位元外", next: "q8_help", log: "Q8錯: 這是 Carry，不一定代表 Overflow" },
-                    { text: "C. 正數與負數相加", next: "q8_help", log: "Q8錯: 一正一負相加絕對不可能溢位" },
-                    { text: "D. 結果為零", next: "q8_help", log: "Q8錯: 正常現象" }
+                    { text: "A. 2 個變數", next: "q9", isCorrect: true },
+                    { text: "B. 1 個變數", next: "q8_help", log: "Q8錯: 圈 2 個才能消去 1 個變數" },
+                    { text: "C. 3 個變數", next: "q8_help", log: "Q8錯: 圈 8 個才能消去 3 個變數" },
+                    { text: "D. 4 個變數", next: "q8_help", log: "Q8錯: 圈 16 個才能消去 4 個變數" }
                 ]
             },
             "q8_help": {
-                tag: "💊 救援任務：超出邏輯的荒謬",
-                text: "知識拆解：溢位就是「數字大到裝不下」，導致最高位元(符號位元)被破壞。這會發生非常荒謬的事：比如你有錢加有錢，算出來卻變負債！",
+                tag: "💊 救援任務：2的次方規律",
+                text: "知識拆解：圈 2 個消 1 個，圈 4 個消 2 個，圈 8 個消 3 個。所以包住 4 格 (2的2次方) 可以殺掉幾個變數？",
                 options: [
-                    { text: "A. 兩正相加變負，兩負相加變正", next: "q8", isCorrect: true },
-                    { text: "B. 進位到最高位元外", next: "q8_help", log: "Q8救錯: 二補數運算有進位丟掉是正常的，不一定是溢位喔！" }
+                    { text: "A. 2 個變數", next: "q8", isCorrect: true },
+                    { text: "B. 1 個變數", next: "q8_help", log: "Q8救錯: 圈 2 個 1 的時候才只能消掉 1 個變數喔！" }
                 ]
             },
 
-            // --- 第 9 關：16進位 ---
+            // --- 第 9 關：半加法器 ---
             "q9": {
-                tag: "第 9 關：數字系統",
-                text: "在組合語言中常用 16 進位 (Hexadecimal) 來縮短 2 進位長度。1 個 16 進位的數字，可以對應到幾個 2 進位的位元 (Bits)？",
+                tag: "第 9 關：組合邏輯",
+                text: "「半加法器 (Half Adder)」用來計算兩個位元 (A, B) 的相加。它的總和 (Sum) 輸出與進位 (Carry) 輸出，分別是由哪兩個邏輯閘構成？",
                 options: [
-                    { text: "A. 4 個", next: "q10", isCorrect: true },
-                    { text: "B. 8 個", next: "q9_help", log: "Q9錯: 8 個位元是 1 Byte，需要 2 個 16 進位字元" },
-                    { text: "C. 2 個", next: "q9_help", log: "Q9錯: 太少" },
-                    { text: "D. 16 個", next: "q9_help", log: "Q9錯: 不是對應 16 個" }
+                    { text: "A. Sum 用 XOR，Carry 用 AND", next: "q10", isCorrect: true },
+                    { text: "B. Sum 用 OR，Carry 用 AND", next: "q9_help", log: "Q9錯: 1+1 時 OR 會給 1，但總和應該是 0" },
+                    { text: "C. Sum 用 AND，Carry 用 XOR", next: "q9_help", log: "Q9錯: 完全相反了" },
+                    { text: "D. Sum 用 XOR，Carry 用 OR", next: "q9_help", log: "Q9錯: Carry 要兩者皆為 1 才會進位" }
                 ]
             },
             "q9_help": {
-                tag: "💊 救援任務：2的幾次方",
-                text: "知識拆解：16 進位有 0~15 (0~F) 共 16 種狀態。要用 2 進位的 0 和 1 組合出 16 種狀態，需要 2 的幾次方？",
+                tag: "💊 救援任務：加法的真值",
+                text: "知識拆解：1+0=1, 0+1=1，但 1+1 時總和(Sum)會變 0 (相異為1)，所以是 XOR。而進位(Carry)只有在 1+1 時才會發生(兩者皆為1)，所以是 AND。",
                 options: [
-                    { text: "A. 4 個", next: "q9", isCorrect: true },
-                    { text: "B. 8 個", next: "q9_help", log: "Q9救錯: 2的8次方是 256，太多啦！" }
+                    { text: "A. Sum用 XOR，Carry用 AND", next: "q9", isCorrect: true },
+                    { text: "B. Sum用 OR，Carry用 AND", next: "q9_help", log: "Q9救錯: 1加1的總和是0，OR 閘會給你 1，算錯啦！" }
                 ]
             },
 
-            // ⚾ 第 10 關：WBC 世紀對決
+            // 🏃 第 10 關：路跑配速
             "q10": {
-                tag: "⚾ 第 10 關：大腦休息 (WBC)",
-                text: "日本隊在 2023 WBC 決賽奪冠的最後一個出局數，堪稱棒球史上的「世紀對決」。由投手大谷翔平，三振掉了他在美國職棒天使隊的哪一位神級隊友？",
+                tag: "🏃 第 10 關：大腦休息 (路跑)",
+                text: "休息一下，來點運動知識！如果你報名了一場 8.3Km 的路跑，打算用「6分速」穩穩跑完。這代表你跑 1 公里需要 6 分鐘。請問你大約會花多少時間完賽？",
                 options: [
-                    { text: "A. 楚奧特 (Mike Trout)", next: "q11", isCorrect: true },
-                    { text: "B. 賈吉 (Aaron Judge)", next: "q10_help", log: "Q10錯: 賈吉沒有參加這屆經典賽" },
-                    { text: "C. 貝茲 (Mookie Betts)", next: "q10_help", log: "Q10錯: 雖然在場上但不是最後一個打者" },
-                    { text: "D. 達比修有", next: "q10_help", log: "Q10錯: 這是日本隊自己的隊友" }
+                    { text: "A. 大約 50 分鐘", next: "q11", isCorrect: true },
+                    { text: "B. 大約 30 分鐘", next: "q10_help", log: "Q10錯: 這要跑到 3.5 分速了，是國手等級" },
+                    { text: "C. 大約 70 分鐘", next: "q10_help", log: "Q10錯: 這是 8 分半速" },
+                    { text: "D. 大約 90 分鐘", next: "q10_help", log: "Q10錯: 這是慢慢走的時長" }
                 ]
             },
             "q10_help": {
-                tag: "💊 提示：神鱒",
-                text: "他是美國隊的隊長，外號「神鱒」，也是大谷翔平在大聯盟天使隊最要好的老大哥。最後大谷用一顆犀利的滑球將他三振！",
+                tag: "💊 提示：簡單乘法",
+                text: "知識拆解：1 公里 6 分鐘，8.3 公里就是 8.3 × 6 = 49.8。四捨五入大約是幾分鐘？",
                 options: [
-                    { text: "A. 楚奧特 (Mike Trout)", next: "q10", isCorrect: true },
-                    { text: "B. 賈吉 (Aaron Judge)", next: "q10_help", log: "Q10救錯: 法官賈吉是洋基隊的啦！" }
+                    { text: "A. 大約 50 分鐘", next: "q10", isCorrect: true },
+                    { text: "B. 大約 30 分鐘", next: "q10_help", log: "Q10救錯: 30 分鐘跑完 8.3K 你會飛起來吧！" }
                 ]
             },
 
-            // --- 第 11 關：PC 暫存器 ---
+            // --- 第 11 關：全加法器 ---
             "q11": {
-                tag: "第 11 關：CPU 暫存器",
-                text: "在 CPU 中，負責存放「下一個要執行的指令位址」的暫存器是哪一個？",
+                tag: "第 11 關：組合邏輯",
+                text: "全加法器 (Full Adder) 可以處理前一個位元的進位。請問一個全加法器共有幾個輸入端？幾個輸出端？",
                 options: [
-                    { text: "A. 程式計數器 (PC)", next: "q12", isCorrect: true },
-                    { text: "B. 指令暫存器 (IR)", next: "q11_help", log: "Q11錯: 這是放『正在執行』的指令" },
-                    { text: "C. 累加器 (ACC)", next: "q11_help", log: "Q11錯: 這是放運算結果的" },
-                    { text: "D. 記憶體位址暫存器 (MAR)", next: "q11_help", log: "Q11錯: 這是放準備存取記憶體的位址" }
+                    { text: "A. 3 個輸入，2 個輸出", next: "q12", isCorrect: true },
+                    { text: "B. 2 個輸入，2 個輸出", next: "q11_help", log: "Q11錯: 這是半加法器" },
+                    { text: "C. 3 個輸入，3 個輸出", next: "q11_help", log: "Q11錯: 輸出只有 Sum 和 Carry" },
+                    { text: "D. 2 個輸入，1 個輸出", next: "q11_help", log: "Q11錯: 這是基本的邏輯閘" }
                 ]
             },
             "q11_help": {
-                tag: "💊 救援任務：指路明燈",
-                text: "知識拆解：它就像是一個排隊叫號機，永遠看著「下一步」要去哪裡拿指令。英文叫 Program Counter。",
+                tag: "💊 救援任務：加法的完全體",
+                text: "知識拆解：全加法器要算本位的 A、B，還要加上低位傳來的進位(Cin)，所以有 3 個輸入。算完後會產生本位總和(Sum)與給下一位的進位(Cout)，所以有 2 個輸出。",
                 options: [
-                    { text: "A. 程式計數器 (PC)", next: "q11", isCorrect: true },
-                    { text: "B. 指令暫存器 (IR)", next: "q11_help", log: "Q11救錯: IR 是肚子已經吞進來的指令，PC 才是指著下一個！" }
+                    { text: "A. 3 個輸入，2 個輸出", next: "q11", isCorrect: true },
+                    { text: "B. 2 個輸入，2 個輸出", next: "q11_help", log: "Q11救錯: 只有 2 個輸入的是半加法器啦！" }
                 ]
             },
 
-            // --- 第 12 關：IR 暫存器 ---
+            // --- 第 12 關：解碼器 ---
             "q12": {
-                tag: "第 12 關：CPU 暫存器",
-                text: "承上題，當 CPU 把指令從記憶體抓進來之後，在進行「解碼 (Decode)」前，必須先把這個指令存放在哪裡？",
+                tag: "第 12 關：解碼器",
+                text: "解碼器 (Decoder) 能將二進位的輸入碼轉換成唯一的對應輸出腳。若一個解碼器有 3 個輸入端，它最多會有幾個輸出端？",
                 options: [
-                    { text: "A. 指令暫存器 (IR)", next: "q13", isCorrect: true },
-                    { text: "B. 程式計數器 (PC)", next: "q12_help", log: "Q12錯: 這是指下一個位址的" },
-                    { text: "C. 狀態暫存器 (Flag)", next: "q12_help", log: "Q12錯: 這是記錄運算狀態(如進位、零)的" },
-                    { text: "D. 堆疊指標 (SP)", next: "q12_help", log: "Q12錯: 這是管堆疊的" }
+                    { text: "A. 8 個", next: "q13", isCorrect: true },
+                    { text: "B. 3 個", next: "q12_help", log: "Q12錯: 這是輸入端數量" },
+                    { text: "C. 4 個", next: "q12_help", log: "Q12錯: 這是 2 對 4 解碼器" },
+                    { text: "D. 16 個", next: "q12_help", log: "Q12錯: 這需要 4 個輸入端" }
                 ]
             },
             "q12_help": {
-                tag: "💊 救援任務：解碼準備室",
-                text: "知識拆解：指令(Instruction)被抓進大腦後，要先放在一個暫存器(Register)裡面，讓控制單元去翻譯它。縮寫就是 I 和 R。",
+                tag: "💊 救援任務：二的N次方",
+                text: "知識拆解：解碼器是 n 對 2ⁿ。3 條輸入線可以組合出 000 到 111 共幾種狀態？ 2³ 等於多少？",
                 options: [
-                    { text: "A. 指令暫存器 (IR)", next: "q12", isCorrect: true },
-                    { text: "B. 程式計數器 (PC)", next: "q12_help", log: "Q12救錯: PC 的任務是給地址，抓回來的貨要放在 IR 裡喔！" }
+                    { text: "A. 8 個", next: "q12", isCorrect: true },
+                    { text: "B. 4 個", next: "q12_help", log: "Q12救錯: 2的3次方是 8 喔！" }
                 ]
             },
 
-            // --- 第 13 關：機器週期 ---
+            // --- 第 13 關：編碼器 ---
             "q13": {
-                tag: "第 13 關：指令執行",
-                text: "CPU 執行一個指令的完整過程稱為機器週期 (Machine Cycle)。最基本的兩個階段依序為何？",
+                tag: "第 13 關：編碼器",
+                text: "電腦鍵盤按下去時，系統要把 10 個數字鍵轉換成 BCD 碼給電腦看。這種將多個輸入轉換成較少二進位輸出的電路稱為？",
                 options: [
-                    { text: "A. 擷取 (Fetch) ➡️ 執行 (Execute)", next: "q14", isCorrect: true },
-                    { text: "B. 執行 (Execute) ➡️ 擷取 (Fetch)", next: "q13_help", log: "Q13錯: 順序顛倒了" },
-                    { text: "C. 解碼 (Decode) ➡️ 存檔 (Store)", next: "q13_help", log: "Q13錯: 漏了最前面去拿指令" },
-                    { text: "D. 讀取 (Read) ➡️ 寫入 (Write)", next: "q13_help", log: "Q13錯: 這是記憶體的動作" }
+                    { text: "A. 編碼器 (Encoder)", next: "q14", isCorrect: true },
+                    { text: "B. 解碼器 (Decoder)", next: "q13_help", log: "Q13錯: 解碼是把機器碼變回人類看的" },
+                    { text: "C. 多工器 (Multiplexer)", next: "q13_help", log: "Q13錯: 多工器是資料選擇器" },
+                    { text: "D. 暫存器 (Register)", next: "q13_help", log: "Q13錯: 這是記憶元件" }
                 ]
             },
             "q13_help": {
-                tag: "💊 救援任務：先拿貨再做事",
-                text: "知識拆解：大腦要先去記憶體把指令「抓取 (Fetch)」進來，解碼翻譯後，才能命令手腳去「執行 (Execute)」動作。",
+                tag: "💊 救援任務：幫人類翻譯給機器",
+                text: "知識拆解：人類按下大大的「9」，電腦不懂 9，必須把它「編寫」成 1001 的二進位密碼。這個負責把十進位轉二進位的電路叫作？",
                 options: [
-                    { text: "A. 擷取 ➡️ 執行", next: "q13", isCorrect: true },
-                    { text: "B. 執行 ➡️ 擷取", next: "q13_help", log: "Q13救錯: 還沒拿到劇本怎麼可能先演戲(執行)啦！" }
+                    { text: "A. 編碼器 (Encoder)", next: "q13", isCorrect: true },
+                    { text: "B. 解碼器 (Decoder)", next: "q13_help", log: "Q13救錯: 解碼是倒過來，把密碼解開變成人類看的文字喔！" }
                 ]
             },
 
-            // --- 第 14 關：管線化 Pipeline ---
+            // --- 第 14 關：多工器 ---
             "q14": {
-                tag: "第 14 關：CPU 效能提升",
-                text: "為了加快 CPU 執行速度，現代處理器將指令執行分成多個階段（如抓取、解碼、執行），讓不同指令可以「重疊」在不同階段同時進行。這項技術稱為？",
+                tag: "第 14 關：多工器 MUX",
+                text: "多工器 (Multiplexer, MUX) 被稱為「數位選接器」。若一個多工器有 8 條資料輸入線，請問它需要幾條「選擇線 (Select Lines)」來決定讓哪一條資料通過？",
                 options: [
-                    { text: "A. 管線化 (Pipelining)", next: "q15", isCorrect: true },
-                    { text: "B. 多核心 (Multi-core)", next: "q14_help", log: "Q14錯: 多核心是直接放多個大腦" },
-                    { text: "C. 快取 (Cache)", next: "q14_help", log: "Q14錯: 這是加速記憶體讀取" },
-                    { text: "D. 超頻 (Overclocking)", next: "q14_help", log: "Q14錯: 這是提高時脈頻率" }
+                    { text: "A. 3 條", next: "q15", isCorrect: true },
+                    { text: "B. 2 條", next: "q14_help", log: "Q14錯: 2 條只能選 4 個輸入" },
+                    { text: "C. 4 條", next: "q14_help", log: "Q14錯: 4 條可以選 16 個輸入" },
+                    { text: "D. 8 條", next: "q14_help", log: "Q14錯: 選擇線數量是取 log2" }
                 ]
             },
             "q14_help": {
-                tag: "💊 救援任務：工廠生產線",
-                text: "知識拆解：就像汽車工廠的流水線一樣。第一站在裝輪胎時，第二站可以同時幫上一台車裝車門，不用等整台車做完才做下一台。這叫什麼技術？",
+                tag: "💊 救援任務：選台器的按鈕",
+                text: "知識拆解：多工器就像電視機選台器。你有 8 台可以選，選擇線就等於遙控器的二進位密碼。要表達出 8 種狀態，需要幾個位元(選擇線)？ 2的幾次方是 8？",
                 options: [
-                    { text: "A. 管線化 (Pipelining)", next: "q14", isCorrect: true },
-                    { text: "B. 多核心 (Multi-core)", next: "q14_help", log: "Q14救錯: 多核心是蓋好幾間工廠，管線化是一間工廠裡的生產線流水作業！" }
+                    { text: "A. 3 條", next: "q14", isCorrect: true },
+                    { text: "B. 4 條", next: "q14_help", log: "Q14救錯: 2 的 4 次方就變成 16 台了啦！" }
                 ]
             },
 
-            // ⚾ 第 15 關：WBC 捷克傳奇
+            // --- 第 15 關：七段顯示器 ---
             "q15": {
-                tag: "⚾ 第 15 關：大腦休息 (WBC)",
-                text: "2023 WBC 賽場上有一支充滿熱血的歐洲隊伍，他們的球員本業多半是消防員、地理老師或財務分析師，卻靠著下班後的練習打進了最高殿堂，甚至三振了大谷翔平。這是哪一國的代表隊？",
+                tag: "第 15 關：組合邏輯應用",
+                text: "在「共陰極 (Common Cathode)」的七段顯示器中，如果要讓某一個燈管發亮，我們必須給那個腳位輸入什麼訊號？",
                 options: [
-                    { text: "A. 捷克", next: "q16", isCorrect: true },
-                    { text: "B. 義大利", next: "q15_help", log: "Q15錯: 義大利有很多大聯盟球員" },
-                    { text: "C. 荷蘭", next: "q15_help", log: "Q15錯: 荷蘭隊實力非常強勁" },
-                    { text: "D. 英國", next: "q15_help", log: "Q15錯: 英國隊雖然是首度參賽，但不是業餘傳奇的主角" }
+                    { text: "A. 高電位 (1)", next: "q16", isCorrect: true },
+                    { text: "B. 低電位 (0)", next: "q15_help", log: "Q15錯: 這是共陽極的點亮方式" },
+                    { text: "C. 高阻抗 (Z)", next: "q15_help", log: "Q15錯: 這樣不通電不會亮" },
+                    { text: "D. 負電壓", next: "q15_help", log: "Q15錯: 數位電路通常給正電壓" }
                 ]
             },
             "q15_help": {
-                tag: "💊 提示：中歐的奇蹟",
-                text: "這支球隊的帽子上有個大大的 'C'，他們的努力精神感動了全世界，就連日本隊也對他們脫帽致敬。",
+                tag: "💊 救援任務：電流的方向",
+                text: "知識拆解：共「陰」極代表所有 LED 的負極(接地)都綁在一起了。既然下面已經接地(0V)，上面就必須給予高電壓(1)，電流才能流過去發光！",
                 options: [
-                    { text: "A. 捷克 (Czech)", next: "q15", isCorrect: true },
-                    { text: "B. 荷蘭", next: "q15_help", log: "Q15救錯: 荷蘭有很多 MLB 巨星，不是業餘球員喔！" }
+                    { text: "A. 高電位 (1)", next: "q15", isCorrect: true },
+                    { text: "B. 低電位 (0)", next: "q15_help", log: "Q15救錯: 大家都已經在低電位(陰)了，你再給低電位就沒有電壓差了！" }
                 ]
             },
 
-            // --- 第 16 關：RISC vs CISC ---
+            // --- 第 16 關：同位元檢查 ---
             "q16": {
-                tag: "第 16 關：指令集架構",
-                text: "微處理機的指令集架構主要分為 CISC 與 RISC。其中，強調「指令長度固定、指令數量少且簡單、高度管線化」的是哪一種架構？",
+                tag: "第 16 關：錯誤偵測",
+                text: "數位傳輸時常會加上 1 個「同位元 (Parity Bit)」來檢查有沒有傳錯。在「偶同位 (Even Parity)」系統中，若資料為 1011001，我們加上的同位元應該是 0 還是 1？",
                 options: [
-                    { text: "A. RISC (精簡指令集)", next: "q17", isCorrect: true },
-                    { text: "B. CISC (複雜指令集)", next: "q16_help", log: "Q16錯: CISC 的指令長短不一且複雜" },
-                    { text: "C. VLIW", next: "q16_help", log: "Q16錯: 這是超長指令字架構" },
-                    { text: "D. EPIC", next: "q16_help", log: "Q16錯: 這是明確平行指令運算" }
+                    { text: "A. 0", next: "q17", isCorrect: true },
+                    { text: "B. 1", next: "q16_help", log: "Q16錯: 加上 1 總共會有 5 個 1，變成奇同位" },
+                    { text: "C. 視距離而定", next: "q16_help", log: "Q16錯: 同位元只跟資料中 1 的個數有關" },
+                    { text: "D. 可有可無", next: "q16_help", log: "Q16錯: 同位元必須精準設定" }
                 ]
             },
             "q16_help": {
-                tag: "💊 救援任務：簡約就是快",
-                text: "知識拆解：CISC 的 C 是 Complex (複雜)，RISC 的 R 是 Reduced (精簡)。手機裡的 ARM 處理器就是這類「精簡、固定長度、跑得快」的代表。",
+                tag: "💊 救援任務：湊成偶數",
+                text: "知識拆解：偶同位就是要讓整包資料加起來「1 的總數是偶數」。現在 1011001 裡面已經有 4 個 1 了。4 已經是偶數，所以我們不用再加 1 了，只要補上？",
                 options: [
-                    { text: "A. RISC", next: "q16", isCorrect: true },
-                    { text: "B. CISC", next: "q16_help", log: "Q16救錯: 題目說「少且簡單」，CISC是複雜的喔！" }
+                    { text: "A. 0", next: "q16", isCorrect: true },
+                    { text: "B. 1", next: "q16_help", log: "Q16救錯: 再補 1 個上去就變 5 個 1，變成奇數了啦！" }
                 ]
             },
 
-            // --- 第 17 關：立即定址 ---
+            // --- 第 17 關：比較器設計 ---
             "q17": {
-                tag: "第 17 關：定址模式",
-                text: "在組合語言的定址模式中，如果指令後面的運算元「直接就是一個數值資料」（例如：MOV A, #55H），這稱為什麼定址法？",
+                tag: "第 17 關：數位比較器",
+                text: "1 位元的數位比較器用來比較 A、B 兩數。當 A = B 時，輸出高電位 (1)。請問此功能可以由哪一種邏輯閘獨立實現？",
                 options: [
-                    { text: "A. 立即定址 (Immediate Addressing)", next: "q18", isCorrect: true },
-                    { text: "B. 直接定址 (Direct Addressing)", next: "q17_help", log: "Q17錯: 直接定址是給記憶體地址" },
-                    { text: "C. 暫存器定址 (Register Addressing)", next: "q17_help", log: "Q17錯: 這是資料放在暫存器裡" },
-                    { text: "D. 間接定址 (Indirect Addressing)", next: "q17_help", log: "Q17錯: 這是透過指標找資料" }
+                    { text: "A. XNOR 閘 (反互斥或閘)", next: "q18", isCorrect: true },
+                    { text: "B. XOR 閘", next: "q17_help", log: "Q17錯: 這是 A ≠ B 時才輸出 1" },
+                    { text: "C. AND 閘", next: "q17_help", log: "Q17錯: AND 只有 1=1 時為 1，0=0 時為 0" },
+                    { text: "D. OR 閘", next: "q17_help", log: "Q17錯: 只要有 1 就為 1" }
                 ]
             },
             "q17_help": {
-                tag: "💊 救援任務：所見即所得",
-                text: "知識拆解：不需要去記憶體找，也不用去暫存器翻。指令寫 55，資料就是 55，CPU 抓進來「立刻」就可以用。這叫？",
+                tag: "💊 救援任務：相同為真",
+                text: "知識拆解：「A=B」代表他們兩個完全一樣(00 或 11)。「相同才輸出 1」的邏輯閘，就是互斥或閘(XOR)加上反相(NOT)。也就是？",
                 options: [
-                    { text: "A. 立即定址", next: "q17", isCorrect: true },
-                    { text: "B. 直接定址", next: "q17_help", log: "Q17救錯: 直接定址是給門牌號碼，還要走去拿；立即定址是直接把現金塞給你！" }
+                    { text: "A. XNOR 閘", next: "q17", isCorrect: true },
+                    { text: "B. XOR 閘", next: "q17_help", log: "Q17救錯: XOR 叫做『互斥』，是不一樣才會輸出 1 喔！" }
                 ]
             },
 
-            // --- 第 18 關：暫存器定址 ---
+            // --- 第 18 關：加法器與減法器 ---
             "q18": {
-                tag: "第 18 關：定址模式",
-                text: "接續上題，如果指令是寫成「ADD A, R1」，代表要把 A 和 R1 這兩個「暫存器」裡面的內容相加。這稱為什麼定址法？",
+                tag: "第 18 關：組合邏輯應用",
+                text: "在數位電路中，要將加法器變成「減法器 (A - B)」，我們通常會將被減數 B 轉換成二補數後再相加。實務上會用什麼邏輯閘加上控制訊號，來決定 B 要不要反相？",
                 options: [
-                    { text: "A. 暫存器定址 (Register Addressing)", next: "q19", isCorrect: true },
-                    { text: "B. 立即定址", next: "q18_help", log: "Q18錯: 沒有直接給數值" },
-                    { text: "C. 直接定址", next: "q18_help", log: "Q18錯: 不是給記憶體位址" },
-                    { text: "D. 索引定址", next: "q18_help", log: "Q18錯: 這是加法計算位址用的" }
+                    { text: "A. XOR 閘", next: "q19", isCorrect: true },
+                    { text: "B. AND 閘", next: "q18_help", log: "Q18錯: AND 無法做受控反相" },
+                    { text: "C. OR 閘", next: "q18_help", log: "Q18錯: OR 無法做受控反相" },
+                    { text: "D. NOT 閘", next: "q18_help", log: "Q18錯: NOT 閘會永久反相，無法控制加減切換" }
                 ]
             },
             "q18_help": {
-                tag: "💊 救援任務：看名字選答案",
-                text: "知識拆解：資料就放在 CPU 內部的「暫存器(Register)」裡面，這也是執行速度最快的一種定址方式。中文叫？",
+                tag: "💊 救援任務：可控的反相器",
+                text: "知識拆解：XOR 閘有個超強特性：當控制端為 0，B 原封不動過去(做加法)；當控制端為 1，B 就會反相變成 B'(做減法前置作業)。這顆神奇的閘是？",
                 options: [
-                    { text: "A. 暫存器定址", next: "q18", isCorrect: true },
-                    { text: "B. 直接定址", next: "q18_help", log: "Q18救錯: R1 是暫存器，不是記憶體位址喔！" }
+                    { text: "A. XOR 閘", next: "q18", isCorrect: true },
+                    { text: "B. NOT 閘", next: "q18_help", log: "Q18救錯: NOT 閘永遠都是反的，這樣電路就只能做減法不能做加法了！" }
                 ]
             },
 
-            // --- 第 19 關：組合語言特性 ---
+            // --- 第 19 關：循序與組合的差異 ---
             "q19": {
-                tag: "第 19 關：程式語言分類",
-                text: "關於「組合語言 (Assembly Language)」，下列敘述何者正確？",
+                tag: "第 19 關：循序邏輯基礎",
+                text: "「循序邏輯電路 (Sequential Logic)」與「組合邏輯電路 (Combinational Logic)」最根本的差別，在於循序邏輯具備了什麼特性？",
                 options: [
-                    { text: "A. 屬於低階語言，與硬體 CPU 架構高度相關", next: "q20", isCorrect: true },
-                    { text: "B. 屬於高階語言，人類很容易閱讀", next: "q19_help", log: "Q19錯: 高階語言是 C, Python 等" },
-                    { text: "C. 寫好的程式可以在任何不同廠牌的 CPU 上直接執行", next: "q19_help", log: "Q19錯: 組合語言不可攜，換 CPU 就要重寫" },
-                    { text: "D. 電腦可以直接看懂，不需要透過組譯器轉換", next: "q19_help", log: "Q19錯: 電腦只懂 0 和 1 (機器語言)" }
+                    { text: "A. 具有記憶功能 (有回授路徑)", next: "q20", isCorrect: true },
+                    { text: "B. 速度比較快", next: "q19_help", log: "Q19錯: 循序邏輯有記憶元件，速度通常受限於時脈" },
+                    { text: "C. 不需要電源", next: "q19_help", log: "Q19錯: 兩者皆需要電源" },
+                    { text: "D. 只能做加減法", next: "q19_help", log: "Q19錯: 這是組合邏輯(加法器)的任務" }
                 ]
             },
             "q19_help": {
-                tag: "💊 救援任務：貼近硬體的語言",
-                text: "知識拆解：組合語言是用 ADD, MOV 這些助憶碼來寫的，它是直接操控暫存器的「低階語言」。因為每家廠商(Intel, ARM)硬體不同，所以指令也不共通。",
+                tag: "💊 救援任務：記住過去",
+                text: "知識拆解：加法器算完就忘記了。但紅綠燈必須「記住」現在是綠燈，下一秒才知道要換黃燈。這種把輸出繞回輸入的電路，擁有了什麼功能？",
                 options: [
-                    { text: "A. 低階語言，與硬體高度相關", next: "q19", isCorrect: true },
-                    { text: "B. 可在任何 CPU 直接執行", next: "q19_help", log: "Q19救錯: 不能跨平台喔！Intel 的組合語言放進 Apple 的晶片會完全看不懂。" }
+                    { text: "A. 記憶功能", next: "q19", isCorrect: true },
+                    { text: "B. 速度快", next: "q19_help", log: "Q19救錯: 多了記憶元件反而會讓時序變複雜喔！" }
                 ]
             },
 
-            // ⚾ 第 20 關：WBC 投球限制
+            // 🏃 第 20 關：路跑呼吸
             "q20": {
-                tag: "⚾ 第 20 關：大腦休息 (WBC)",
-                text: "WBC 經典賽為了保護各國職棒的投手，不讓他們在春訓期間手臂過度疲勞，特別訂定了一項嚴格的賽制規定。請問是哪一項？",
+                tag: "🏃 第 20 關：大腦休息 (路跑)",
+                text: "路跑知識補充！在跑 8.3Km 時，為了避免跑到一半岔氣肚子痛，教練通常會建議新手採用怎樣的「呼吸節奏」最能穩定供氧？",
                 options: [
-                    { text: "A. 單場最高用球數限制 (如第一輪最多 65 球)", next: "q21", isCorrect: true },
-                    { text: "B. 限制投手球速不能超過 150 公里", next: "q20_help", log: "Q20錯: 球速沒有限制" },
-                    { text: "C. 規定不能投變化球", next: "q20_help", log: "Q20錯: 球種沒有限制" },
-                    { text: "D. 一場比賽每個投手只能投一局", next: "q20_help", log: "Q20錯: 是看球數，不是強制一局" }
+                    { text: "A. 兩吸兩吐 (吸吸-吐吐，配合腳步)", next: "q21", isCorrect: true },
+                    { text: "B. 全程憋氣衝刺", next: "q20_help", log: "Q20錯: 這樣會缺氧暈倒" },
+                    { text: "C. 嘴巴大口猛吸", next: "q20_help", log: "Q20錯: 容易口乾舌燥並吃進冷空氣" },
+                    { text: "D. 不規律喘氣", next: "q20_help", log: "Q20錯: 不規律容易打亂心率引發岔氣" }
                 ]
             },
             "q20_help": {
-                tag: "💊 提示：保護黃金手臂",
-                text: "因為比賽在三月打，很多投手還沒完全開機。大聯盟嚴格要求大會，一旦投手丟超過「特定的顆數」，就算解決到一半也必須強制換人。",
+                tag: "💊 提示：節奏感是王道",
+                text: "長跑最講究規律。配合左右腳落地的節奏，鼻子深吸兩次，嘴巴穩穩吐出兩次，是最經典的長跑心法！",
                 options: [
-                    { text: "A. 用球數限制", next: "q20", isCorrect: true },
-                    { text: "B. 限制投球局數", next: "q20_help", log: "Q20救錯: 是算球數的！如果被瘋狂打界外，可能半局就下班了。" }
+                    { text: "A. 兩吸兩吐", next: "q20", isCorrect: true },
+                    { text: "B. 嘴巴大口猛吸", next: "q20_help", log: "Q20救錯: 這樣很快就會口乾舌燥，無法撐完 8.3 公里！" }
                 ]
             },
 
-            // --- 第 21 關：SRAM vs DRAM ---
+            // --- 第 21 關：SR 閂鎖器 ---
             "q21": {
-                tag: "第 21 關：記憶體元件",
-                text: "電腦主機板上的記憶體分為很多種。其中，哪一種記憶體速度最快，不需要週期性充電(Refresh)，通常被用來做為 CPU 內部的「快取記憶體 (Cache)」？",
+                tag: "第 21 關：正反器",
+                text: "在使用 NOR 閘組成的基本「SR 閂鎖器 (Latch)」中，S (Set) 與 R (Reset) 絕對不可以同時輸入 1。因為這會導致什麼結果？",
                 options: [
-                    { text: "A. SRAM (靜態隨機存取記憶體)", next: "q22", isCorrect: true },
-                    { text: "B. DRAM (動態隨機存取記憶體)", next: "q21_help", log: "Q21錯: 這是主記憶體，需要充電" },
-                    { text: "C. ROM (唯讀記憶體)", next: "q21_help", log: "Q21錯: ROM 速度慢且無法隨意寫入" },
-                    { text: "D. Flash (快閃記憶體)", next: "q21_help", log: "Q21錯: 這是隨身碟用的" }
+                    { text: "A. 輸出狀態無法預測 (禁忌狀態)", next: "q22", isCorrect: true },
+                    { text: "B. 輸出進入切換狀態 (Toggle)", next: "q21_help", log: "Q21錯: 這是 JK 或 T 正反器的功能" },
+                    { text: "C. 輸出保持不變", next: "q21_help", log: "Q21錯: 這是 S=0, R=0 的狀態" },
+                    { text: "D. 晶片會立刻燒毀", next: "q21_help", log: "Q21錯: 只是邏輯錯亂，不會物理燒毀" }
                 ]
             },
             "q21_help": {
-                tag: "💊 救援任務：靜靜的很快",
-                text: "知識拆解：由正反器(Flip-flop)組成的記憶體，只要通電資料就穩穩在那邊「靜態(Static)」保存，速度極快但造價昂貴。開頭字母是 S。",
+                tag: "💊 救援任務：矛盾的大對決",
+                text: "知識拆解：S(Set)是叫它變成1，R(Reset)是叫它變成0。你同時命令它變1又要變0，它會精神分裂，導致 Q 和 Q' 違背反相原則。這被稱為什麼？",
                 options: [
-                    { text: "A. SRAM", next: "q21", isCorrect: true },
-                    { text: "B. DRAM", next: "q21_help", log: "Q21救錯: DRAM 是用小電容做的，會漏電需要一直動態(Dynamic)補水(充電)喔！" }
+                    { text: "A. 禁忌狀態 (無法預測)", next: "q21", isCorrect: true },
+                    { text: "B. 切換狀態 (Toggle)", next: "q21_help", log: "Q21救錯: SR 正反器沒有 Toggle 的能力，只會當機給你看！" }
                 ]
             },
 
-            // --- 第 22 關：DRAM 充放電 ---
+            // --- 第 22 關：D 正反器 ---
             "q22": {
-                tag: "第 22 關：記憶體元件",
-                text: "承上題，電腦的「主記憶體」通常是插好幾根 8GB、16GB 的記憶體條，它們是使用 DRAM 技術。為什麼 DRAM 必須要不斷地進行「更新 (Refresh)」動作？",
+                tag: "第 22 關：正反器",
+                text: "為了解決 SR 正反器會產生禁忌狀態的問題，我們把 S 和 R 中間加一個 NOT 閘串在一起，變成只有一個輸入端。這形成了哪一種正反器？",
                 options: [
-                    { text: "A. 因為 DRAM 內部使用小電容儲存電荷，會隨時間漏電", next: "q23", isCorrect: true },
-                    { text: "B. 為了讓 CPU 讀取速度變快", next: "q22_help", log: "Q22錯: 更新動作反而會暫停讀寫，拖慢速度" },
-                    { text: "C. 因為資料會被磁場干擾", next: "q22_help", log: "Q22錯: 這是磁碟機的問題" },
-                    { text: "D. 為了清除不要的垃圾資料", next: "q22_help", log: "Q22錯: 這是軟體作業系統在做的事" }
+                    { text: "A. D 正反器 (Data / Delay)", next: "q23", isCorrect: true },
+                    { text: "B. T 正反器", next: "q22_help", log: "Q22錯: T 是由 JK 綁在一起變成的" },
+                    { text: "C. JK 正反器", next: "q22_help", log: "Q22錯: JK 是改良 SR 回授路徑解決禁忌" },
+                    { text: "D. RS 正反器", next: "q22_help", log: "Q22錯: 這是原本的" }
                 ]
             },
             "q22_help": {
-                tag: "💊 救援任務：漏水的小水桶",
-                text: "知識拆解：DRAM (動態記憶體) 裡面是由一個電晶體加一個微小的「電容器」組成的。電容就像裝水的小水桶，時間久了水會漏掉(資料不見)，所以必須一直補水(充電更新)。",
+                tag: "💊 救援任務：輸入什麼就存什麼",
+                text: "知識拆解：把 S 和 R 用反相器連起來，保證永遠是一正一反，絕不會有 1,1 出現。這種乖乖聽話，輸入 1 輸出就跟著 1 的正反器叫？",
                 options: [
-                    { text: "A. 因為電容會漏電", next: "q22", isCorrect: true },
-                    { text: "B. 為了讓速度變快", next: "q22_help", log: "Q22救錯: 更新的時候 CPU 不能讀取，其實會稍微拖累一點速度喔！" }
+                    { text: "A. D 正反器", next: "q22", isCorrect: true },
+                    { text: "B. T 正反器", next: "q22_help", log: "Q22救錯: T 正反器會切換狀態，D 才是完全複製資料 (Data) 的喔！" }
                 ]
             },
 
-            // --- 第 23 關：DMA ---
+            // --- 第 23 關：JK 正反器 ---
             "q23": {
-                tag: "第 23 關：I/O 存取技術",
-                text: "當硬碟需要傳送大量資料到記憶體時，為了不讓 CPU 一直傻等做苦工，會將匯流排的控制權交給一個「專門的晶片」來搬運資料。這項技術簡稱為何？",
+                tag: "第 23 關：正反器",
+                text: "號稱「萬能正反器」的 JK 正反器，不僅解決了禁忌狀態，還多了一個新功能。當 J=1 且 K=1，並打入一個時脈 (Clock) 時，輸出狀態會如何？",
                 options: [
-                    { text: "A. DMA (直接記憶體存取)", next: "q24", isCorrect: true },
-                    { text: "B. Interrupt (中斷)", next: "q23_help", log: "Q23錯: 中斷還是要 CPU 親自處理" },
-                    { text: "C. Polling (輪詢)", next: "q23_help", log: "Q23錯: 這是 CPU 最浪費時間的做法" },
-                    { text: "D. USB (通用序列匯流排)", next: "q23_help", log: "Q23錯: 這是外部傳輸介面" }
+                    { text: "A. 反轉 / 切換 (Toggle)", next: "q24", isCorrect: true },
+                    { text: "B. 保持不變 (No Change)", next: "q23_help", log: "Q23錯: 這是 J=0, K=0 時" },
+                    { text: "C. 強制設為 1 (Set)", next: "q23_help", log: "Q23錯: 這是 J=1, K=0 時" },
+                    { text: "D. 進入禁忌狀態", next: "q23_help", log: "Q23錯: JK 已經消除了禁忌" }
                 ]
             },
             "q23_help": {
-                tag: "💊 救援任務：搬磚外包公司",
-                text: "知識拆解：Direct Memory Access。讓周邊設備「直接(Direct)」跟記憶體連線搬東西，CPU 就可以去旁邊睡覺或做其他高階運算。縮寫是？",
+                tag: "💊 救援任務：0變1，1變0",
+                text: "知識拆解：JK 的最大賣點！當兩個開關都催到滿(1,1)，每按一次時鐘，燈泡就會 0變1，再按一次又 1變0。這個閃爍動作稱為？",
                 options: [
-                    { text: "A. DMA", next: "q23", isCorrect: true },
-                    { text: "B. Interrupt (中斷)", next: "q23_help", log: "Q23救錯: 中斷是指叫 CPU 停下來幫忙，但我們現在是希望 CPU 去旁邊休息不要管！" }
+                    { text: "A. 切換 (Toggle)", next: "q23", isCorrect: true },
+                    { text: "B. 保持不變", next: "q23_help", log: "Q23救錯: 保持不變是甚麼都沒做(0,0)的時候啦！" }
                 ]
             },
 
-            // --- 第 24 關：中斷處理 ---
+            // --- 第 24 關：觸發方式 ---
             "q24": {
-                tag: "第 24 關：中斷機制",
-                text: "當 CPU 正在執行主程式時，突然發生「中斷 (Interrupt)」，CPU 必須暫停手邊工作去處理突發事件。此時 CPU 會將目前的「程式計數器 (PC)」等重要資料，暫時保存在哪裡？",
+                tag: "第 24 關：時脈觸發",
+                text: "在正反器的符號中，如果 Clock 輸入端有一個「小三角形 (▷)」，這代表該正反器是採用哪一種觸發方式？",
                 options: [
-                    { text: "A. 堆疊 (Stack)", next: "q25", isCorrect: true },
-                    { text: "B. 硬碟 (Hard Drive)", next: "q24_help", log: "Q24錯: 硬碟太慢了，來不及存" },
-                    { text: "C. 算術邏輯單元 (ALU)", next: "q24_help", log: "Q24錯: ALU 只有算數學，不能存資料" },
-                    { text: "D. 唯讀記憶體 (ROM)", next: "q24_help", log: "Q24錯: ROM 不能寫入資料" }
+                    { text: "A. 邊緣觸發 (Edge Trigger)", next: "q25", isCorrect: true },
+                    { text: "B. 準位觸發 (Level Trigger)", next: "q24_help", log: "Q24錯: 準位觸發沒有三角形" },
+                    { text: "C. 異步觸發 (Asynchronous)", next: "q24_help", log: "Q24錯: 時脈本身就是用來同步的" },
+                    { text: "D. 負邏輯觸發", next: "q24_help", log: "Q24錯: 負邏輯會有小圓圈" }
                 ]
             },
             "q24_help": {
-                tag: "💊 救援任務：書籤夾在書本裡",
-                text: "知識拆解：就像你看書看到一半被媽媽叫去買醬油，你要把書籤夾進去才不會忘記看到哪裡。CPU 會把目前的狀態「推入 (Push)」到記憶體中一個「後進先出(LIFO)」的特殊區域。這叫？",
+                tag: "💊 救援任務：瞬間的判定",
+                text: "知識拆解：準位觸發是「只要在高電位就會一直動作」，容易出錯。畫上小三角形代表它只在時脈「上升或下降的那一瞬間(邊緣)」才抓取資料！",
                 options: [
-                    { text: "A. 堆疊 (Stack)", next: "q24", isCorrect: true },
-                    { text: "B. 硬碟", next: "q24_help", log: "Q24救錯: 存在硬碟太慢了，處理完突發狀況回來會等很久喔！" }
+                    { text: "A. 邊緣觸發", next: "q24", isCorrect: true },
+                    { text: "B. 準位觸發", next: "q24_help", log: "Q24救錯: 沒有三角形的才叫準位觸發喔！" }
                 ]
             },
 
-            // ⚾ 第 25 關：WBC 村上宗隆
+            // --- 第 25 關：T 正反器除頻 ---
             "q25": {
-                tag: "⚾ 第 25 關：大腦休息 (WBC)",
-                text: "2023 WBC 準決賽 日本對戰墨西哥，日本隊九局下半落後 1 分。當時陷入低潮被全網狂罵的日本強打者，頂住巨大壓力揮出了「再見二壘安打」逆轉晉級，完成救贖。這位打者是誰？",
+                tag: "第 25 關：正反器應用",
+                text: "如果我們把一個時脈頻率為 1000 Hz 的方波，輸入到一個 T=1 的「T 正反器」中。請問輸出的頻率會變成多少？",
                 options: [
-                    { text: "A. 村上宗隆", next: "q26", isCorrect: true },
-                    { text: "B. 吉田正尚", next: "q25_help", log: "Q25錯: 吉田在前面打出了追平三分砲，也很關鍵" },
-                    { text: "C. 大谷翔平", next: "q25_help", log: "Q25錯: 大谷是敲出二壘安打帶動攻勢上壘的那個人" },
-                    { text: "D. 山川穗高", next: "q25_help", log: "Q25錯: 關鍵時刻代打的是山川，但這球不是他打的" }
+                    { text: "A. 500 Hz", next: "q26", isCorrect: true },
+                    { text: "B. 2000 Hz", next: "q25_help", log: "Q25錯: 正反器無法倍頻" },
+                    { text: "C. 1000 Hz", next: "q25_help", log: "Q25錯: 經過 Toggle 頻率會減半" },
+                    { text: "D. 0 Hz", next: "q25_help", log: "Q25錯: 波形還在震盪" }
                 ]
             },
             "q25_help": {
-                tag: "💊 提示：村神降臨",
-                text: "他在日職打出破紀錄的單季 56 轟，被日本球迷尊稱為「村神」。雖然經典賽前幾場狂被三振，但最後一棒把大谷和周東送回本壘！",
+                tag: "💊 救援任務：砍半神器",
+                text: "知識拆解：T 正反器(Toggle)每看到兩次輸入的上升緣，輸出才會完成一次高低變化。也就是說，它天生具備「除以 2 (除頻)」的功能。1000 除以 2 是？",
                 options: [
-                    { text: "A. 村上宗隆", next: "q25", isCorrect: true },
-                    { text: "B. 吉田正尚", next: "q25_help", log: "Q25救錯: 吉田正尚是那個超穩定的猛男，沒有陷入低潮啦！" }
+                    { text: "A. 500 Hz", next: "q25", isCorrect: true },
+                    { text: "B. 2000 Hz", next: "q25_help", log: "Q25救錯: 正反器會把頻率變慢，不會變快啦！" }
                 ]
             },
 
-            // --- 第 26 關：記憶體對應 I/O ---
+            // --- 第 26 關：時間參數 ---
             "q26": {
-                tag: "第 26 關：I/O 存取",
-                text: "在微電腦設計中，如果把外部設備（如鍵盤、螢幕）當作「記憶體的一部份」，給它一個記憶體位址，CPU 可以用一般的 MOV 指令來存取它。這稱為什麼架構？",
+                tag: "第 26 關：循序邏輯特性",
+                text: "為了確保正反器能正確抓到資料，資料必須在時脈邊緣到來「之前」，就先穩定保持一段時間。這段前置作業時間稱為？",
                 options: [
-                    { text: "A. 記憶體對應 I/O (Memory-Mapped I/O)", next: "q27", isCorrect: true },
-                    { text: "B. 獨立式 I/O (Isolated I/O)", next: "q26_help", log: "Q26錯: 這是把 I/O 位址跟記憶體分開的架構" },
-                    { text: "C. 中斷式 I/O", next: "q26_help", log: "Q26錯: 這是傳輸觸發方式，不是位址架構" },
-                    { text: "D. 直接記憶體存取 (DMA)", next: "q26_help", log: "Q26錯: 這是晶片代工搬資料的技術" }
+                    { text: "A. 建立時間 (Setup Time)", next: "q27", isCorrect: true },
+                    { text: "B. 維持時間 (Hold Time)", next: "q26_help", log: "Q26錯: 這是時脈『之後』要撐住的時間" },
+                    { text: "C. 傳遞延遲 (Propagation Delay)", next: "q26_help", log: "Q26錯: 這是電路輸出反應所需的時間" },
+                    { text: "D. 週期時間 (Cycle Time)", next: "q26_help", log: "Q26錯: 這是時脈的長度" }
                 ]
             },
             "q26_help": {
-                tag: "💊 救援任務：名稱就在題目裡",
-                text: "知識拆解：題目說「把外部設備當作『記憶體』來『對應』」。所以這個架構的名字非常直白，就叫做？",
+                tag: "💊 救援任務：拍照請擺好Pose",
+                text: "知識拆解：時脈邊緣就像照相機快門。在按下快門「前」，你要先擺好 Pose 站穩(建立狀態)。按完快門後還要撐住一下(維持)。題目問的是「之前」！",
                 options: [
-                    { text: "A. 記憶體對應 I/O", next: "q26", isCorrect: true },
-                    { text: "B. 獨立式 I/O", next: "q26_help", log: "Q26救錯: 獨立式是 I/O 自己有專屬的地址空間(如 IN/OUT 指令)，跟記憶體分開的！" }
+                    { text: "A. 建立時間", next: "q26", isCorrect: true },
+                    { text: "B. 維持時間", next: "q26_help", log: "Q26救錯: 維持是按完快門『之後』的事情喔！" }
                 ]
             },
 
-            // --- 第 27 關：輪詢 Polling ---
+            // --- 第 27 關：非同步計數器 ---
             "q27": {
-                tag: "第 27 關：I/O 存取",
-                text: "早期電腦讀取鍵盤的方式，是 CPU 寫一個無窮迴圈「一直不斷去問鍵盤：你有沒有被按下？」。這種極度浪費 CPU 效能的方式稱為？",
+                tag: "第 27 關：計數器",
+                text: "「非同步計數器 (Asynchronous Counter)」又稱為漣波計數器。其最大的特徵是什麼？",
                 options: [
-                    { text: "A. 輪詢 (Polling)", next: "q28", isCorrect: true },
-                    { text: "B. 中斷 (Interrupt)", next: "q27_help", log: "Q27錯: 中斷是鍵盤按下了才主動去叫 CPU" },
-                    { text: "C. 握手 (Handshaking)", next: "q27_help", log: "Q27錯: 這是資料傳輸前的確認協議" },
-                    { text: "D. 多工 (Multitasking)", next: "q27_help", log: "Q27錯: 這是作業系統同時跑多個程式的能力" }
+                    { text: "A. 時脈 (Clock) 只接給第一顆正反器，後面的正反器由前一顆的輸出觸發", next: "q28", isCorrect: true },
+                    { text: "B. 所有的正反器都接在同一個時脈 (Clock) 訊號上", next: "q27_help", log: "Q27錯: 這是同步計數器的特徵" },
+                    { text: "C. 只能往下倒數計數，不能上數", next: "q27_help", log: "Q27錯: 它可以設計成上數或下數" },
+                    { text: "D. 不會產生任何時間延遲", next: "q27_help", log: "Q27錯: 非同步的致命缺點就是延遲會累積" }
                 ]
             },
             "q27_help": {
-                tag: "💊 救援任務：像警察巡邏",
-                text: "知識拆解：CPU 就像警察一樣，一個個去「輪流查詢」所有的周邊設備有沒有事。英文叫 Polling。",
+                tag: "💊 救援任務：骨牌效應",
+                text: "知識拆解：「非同步」就是大家不同步！時鐘只有老大看得到，老大動了才去推老二，老二動了再推老三。像漣波(水波)一樣傳遞。",
                 options: [
-                    { text: "A. 輪詢 (Polling)", next: "q27", isCorrect: true },
-                    { text: "B. 中斷 (Interrupt)", next: "q27_help", log: "Q27救錯: 中斷比較聰明，是鍵盤有事才去報警，不會浪費警察時間！" }
+                    { text: "A. 時脈只接給第一顆，像骨牌一樣傳遞", next: "q27", isCorrect: true },
+                    { text: "B. 大家接同一個時脈", next: "q27_help", log: "Q27救錯: 大家看同一個時鐘就變成「同步」計數器了啦！" }
                 ]
             },
 
-            // --- 第 28 關：看門狗計時器 ---
+            // --- 第 28 關：計數器模數 ---
             "q28": {
-                tag: "第 28 關：單晶片周邊",
-                text: "單晶片(MCU)放在工業環境中，可能會因為雜訊干擾而當機(死機)。為了防止系統卡死，常會內建一個計時器，如果程式當掉沒有定時去「餵」它，它就會強制把系統 Reset 重開機。這個元件稱為？",
+                tag: "第 28 關：計數器設計",
+                text: "如果我們用 4 顆正反器來設計一個二進位上數計數器，它最多可以計數幾個不同的狀態 (Modulus)？",
                 options: [
-                    { text: "A. 看門狗計時器 (Watchdog Timer, WDT)", next: "q29", isCorrect: true },
-                    { text: "B. 脈寬調變器 (PWM)", next: "q28_help", log: "Q28錯: 這是用來控制馬達轉速或LED亮度的" },
-                    { text: "C. 類比數位轉換器 (ADC)", next: "q28_help", log: "Q28錯: 這是讀取類比訊號的" },
-                    { text: "D. 即時時鐘 (RTC)", next: "q28_help", log: "Q28錯: 這是顯示現在幾點幾分用的" }
+                    { text: "A. 16 個 (Mod-16)", next: "q29", isCorrect: true },
+                    { text: "B. 4 個 (Mod-4)", next: "q28_help", log: "Q28錯: 正反器數量不等於狀態數" },
+                    { text: "C. 8 個 (Mod-8)", next: "q28_help", log: "Q28錯: 這是 3 顆正反器的極限" },
+                    { text: "D. 10 個 (Mod-10)", next: "q28_help", log: "Q28錯: 雖然 4 顆能做十進位，但『最多』可到 16" }
                 ]
             },
             "q28_help": {
-                tag: "💊 救援任務：會咬人的狗",
-                text: "知識拆解：這個計時器就像一隻兇猛的狗。正常運作時，程式每一段時間都會去「餵食(Clear)」牠。如果程式死當忘了餵，牠餓過頭就會咬系統一口，強制重開機！",
+                tag: "💊 救援任務：二的魔法",
+                text: "知識拆解：1 顆正反器有 0, 1 兩種狀態。串連 4 顆，可以從 0000 數到 1111。2 的 4 次方等於多少？",
                 options: [
-                    { text: "A. 看門狗計時器 (WDT)", next: "q28", isCorrect: true },
-                    { text: "B. 即時時鐘 (RTC)", next: "q28_help", log: "Q28救錯: RTC 只是個時鐘，不會強制重開機喔！" }
+                    { text: "A. 16 個", next: "q28", isCorrect: true },
+                    { text: "B. 8 個", next: "q28_help", log: "Q28救錯: 2 × 2 × 2 × 2 = 16 喔！" }
                 ]
             },
 
-            // --- 第 29 關：PWM 脈寬調變 ---
+            // --- 第 29 關：BCD 計數器 ---
             "q29": {
-                tag: "第 29 關：單晶片周邊",
-                text: "若想利用單晶片的「數位腳位 (只有 0V 和 5V)」來控制馬達的速度或是 LED 的漸暗漸亮，最常使用的是哪一種技術來模擬類比電壓？",
+                tag: "第 29 關：計數器應用",
+                text: "承上題，如果我們需要一個「十進位計數器 (Mod-10 / BCD)」，數到 9 (1001) 之後就要歸零跳回 0。請問我們「最少」需要幾顆正反器才能兜出來？",
                 options: [
-                    { text: "A. PWM (脈寬調變)", next: "q30", isCorrect: true },
-                    { text: "B. UART (非同步收發)", next: "q29_help", log: "Q29錯: 這是用來跟電腦傳輸資料的" },
-                    { text: "C. I2C 匯流排", next: "q29_help", log: "Q29錯: 這是感測器通訊協定" },
-                    { text: "D. WDT (看門狗)", next: "q29_help", log: "Q29錯: 這是防止當機的" }
+                    { text: "A. 4 顆", next: "q30", isCorrect: true },
+                    { text: "B. 3 顆", next: "q29_help", log: "Q29錯: 3 顆最多只能數到 7 (8種狀態)" },
+                    { text: "C. 10 顆", next: "q29_help", log: "Q29錯: 不需要這麼多" },
+                    { text: "D. 5 顆", next: "q29_help", log: "Q29錯: 雖然 5 顆可以，但不是『最少』" }
                 ]
             },
             "q29_help": {
-                tag: "💊 救援任務：開關的藝術",
-                text: "知識拆解：PWM (Pulse Width Modulation) 是透過極快地切換「開(5V)」與「關(0V)」的比例。如果 80% 時間開、20% 時間關，平均起來就像是輸出了 4V 的類比電壓。",
+                tag: "💊 救援任務：強迫提早下車",
+                text: "知識拆解：十進位需要 10 個狀態。3 顆正反器只有 8 種(不夠用)，所以我們必須升級用 4 顆(有16種)。然後用邏輯閘強迫它在數到 10 的瞬間強制歸零。最少需要幾顆？",
                 options: [
-                    { text: "A. PWM (脈寬調變)", next: "q29", isCorrect: true },
-                    { text: "B. UART", next: "q29_help", log: "Q29救錯: UART 是 TX/RX 傳送文字資料用的，不能控馬達喔！" }
+                    { text: "A. 4 顆", next: "q29", isCorrect: true },
+                    { text: "B. 3 顆", next: "q29_help", log: "Q29救錯: 3 顆極限只有 8 種，裝不下 10 個數字啦！" }
                 ]
             },
 
-            // ⚾ 第 30 關：WBC 應援團
+            // 🏃 第 30 關：路跑裝備
             "q30": {
-                tag: "⚾ 第 30 關：大腦休息 (WBC)",
-                text: "2023 WBC A組預賽在台灣台中洲際棒球場舉行。比賽期間，令大聯盟官網記者與外國球隊震撼不已，甚至稱之為「世界奇觀」的場邊特色是什麼？",
+                tag: "🏃 第 30 關：大腦休息 (路跑)",
+                text: "跑 8.3Km 時，為了避免身體過熱與摩擦破皮，絕對「不建議」穿著哪一種材質的衣服去跑步？",
                 options: [
-                    { text: "A. 兩萬人站立齊唱與啦啦隊的「台式應援」", next: "q31", isCorrect: true },
-                    { text: "B. 球場賣的超巨大熱狗堡", next: "q30_help", log: "Q30錯: 這不是重點" },
-                    { text: "C. 台灣球迷都戴著斗笠看球", next: "q30_help", log: "Q30錯: 並沒有這種習俗" },
-                    { text: "D. 比賽中會施放無人機煙火", next: "q30_help", log: "Q30錯: 只有開幕或特定儀式才有" }
+                    { text: "A. 100% 純棉 T-shirt", next: "q31", isCorrect: true },
+                    { text: "B. 聚酯纖維排汗衫", next: "q30_help", log: "Q30錯: 這是最棒的跑衣材質" },
+                    { text: "C. 輕薄緊身跑褲", next: "q30_help", log: "Q30錯: 緊身褲能減少大腿摩擦" },
+                    { text: "D. 運動機能襪", next: "q30_help", log: "Q30錯: 機能襪能防起水泡" }
                 ]
             },
             "q30_help": {
-                tag: "💊 提示：Team Taiwan",
-                text: "大聯盟記者在推特上發文：「這聽起來像是一場有兩萬人的搖滾演唱會」。女孩們的帶動跳與每一位球員專屬的應援曲，徹底震撼了世界。",
+                tag: "💊 提示：吸水變鐵甲",
+                text: "這種材質雖然平常穿很舒服，但一吸滿汗水就會變得很重，而且完全不透氣，貼在皮膚上一直摩擦會超級痛！",
                 options: [
-                    { text: "A. 啦啦隊的「台式應援」", next: "q30", isCorrect: true },
-                    { text: "B. 球場賣的超巨大熱狗堡", next: "q30_help", log: "Q30救錯: 雖然食物很好吃，但震撼外國人的是聲音跟氣氛啦！" }
+                    { text: "A. 100% 純棉", next: "q30", isCorrect: true },
+                    { text: "B. 聚酯纖維排汗衫", next: "q30_help", log: "Q30救錯: 排汗衫是人造纖維，是跑步的最佳神隊友喔！" }
                 ]
             },
 
-            // --- 第 31 關：串列傳輸 UART ---
+            // --- 第 31 關：環形計數器 ---
             "q31": {
-                tag: "第 31 關：通訊介面",
-                text: "單晶片(如 Arduino)最常透過 USB 線與電腦顯示視窗進行「串列通訊」。這種只需要 TX (傳送) 和 RX (接收) 兩條資料線就能雙向溝通的介面簡稱為何？",
+                tag: "第 31 關：移位暫存器",
+                text: "將移位暫存器的「最後一個輸出 (Q_last)」直接拉回去接「第一個輸入 (D_first)」，形成一個 1 在裡面不斷繞圈圈的電路，稱為什麼？",
                 options: [
-                    { text: "A. UART", next: "q32", isCorrect: true },
-                    { text: "B. LPT", next: "q31_help", log: "Q31錯: 這是早期的並列印表機埠" },
-                    { text: "C. HDMI", next: "q31_help", log: "Q31錯: 這是影音傳輸線" },
-                    { text: "D. VGA", next: "q31_help", log: "Q31錯: 這是早期的類比螢幕線" }
+                    { text: "A. 環形計數器 (Ring Counter)", next: "q32", isCorrect: true },
+                    { text: "B. 強生計數器 (Johnson Counter)", next: "q31_help", log: "Q31錯: 強生計數器是拉反相輸出回去" },
+                    { text: "C. 漣波計數器", next: "q31_help", log: "Q31錯: 這是用 T 正反器串聯的" },
+                    { text: "D. 隨機亂數產生器", next: "q31_help", log: "Q31錯: 這個電路規律很固定" }
                 ]
             },
             "q31_help": {
-                tag: "💊 救援任務：通用非同步收發",
-                text: "知識拆解：Universal Asynchronous Receiver/Transmitter。它是最經典的非同步串列傳輸，因為不共用時脈線，所以雙方必須約定好一樣的「鮑率(Baud Rate)」。",
+                tag: "💊 救援任務：首尾相連",
+                text: "知識拆解：頭接尾，尾接頭，形成一個完美的圓圈。燈號 1000 ➡️ 0100 ➡️ 0010 ➡️ 0001 ➡️ 1000 一直跑。這叫什麼形狀？",
                 options: [
-                    { text: "A. UART", next: "q31", isCorrect: true },
-                    { text: "B. HDMI", next: "q31_help", log: "Q31救錯: HDMI 線裡面有十九根腳位，不是只有兩根線喔！" }
+                    { text: "A. 環形計數器", next: "q31", isCorrect: true },
+                    { text: "B. 強生計數器", next: "q31_help", log: "Q31救錯: 強生計數器是把尾巴『反相(打結)』後才接回去喔！" }
                 ]
             },
 
-            // --- 第 32 關：鮑率 Baud Rate ---
+            // --- 第 32 關：強生計數器 ---
             "q32": {
-                tag: "第 32 關：通訊介面",
-                text: "承上題，在設定 UART 序列埠通訊時，我們常常需要設定一個數值如「9600」。這個代表「每秒傳輸多少個位元」的速度單位稱為什麼？",
+                tag: "第 32 關：移位暫存器",
+                text: "承上題，如果使用 4 顆正反器做成「強生計數器 (Johnson Counter, 扭環形)」，它一個循環總共會有幾個不同的狀態？",
                 options: [
-                    { text: "A. 鮑率 (Baud Rate / bps)", next: "q33", isCorrect: true },
-                    { text: "B. 赫茲 (Hz)", next: "q32_help", log: "Q32錯: 這是頻率單位" },
-                    { text: "C. 瓦特 (Watt)", next: "q32_help", log: "Q32錯: 這是功率單位" },
-                    { text: "D. 浮點數 (Flops)", next: "q32_help", log: "Q32錯: 這是運算效能單位" }
+                    { text: "A. 8 個 (2N)", next: "q33", isCorrect: true },
+                    { text: "B. 4 個 (N)", next: "q32_help", log: "Q32錯: 這是普通環形計數器的狀態數" },
+                    { text: "C. 16 個 (2^N)", next: "q32_help", log: "Q32錯: 這是二進位計數器的極限" },
+                    { text: "D. 10 個", next: "q32_help", log: "Q32錯: 數量不對" }
                 ]
             },
             "q32_help": {
-                tag: "💊 救援任務：傳輸的速度",
-                text: "知識拆解：bps = bits per second。在早期的數據機時代，這個字被用來紀念電報發明人 Baudot，所以我們中文都直接音譯。",
+                tag: "💊 救援任務：加倍奉還",
+                text: "知識拆解：N 個正反器，環形計數器只有 N 個狀態；但強生計數器因為尾巴加了反相(扭了一下)，狀態數會變成原本的兩倍 (2N)。4 顆的兩倍是？",
                 options: [
-                    { text: "A. 鮑率 (Baud Rate)", next: "q32", isCorrect: true },
-                    { text: "B. 赫茲 (Hz)", next: "q32_help", log: "Q32救錯: Hz 是指時脈一秒震動幾次，傳輸資料的速度是用 bps (鮑率) 喔！" }
+                    { text: "A. 8 個", next: "q32", isCorrect: true },
+                    { text: "B. 16 個", next: "q32_help", log: "Q32救錯: 16 個是普通二進位的計算法(2的N次方)啦！" }
                 ]
             },
 
-            // --- 第 33 關：ADC 解析度 ---
+            // --- 第 33 關：暫存器傳輸形式 ---
             "q33": {
-                tag: "第 33 關：單晶片周邊",
-                text: "若一個單晶片內建了「10位元」的 ADC (類比轉數位轉換器)。這代表它可以將讀取到的電壓值，切割成多少個不同刻度的數位數值？",
+                tag: "第 33 關：資料傳輸",
+                text: "如果我們要把一個 8-bit 的資料，透過「一條實體線路」傳送給另一個暫存器。我們應該使用哪一種形式的移位暫存器？",
                 options: [
-                    { text: "A. 1024 個 (2的10次方)", next: "q34", isCorrect: true },
-                    { text: "B. 10 個", next: "q33_help", log: "Q33錯: 不是直接對應位元數" },
-                    { text: "C. 256 個 (2的8次方)", next: "q33_help", log: "Q33錯: 這是 8 位元的解析度" },
-                    { text: "D. 1000 個", next: "q33_help", log: "Q33錯: 二進位世界沒有剛好 1000 的整數" }
+                    { text: "A. PISO (並列輸入，串列輸出)", next: "q34", isCorrect: true },
+                    { text: "B. PIPO (並列輸入，並列輸出)", next: "q33_help", log: "Q33錯: 這樣需要 8 條線" },
+                    { text: "C. SIPO (串列輸入，並列輸出)", next: "q33_help", log: "Q33錯: 這是接收端的處理方式" },
+                    { text: "D. D-Flip-Flop 直連", next: "q33_help", log: "Q33錯: 沒有移位功能" }
                 ]
             },
             "q33_help": {
-                tag: "💊 救援任務：二的十次方",
-                text: "知識拆解：二進位的世界是算 2 的次方。8 位元是 256 (0~255)；往上乘兩次，9位元是 512，10位元是？",
+                tag: "💊 救援任務：擠進單行道",
+                text: "知識拆解：你有 8 個兵要過一座很窄的獨木橋(一條線)。所以必須大家先同時排好隊(並列輸入 Parallel-In)，然後一個一個走過橋(串列輸出 Serial-Out)。簡稱是？",
                 options: [
-                    { text: "A. 1024 個", next: "q33", isCorrect: true },
-                    { text: "B. 1000 個", next: "q33_help", log: "Q33救錯: 1k 在二進位世界精確的數字是 1024 啦！" }
+                    { text: "A. PISO", next: "q33", isCorrect: true },
+                    { text: "B. PIPO", next: "q33_help", log: "Q33救錯: PIPO 是並排過橋，需要蓋 8 座橋(8條線)才行喔！" }
                 ]
             },
 
-            // --- 第 34 關：累加器 ACC ---
+            // --- 第 34 關：Moore 與 Mealy ---
             "q34": {
-                tag: "第 34 關：CPU 暫存器",
-                text: "在執行算術運算 (如加法) 時，最忙碌的暫存器是哪一個？它通常負責提供其中一個運算元，並且在算完後「把結果存回自己肚子裡」。",
+                tag: "第 34 關：狀態機模型",
+                text: "在設計循序邏輯的狀態機 (State Machine) 時，「Moore 機 (摩爾機)」的最大特徵是其「輸出 (Output)」只跟什麼有關？",
                 options: [
-                    { text: "A. 累加器 (ACC)", next: "q35", isCorrect: true },
-                    { text: "B. 程式計數器 (PC)", next: "q34_help", log: "Q34錯: 這是管地址的" },
-                    { text: "C. 堆疊指標 (SP)", next: "q34_help", log: "Q34錯: 這是管堆疊深度的" },
-                    { text: "D. 指令暫存器 (IR)", next: "q34_help", log: "Q34錯: 這是存指令的" }
+                    { text: "A. 僅跟電路『目前的狀態 (Present State)』有關", next: "q35", isCorrect: true },
+                    { text: "B. 跟『目前狀態』與『外部輸入 (Input)』都有關", next: "q34_help", log: "Q34錯: 這是 Mealy 機的特徵" },
+                    { text: "C. 僅跟『外部輸入』有關", next: "q34_help", log: "Q34錯: 那就退化成組合邏輯了" },
+                    { text: "D. 只跟時脈 (Clock) 頻率有關", next: "q34_help", log: "Q34錯: 時脈只決定切換速度" }
                 ]
             },
             "q34_help": {
-                tag: "💊 救援任務：一直疊加",
-                text: "知識拆解：因為運算結果會一直加回到它身上累積起來 (A = A + B)，所以英文叫 Accumulator。簡稱是？",
+                tag: "💊 救援任務：不受外界干擾",
+                text: "知識拆解：統測愛考名詞比較！Mealy 機的輸出會被外人(輸入)影響；而 Moore (摩爾) 機很自我，輸出只由「自己肚子裡的現在狀態」決定。所以是？",
                 options: [
-                    { text: "A. 累加器 (ACC)", next: "q34", isCorrect: true },
-                    { text: "B. 程式計數器 (PC)", next: "q34_help", log: "Q34救錯: PC 是指引方向的，不負責算數學喔！" }
+                    { text: "A. 僅跟『目前狀態』有關", next: "q34", isCorrect: true },
+                    { text: "B. 跟『目前狀態』與『外部輸入』有關", next: "q34_help", log: "Q34救錯: 這是 Mealy (米利) 機的特徵喔！" }
                 ]
             },
 
-            // ⚾ 第 35 關：WBC 突破僵局
+            // --- 第 35 關：狀態圖 ---
             "q35": {
-                tag: "⚾ 第 35 關：大腦休息 (WBC)",
-                text: "為了解決棒球比賽打到延長賽過於漫長、拖垮投手手臂的問題，WBC 經典賽從第 10 局開始會採用「突破僵局制」。請問其規則是什麼？",
+                tag: "第 35 關：狀態圖設計",
+                text: "設計計數器時畫的「狀態圖 (State Diagram)」中，『圓圈』和『箭頭』分別代表什麼意義？",
                 options: [
-                    { text: "A. 開局直接奉送二壘有人，且無人出局", next: "q36", isCorrect: true },
-                    { text: "B. 開局直接滿壘", next: "q35_help", log: "Q35錯: 滿壘太容易得分了" },
-                    { text: "C. 兩出局開始打", next: "q35_help", log: "Q35錯: 這樣反而很難得分" },
-                    { text: "D. 雙方教練猜拳決定勝負", next: "q35_help", log: "Q35錯: 這不是正規比賽做法" }
+                    { text: "A. 圓圈代表「狀態」，箭頭代表「狀態轉換(條件)」", next: "q36", isCorrect: true },
+                    { text: "B. 圓圈代表「輸入」，箭頭代表「輸出」", next: "q35_help", log: "Q35錯: 圓圈裡面寫的是 Q 的狀態值" },
+                    { text: "C. 圓圈代表「邏輯閘」，箭頭代表「電線」", next: "q35_help", log: "Q35錯: 這是電路圖，不是狀態圖" },
+                    { text: "D. 圓圈代表「正反器」，箭頭代表「時脈」", next: "q35_help", log: "Q35錯: 不對" }
                 ]
             },
             "q35_help": {
-                tag: "💊 提示：得點圈有人",
-                text: "為了加快得分速度，裁判會讓前一局最後出局的打者直接站上「得點圈」，只要一支安打就有極大機率得分。",
+                tag: "💊 救援任務：大富翁的格子",
+                text: "知識拆解：狀態圖就像大富翁！地上的「圓圈」是你現在站的位置(狀態)，而指引你走到下一格的「箭頭」就是轉換的過程與條件。所以是？",
                 options: [
-                    { text: "A. 無人出局，二壘有人", next: "q35", isCorrect: true },
-                    { text: "B. 開局直接滿壘", next: "q35_help", log: "Q35救錯: 滿壘的話投手壓力太大了，目前是放二壘而已喔！" }
+                    { text: "A. 圓圈=狀態，箭頭=轉換", next: "q35", isCorrect: true },
+                    { text: "B. 圓圈=輸入，箭頭=輸出", next: "q35_help", log: "Q35救錯: 輸出通常寫在圓圈裡面(Moore)或箭頭旁邊(Mealy)，圓圈本身是狀態！" }
                 ]
             },
 
-            // --- 第 36 關：記憶體容量計算 ---
+            // --- 第 36 關：CMOS 優點 ---
             "q36": {
-                tag: "第 36 關：系統匯流排",
-                text: "若一顆 CPU 的「位址匯流排 (Address Bus)」共有 16 根線 (16 bits)。這代表這顆 CPU 最大可以定址(存取)多少容量的記憶體空間？",
+                tag: "第 36 關：邏輯族特性",
+                text: "現代數位 IC 幾乎全面捨棄早期的 TTL 而採用 CMOS 技術。請問 CMOS 最大的優點是什麼？",
                 options: [
-                    { text: "A. 64 KB (2的16次方)", next: "q37", isCorrect: true },
-                    { text: "B. 16 KB", next: "q36_help", log: "Q36錯: 不是直接加 K" },
-                    { text: "C. 1 MB", next: "q36_help", log: "Q36錯: 1MB 需要 20 根位址線 (2^20)" },
-                    { text: "D. 4 GB", next: "q36_help", log: "Q36錯: 4GB 需要 32 根位址線 (2^32)" }
+                    { text: "A. 靜態消耗功率極低 (非常省電)", next: "q37", isCorrect: true },
+                    { text: "B. 工作速度比 TTL 快非常多", next: "q36_help", log: "Q36錯: 早期 CMOS 其實比 TTL 慢" },
+                    { text: "C. 完全不怕靜電破壞", next: "q36_help", log: "Q36錯: CMOS 最怕靜電 (ESD)" },
+                    { text: "D. 只能接受 5V 電壓", next: "q36_help", log: "Q36錯: CMOS 電壓範圍很寬 (如3V~15V)" }
                 ]
             },
             "q36_help": {
-                tag: "💊 救援任務：指數的威力",
-                text: "知識拆解：10 根線 = 2^10 = 1024 = 1K。 16 根線等於 2^16，也就是把它拆成 2^6 乘上 2^10。 2的6次方是 64，配上後面的 K，所以是？",
+                tag: "💊 救援任務：手機的命脈",
+                text: "知識拆解：因為 CMOS 是用 PMOS 和 NMOS 互補，只要沒有在切換(0變1或1變0)，電路幾乎是斷路的，不會漏電。這讓手機能待機一整天！最大的優點是？",
                 options: [
-                    { text: "A. 64 KB", next: "q36", isCorrect: true },
-                    { text: "B. 1 MB", next: "q36_help", log: "Q36救錯: 要 1 MB 必須要有 20 根線 (2^20) 喔！" }
+                    { text: "A. 非常省電", next: "q36", isCorrect: true },
+                    { text: "B. 完全不怕靜電", next: "q36_help", log: "Q36救錯: CMOS 的二氧化矽層超薄，手一摸靜電就會把它擊穿燒毀！" }
                 ]
             },
 
-            // --- 第 37 關：旗標暫存器 ---
+            // --- 第 37 關：Fan-out 扇出數 ---
             "q37": {
-                tag: "第 37 關：CPU 暫存器",
-                text: "CPU 在做完數學運算後，如果發生了「進位 (Carry)」、「結果為零 (Zero)」、或「溢位 (Overflow)」，這些特殊的狀態會記錄在哪一個暫存器中？",
+                tag: "第 37 關：邏輯族特性",
+                text: "數位電路規格中的「扇出數 (Fan-out)」，代表什麼意思？",
                 options: [
-                    { text: "A. 狀態 / 旗標暫存器 (Status / Flag Register)", next: "q38", isCorrect: true },
-                    { text: "B. 累加器 (ACC)", next: "q37_help", log: "Q37錯: ACC 放的是運算『結果的數值』，不是狀態" },
-                    { text: "C. 程式計數器 (PC)", next: "q37_help", log: "Q37錯: PC 放的是地址" },
-                    { text: "D. 指令暫存器 (IR)", next: "q37_help", log: "Q37錯: IR 存放指令" }
+                    { text: "A. 一個邏輯閘的輸出，最多能安全推動幾個相同邏輯閘的輸入", next: "q38", isCorrect: true },
+                    { text: "B. 一個邏輯閘最多可以有幾個輸入端", next: "q37_help", log: "Q37錯: 這是 Fan-in (扇入數)" },
+                    { text: "C. 邏輯閘內部的散熱風扇數量", next: "q37_help", log: "Q37錯: 這是搞笑選項" },
+                    { text: "D. 訊號從輸入傳到輸出的時間延遲", next: "q37_help", log: "Q37錯: 這是傳遞延遲 (Propagation Delay)" }
                 ]
             },
             "q37_help": {
-                tag: "💊 救援任務：舉起信號旗",
-                text: "知識拆解：就像賽車場上，如果有人車禍，裁判就會舉起「黃旗」警告大家。CPU 如果算數算到爆掉(進位)，它的這個暫存器裡面的某個位元就會變成 1 (舉旗)。",
+                tag: "💊 救援任務：老大帶小弟",
+                text: "知識拆解：Fan-OUT 的 Out 代表「輸出端」。這就像一個大哥(輸出端)的體力極限，最多能帶領幾個小弟(別人的輸入端)而不被拖垮電壓。這叫？",
                 options: [
-                    { text: "A. 旗標暫存器 (Flag)", next: "q37", isCorrect: true },
-                    { text: "B. 累加器 (ACC)", next: "q37_help", log: "Q37救錯: ACC 放的是答案(比如 5+3=8 的 8)，進位與否是存在旁邊的旗標裡！" }
+                    { text: "A. 最多能推動幾個輸入", next: "q37", isCorrect: true },
+                    { text: "B. 最多能有幾個輸入", next: "q37_help", log: "Q37救錯: 問輸入端數量的是 Fan-IN (扇入數) 喔！" }
                 ]
             },
 
-            // --- 第 38 關：大小端 Endianness ---
+            // --- 第 38 關：Noise Margin 雜訊邊際 ---
             "q38": {
-                tag: "第 38 關：資料儲存",
-                text: "當我們把一筆很大的 32 位元資料 (例如 0x12345678) 存進 8 位元的記憶體時，如果把最低位的位元組 (78) 存在記憶體最低的位址，這種排列方式稱為？",
+                tag: "第 38 關：邏輯族特性",
+                text: "「雜訊邊際 (Noise Margin)」是衡量邏輯電路好壞的重要指標。它代表什麼意義？",
                 options: [
-                    { text: "A. 小端序 (Little-Endian)", next: "q39", isCorrect: true },
-                    { text: "B. 大端序 (Big-Endian)", next: "q38_help", log: "Q38錯: 大端序是把最高位(12)存在最低位址" },
-                    { text: "C. 循序存取", next: "q38_help", log: "Q38錯: 這是磁帶的存取特性" },
-                    { text: "D. 隨機存取", next: "q38_help", log: "Q38錯: 這是 RAM 的特性" }
+                    { text: "A. 電路能容忍外界雜訊干擾，而不造成誤判的最大電壓值", next: "q39", isCorrect: true },
+                    { text: "B. 邏輯閘運作時自己產生的雜訊大小", next: "q38_help", log: "Q38錯: 這是測量抗干擾能力，不是產生雜訊的能力" },
+                    { text: "C. 輸出高低電位的電壓差", next: "q38_help", log: "Q38錯: 這是信號擺幅" },
+                    { text: "D. 0 和 1 切換時的模糊地帶", next: "q38_help", log: "Q38錯: 雜訊邊際是安全區，不是模糊地帶" }
                 ]
             },
             "q38_help": {
-                tag: "💊 救援任務：尾巴先放",
-                text: "知識拆解：最低位(Least Significant Byte) 就是數字的尾巴。如果尾巴(小的一端)優先排在記憶體的最前面，英文就叫做 Little-Endian。",
+                tag: "💊 救援任務：防護罩有多厚",
+                text: "知識拆解：Margin 有邊界、餘地的意思。雜訊邊際越大，代表電路的「防護罩」越厚，就算有突波打進來，0 也不會被誤判成 1。所以它是測量什麼？",
                 options: [
-                    { text: "A. 小端序 (Little-Endian)", next: "q38", isCorrect: true },
-                    { text: "B. 大端序 (Big-Endian)", next: "q38_help", log: "Q38救錯: 大端序是頭部(高位)先放進去喔！" }
+                    { text: "A. 能容忍雜訊而不誤判的最大電壓", next: "q38", isCorrect: true },
+                    { text: "B. 電路自己產生的雜訊", next: "q38_help", log: "Q38救錯: 我們是希望抗雜訊能力越大越好，誰希望自己產生大雜訊啦！" }
                 ]
             },
 
-            // --- 第 39 關：三態緩衝器 ---
+            // --- 第 39 關：記憶體 RAM/ROM ---
             "q39": {
-                tag: "第 39 關：匯流排控制",
-                text: "系統匯流排是共用的通道。為了避免兩個裝置同時把資料丟上匯流排造成「撞車短路」，每個裝置的出口都會加上一個控制開關。當它不傳資料時，會呈現「高阻抗」狀態宛如斷線。這個元件是？",
+                tag: "第 39 關：記憶元件",
+                text: "關於 ROM (唯讀記憶體) 與 RAM (隨機存取記憶體)，下列敘述何者正確？",
                 options: [
-                    { text: "A. 三態緩衝器 (Tri-state Buffer)", next: "q40", isCorrect: true },
-                    { text: "B. 解碼器 (Decoder)", next: "q39_help", log: "Q39錯: 這是把位址轉成選擇信號用的" },
-                    { text: "C. 加法器 (Adder)", next: "q39_help", log: "Q39錯: 這是運算單元" },
-                    { text: "D. 多工器 (Multiplexer)", next: "q39_help", log: "Q39錯: 這是多選一的開關" }
+                    { text: "A. 關閉電源後，ROM 的資料會保留，RAM 的資料會消失", next: "q40", isCorrect: true },
+                    { text: "B. ROM 只能讀不能寫，所以隨身碟是 RAM", next: "q39_help", log: "Q39錯: 隨身碟是 Flash ROM，斷電不消失" },
+                    { text: "C. RAM 速度慢，適合長期存檔", next: "q39_help", log: "Q39錯: RAM 速度快，但斷電即消失" },
+                    { text: "D. 兩者斷電後資料都會保留", next: "q39_help", log: "Q39錯: 只有 ROM (非揮發性) 會保留" }
                 ]
             },
             "q39_help": {
-                tag: "💊 救援任務：第三種狀態",
-                text: "知識拆解：數位邏輯一般只有 0 和 1 兩個狀態。但為了保護匯流排，發明了第 3 種狀態：「高阻抗(Hi-Z)」，也就是不理你、假裝自己斷線。有三種狀態的緩衝器叫做？",
+                tag: "💊 救援任務：揮發的記憶",
+                text: "知識拆解：RAM 稱為「揮發性記憶體」，只要一拔掉插頭，裡面記的東西就會瞬間忘光光；ROM 是「非揮發性」，斷電依然牢記。所以？",
                 options: [
-                    { text: "A. 三態緩衝器", next: "q39", isCorrect: true },
-                    { text: "B. 多工器", next: "q39_help", log: "Q39救錯: 多工器是 N 個輸入選 1 個輸出，無法切斷與匯流排的連結喔！" }
+                    { text: "A. ROM 斷電保留，RAM 斷電消失", next: "q39", isCorrect: true },
+                    { text: "B. 隨身碟是 RAM", next: "q39_help", log: "Q39救錯: 隨身碟拔出來(斷電)資料還在，所以它是 ROM 家族的 Flash ROM 喔！" }
                 ]
             },
 
-            // ⚾ 第 40 關：WBC 佐佐木朗希
+            // 🏃 第 40 關：路跑補水
             "q40": {
-                tag: "⚾ 第 40 關：大腦休息 (WBC)",
-                text: "日本隊在 2023 WBC 有一位被稱為「令和怪物」的年輕強投，他曾投出 164 公里的恐怖火球，甚至在比賽中不小心砸到捷克隊打者，賽後還親自提著兩大袋零食去對手飯店道歉。他是誰？",
+                tag: "🏃 第 40 關：大腦休息 (路跑)",
+                text: "路跑知識補充！在跑 8.3Km 時，通常路上會設有「進水站」。專業跑者進水站拿紙杯喝水時，為了不嗆到又不用完全停下腳步，通常會怎麼做？",
                 options: [
-                    { text: "A. 佐佐木朗希", next: "q41", isCorrect: true },
-                    { text: "B. 山本由伸", next: "q40_help", log: "Q40錯: 山本是極其精準的王牌，後來去躲人隊了" },
-                    { text: "C. 今永昇太", next: "q40_help", log: "Q40錯: 今永是決賽先發左投" },
-                    { text: "D. 達比修有", next: "q40_help", log: "Q40錯: 達比修是老大哥精神領袖" }
+                    { text: "A. 把紙杯捏扁成尖嘴狀，小口吸水", next: "q41", isCorrect: true },
+                    { text: "B. 停下來用雙手捧著喝完再跑", next: "q40_help", log: "Q40錯: 停下來會打亂節奏，重新起步很痛苦" },
+                    { text: "C. 直接往臉上潑水解渴", next: "q40_help", log: "Q40錯: 水進不到肚子裡，只會更渴" },
+                    { text: "D. 仰頭大口一次灌完", next: "q40_help", log: "Q40錯: 跑步中大口灌水極易嗆到" }
                 ]
             },
             "q40_help": {
-                tag: "💊 提示：令和怪物",
-                text: "他在日職投出過完全比賽，最誇張的是連續三振了 13 名打者！因為太年輕又太猛，被媒體冠上「令和怪物」的稱號。",
+                tag: "💊 提示：控制水流量",
+                text: "邊跑邊喝圓口杯的水一定會灑得滿臉都是，甚至嗆到氣管。聰明的跑者會把杯口改變形狀，控制水流變小。這要怎麼做？",
                 options: [
-                    { text: "A. 佐佐木朗希", next: "q40", isCorrect: true },
-                    { text: "B. 達比修有", next: "q40_help", log: "Q40救錯: 達比修有年紀比較大，不是新生代的令和怪物啦！" }
+                    { text: "A. 把紙杯捏成尖嘴狀小口喝", next: "q40", isCorrect: true },
+                    { text: "B. 停下來用雙手捧著喝", next: "q40_help", log: "Q40救錯: 長跑停下來再跑腳會超像綁了鉛塊，能不停就不停！" }
                 ]
             },
 
-            // --- 第 41 關：快取對映 ---
+            // --- 第 41 關：ADC 解析度 ---
             "q41": {
-                tag: "第 41 關：記憶體架構",
-                text: "快取記憶體 (Cache) 的對映方式中，哪一種方式讓主記憶體的每一塊，都只能固定塞進 Cache 的「唯一一個特定位置」？(優點是硬體最簡單找得快，缺點是容易發生衝突被踢掉)",
+                tag: "第 41 關：類比與數位轉換",
+                text: "一顆「8 位元」的 ADC (類比轉數位轉換器)，可以將輸入的類比電壓值，切割成幾個不同的階層刻度？",
                 options: [
-                    { text: "A. 直接對映 (Direct Mapping)", next: "q42", isCorrect: true },
-                    { text: "B. 全關聯對映 (Fully Associative)", next: "q41_help", log: "Q41錯: 全關聯是可以隨便塞任何空位" },
-                    { text: "C. 集合關聯對映 (Set Associative)", next: "q41_help", log: "Q41錯: 這是折衷方案" },
-                    { text: "D. 虛擬記憶體對映", next: "q41_help", log: "Q41錯: 這是硬碟與RAM之間的關係" }
+                    { text: "A. 256 個 (2的8次方)", next: "q42", isCorrect: true },
+                    { text: "B. 8 個", next: "q41_help", log: "Q41錯: 這只是線路數量" },
+                    { text: "C. 128 個", next: "q41_help", log: "Q41錯: 這是 7 位元" },
+                    { text: "D. 1024 個", next: "q41_help", log: "Q41錯: 這是 10 位元" }
                 ]
             },
             "q41_help": {
-                tag: "💊 救援任務：一個蘿蔔一個坑",
-                text: "知識拆解：1 號記憶體只能住 1 號房，2 號只能住 2 號房。「直接」規定死死的，沒有任何彈性。這叫什麼對映？",
+                tag: "💊 救援任務：二進位的乘法",
+                text: "知識拆解：N 個位元可以表達 2 的 N 次方種組合。8 位元就是 2 乘自己 8 次 (2×2×2×2×2×2×2×2)。算出來是多少？",
                 options: [
-                    { text: "A. 直接對映", next: "q41", isCorrect: true },
-                    { text: "B. 全關聯對映", next: "q41_help", log: "Q41救錯: 全關聯是隨便你住哪間都可以，最自由但也最難找喔！" }
+                    { text: "A. 256 個", next: "q41", isCorrect: true },
+                    { text: "B. 1024 個", next: "q41_help", log: "Q41救錯: 1024 是單晶片常見的 10位元 (2^10) 解析度喔！" }
                 ]
             },
 
-            // --- 第 42 關：USB 架構 ---
+            // --- 第 42 關：PLA 與 PAL ---
             "q42": {
-                tag: "第 42 關：匯流排與介面",
-                text: "目前電腦最普及的 USB (通用序列匯流排)，在網路拓撲結構上，是屬於哪一種連接形狀？(允許透過 Hub 擴充，最多連接 127 個裝置)",
+                tag: "第 42 關：可程式邏輯陣列",
+                text: "在可程式邏輯元件 (PLD) 中，有 PLA 和 PAL 兩種。其中「PAL」的內部結構是什麼陣列可以燒錄(Programmable)，什麼陣列固定(Fixed)？",
                 options: [
-                    { text: "A. 樹狀拓撲 (Tree / Tiered Star)", next: "q43", isCorrect: true },
-                    { text: "B. 環狀拓撲 (Ring)", next: "q42_help", log: "Q42錯: USB不是頭尾相連的環" },
-                    { text: "C. 網狀拓撲 (Mesh)", next: "q42_help", log: "Q42錯: 裝置間不會互相連來連去" },
-                    { text: "D. 匯流排拓撲 (Bus)", next: "q42_help", log: "Q42錯: 雖然名字有匯流排，但物理結構不是一條主幹拉到底" }
+                    { text: "A. AND 陣列可程式，OR 陣列固定", next: "q43", isCorrect: true },
+                    { text: "B. AND 陣列固定，OR 陣列可程式", next: "q42_help", log: "Q42錯: 這是 PROM 的結構" },
+                    { text: "C. 兩者皆可程式", next: "q42_help", log: "Q42錯: 這是 PLA 的結構" },
+                    { text: "D. 兩者皆固定", next: "q42_help", log: "Q42錯: 這樣就不能燒錄了" }
                 ]
             },
             "q42_help": {
-                tag: "💊 救援任務：主機長出枝葉",
-                text: "知識拆解：電腦主機(Root)接出一個 Hub，這個 Hub 又可以分接好幾個設備，就像大樹的樹幹長出樹枝，樹枝又長出樹葉一樣。這叫什麼拓撲？",
+                tag: "💊 救援任務：英文簡寫還原",
+                text: "知識拆解：PAL = Programmable AND Array Logic。名字裡直接點名了「AND 陣列是可程式化的」。為了省成本，另一半的 OR 陣列就是固定燒死的。所以？",
                 options: [
-                    { text: "A. 樹狀拓撲", next: "q42", isCorrect: true },
-                    { text: "B. 環狀拓撲", next: "q42_help", log: "Q42救錯: 你滑鼠的線並不會去連鍵盤形成一個圈圈啊！" }
+                    { text: "A. AND 可程式，OR 固定", next: "q42", isCorrect: true },
+                    { text: "B. 兩者皆可程式", next: "q42_help", log: "Q42救錯: 兩邊都可以燒錄的是更貴的 PLA 喔！" }
                 ]
             },
 
-            // --- 第 43 關：不可遮罩中斷 ---
+            // --- 第 43 關：DAC R-2R ---
             "q43": {
-                tag: "第 43 關：中斷機制",
-                text: "在 CPU 的中斷接腳中，有一種最高緊急等級的中斷，軟體「絕對無法」忽略或關閉它，通常用於嚴重的硬體故障（如電源快沒電了）。這稱為？",
+                tag: "第 43 關：數位轉類比",
+                text: "在使用「R-2R 階梯型電路」製作的 DAC (數位轉類比) 中，最大的優點是什麼？",
                 options: [
-                    { text: "A. 不可遮罩中斷 (NMI)", next: "q44", isCorrect: true },
-                    { text: "B. 可遮罩中斷 (INTR)", next: "q43_help", log: "Q43錯: 這個可以用軟體 CLI 指令關閉" },
-                    { text: "C. 軟體中斷 (Software Interrupt)", next: "q43_help", log: "Q43錯: 這是程式自己呼叫的" },
-                    { text: "D. 內部中斷 (Internal Interrupt)", next: "q43_help", log: "Q43錯: 例如除以零錯誤" }
+                    { text: "A. 只需使用兩種阻值的電阻 (R 和 2R)，容易製作且精準", next: "q44", isCorrect: true },
+                    { text: "B. 不需要運算放大器 OPA", next: "q43_help", log: "Q43錯: 還是需要 OPA 來做加總與緩衝" },
+                    { text: "C. 解析度永遠是無限大", next: "q43_help", log: "Q43錯: 解析度受限於輸入位元數" },
+                    { text: "D. 轉換速度是所有 DAC 中最快的", next: "q43_help", log: "Q43錯: 速度最快的是快閃型(Flash) ADC" }
                 ]
             },
             "q43_help": {
-                tag: "💊 救援任務：無法閉上眼睛",
-                text: "知識拆解：Mask 有遮罩、面具、無視的意思。既然這個中斷緊急到「不能無視、不能遮起來」，那它的英文簡稱 Non-Maskable Interrupt 翻譯過來是？",
+                tag: "💊 救援任務：工廠量產的思維",
+                text: "知識拆解：傳統的加權電阻 DAC 需要 1R, 2R, 4R, 8R... 非常多種不常見的電阻，工廠很難備料。R-2R 就像積木，整張電路板只用到 10k 和 20k 兩種電阻。這有什麼好處？",
                 options: [
-                    { text: "A. 不可遮罩中斷 (NMI)", next: "q43", isCorrect: true },
-                    { text: "B. 可遮罩中斷 (INTR)", next: "q43_help", log: "Q43救錯: 可遮罩代表 CPU 可以設定不要理它，但電源快斷了不能不理啊！" }
+                    { text: "A. 只有兩種電阻，容易製作又精準", next: "q43", isCorrect: true },
+                    { text: "B. 不需要 OPA", next: "q43_help", log: "Q43救錯: 最後還是需要 OPA 把電流轉回電壓喔！" }
                 ]
             },
 
-            // --- 第 44 關：PCIe ---
+            // --- 第 44 關：TTL 浮接輸入 ---
             "q44": {
-                tag: "第 44 關：匯流排與介面",
-                text: "現代電腦顯示卡與主機板連接的主流介面是 PCIe (PCI Express)。與早期的 PCI 相比，PCIe 最大的技術突破是將傳輸方式從「並列(Parallel)」改成了什麼？",
+                tag: "第 44 關：邏輯族實務",
+                text: "實習工場大魔王！當我們在使用 TTL 邏輯晶片 (如 7400 系列) 時，如果有某一個輸入腳「忘記接線 (浮接, Floating)」，TTL 內部電路會將這個腳位視為什麼狀態？",
                 options: [
-                    { text: "A. 高速串列傳輸 (Serial)", next: "q45", isCorrect: true },
-                    { text: "B. 無線傳輸 (Wireless)", next: "q44_help", log: "Q44錯: 顯示卡還是要插在主機板上" },
-                    { text: "C. 類比傳輸 (Analog)", next: "q44_help", log: "Q44錯: 電腦內部都是數位信號" },
-                    { text: "D. 光纖傳輸 (Optical)", next: "q44_help", log: "Q44錯: 雖然有光纖技術，但主機板槽仍是銅線" }
+                    { text: "A. 視為邏輯「1」 (高電位)", next: "q45", isCorrect: true },
+                    { text: "B. 視為邏輯「0」 (低電位)", next: "q44_help", log: "Q44錯: 要接地才會是 0" },
+                    { text: "C. 視為雜訊，隨機跳動", next: "q44_help", log: "Q44錯: 這是 CMOS 晶片浮接的恐怖下場" },
+                    { text: "D. 晶片直接燒毀", next: "q44_help", log: "Q44錯: TTL 浮接不會燒毀" }
                 ]
             },
             "q44_help": {
-                tag: "💊 救援任務：排隊比並排快",
-                text: "知識拆解：以前以為幾十條線「並排」傳輸比較快，但頻率變高後線跟線之間會互相干擾。後來發現只用幾對線做「高速排成一列 (串列)」反而能飆出極速！",
+                tag: "💊 救援任務：TTL與CMOS的差異",
+                text: "知識拆解：統測超愛考！如果是 CMOS (4000系列) 浮接，會因為靜電亂跳 0和1 甚至燒毀。但 TTL 內部是 BJT 結構，沒接線時電流流不出去，會預設它處於高電壓。也就是？",
                 options: [
-                    { text: "A. 高速串列傳輸", next: "q44", isCorrect: true },
-                    { text: "B. 類比傳輸", next: "q44_help", log: "Q44救錯: 數位時代早就淘汰類比傳輸了！" }
+                    { text: "A. 視為邏輯「1」", next: "q44", isCorrect: true },
+                    { text: "B. 視為隨機跳動的雜訊", next: "q44_help", log: "Q44救錯: 那是比較先進也比較嬌弱的 CMOS 才會發生的慘劇！" }
                 ]
             },
 
-            // 🏆 第 45 關：大谷翔平的再見滑球
+            // 🏃 第 45 關：終點衝刺與收操
             "q45": {
-                tag: "🏆 最終關：大腦休息 (WBC)",
-                text: "最後一題！2023 WBC 冠軍戰，九局上半兩出局滿球數，大谷翔平對決楚奧特投出的「最後一顆球」，以極其誇張的橫向位移讓他揮棒落空。請問大谷這顆魔球是什麼球種？",
+                tag: "🏆 最終關：大腦休息 (路跑)",
+                text: "最後一題！恭喜你跑完 8.3Km 衝過終點線了！為了保護心臟與雙腿，衝過終點後你「最不應該」立刻做什麼事？",
                 options: [
-                    { text: "A. 滑球 (Sweeper / Slider)", next: "end", isCorrect: true },
-                    { text: "B. 快速直球 (Fastball)", next: "q45_help", log: "Q45錯: 大谷前面投過 100 mph 的直球，但最後一球不是" },
-                    { text: "C. 指叉球 (Splitter)", next: "q45_help", log: "Q45錯: 這是大谷也很擅長的下墜球種，但最後一顆不是" },
-                    { text: "D. 變速球 (Changeup)", next: "q45_help", log: "Q45錯: 大谷較少投變速球" }
+                    { text: "A. 立刻原地一屁股坐下或躺下休息", next: "end", isCorrect: true },
+                    { text: "B. 慢慢走動 5 到 10 分鐘讓心跳緩和", next: "q45_help", log: "Q45錯: 這是非常正確的做法 (Cool down)" },
+                    { text: "C. 喝幾口水或運動飲料補充流失水分", next: "q45_help", log: "Q45錯: 這也是正確的" },
+                    { text: "D. 針對大小腿進行靜態拉筋伸展", next: "q45_help", log: "Q45錯: 緩和後拉筋有助於排乳酸" }
                 ]
             },
             "q45_help": {
-                tag: "💊 提示：橫掃千軍",
-                text: "這顆球從好球帶中間，硬生生地向外側「橫向滑動」了將近 43 公分，就像是用掃把橫掃過去一樣，被美國媒體稱為 Sweeper。",
+                tag: "💊 提示：血液回流機制",
+                text: "剛劇烈運動完，心臟還在大量把血液打到腿部。如果不靠著慢慢走動讓小腿肌肉像幫浦一樣把血擠回心臟，腦部會瞬間缺血！所以絕對不能怎樣？",
                 options: [
-                    { text: "A. 滑球 (Sweeper)", next: "q45", isCorrect: true },
-                    { text: "B. 快速直球", next: "q45_help", log: "Q45救錯: 直球是不會這樣誇張橫向轉彎的！" }
+                    { text: "A. 立刻坐下或躺下", next: "q45", isCorrect: true },
+                    { text: "B. 慢慢走動", next: "q45_help", log: "Q45救錯: 慢慢走是保命關鍵，不可以省喔！" }
                 ]
             }
         };
-
         // ==========================================
         // 系統變數與遊戲邏輯
         // ==========================================
