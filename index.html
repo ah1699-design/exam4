@@ -280,11 +280,11 @@
                     { id: "n_ss1", name: "【SSR】炫彩版・Jokic", rarity: "SSR", chance: 1.5, image: "images1/SSR1.png" },
                     { id: "n_ss2", name: "【SSR】炫彩版・SGA", rarity: "SSR", chance: 1.5, image: "images1/SSR2.png" },
                     { id: "n_ss3", name: "【SSR】色違・噴火龍", rarity: "SSR", chance: 1.5, image: "images1/SSR3.jpg" },
-                    { id: "n_ss4", name: "【SSR】阿部寬", rarity: "SSR", chance: 1.5, image: "images1/SSR4.jpg" },
+                    { id: "n_ss4", name: "【SSR】阿部寬", rarity: "SSR", chance: 1.5, image: "images1/SSR4.png" },
                     { id: "n_s1", name: "【SR】特效版・字母哥", rarity: "SR", chance: 3, image: "images1/SR1.png" },
                     { id: "n_s2", name: "【SR】全圖・噴火龍", rarity: "SR", chance: 3, image: "images1/SR2.jpg" },
-                    { id: "n_s3", name: "【SR】水野直美", rarity: "SR", chance: 3, image: "images1/SR2.png" },
-                    { id: "n_s4", name: "【SR】香坂良乃", rarity: "SR", chance: 3, image: "images1/SR3.png" },
+                    { id: "n_s3", name: "【SR】水野直美", rarity: "SR", chance: 3, image: "images1/SR3.png" },
+                    { id: "n_s4", name: "【SR】香坂良乃", rarity: "SR", chance: 3, image: "images1/SR4.png" },
                     { id: "n_r1", name: "【R】小丑皇・Nikola Jokić", rarity: "R", chance: 4, image: "images1/R1.png" },
                     { id: "n_r2", name: "【R】新雷帝・SGA", rarity: "R", chance: 4, image: "images1/R2.png" },
                     { id: "n_r3", name: "【R】字母哥・Giannis", rarity: "R", chance: 4, image: "images1/R3.png" },
@@ -311,906 +311,906 @@
         };
 
 // ==========================================
-        // 教師設定區：統測英文單字總複習 (45題魔王版) + 時事英文
+        // 教師設定區：專一(基本電學+電子學) 全冊總複習 45題 + 東大特訓班
         // ==========================================
         const quizData = {
-            // --- 第 1 關：科技與 AI ---
+            // --- 第 1 關：電功率 ---
             "q1": {
-                tag: "第 1 關：科技與 AI",
-                text: "ChatGPT 等「生成式」人工智慧正在改變世界。請問「人工的、人造的」英文是？",
+                tag: "第 1 關：基本電學",
+                text: "一個 1200W 的電鍋每日使用 4 小時，若電費每度 3 元，則使用 30 日共需付多少電費？",
                 options: [
-                    { text: "A. artificial", next: "q2", isCorrect: true },
-                    { text: "B. authentic", next: "q1_help", log: "Q1錯: authentic 是「真實的、道地的」" },
-                    { text: "C. automatic", next: "q1_help", log: "Q1錯: automatic 是「自動的」，不是人工的" },
-                    { text: "D. artistic", next: "q1_help", log: "Q1錯: artistic 是「藝術的」" }
+                    { text: "A. 432 元", next: "q2", isCorrect: true },
+                    { text: "B. 144 元", next: "q1_help", log: "Q1錯: 忘記乘上天數了" },
+                    { text: "C. 3600 元", next: "q1_help", log: "Q1錯: 瓦特要換算成千瓦" },
+                    { text: "D. 543 元", next: "q1_help", log: "Q1錯: 數值計算錯誤" }
                 ]
             },
             "q1_help": {
-                tag: "💊 救援任務：字首拆解",
-                text: "知識拆解：AI 的 A 就是這個字。字首 art- 有「技巧、人為」的意思（如藝術 art）。非天然的、由人類技巧製造出來的，英文是？",
+                tag: "💊 救援任務：幾度電的定義",
+                text: "知識拆解：1 度電 = 1 千瓦小時 (1 kWh)。1200W = 1.2kW。每天 4 小時，用了 30 天。算式：1.2 × 4 × 30 = 144 度。最後再乘上 3 元，答案是？",
                 options: [
-                    { text: "A. artificial", next: "q1", isCorrect: true },
-                    { text: "B. automatic", next: "q1_help", log: "Q1救錯: auto- 是「自己」，所以 automatic 是自動的喔！" }
+                    { text: "A. 432 元", next: "q1", isCorrect: true },
+                    { text: "B. 144 元", next: "q1_help", log: "Q1救錯: 144 是總共幾度電，別忘了還要付錢(乘上3元)喔！" }
                 ]
             },
 
-            // --- 第 2 關：科技與 AI ---
+            // --- 第 2 關：電阻定律 ---
             "q2": {
-                tag: "第 2 關：科技與 AI",
-                text: "生成式 AI 可以「產生、產出」文章和圖片。請問「產生、發電」的動詞是？",
+                tag: "第 2 關：基本電學",
+                text: "有一電阻線加上 120V 電壓時電流為 12A。若將此電阻線均勻拉長使長度成為原來的 2 倍（體積不變），則加上 120V 電壓時，電流為何？",
                 options: [
-                    { text: "A. generate", next: "q3", isCorrect: true },
-                    { text: "B. generalize", next: "q2_help", log: "Q2錯: generalize 是「概括、歸納」" },
-                    { text: "C. graduate", next: "q2_help", log: "Q2錯: graduate 是「畢業」" },
-                    { text: "D. guarantee", next: "q2_help", log: "Q2錯: guarantee 是「保證」" }
+                    { text: "A. 3 A", next: "q3", isCorrect: true },
+                    { text: "B. 6 A", next: "q2_help", log: "Q2錯: 拉長時截面積也會變小，電阻不只變2倍" },
+                    { text: "C. 12 A", next: "q2_help", log: "Q2錯: 電阻改變，電流一定會變" },
+                    { text: "D. 24 A", next: "q2_help", log: "Q2錯: 阻力變大，電流應該變小" }
                 ]
             },
             "q2_help": {
-                tag: "💊 救援任務：字根基因",
-                text: "知識拆解：字根 gen- 有「出生、產生」的意思（如基因 gene、世代 generation）。產生出東西的動詞是？",
+                tag: "💊 救援任務：拉麵條效應",
+                text: "知識拆解：電阻 $R = \\rho \\frac{l}{A}$。把麵條拉長 2 倍，為了保持體積不變，它一定會變細（截面積 A 變成一半）。長度乘以 2，面積除以 2，總阻力會變成 4 倍！原本 R=10，變 40。120V / 40 = ?",
                 options: [
-                    { text: "A. generate", next: "q2", isCorrect: true },
-                    { text: "B. guarantee", next: "q2_help", log: "Q2救錯: guarantee 是保證，跟產生沒有關係喔！" }
+                    { text: "A. 3 A", next: "q2", isCorrect: true },
+                    { text: "B. 6 A", next: "q2_help", log: "Q2救錯: 阻力變 4 倍，水流(電流)會變成四分之一啦！" }
                 ]
             },
 
-            // --- 第 3 關：科技與 AI ---
+            // --- 第 3 關：戴維寧 ---
             "q3": {
-                tag: "第 3 關：科技與 AI",
-                text: "社群媒體的「演算法」會決定你看到哪些貼文。請問「演算法」的英文是？",
+                tag: "第 3 關：網路定理",
+                text: "根據最大功率轉移定理，當負載電阻 RL 等於戴維寧等效電阻 Rth 時，能獲得最大功率。請問此時電源的「傳輸效率」為多少？",
                 options: [
-                    { text: "A. algorithm", next: "q4", isCorrect: true },
-                    { text: "B. rhythm", next: "q3_help", log: "Q3錯: rhythm 是「節奏」" },
-                    { text: "C. arithmetic", next: "q3_help", log: "Q3錯: arithmetic 是「算術」" },
-                    { text: "D. algebra", next: "q3_help", log: "Q3錯: algebra 是「代數」" }
+                    { text: "A. 50%", next: "q4", isCorrect: true },
+                    { text: "B. 100%", next: "q3_help", log: "Q3錯: 內阻會消耗一半能量" },
+                    { text: "C. 25%", next: "q3_help", log: "Q3錯: 數值錯誤" },
+                    { text: "D. 70.7%", next: "q3_help", log: "Q3錯: 這是 1/根號2，與本題無關" }
                 ]
             },
             "q3_help": {
-                tag: "💊 救援任務：科技常見字",
-                text: "知識拆解：這個字常在 YouTube 或 IG 討論中出現。它指的是電腦運算的邏輯規則。開頭是 algo-。",
+                tag: "💊 救援任務：一人一半",
+                text: "知識拆解：既然 RL = Rth，代表外面的負載跟裡面的內阻「一樣大」。所以電壓跟能量都被他們兩個「平分」了。分到一半，效率就是？",
                 options: [
-                    { text: "A. algorithm", next: "q3", isCorrect: true },
-                    { text: "B. rhythm", next: "q3_help", log: "Q3救錯: rhythm 是音樂的節奏喔！" }
+                    { text: "A. 50%", next: "q3", isCorrect: true },
+                    { text: "B. 100%", next: "q3_help", log: "Q3救錯: 內阻一定會發熱吃掉能量，不可能 100% 傳輸出去了！" }
                 ]
             },
 
-            // --- 第 4 關：科技與 AI ---
+            // --- 第 4 關：色碼 ---
             "q4": {
-                tag: "第 4 關：科技與 AI",
-                text: "現在很多活動都改為線上舉行。VR 設備中的 V 代表「虛擬的」，英文是？",
+                tag: "第 4 關：儀表與量測",
+                text: "電阻器若標示為「橙白黑金紫」，由左至右分別為第一環至第五環，請問最後一環紫色代表的誤差值為何？",
                 options: [
-                    { text: "A. virtual", next: "q5", isCorrect: true },
-                    { text: "B. visual", next: "q4_help", log: "Q4錯: visual 是「視覺的」" },
-                    { text: "C. vital", next: "q4_help", log: "Q4錯: vital 是「極其重要的」" },
-                    { text: "D. viral", next: "q4_help", log: "Q4錯: viral 是「病毒式的、爆紅的」" }
+                    { text: "A. ± 0.1%", next: "q5", isCorrect: true },
+                    { text: "B. ± 1%", next: "q4_help", log: "Q4錯: 棕色才是 1%" },
+                    { text: "C. ± 5%", next: "q4_help", log: "Q4錯: 金色才是 5%" },
+                    { text: "D. ± 2%", next: "q4_help", log: "Q4錯: 紅色才是 2%" }
                 ]
             },
             "q4_help": {
-                tag: "💊 救援任務：易混淆字",
-                text: "知識拆解：VR 全名是 Virtual Reality (虛擬實境)。visual 是視覺的，viral 是爆紅的。要選有 virt- 開頭的！",
+                tag: "💊 救援任務：精密的紫袍",
+                text: "知識拆解：誤差環常見的有金(5%)、棕(1%)、紅(2%)。紫色代表非常精密的軍規或高階電阻。紫色的數字是 7，但在誤差中代表千分之一。也就是？",
                 options: [
-                    { text: "A. virtual", next: "q4", isCorrect: true },
-                    { text: "B. visual", next: "q4_help", log: "Q4救錯: visual 是視力的、視覺的，不是虛擬喔！" }
+                    { text: "A. ± 0.1%", next: "q4", isCorrect: true },
+                    { text: "B. ± 1%", next: "q4_help", log: "Q4救錯: 1% 是棕色喔！" }
                 ]
             },
 
-            // --- 第 5 關：科技與 AI ---
+            // 🌸 第 5 關：東大特訓班 1
             "q5": {
-                tag: "第 5 關：科技與 AI",
-                text: "使用網路服務時要注意保護個人「隱私」。請問隱私的英文名詞是？",
+                tag: "🌸 第 5 關：大腦休息 (日劇)",
+                text: "日劇《東大特訓班》中，櫻木建二律師為了拯救瀕臨破產的龍山高中，設立了特別升學班。他要求這些吊車尾的學生們，最終目標必須是考上哪一所大學？",
                 options: [
-                    { text: "A. privacy", next: "q6", isCorrect: true },
-                    { text: "B. policy", next: "q5_help", log: "Q5錯: policy 是「政策」" },
-                    { text: "C. privilege", next: "q5_help", log: "Q5錯: privilege 是「特權」" },
-                    { text: "D. property", next: "q5_help", log: "Q5錯: property 是「財產」" }
+                    { text: "A. 東京大學 (東大)", next: "q6", isCorrect: true },
+                    { text: "B. 京都大學", next: "q5_help", log: "Q5錯: 這不在劇名裡" },
+                    { text: "C. 早稻田大學", next: "q5_help", log: "Q5錯: 早稻田是私立名校" },
+                    { text: "D. 慶應義塾大學", next: "q5_help", log: "Q5錯: 慶應也是私立名校" }
                 ]
             },
             "q5_help": {
-                tag: "💊 救援任務：私人的名詞",
-                text: "知識拆解：形容詞 private 是「私人的」，把結尾改成 -cy 就會變成名詞「隱私」。",
+                tag: "💊 提示：答案就在劇名裡",
+                text: "這題是送分題！這部劇的名字就叫做「Ｏ大特訓班」，他要學生考上的當然就是日本的第一學府！",
                 options: [
-                    { text: "A. privacy", next: "q5", isCorrect: true },
-                    { text: "B. policy", next: "q5_help", log: "Q5救錯: policy 是政策 (如隱私權政策 privacy policy)。" }
+                    { text: "A. 東京大學", next: "q5", isCorrect: true },
+                    { text: "B. 京都大學", next: "q5_help", log: "Q5救錯: 劇名不是京大特訓班啦！" }
                 ]
             },
 
-            // --- 第 6 關：經濟時事 ---
+            // --- 第 6 關：電容器 ---
             "q6": {
-                tag: "第 6 關：經濟時事",
-                text: "近年來物價持續上漲，這種「通貨膨脹」現象讓大家錢包縮水。請問通膨的英文是？",
+                tag: "第 6 關：基本電學",
+                text: "有一只初始無儲能的電容器，以定電流 1mA 連續充電 10 秒後，其儲存能量為 10 焦耳，則此電容器的電容值為何？",
                 options: [
-                    { text: "A. inflation", next: "q7", isCorrect: true },
-                    { text: "B. infection", next: "q6_help", log: "Q6錯: infection 是「感染」" },
-                    { text: "C. influence", next: "q6_help", log: "Q6錯: influence 是「影響」" },
-                    { text: "D. investment", next: "q6_help", log: "Q6錯: investment 是「投資」" }
+                    { text: "A. 5 μF", next: "q7", isCorrect: true },
+                    { text: "B. 10 μF", next: "q6_help", log: "Q6錯: 忘了公式裡的 1/2" },
+                    { text: "C. 1 μF", next: "q6_help", log: "Q6錯: 計算錯誤" },
+                    { text: "D. 50 μF", next: "q6_help", log: "Q6錯: 小數點位置錯誤" }
                 ]
             },
             "q6_help": {
-                tag: "💊 救援任務：字首拆解",
-                text: "知識拆解：字首 in- (進入) + flat- (吹氣，如打氣筒 inflate)。把氣吹進去讓物價膨脹起來，名詞是？",
+                tag: "💊 救援任務：電容雙公式",
+                text: "知識拆解：先算總電荷 $Q = I \\times t = 1\\text{mA} \\times 10\\text{s} = 0.01\\text{C}$。再代入能量公式 $W = \\frac{1}{2} \\frac{Q^2}{C}$。10 = (0.01²) / (2C)。解出 C 就是答案！",
                 options: [
-                    { text: "A. inflation", next: "q6", isCorrect: true },
-                    { text: "B. infection", next: "q6_help", log: "Q6救錯: infection 是生病感染，不是物價上漲喔！" }
+                    { text: "A. 5 μF", next: "q6", isCorrect: true },
+                    { text: "B. 10 μF", next: "q6_help", log: "Q6救錯: W = 1/2 CV² 或 1/2 (Q²/C)，不要忘記那個二分之一！" }
                 ]
             },
 
-            // --- 第 7 關：經濟時事 ---
+            // --- 第 7 關：時間常數 ---
             "q7": {
-                tag: "第 7 關：經濟時事",
-                text: "房價太高，許多年輕人找不到「負擔得起的」住房。請問「負擔得起的」英文是？",
+                tag: "第 7 關：暫態響應",
+                text: "在 RC 串聯電路中，開關閉合開始充電。所謂的「時間常數 (τ)」是指電壓充到穩態最大值的百分之多少所需的時間？",
                 options: [
-                    { text: "A. affordable", next: "q8", isCorrect: true },
-                    { text: "B. adorable", next: "q7_help", log: "Q7錯: adorable 是「可愛的」" },
-                    { text: "C. adaptable", next: "q7_help", log: "Q7錯: adaptable 是「能適應的」" },
-                    { text: "D. available", next: "q7_help", log: "Q7錯: available 是「可獲得的、有空的」" }
+                    { text: "A. 63.2%", next: "q8", isCorrect: true },
+                    { text: "B. 36.8%", next: "q7_help", log: "Q7錯: 這是放電或剩下的比例" },
+                    { text: "C. 50%", next: "q7_help", log: "Q7錯: 暫態是指數曲線，不是直線平分" },
+                    { text: "D. 99.3%", next: "q7_help", log: "Q7錯: 這是 5 倍時間常數 (5τ) 的比例" }
                 ]
             },
             "q7_help": {
-                tag: "💊 救援任務：動詞轉形容詞",
-                text: "知識拆解：動詞 afford 是「買得起、負擔得起」。加上字尾 -able (可以...的) 就變成形容詞了。",
+                tag: "💊 救援任務：爬山的進度",
+                text: "知識拆解：充電是從 0 往上爬。1個時間常數大約爬了 6 成多一點。而 36.8% 是「還沒爬完剩下的距離」，或是放電時掉下來的數字。所以充電充了多少？",
                 options: [
-                    { text: "A. affordable", next: "q7", isCorrect: true },
-                    { text: "B. available", next: "q7_help", log: "Q7救錯: available 是有庫存、買得到，但不一定便宜喔！" }
+                    { text: "A. 63.2%", next: "q7", isCorrect: true },
+                    { text: "B. 36.8%", next: "q7_help", log: "Q7救錯: 36.8 是放電啦！充電當然是越來越多(大於一半)！" }
                 ]
             },
 
-            // --- 第 8 關：經濟時事 ---
+            // --- 第 8 關：交流有效值 ---
             "q8": {
-                tag: "第 8 關：經濟時事",
-                text: "為了刺激經濟，政府發放了許多「補助金、津貼」。請問這個字的英文是？",
+                tag: "第 8 關：交流電路",
+                text: "交流電壓信號為 $v(t) = 100\\sqrt{2} \\sin(377t)$ V，請問此交流電壓的「有效值 (RMS)」為多少？",
                 options: [
-                    { text: "A. subsidy", next: "q9", isCorrect: true },
-                    { text: "B. substitute", next: "q8_help", log: "Q8錯: substitute 是「替代品」" },
-                    { text: "C. salary", next: "q8_help", log: "Q8錯: salary 是「薪水」" },
-                    { text: "D. penalty", next: "q8_help", log: "Q8錯: penalty 是「罰款、處罰」" }
+                    { text: "A. 100 V", next: "q9", isCorrect: true },
+                    { text: "B. 100√2 V", next: "q8_help", log: "Q8錯: 這是最大值 (峰值)" },
+                    { text: "C. 141.4 V", next: "q8_help", log: "Q8錯: 這也是最大值" },
+                    { text: "D. 200 V", next: "q8_help", log: "Q8錯: 數值錯誤" }
                 ]
             },
             "q8_help": {
-                tag: "💊 救援任務：字首拆解",
-                text: "知識拆解：字首 sub- 有「在下面、從下面支援」的意思。從下面給予金錢支援的「津貼」是？",
+                tag: "💊 救援任務：除以根號二",
+                text: "知識拆解：公式前面的 $100\\sqrt{2}$ 是波峰的最大值 (Vm)。有效值就是要把它除以 $\\sqrt{2}$，得到跟直流電一樣的發熱能力。所以答案是？",
                 options: [
-                    { text: "A. subsidy", next: "q8", isCorrect: true },
-                    { text: "B. penalty", next: "q8_help", log: "Q8救錯: penalty 是做錯事被罰錢，跟補助剛好相反！" }
+                    { text: "A. 100 V", next: "q8", isCorrect: true },
+                    { text: "B. 141.4 V", next: "q8_help", log: "Q8救錯: 141.4 就是 100 乘上根號二，它是最大值喔！" }
                 ]
             },
 
-            // --- 第 9 關：經濟時事 ---
+            // --- 第 9 關：純電感相位 ---
             "q9": {
-                tag: "第 9 關：經濟時事",
-                text: "因為戰爭與氣候變遷，許多國家正面臨嚴重的糧食「危機」。請問危機的英文是？",
+                tag: "第 9 關：交流電路",
+                text: "在「純電感 (L)」的交流電路中，電壓 (V) 與電流 (I) 的相位關係為何？",
                 options: [
-                    { text: "A. crisis", next: "q10", isCorrect: true },
-                    { text: "B. critic", next: "q9_help", log: "Q9錯: critic 是「評論家」" },
-                    { text: "C. credit", next: "q9_help", log: "Q9錯: credit 是「信用」" },
-                    { text: "D. crime", next: "q9_help", log: "Q9錯: crime 是「犯罪」" }
+                    { text: "A. 電壓 (V) 領先電流 (I) 90 度", next: "q10", isCorrect: true },
+                    { text: "B. 電流 (I) 領先電壓 (V) 90 度", next: "q9_help", log: "Q9錯: 這是純電容 (C) 的特性" },
+                    { text: "C. 兩者同相 (0度)", next: "q9_help", log: "Q9錯: 這是純電阻 (R) 的特性" },
+                    { text: "D. 兩者反相 (180度)", next: "q9_help", log: "Q9錯: 單一元件不會反相" }
                 ]
             },
             "q9_help": {
-                tag: "💊 救援任務：時事常見字",
-                text: "知識拆解：經濟危機 (economic crisis)、能源危機 (energy crisis) 都是這個字。注意它的複數形是不規則的 crises。",
+                tag: "💊 救援任務：統測必背口訣 ELI",
+                text: "知識拆解：死背口訣「ELI (伊萊)」。中間的 L 代表電感，左邊的 E(電壓) 排在右邊的 I(電流) 前面。所以是誰領先？",
                 options: [
-                    { text: "A. crisis", next: "q9", isCorrect: true },
-                    { text: "B. crime", next: "q9_help", log: "Q9救錯: crime 是犯罪行為，不是大環境的危機喔！" }
+                    { text: "A. 電壓領先電流 90 度", next: "q9", isCorrect: true },
+                    { text: "B. 電流領先電壓 90 度", next: "q9_help", log: "Q9救錯: 那是 ICE (電容) 的口訣啦！" }
                 ]
             },
 
-            // --- 第 10 關：經濟時事 ---
+            // 🌸 第 10 關：東大特訓班 經典名言
             "q10": {
-                tag: "第 10 關：經濟時事",
-                text: "政府希望能藉由發放消費券來「促進、提升」國內消費。請問「促進、推動」的動詞是？",
+                tag: "🌸 第 10 關：大腦休息 (日劇)",
+                text: "《東大特訓班》第一集中，櫻木律師對著全校學生大吼了一句經典名言，點出現實社會的殘酷，並激勵他們讀書。這句話是：「笨蛋和醜八怪，都給我＿＿＿＿！」",
                 options: [
-                    { text: "A. boost", next: "q11", isCorrect: true },
-                    { text: "B. boast", next: "q10_help", log: "Q10錯: boast 是「自誇、吹噓」" },
-                    { text: "C. boot", next: "q10_help", log: "Q10錯: boot 是「靴子、開機」" },
-                    { text: "D. block", next: "q10_help", log: "Q10錯: block 是「阻擋」" }
+                    { text: "A. 上東大", next: "q11", isCorrect: true },
+                    { text: "B. 去工作", next: "q10_help", log: "Q10錯: 他是來招生的，不是勸退的" },
+                    { text: "C. 考公務員", next: "q10_help", log: "Q10錯: 公務員太普通了" },
+                    { text: "D. 滾出學校", next: "q10_help", log: "Q10錯: 這樣學校就破產了" }
                 ]
             },
             "q10_help": {
-                tag: "💊 救援任務：易混淆字",
-                text: "知識拆解：打遊戲時常吃到「加速器」讓車子暴衝，那個字就是 boost。boast (有 a) 則是愛吹牛。",
+                tag: "💊 提示：改變人生的捷徑",
+                text: "櫻木律師認為，這個社會的規則都是聰明人為了自己利益制定的。如果你不想一輩子被騙、被剝削，唯一的方法就是讓自己變聰明，考上最高學府！",
                 options: [
-                    { text: "A. boost", next: "q10", isCorrect: true },
-                    { text: "B. boast", next: "q10_help", log: "Q10救錯: boast 是自誇，不要跟促進搞混了！" }
+                    { text: "A. 上東大", next: "q10", isCorrect: true },
+                    { text: "B. 去工作", next: "q10_help", log: "Q10救錯: 如果去工作就會繼續被聰明人剝削，所以他要他們去讀書！" }
                 ]
             },
 
-            // --- 第 11 關：環境 ESG ---
+            // --- 第 11 關：交流阻抗 ---
             "q11": {
-                tag: "第 11 關：環境與永續",
-                text: "企業現在非常重視 ESG，其中強調企業發展必須是「永續的」。請問「永續的」英文是？",
+                tag: "第 11 關：交流電路",
+                text: "一個串聯電路中，電阻 R = 3Ω，感抗 XL = 4Ω。請問此電路的總阻抗 (Z) 絕對值大小為何？",
                 options: [
-                    { text: "A. sustainable", next: "q12", isCorrect: true },
-                    { text: "B. suitable", next: "q11_help", log: "Q11錯: suitable 是「適合的」" },
-                    { text: "C. suspicious", next: "q11_help", log: "Q11錯: suspicious 是「可疑的」" },
-                    { text: "D. superficial", next: "q11_help", log: "Q11錯: superficial 是「表面的」" }
+                    { text: "A. 5 Ω", next: "q12", isCorrect: true },
+                    { text: "B. 7 Ω", next: "q11_help", log: "Q11錯: 電阻和電抗不能直接相加" },
+                    { text: "C. 1 Ω", next: "q11_help", log: "Q11錯: 不能直接相減" },
+                    { text: "D. 12 Ω", next: "q11_help", log: "Q11錯: 不是相乘" }
                 ]
             },
             "q11_help": {
-                tag: "💊 救援任務：字首拆解",
-                text: "知識拆解：動詞 sustain 意思是「維持、支撐」。加上 -able 變成「可以長久維持下去的」，也就是永續的。",
+                tag: "💊 救援任務：畢氏定理",
+                text: "知識拆解：在交流電路中，電阻(實部)跟電抗(虛部)夾角是 90 度，要用直角三角形的畢氏定理來算！ $Z = \\sqrt{R^2 + X_L^2}$。 3 的平方加 4 的平方開根號，就是經典的？",
                 options: [
-                    { text: "A. sustainable", next: "q11", isCorrect: true },
-                    { text: "B. suitable", next: "q11_help", log: "Q11救錯: suitable 只是適合，sustainable 才是永續發展喔！" }
+                    { text: "A. 5 Ω", next: "q11", isCorrect: true },
+                    { text: "B. 7 Ω", next: "q11_help", log: "Q11救錯: 它們之間有 90 度的相角，不能用一般的加法 3+4=7 啦！" }
                 ]
             },
 
-            // --- 第 12 關：環境 ESG ---
+            // --- 第 12 關：諧振 ---
             "q12": {
-                tag: "第 12 關：環境與永續",
-                text: "為了減緩全球暖化，各國承諾要減少溫室氣體的「排放」。請問排放(物)的英文是？",
+                tag: "第 12 關：諧振電路",
+                text: "在 RLC「並聯」電路發生諧振時，電路的感抗與容抗互相抵消。此時電源端看進去的「總阻抗」會呈現什麼狀態？",
                 options: [
-                    { text: "A. emission", next: "q13", isCorrect: true },
-                    { text: "B. emotion", next: "q12_help", log: "Q12錯: emotion 是「情緒」" },
-                    { text: "C. mission", next: "q12_help", log: "Q12錯: mission 是「任務」" },
-                    { text: "D. omission", next: "q12_help", log: "Q12錯: omission 是「省略、遺漏」" }
+                    { text: "A. 達到最大值", next: "q13", isCorrect: true },
+                    { text: "B. 達到最小值", next: "q12_help", log: "Q12錯: 這是串聯諧振的特徵" },
+                    { text: "C. 變成 0", next: "q12_help", log: "Q12錯: 還有電阻存在，不會是 0" },
+                    { text: "D. 變成無限大", next: "q12_help", log: "Q12錯: 如果有並聯電阻 R，阻抗就是 R，不是無限大" }
                 ]
             },
             "q12_help": {
-                tag: "💊 救援任務：字根拆解",
-                text: "知識拆解：動詞 emit (發出、散發)，名詞字尾變成 -ssion。零碳排就是 zero emissions。",
+                tag: "💊 救援任務：築起大水壩",
+                text: "知識拆解：並聯諧振時，L 和 C 內部會產生瘋狂的循環電流，但對外面的電源來說，它們就像是一堵推不動的實心牆壁（也就是水壩）。所以對外的阻力會？",
                 options: [
-                    { text: "A. emission", next: "q12", isCorrect: true },
-                    { text: "B. emotion", next: "q12_help", log: "Q12救錯: emotion 裡面有 motion(動)，是情緒的意思喔！" }
+                    { text: "A. 達到最大值", next: "q12", isCorrect: true },
+                    { text: "B. 達到最小值", next: "q12_help", log: "Q12救錯: 串聯才是最小值(通暢)，並聯剛好相反是最大值喔！" }
                 ]
             },
 
-            // --- 第 13 關：環境 ESG ---
+            // --- 第 13 關：三相電源 ---
             "q13": {
-                tag: "第 13 關：環境與永續",
-                text: "面對極端氣候，我們必須「保護、節約」水資源與森林。請問「節約、保護」的動詞是？",
+                tag: "第 13 關：三相電源",
+                text: "在平衡的「三相 Y 型接法」中，外部的「線電壓 (VL)」與內部的「相電壓 (Vp)」大小關係為何？",
                 options: [
-                    { text: "A. conserve", next: "q14", isCorrect: true },
-                    { text: "B. observe", next: "q13_help", log: "Q13錯: observe 是「觀察」" },
-                    { text: "C. deserve", next: "q13_help", log: "Q13錯: deserve 是「應得」" },
-                    { text: "D. reserve", next: "q13_help", log: "Q13錯: reserve 是「預訂、保留」" }
+                    { text: "A. VL = √3 Vp", next: "q14", isCorrect: true },
+                    { text: "B. VL = Vp", next: "q13_help", log: "Q13錯: 這是 Δ 接法的特性" },
+                    { text: "C. VL = 3 Vp", next: "q13_help", log: "Q13錯: 三相交流倍率是根號3，不是3" },
+                    { text: "D. VL = Vp / √3", next: "q13_help", log: "Q13錯: 外部線電壓大於內部相電壓" }
                 ]
             },
             "q13_help": {
-                tag: "💊 救援任務：serve 家族",
-                text: "知識拆解：字首 con- (一起) + serve (保存)。把大自然的心血一起保存下來不浪費，就是節約/保育。",
+                tag: "💊 救援任務：Y字跨步",
+                text: "知識拆解：Y 型接法就像兩腿劈開，外部的線「跨越」了兩條腿(兩個相)。因為有 120 度相位差，電壓相加後會放大成經典的常數：根號 3。",
                 options: [
-                    { text: "A. conserve", next: "q13", isCorrect: true },
-                    { text: "B. reserve", next: "q13_help", log: "Q13救錯: reserve 通常指去餐廳「預訂」位子，conserve 才是節約能源！" }
+                    { text: "A. VL = √3 Vp", next: "q13", isCorrect: true },
+                    { text: "B. VL = Vp", next: "q13_help", log: "Q13救錯: 只有 Δ (三角) 接法，線電壓才會等於相電壓喔！" }
                 ]
             },
 
-            // --- 第 14 關：環境 ESG ---
+            // --- 第 14 關：半導體 ---
             "q14": {
-                tag: "第 14 關：環境與永續",
-                text: "發展風力、太陽能等「替代的」能源是減少碳排的關鍵。請問「替代的、另類的」英文是？",
+                tag: "第 14 關：電子學基礎",
+                text: "純淨的矽 (Si) 加入微量的「五價元素」（如磷、砷）後，會形成哪一種半導體？它的多數載子是什麼？",
                 options: [
-                    { text: "A. alternative", next: "q15", isCorrect: true },
-                    { text: "B. attractive", next: "q14_help", log: "Q14錯: attractive 是「有吸引力的」" },
-                    { text: "C. aggressive", next: "q14_help", log: "Q14錯: aggressive 是「具攻擊性的」" },
-                    { text: "D. absolute", next: "q14_help", log: "Q14錯: absolute 是「絕對的」" }
+                    { text: "A. N 型半導體，多數載子為電子", next: "q15", isCorrect: true },
+                    { text: "B. P 型半導體，多數載子為電洞", next: "q14_help", log: "Q14錯: 這是加入三價元素" },
+                    { text: "C. N 型半導體，多數載子為電洞", next: "q14_help", log: "Q14錯: N型的多數載子是電子" },
+                    { text: "D. P 型半導體，多數載子為電子", next: "q14_help", log: "Q14錯: 搭配錯誤" }
                 ]
             },
             "q14_help": {
-                tag: "💊 救援任務：字首拆解",
-                text: "知識拆解：字首 alter- 有「改變、其他的」之意。alternative energy 就是不用石油，改用「其他的」能源。",
+                tag: "💊 救援任務：多出來的負電",
+                text: "知識拆解：矽外層只有 4 個電子。五價元素有 5 個電子，結合後會「多出一個」到處亂跑的自由電子。電子帶負電 (Negative)，所以叫做什麼型？",
                 options: [
-                    { text: "A. alternative", next: "q14", isCorrect: true },
-                    { text: "B. attractive", next: "q14_help", log: "Q14救錯: attractive 是吸引人的，跟替代方案無關喔！" }
+                    { text: "A. N 型半導體，多數載子為電子", next: "q14", isCorrect: true },
+                    { text: "B. P 型半導體，多數載子為電洞", next: "q14_help", log: "Q14救錯: P型(Positive)是加入三價元素，產生缺口(電洞)喔！" }
                 ]
             },
 
-            // --- 第 15 關：環境 ESG ---
+            // 🌸 第 15 關：東大特訓班 教學法
             "q15": {
-                tag: "第 15 關：環境與永續",
-                text: "塑膠垃圾對海洋生態造成了巨大的「衝擊、影響」。請問衝擊的英文是？",
+                tag: "🌸 第 15 關：大腦休息 (日劇)",
+                text: "《東大特訓班》中，英文老師川口洋發明了一種奇特的英文單字記憶法，要求學生們一邊做什麼動作，一邊大聲背誦英文單字？",
                 options: [
-                    { text: "A. impact", next: "q16", isCorrect: true },
-                    { text: "B. compact", next: "q15_help", log: "Q15錯: compact 是「緊湊的」" },
-                    { text: "C. contract", next: "q15_help", log: "Q15錯: contract 是「合約」" },
-                    { text: "D. contact", next: "q15_help", log: "Q15錯: contact 是「聯絡」" }
+                    { text: "A. 聽披頭四的歌並跳有氧舞蹈", next: "q16", isCorrect: true },
+                    { text: "B. 在操場跑馬拉松", next: "q15_help", log: "Q15錯: 太累了無法背書" },
+                    { text: "C. 倒立", next: "q15_help", log: "Q15錯: 這樣大腦會充血" },
+                    { text: "D. 蒙住眼睛", next: "q15_help", log: "Q15錯: 這是盲人訓練" }
                 ]
             },
             "q15_help": {
-                tag: "💊 救援任務：易混淆字",
-                text: "知識拆解：字首 im- (進入) + pact (壓/撞擊)。強大的力量撞擊進來，產生了巨大的「影響/衝擊」。",
+                tag: "💊 提示：快樂學習法",
+                text: "川口老師認為，學習語言必須跟「快樂的節奏」結合。所以他讓學生在教室裡放著輕快的英文老歌，一邊扭動身體一邊大喊單字！",
                 options: [
-                    { text: "A. impact", next: "q15", isCorrect: true },
-                    { text: "B. contact", next: "q15_help", log: "Q15救錯: contact 是接觸聯絡 (如隱形眼鏡 contact lens)！" }
+                    { text: "A. 聽歌並跳有氧舞蹈", next: "q15", isCorrect: true },
+                    { text: "B. 在操場跑馬拉松", next: "q15_help", log: "Q15救錯: 跑馬拉松喘都喘死了，怎麼可能還唸得出英文啦！" }
                 ]
             },
 
-            // --- 第 16 關：職場商用 ---
+            // --- 第 16 關：二極體空乏區 ---
             "q16": {
-                tag: "第 16 關：職場商用",
-                text: "畢業季到了，求職者必須準備一份吸引人的「履歷表」。請問履歷的英文是？",
+                tag: "第 16 關：二極體",
+                text: "當 PN 接面二極體加上「順向偏壓」時，其接面處的「空乏區 (Depletion Region)」寬度會如何變化？",
                 options: [
-                    { text: "A. resume", next: "q17", isCorrect: true },
-                    { text: "B. receipt", next: "q16_help", log: "Q16錯: receipt 是「收據」" },
-                    { text: "C. recipe", next: "q16_help", log: "Q16錯: recipe 是「食譜」" },
-                    { text: "D. result", next: "q16_help", log: "Q16錯: result 是「結果」" }
+                    { text: "A. 變窄", next: "q17", isCorrect: true },
+                    { text: "B. 變寬", next: "q16_help", log: "Q16錯: 這是逆向偏壓的狀態" },
+                    { text: "C. 維持不變", next: "q16_help", log: "Q16錯: 偏壓一定會改變空乏區" },
+                    { text: "D. 瞬間燒毀", next: "q16_help", log: "Q16錯: 順向是正常導通狀態" }
                 ]
             },
             "q16_help": {
-                tag: "💊 救援任務：發音陷阱",
-                text: "知識拆解：這個字當動詞念 re-ZUME 是「恢復」，但當名詞念 RE-su-may 時，就是求職必備的「履歷表」！",
+                tag: "💊 救援任務：同性相斥",
+                text: "知識拆解：順向偏壓就是電池正極接 P(正)、負極接 N(負)。同性相斥，電池把兩邊的載子硬「往中間擠」，所以中間沒人的空曠區(空乏區)就會被擠壓到？",
                 options: [
-                    { text: "A. resume", next: "q16", isCorrect: true },
-                    { text: "B. receipt", next: "q16_help", log: "Q16救錯: receipt 是你去超商買東西拿到的收據喔！" }
+                    { text: "A. 變窄", next: "q16", isCorrect: true },
+                    { text: "B. 變寬", next: "q16_help", log: "Q16救錯: 如果電池反接(逆向)，載子被往外拉，空乏區才會變寬喔！" }
                 ]
             },
 
-            // --- 第 17 關：職場商用 ---
+            // --- 第 17 關：整流器頻率 ---
             "q17": {
-                tag: "第 17 關：職場商用",
-                text: "在辦公室裡，要學會如何與「同事」保持良好的合作關係。請問同事的英文是？",
+                tag: "第 17 關：二極體應用",
+                text: "在「橋式全波整流」電路中，若輸入交流電源的頻率為 60Hz，則負載端輸出的直流脈動電壓，其頻率 (漣波頻率) 會是多少？",
                 options: [
-                    { text: "A. colleague", next: "q18", isCorrect: true },
-                    { text: "B. college", next: "q17_help", log: "Q17錯: college 是「大學」" },
-                    { text: "C. client", next: "q17_help", log: "Q17錯: client 是「客戶」" },
-                    { text: "D. crew", next: "q17_help", log: "Q17錯: crew 是「全體工作人員(如機組員)」" }
+                    { text: "A. 120 Hz", next: "q18", isCorrect: true },
+                    { text: "B. 60 Hz", next: "q17_help", log: "Q17錯: 這是半波整流的頻率" },
+                    { text: "C. 30 Hz", next: "q17_help", log: "Q17錯: 整流不會降頻" },
+                    { text: "D. 0 Hz", next: "q17_help", log: "Q17錯: 除非加上完美的濾波電容" }
                 ]
             },
             "q17_help": {
-                tag: "💊 救援任務：易混淆字",
-                text: "知識拆解：長得很像大學(college)，但結尾是 -gue。字首 col- (一起) + league (聯盟)。一起結盟工作的人就是同事。",
+                tag: "💊 救援任務：負半週翻上來",
+                text: "知識拆解：全波整流的魔力就是把原本向下的「負半週」全部翻折到上面去。所以原本一個週期(1秒轉60次)的波，看起來就像是擠了兩個山峰。頻率會變成幾倍？",
                 options: [
-                    { text: "A. colleague", next: "q17", isCorrect: true },
-                    { text: "B. college", next: "q17_help", log: "Q17救錯: college 拼法較短，是大學的意思啦！" }
+                    { text: "A. 120 Hz", next: "q17", isCorrect: true },
+                    { text: "B. 60 Hz", next: "q17_help", log: "Q17救錯: 半波整流因為只保留正半週，所以頻率才是原本的 60Hz 喔！" }
                 ]
             },
 
-            // --- 第 18 關：職場商用 ---
+            // --- 第 18 關：發光二極體 LED ---
             "q18": {
-                tag: "第 18 關：職場商用",
-                text: "蘋果公司預計在下個月「推出、發表」最新款的手機。請問「推出(產品)」的動詞是？",
+                tag: "第 18 關：特殊二極體",
+                text: "關於發光二極體 (LED)，它發出光芒的顏色，主要是由什麼因素決定的？",
                 options: [
-                    { text: "A. launch", next: "q19", isCorrect: true },
-                    { text: "B. lunch", next: "q18_help", log: "Q18錯: lunch 是「午餐」" },
-                    { text: "C. lounge", next: "q18_help", log: "Q18錯: lounge 是「休息室」" },
-                    { text: "D. laundry", next: "q18_help", log: "Q18錯: laundry 是「洗衣」" }
+                    { text: "A. 半導體材料的能隙 (Energy Gap) 大小", next: "q19", isCorrect: true },
+                    { text: "B. 施加的順向電壓大小", next: "q18_help", log: "Q18錯: 電壓只能控制亮度，不決定顏色" },
+                    { text: "C. 外部封裝塑膠殼的顏色", next: "q18_help", log: "Q18錯: 透明殼也能發出紅光或藍光" },
+                    { text: "D. 負載電阻的大小", next: "q18_help", log: "Q18錯: 這只影響電流" }
                 ]
             },
             "q18_help": {
-                tag: "💊 救援任務：火箭升空",
-                text: "知識拆解：這個字原本是指「發射火箭」或「船隻下水」。現在商業界用來比喻一個新產品「重磅發行、推出」。",
+                tag: "💊 救援任務：跳水的能量",
+                text: "知識拆解：LED 發光是因為電子跳進電洞裡，釋放出能量。這個跳台(能隙)有多高，釋放的能量(光波長)就不同，就決定了它是紅光還是藍光！",
                 options: [
-                    { text: "A. launch", next: "q18", isCorrect: true },
-                    { text: "B. lunch", next: "q18_help", log: "Q18救錯: lunch 沒有 a，吃午餐不能發表手機啦！" }
+                    { text: "A. 半導體材料的能隙", next: "q18", isCorrect: true },
+                    { text: "B. 施加的電壓大小", next: "q18_help", log: "Q18救錯: 電壓或電流只能讓它變亮或變暗，但不會把紅燈變成綠燈喔！" }
                 ]
             },
 
-            // --- 第 19 關：職場商用 ---
+            // --- 第 19 關：BJT 工作區 ---
             "q19": {
-                tag: "第 19 關：職場商用",
-                text: "業務員必須具備良好的溝通技巧，才能成功與客戶「談判、協商」合約。請問談判的英文是？",
+                tag: "第 19 關：雙極性電晶體 BJT",
+                text: "BJT 要能作為「線性放大器」，必須操作在「作用區 (Active Region)」。此時 B-E 介面與 B-C 介面的偏壓狀態分別為何？",
                 options: [
-                    { text: "A. negotiate", next: "q20", isCorrect: true },
-                    { text: "B. navigate", next: "q19_help", log: "Q19錯: navigate 是「導航」" },
-                    { text: "C. neglect", next: "q19_help", log: "Q19錯: neglect 是「忽視」" },
-                    { text: "D. notify", next: "q19_help", log: "Q19錯: notify 是「通知」" }
+                    { text: "A. B-E 順向，B-C 逆向", next: "q20", isCorrect: true },
+                    { text: "B. B-E 順向，B-C 順向", next: "q19_help", log: "Q19錯: 這是飽和區 (開關ON)" },
+                    { text: "C. B-E 逆向，B-C 逆向", next: "q19_help", log: "Q19錯: 這是截止區 (開關OFF)" },
+                    { text: "D. B-E 逆向，B-C 順向", next: "q19_help", log: "Q19錯: 這是反轉區" }
                 ]
             },
             "q19_help": {
-                tag: "💊 救援任務：高頻商用字",
-                text: "知識拆解：多益跟統測必考單字！在會議桌上你來我往地討論價格跟條件，這個動作叫做 negotiate。",
+                tag: "💊 救援任務：大門開後門關",
+                text: "知識拆解：輸入端(B-E)要導通讓電子大軍衝進來，所以必須「順向」；輸出端(B-C)要負責擋住高壓並收集電子，所以必須「逆向」。",
                 options: [
-                    { text: "A. negotiate", next: "q19", isCorrect: true },
-                    { text: "B. navigate", next: "q19_help", log: "Q19救錯: navigate 是 Google Map 在做的事情(導航)喔！" }
+                    { text: "A. B-E 順向，B-C 逆向", next: "q19", isCorrect: true },
+                    { text: "B. 兩個都順向", next: "q19_help", log: "Q19救錯: 兩個都順向就全通變成開關短路了，沒辦法線性放大喔！" }
                 ]
             },
 
-            // --- 第 20 關：職場商用 ---
+            // 🌸 第 20 關：東大特訓班 記憶樹
             "q20": {
-                tag: "第 20 關：職場商用",
-                text: "為了增加公司的市佔率，經理提出了一個全新的行銷「策略」。請問策略的英文是？",
+                tag: "🌸 第 20 關：大腦休息 (日劇)",
+                text: "在《東大特訓班》中，為了對付龐雜難記的社會科與歷史，老師教導學生使用一種非常著名的視覺化筆記法。這種將中心主題向外發散連結的筆記法稱為什麼？",
                 options: [
-                    { text: "A. strategy", next: "q21", isCorrect: true },
-                    { text: "B. tragedy", next: "q20_help", log: "Q20錯: tragedy 是「悲劇」" },
-                    { text: "C. category", next: "q20_help", log: "Q20錯: category 是「種類」" },
-                    { text: "D. storage", next: "q20_help", log: "Q20錯: storage 是「儲存」" }
+                    { text: "A. 記憶樹 (Memory Tree / 心智圖)", next: "q21", isCorrect: true },
+                    { text: "B. 康奈爾筆記法", next: "q20_help", log: "Q20錯: 雖然很有名，但劇中強調的是記憶樹" },
+                    { text: "C. 閃卡記憶法", next: "q20_help", log: "Q20錯: 這是背單字用的" },
+                    { text: "D. 曼陀羅九宮格", next: "q20_help", log: "Q20錯: 這是大谷翔平用的目標設定法" }
                 ]
             },
             "q20_help": {
-                tag: "💊 救援任務：統測常客",
-                text: "知識拆解：打電動常說的「戰略遊戲 (Strategy Game)」。在商場上，為了達成目標而規劃的長遠計畫就是 strategy。",
+                tag: "💊 提示：長出樹枝",
+                text: "這種方法就像一棵大樹，把時代的主題當作樹幹，將各種事件與人物當作樹枝與樹葉向外延伸，利用塗鴉和顏色加深大腦印象。",
                 options: [
-                    { text: "A. strategy", next: "q20", isCorrect: true },
-                    { text: "B. tragedy", next: "q20_help", log: "Q20救錯: tragedy 是悲劇(如羅密歐與茱麗葉)，提這計畫老闆會生氣的！" }
+                    { text: "A. 記憶樹 (Memory Tree)", next: "q20", isCorrect: true },
+                    { text: "B. 閃卡記憶法", next: "q20_help", log: "Q20救錯: 閃卡是一張一張背的，無法建立歷史事件的宏觀連結喔！" }
                 ]
             },
 
-            // --- 第 21 關：職場商用 ---
+            // --- 第 21 關：BJT 電流增益 ---
             "q21": {
-                tag: "第 21 關：職場商用",
-                text: "主管在每季末都會「評估」員工的工作績效。請問評估的動詞是？",
+                tag: "第 21 關：BJT 參數",
+                text: "BJT 的共基極電流增益為 α，共射極電流增益為 β。若某電晶體的 α = 0.99，則其 β 值為多少？",
                 options: [
-                    { text: "A. evaluate", next: "q22", isCorrect: true },
-                    { text: "B. evacuate", next: "q21_help", log: "Q21錯: evacuate 是「撤離、疏散」" },
-                    { text: "C. elevate", next: "q21_help", log: "Q21錯: elevate 是「提升、舉起」" },
-                    { text: "D. eliminate", next: "q21_help", log: "Q21錯: eliminate 是「消除、淘汰」" }
+                    { text: "A. 99", next: "q22", isCorrect: true },
+                    { text: "B. 100", next: "q21_help", log: "Q21錯: 這是 1+β 的值" },
+                    { text: "C. 0.01", next: "q21_help", log: "Q21錯: 這是基極電流的比例" },
+                    { text: "D. 1", next: "q21_help", log: "Q21錯: β 通常遠大於1" }
                 ]
             },
             "q21_help": {
-                tag: "💊 救援任務：字首字根",
-                text: "知識拆解：字首 e- (出) + value (價值) + -ate (動詞)。把一個人的價值算出來，這個動作就是「評估」。",
+                tag: "💊 救援任務：統測必考換算",
+                text: "知識拆解：公式 $\\beta = \\frac{\\alpha}{1 - \\alpha}$。 把 0.99 帶進去： 0.99 / (1 - 0.99) = 0.99 / 0.01 = ?",
                 options: [
-                    { text: "A. evaluate", next: "q21", isCorrect: true },
-                    { text: "B. evacuate", next: "q21_help", log: "Q21救錯: evacuate 是火災時逃跑撤離，不是打考績啦！" }
+                    { text: "A. 99", next: "q21", isCorrect: true },
+                    { text: "B. 100", next: "q21_help", log: "Q21救錯: 射極電流 IE 才是 100，題目問的是 beta (IC / IB) 喔！" }
                 ]
             },
 
-            // --- 第 22 關：職場商用 ---
+            // --- 第 22 關：FET 基礎 ---
             "q22": {
-                tag: "第 22 關：職場商用",
-                text: "公司決定下個月開始「實施、執行」新的打卡規定。請問實施的動詞是？",
+                tag: "第 22 關：場效電晶體 FET",
+                text: "與電流控制的 BJT 不同，場效電晶體 (FET) 是一種「電壓控制元件」。它是利用哪一個端點的電壓來控制電流的大小？",
                 options: [
-                    { text: "A. implement", next: "q23", isCorrect: true },
-                    { text: "B. compliment", next: "q22_help", log: "Q22錯: compliment 是「讚美」" },
-                    { text: "C. supplement", next: "q22_help", log: "Q22錯: supplement 是「補充物」" },
-                    { text: "D. experiment", next: "q22_help", log: "Q22錯: experiment 是「實驗」" }
+                    { text: "A. 閘極 (Gate)", next: "q23", isCorrect: true },
+                    { text: "B. 汲極 (Drain)", next: "q22_help", log: "Q22錯: 這是電流流出的地方" },
+                    { text: "C. 源極 (Source)", next: "q22_help", log: "Q22錯: 這是電流進入的地方" },
+                    { text: "D. 基極 (Base)", next: "q22_help", log: "Q22錯: 這是 BJT 的控制端" }
                 ]
             },
             "q22_help": {
-                tag: "💊 救援任務：動詞與名詞同形",
-                text: "知識拆解：這個字當名詞是「工具/器具」，當動詞時就是「把計畫變成實際行動（拿工具做事）」，也就是實施/執行。",
+                tag: "💊 救援任務：水龍頭的開關",
+                text: "知識拆解：FET 就像一個水龍頭。源極(Source)是水塔，汲極(Drain)是排水孔。用來控制水流大小的「閘門」，英文是？",
                 options: [
-                    { text: "A. implement", next: "q22", isCorrect: true },
-                    { text: "B. compliment", next: "q22_help", log: "Q22救錯: compliment 是稱讚，發音很像但意思完全不同！" }
+                    { text: "A. 閘極 (Gate)", next: "q22", isCorrect: true },
+                    { text: "B. 基極 (Base)", next: "q22_help", log: "Q22救錯: 基極是 BJT 專用的名詞，FET 沒有 Base 喔！" }
                 ]
             },
 
-            // --- 第 23 關：職場商用 ---
+            // --- 第 23 關：MOSFET 分類 ---
             "q23": {
-                tag: "第 23 關：職場商用",
-                text: "買家電通常會附上一年的維修「保證、保固」。請問保證的英文是？",
+                tag: "第 23 關：場效電晶體 FET",
+                text: "有一種 MOSFET 非常特別，它天生就擁有通道，所以它「既可以操作在空乏型（把通道關小），也可以操作在增強型（把通道開更大）」。這是哪一種 MOSFET？",
                 options: [
-                    { text: "A. guarantee", next: "q24", isCorrect: true },
-                    { text: "B. guard", next: "q23_help", log: "Q23錯: guard 是「守衛」" },
-                    { text: "C. guideline", next: "q23_help", log: "Q23錯: guideline 是「指導方針」" },
-                    { text: "D. grocery", next: "q23_help", log: "Q23錯: grocery 是「雜貨」" }
+                    { text: "A. 空乏型 MOSFET (D-MOSFET)", next: "q24", isCorrect: true },
+                    { text: "B. 增強型 MOSFET (E-MOSFET)", next: "q23_help", log: "Q23錯: E-MOSFET 天生斷路，只能操作在增強區" },
+                    { text: "C. 接面場效電晶體 (JFET)", next: "q23_help", log: "Q23錯: JFET 只能操作在空乏區" },
+                    { text: "D. UJT 單接面電晶體", next: "q23_help", log: "Q23錯: 這是產生振盪用的元件" }
                 ]
             },
             "q23_help": {
-                tag: "💊 救援任務：法語外來字",
-                text: "知識拆解：結尾是 -ee (表示被動或相關事物)。它當動詞是「保證」，當名詞就是保證書。常跟 warranty 替換使用。",
+                tag: "💊 救援任務：全能的開關",
+                text: "知識拆解：E-MOSFET 天生是斷的，只能增強；JFET 如果增強就會燒毀(順向偏壓)。只有 D-MOSFET 擁有絕緣層又天生有通道，所以它兩邊都可以操作！",
                 options: [
-                    { text: "A. guarantee", next: "q23", isCorrect: true },
-                    { text: "B. guard", next: "q23_help", log: "Q23救錯: guard 只是保全守衛，沒有維修保固的意思喔！" }
+                    { text: "A. 空乏型 MOSFET (D-MOSFET)", next: "q23", isCorrect: true },
+                    { text: "B. 增強型 MOSFET", next: "q23_help", log: "Q23救錯: 增強型天生沒有通道，沒辦法使用空乏(擠扁通道)的模式喔！" }
                 ]
             },
 
-            // --- 第 24 關：職場商用 ---
+            // --- 第 24 關：FET 優點 ---
             "q24": {
-                tag: "第 24 關：職場商用",
-                text: "請記得在下週五的「截止日期」前，把報告「提交」給主管。請問「提交」的動詞是？",
+                tag: "第 24 關：小訊號放大",
+                text: "與 BJT 相比，FET 放大器有一個非常突出的優點，使得它在測量儀器或多級放大器的第一級非常受歡迎。這個優點是？",
                 options: [
-                    { text: "A. submit", next: "q25", isCorrect: true },
-                    { text: "B. admit", next: "q24_help", log: "Q24錯: admit 是「承認」" },
-                    { text: "C. permit", next: "q24_help", log: "Q24錯: permit 是「允許」" },
-                    { text: "D. commit", next: "q24_help", log: "Q24錯: commit 是「承諾、犯罪」" }
+                    { text: "A. 輸入阻抗極大", next: "q25", isCorrect: true },
+                    { text: "B. 電壓放大倍率極高", next: "q24_help", log: "Q24錯: BJT 的放大倍率通常比較高" },
+                    { text: "C. 輸出阻抗極大", next: "q24_help", log: "Q24錯: 放大器通常希望輸出阻抗越小越好" },
+                    { text: "D. 頻寬無限大", next: "q24_help", log: "Q24錯: 沒有無限大的頻寬" }
                 ]
             },
             "q24_help": {
-                tag: "💊 救援任務：字首拆解",
-                text: "知識拆解：字首 sub- (在下方) + mit (送出)。下屬從下方把文件「送交」給上司，這個動作就是提交。",
+                tag: "💊 救援任務：不吃別人的電",
+                text: "知識拆解：FET 的閘極有一層絕緣層，或者處於逆向偏壓，所以幾乎「沒有電流流得進去」。電流趨近於 0，代表它的電阻(阻抗)非常？",
                 options: [
-                    { text: "A. submit", next: "q24", isCorrect: true },
-                    { text: "B. admit", next: "q24_help", log: "Q24救錯: admit (ad+mit) 是允許進入或是承認錯誤喔！" }
+                    { text: "A. 輸入阻抗極大", next: "q24", isCorrect: true },
+                    { text: "B. 電壓放大倍率極高", next: "q24_help", log: "Q24救錯: FET 的 gm 通常比 BJT 小，所以放大倍率其實是比較低的！" }
                 ]
             },
 
-            // --- 第 25 關：職場商用 ---
+            // 🌸 第 25 關：東大特訓班 樂團
             "q25": {
-                tag: "第 25 關：職場商用",
-                text: "承上題，專案或報告必須趕在「截止日期」前完成。請問截止日期的英文是？",
+                tag: "🌸 第 25 關：大腦休息 (日劇)",
+                text: "《東大特訓班》中，飾演叛逆學生「矢島勇介」的日本男星山下智久，在劇中為了逃避現實與發洩情緒，最常吹奏哪一種樂器？",
                 options: [
-                    { text: "A. deadline", next: "q26", isCorrect: true },
-                    { text: "B. headline", next: "q25_help", log: "Q25錯: headline 是「新聞頭條」" },
-                    { text: "C. guideline", next: "q25_help", log: "Q25錯: guideline 是「方針」" },
-                    { text: "D. outline", next: "q25_help", log: "Q25錯: outline 是「大綱」" }
+                    { text: "A. 小號 (Trumpet)", next: "q26", isCorrect: true },
+                    { text: "B. 電吉他", next: "q25_help", log: "Q25錯: 這是孤獨搖滾的專長" },
+                    { text: "C. 爵士鼓", next: "q25_help", log: "Q25錯: 劇中沒有打鼓的畫面" },
+                    { text: "D. 鋼琴", next: "q25_help", log: "Q25錯: 他是玩樂團的，但不彈鋼琴" }
                 ]
             },
             "q25_help": {
-                tag: "💊 救援任務：合成字",
-                text: "知識拆解：dead (死的) + line (線)。踩過這條線你就死定了（專案來不及交被當掉），這就是「死線/截止日」。",
+                tag: "💊 提示：吹奏樂器",
+                text: "他原本在樂團裡擔任管樂手，後來為了還債跟證明自己，把樂器賣掉，拿著錢交給櫻木律師當補習費！那是一個金色的管樂器。",
                 options: [
-                    { text: "A. deadline", next: "q25", isCorrect: true },
-                    { text: "B. headline", next: "q25_help", log: "Q25救錯: headline 是報紙最上面(head)的頭條新聞！" }
+                    { text: "A. 小號 (Trumpet)", next: "q25", isCorrect: true },
+                    { text: "B. 電吉他", next: "q25_help", log: "Q25救錯: 電吉他太普通了，他在劇裡吹的是銅管樂器喔！" }
                 ]
             },
 
-            // --- 第 26 關：核心動詞 ---
+            // --- 第 26 關：OPA 虛短路 ---
             "q26": {
-                tag: "第 26 關：統測核心動詞",
-                text: "這對雙胞胎長得太像了，我根本無法「分辨」誰是誰。請問「分辨、區分」的動詞是？",
+                tag: "第 26 關：運算放大器 OPA",
+                text: "當 OPA 加上「負回授」並操作在線性區時，其正輸入端 (+) 與負輸入端 (-) 的電壓幾乎相等，這個特性稱為什麼？",
                 options: [
-                    { text: "A. distinguish", next: "q27", isCorrect: true },
-                    { text: "B. extinguish", next: "q26_help", log: "Q26錯: extinguish 是「熄滅(火)」" },
-                    { text: "C. disguise", next: "q26_help", log: "Q26錯: disguise 是「偽裝」" },
-                    { text: "D. disgust", next: "q26_help", log: "Q26錯: disgust 是「作嘔、厭惡」" }
+                    { text: "A. 虛擬短路 (Virtual Short)", next: "q27", isCorrect: true },
+                    { text: "B. 虛擬接地 (Virtual Ground)", next: "q26_help", log: "Q26錯: 虛接地是指其中一端為0V時，另一端也為0V的特例" },
+                    { text: "C. 理想阻抗", next: "q26_help", log: "Q26錯: 這是輸入阻抗無限大的特性" },
+                    { text: "D. 無限增益", next: "q26_help", log: "Q26錯: 這是開迴路的特性" }
                 ]
             },
             "q26_help": {
-                tag: "💊 救援任務：字根拆解",
-                text: "知識拆解：字首 dis- (分開) + stingu (刺/做記號)。把事物分開做上記號，就是為了能「區分、分辨」它們。常搭配 from 使用 (A from B)。",
+                tag: "💊 救援任務：假裝接在一起",
+                text: "知識拆解：端點「看起來」電壓一樣（好像被短路接在一起了），但實際上電流並沒有流過去。這種假的、概念上的短路叫什麼？",
                 options: [
-                    { text: "A. distinguish", next: "q26", isCorrect: true },
-                    { text: "B. extinguish", next: "q26_help", log: "Q26救錯: extinguish 有 ex(出)，是把火給撲滅喔！" }
+                    { text: "A. 虛擬短路", next: "q26", isCorrect: true },
+                    { text: "B. 虛擬接地", next: "q26_help", log: "Q26救錯: 虛接地必須是有一端真的接到地(0V)，但這題只是說兩端相等喔！" }
                 ]
             },
 
-            // --- 第 27 關：核心動詞 ---
+            // --- 第 27 關：反相放大器 ---
             "q27": {
-                tag: "第 27 關：統測核心動詞",
-                text: "警方請目擊者幫忙「指認、識別」嫌犯的長相。請問識別的動詞是？",
+                tag: "第 27 關：運算放大器 OPA",
+                text: "一個 OPA 反相放大器，其輸入電阻 Ri = 2kΩ，負回授電阻 Rf = 10kΩ。請問這個電路的電壓增益 (Av) 是多少？",
                 options: [
-                    { text: "A. identify", next: "q28", isCorrect: true },
-                    { text: "B. identical", next: "q27_help", log: "Q27錯: identical 是形容詞「完全相同的」" },
-                    { text: "C. justify", next: "q27_help", log: "Q27錯: justify 是「證明...有理」" },
-                    { text: "D. modify", next: "q27_help", log: "Q27錯: modify 是「修改」" }
+                    { text: "A. -5", next: "q28", isCorrect: true },
+                    { text: "B. 5", next: "q27_help", log: "Q27錯: 反相放大器一定要有負號" },
+                    { text: "C. 6", next: "q27_help", log: "Q27錯: 這是非反相放大器的增益 (1 + Rf/Ri)" },
+                    { text: "D. -0.2", next: "q27_help", log: "Q27錯: 公式顛倒了" }
                 ]
             },
             "q27_help": {
-                tag: "💊 救援任務：名詞找動詞",
-                text: "知識拆解：身分證叫做 ID card (Identity card)。把身分(Identity)找出來的「動詞化(-ify)」，就是識別！",
+                tag: "💊 救援任務：負的回授除輸入",
+                text: "知識拆解：反相放大器的訊號是從 (-) 端進去，所以一定有「負號」。公式是 $A_v = - \\frac{R_f}{R_i}$。 10k / 2k 加上負號是多少？",
                 options: [
-                    { text: "A. identify", next: "q27", isCorrect: true },
-                    { text: "B. identical", next: "q27_help", log: "Q27救錯: 結尾是 -cal 的是形容詞(相同的)，我們要找動詞 -ify！" }
+                    { text: "A. -5", next: "q27", isCorrect: true },
+                    { text: "B. 5", next: "q27_help", log: "Q27救錯: 少了負號就變成同相了啦！" }
                 ]
             },
 
-            // --- 第 28 關：核心動詞 ---
+            // --- 第 28 關：振盪器條件 ---
             "q28": {
-                tag: "第 28 關：統測核心動詞",
-                text: "這家餐廳的牛排非常好吃，我強烈「推薦」你點。請問推薦的英文是？",
+                tag: "第 28 關：振盪器",
+                text: "根據巴克豪森準則 (Barkhausen Criterion)，放大器電路要能維持穩定的「等幅振盪」，其迴路增益的絕對值 $|A\\beta|$ 必須等於多少？",
                 options: [
-                    { text: "A. recommend", next: "q29", isCorrect: true },
-                    { text: "B. command", next: "q28_help", log: "Q28錯: command 是「命令」" },
-                    { text: "C. comment", next: "q28_help", log: "Q28錯: comment 是「評論」" },
-                    { text: "D. commit", next: "q28_help", log: "Q28錯: commit 是「承諾」" }
+                    { text: "A. 1", next: "q29", isCorrect: true },
+                    { text: "B. 0", next: "q28_help", log: "Q28錯: 這樣就沒有訊號了" },
+                    { text: "C. 無限大", next: "q28_help", log: "Q28錯: 這樣波形會無限制衝高變成方波" },
+                    { text: "D. 0.5", next: "q28_help", log: "Q28錯: 這樣波形會慢慢衰減到零" }
                 ]
             },
             "q28_help": {
-                tag: "💊 救援任務：再三稱讚",
-                text: "知識拆解：字首 re- (一再地) + commend (稱讚)。你一再地稱讚某個東西，就是要把它「推薦」給別人！",
+                tag: "💊 救援任務：不多也不少",
+                text: "知識拆解：訊號在電路裡繞一圈。大於 1 波形會爆炸；小於 1 波形會平息。要維持「完美等幅」的波浪，繞一圈的倍率必須剛好是？",
                 options: [
-                    { text: "A. recommend", next: "q28", isCorrect: true },
-                    { text: "B. comment", next: "q28_help", log: "Q28救錯: comment (留YT底下那個) 只是評論，不一定是說好話喔！" }
+                    { text: "A. 1", next: "q28", isCorrect: true },
+                    { text: "B. 0", next: "q28_help", log: "Q28救錯: 乘上 0 訊號就不見了，無法振盪喔！" }
                 ]
             },
 
-            // --- 第 29 關：核心動詞 ---
+            // --- 第 29 關：低通濾波器 ---
             "q29": {
-                tag: "第 29 關：統測核心動詞",
-                text: "銷售員花了半小時，終於「說服」顧客買下那台吸塵器。請問說服的動詞是？",
+                tag: "第 29 關：濾波器",
+                text: "在一階 RC 低通濾波器中，決定它能讓多少頻率通過的「截止頻率 (fc)」公式為何？",
                 options: [
-                    { text: "A. persuade", next: "q30", isCorrect: true },
-                    { text: "B. pursue", next: "q29_help", log: "Q29錯: pursue 是「追求」" },
-                    { text: "C. purchase", next: "q29_help", log: "Q29錯: purchase 是「購買」" },
-                    { text: "D. provide", next: "q29_help", log: "Q29錯: provide 是「提供」" }
+                    { text: "A. $f_c = \\frac{1}{2\\pi RC}$", next: "q30", isCorrect: true },
+                    { text: "B. $f_c = \\frac{1}{2\\pi \\sqrt{LC}}$", next: "q29_help", log: "Q29錯: 這是 LC 諧振頻率" },
+                    { text: "C. $f_c = 2\\pi RC$", next: "q29_help", log: "Q29錯: 頻率與 RC 成反比" },
+                    { text: "D. $f_c = \\frac{R}{2\\pi C}$", next: "q29_help", log: "Q29錯: 單位不對" }
                 ]
             },
             "q29_help": {
-                tag: "💊 救援任務：字首拆解",
-                text: "知識拆解：字首 per- (完全、貫穿) + suade (勸告)。用言語完全打動對方，就是說服 (persuade sb to do sth)。",
+                tag: "💊 救援任務：統測必背常數",
+                text: "知識拆解：RC 濾波器只有 R 跟 C。而頻率 f 永遠是在分母放著 $2\\pi$。把 R 和 C 乘在一起放在 $2\\pi$ 旁邊，就是最經典的公式！",
                 options: [
-                    { text: "A. persuade", next: "q29", isCorrect: true },
-                    { text: "B. pursue", next: "q29_help", log: "Q29救錯: pursue 是去追求夢想或追捕犯人，發音有點像但意思不同！" }
+                    { text: "A. $1 / (2\\pi RC)$", next: "q29", isCorrect: true },
+                    { text: "B. $1 / (2\\pi \\sqrt{LC})$", next: "q29_help", log: "Q29救錯: 這是 LC 諧振的公式，題目問的是 RC 濾波器喔！" }
                 ]
             },
 
-            // --- 第 30 關：核心動詞 ---
+            // 🌸 第 30 關：東大特訓班 櫻花樹
             "q30": {
-                tag: "第 30 關：統測核心動詞",
-                text: "只要不放棄，你一定能「克服」學習上的所有困難。請問克服的英文是？",
+                tag: "🌸 第 30 關：大腦休息 (日劇)",
+                text: "在劇中，櫻木律師為了解決學校的財務危機並立下目標，在校園中庭種下了一棵象徵著東大特訓班希望的樹。這棵樹也是這部日劇的名稱，請問是什麼樹？",
                 options: [
-                    { text: "A. overcome", next: "q31", isCorrect: true },
-                    { text: "B. overtake", next: "q30_help", log: "Q30錯: overtake 是「超車、趕上」" },
-                    { text: "C. overlook", next: "q30_help", log: "Q30錯: overlook 是「忽視、俯瞰」" },
-                    { text: "D. overhear", next: "q30_help", log: "Q30錯: overhear 是「無意中聽到」" }
+                    { text: "A. 櫻花樹 (龍櫻)", next: "q31", isCorrect: true },
+                    { text: "B. 銀杏樹", next: "q30_help", log: "Q30錯: 雖然東大以銀杏聞名，但劇裡種的是櫻花" },
+                    { text: "C. 榕樹", next: "q30_help", log: "Q30錯: 這是台灣國小常見的" },
+                    { text: "D. 松樹", next: "q30_help", log: "Q30錯: 不對" }
                 ]
             },
             "q30_help": {
-                tag: "💊 救援任務：越過障礙",
-                text: "知識拆解：字首 over- (越過、在上方) + come (來)。走過來並「跨越」了障礙物，代表你成功「克服」了困難！",
+                tag: "💊 提示：劇名的原意",
+                text: "這部日劇的日文原名是《ドラゴン桜》（Dragon Zakura）。Zakura 就是日文的櫻花，所以他種的是？",
                 options: [
-                    { text: "A. overcome", next: "q30", isCorrect: true },
-                    { text: "B. overlook", next: "q30_help", log: "Q30救錯: over(在上方)+look(看) = 從上面看過去沒注意到(忽視)！" }
+                    { text: "A. 櫻花樹", next: "q30", isCorrect: true },
+                    { text: "B. 銀杏樹", next: "q30_help", log: "Q30救錯: 雖然東京大學裡面都是銀杏，但櫻木老師種的是象徵考上的櫻花喔！" }
                 ]
             },
 
-            // --- 第 31 關：易混淆字 ---
+            // --- 第 31 關：CMOS 優點 ---
             "q31": {
-                tag: "第 31 關：統測易混淆字",
-                text: "出國留學需要一段時間來「適應」新的文化和環境。請問適應的英文是？",
+                tag: "第 31 關：數位邏輯族",
+                text: "現代數位 IC 與電腦 CPU 中最常使用的「CMOS」技術，相較於早期的 TTL 邏輯，其最大的優勢是什麼？",
                 options: [
-                    { text: "A. adapt", next: "q32", isCorrect: true },
-                    { text: "B. adopt", next: "q31_help", log: "Q31錯: adopt 是「採納、收養」" },
-                    { text: "C. adept", next: "q31_help", log: "Q31錯: adept 是形容詞「熟練的」" },
-                    { text: "D. addict", next: "q31_help", log: "Q31錯: addict 是「沉迷、上癮」" }
+                    { text: "A. 靜態消耗功率極低 (非常省電)", next: "q32", isCorrect: true },
+                    { text: "B. 工作速度最快", next: "q31_help", log: "Q31錯: 早期 TTL 比 CMOS 快" },
+                    { text: "C. 完全不怕靜電破壞", next: "q31_help", log: "Q31錯: CMOS 最怕靜電" },
+                    { text: "D. 只能操作在 5V", next: "q31_help", log: "Q31錯: CMOS 電壓範圍很廣" }
                 ]
             },
             "q31_help": {
-                tag: "💊 救援任務：a 跟 o 的差別",
-                text: "知識拆解：字根 apt 有「適合」的意思。ad-apt 是去讓自己適合新環境(適應)。而 ad-opt (o像眼睛) 是看中並「收養/採納」。",
+                tag: "💊 救援任務：手機的命脈",
+                text: "知識拆解：因為 CMOS 是用 PMOS 和 NMOS 互補，只要沒有在切換信號，電路幾乎是斷路的，不會漏電。這讓手機能待機一整天！",
                 options: [
-                    { text: "A. adapt", next: "q31", isCorrect: true },
-                    { text: "B. adopt", next: "q31_help", log: "Q31救錯: adopt 中間有 o，常用在領養小孩或採納意見喔！" }
+                    { text: "A. 非常省電", next: "q31", isCorrect: true },
+                    { text: "B. 完全不怕靜電", next: "q31_help", log: "Q31救錯: CMOS 的絕緣層超薄，手一摸靜電就會把它擊穿燒毀！" }
                 ]
             },
 
-            // --- 第 32 關：易混淆字 ---
+            // --- 第 32 關：第摩根定理 ---
             "q32": {
-                tag: "第 32 關：統測易混淆字",
-                text: "這家公司決定「採納」員工的建議，實施彈性工時。同時這個字也有「收養」的意思。請問是？",
+                tag: "第 32 關：數位邏輯",
+                text: "布林代數中非常重要的「第摩根定理 (DeMorgan's Law)」，請問 $(A + B)'$ 展開後會等於什麼？",
                 options: [
-                    { text: "A. adopt", next: "q33", isCorrect: true },
-                    { text: "B. adapt", next: "q32_help", log: "Q32錯: adapt 是「適應」" },
-                    { text: "C. adore", next: "q32_help", log: "Q32錯: adore 是「愛慕、熱愛」" },
-                    { text: "D. adjust", next: "q32_help", log: "Q32錯: adjust 是「調整」" }
+                    { text: "A. $A' \\cdot B'$", next: "q33", isCorrect: true },
+                    { text: "B. $A' + B'$", next: "q32_help", log: "Q32錯: 中間的符號要變號" },
+                    { text: "C. $A \\cdot B$", next: "q32_help", log: "Q32錯: A 和 B 要加上反相" },
+                    { text: "D. $A' + B$", next: "q32_help", log: "Q32錯: B 也要反相" }
                 ]
             },
             "q32_help": {
-                tag: "💊 救援任務：選項挑選",
-                text: "知識拆解：字根 opt 是「選擇」(如 option 選擇)。ad-opt 就是把別人的孩子或建議「選過來變成自己的」，也就是收養/採納。",
+                tag: "💊 救援任務：斬斷長條變換符號",
+                text: "知識拆解：口訣：「長條斬斷，符號變換」。把上面的長反相棒斬斷分給 A 跟 B，中間的加號 (+) 就要翻轉變成乘號 (·)！",
                 options: [
-                    { text: "A. adopt", next: "q32", isCorrect: true },
-                    { text: "B. adapt", next: "q32_help", log: "Q32救錯: adapt 是去「適應」環境，不是收養喔！" }
+                    { text: "A. $A' \\cdot B'$", next: "q32", isCorrect: true },
+                    { text: "B. $A' + B'$", next: "q32_help", log: "Q32救錯: 斬斷之後，中間的加號沒有變成乘號喔！" }
                 ]
             },
 
-            // --- 第 33 關：易混淆字 ---
+            // --- 第 33 關：示波器 ---
             "q33": {
-                tag: "第 33 關：統測易混淆字",
-                text: "這本雜誌「揭露」了那位政治人物收受賄賂的醜聞。請問揭露、洩露的英文是？",
+                tag: "第 33 關：儀表與量測",
+                text: "使用示波器量測一個弦波信號。若垂直刻度設定為 2V/DIV，波形在螢幕上最高點到最低點共佔了 4 個大格 (DIV)。請問此信號的「峰對峰值電壓 (Vp-p)」為多少？",
                 options: [
-                    { text: "A. reveal", next: "q34", isCorrect: true },
-                    { text: "B. conceal", next: "q33_help", log: "Q33錯: conceal 是「隱藏」" },
-                    { text: "C. cancel", next: "q33_help", log: "Q33錯: cancel 是「取消」" },
-                    { text: "D. rival", next: "q33_help", log: "Q33錯: rival 是「競爭對手」" }
+                    { text: "A. 8 V", next: "q34", isCorrect: true },
+                    { text: "B. 4 V", next: "q33_help", log: "Q33錯: 這是 2 格的高度" },
+                    { text: "C. 2 V", next: "q33_help", log: "Q33錯: 這是 1 格的高度" },
+                    { text: "D. 16 V", next: "q33_help", log: "Q33錯: 計算錯誤" }
                 ]
             },
             "q33_help": {
-                tag: "💊 救援任務：掀開面紗",
-                text: "知識拆解：字首 re- (反向、退回) + veil (面紗)。把蓋在上面的面紗拉開，真相就「揭露」出來了！",
+                tag: "💊 救援任務：數格子乘法",
+                text: "知識拆解：V/DIV 代表「每一格是幾伏特」。既然每一格是 2V，總共有 4 格高。2 乘以 4 等於？",
                 options: [
-                    { text: "A. reveal", next: "q33", isCorrect: true },
-                    { text: "B. conceal", next: "q33_help", log: "Q33救錯: conceal 剛好完全相反，是把東西藏起來(隱藏)！" }
+                    { text: "A. 8 V", next: "q33", isCorrect: true },
+                    { text: "B. 4 V", next: "q33_help", log: "Q33救錯: 你忘了乘上每一格代表的 2V 囉！" }
                 ]
             },
 
-            // --- 第 34 關：易混淆字 ---
+            // --- 第 34 關：三用電表 ---
             "q34": {
-                tag: "第 34 關：統測易混淆字",
-                text: "近年來因為少子化，台灣的出生率逐年「下降」。這個字當動詞也有「委婉拒絕」的意思。請問是？",
+                tag: "第 34 關：儀表與量測",
+                text: "使用指針型三用電表測量「電阻」前，必須將紅黑測棒短路，並旋轉調整鈕讓指針指向 0 歐姆。這個動作稱為什麼？",
                 options: [
-                    { text: "A. decline", next: "q35", isCorrect: true },
-                    { text: "B. incline", next: "q34_help", log: "Q34錯: incline 是「傾向於」" },
-                    { text: "C. recline", next: "q34_help", log: "Q34錯: recline 是「向後倚靠」" },
-                    { text: "D. define", next: "q34_help", log: "Q34錯: define 是「定義」" }
+                    { text: "A. 歸零調整 (Zero Adjustment)", next: "q35", isCorrect: true },
+                    { text: "B. 滿刻度調整", next: "q34_help", log: "Q34錯: 歐姆檔的 0 在最右邊，∞ 在最左邊" },
+                    { text: "C. 換檔設定", next: "q34_help", log: "Q34錯: 這是轉動功能旋鈕" },
+                    { text: "D. 漏電測試", next: "q34_help", log: "Q34錯: 不是這個目的" }
                 ]
             },
             "q34_help": {
-                tag: "💊 救援任務：向下傾斜",
-                text: "知識拆解：字首 de- (向下) + cline (傾斜)。數字圖表向下傾斜就是「下降」；對別人的邀請態度往下低頭就是「婉拒」。",
+                tag: "💊 救援任務：扣除內阻與電池衰退",
+                text: "知識拆解：因為歐姆表是用裡面的電池發電，電池沒電時指針會不準。每次量測前，把兩根棒子碰在一起(代表電阻為0)，強迫指針指在右邊的 0 的位置，這叫作？",
                 options: [
-                    { text: "A. decline", next: "q34", isCorrect: true },
-                    { text: "B. incline", next: "q34_help", log: "Q34救錯: in- 是向內，incline 是「傾向於」做某事喔！" }
+                    { text: "A. 歸零調整", next: "q34", isCorrect: true },
+                    { text: "B. 滿刻度調整", next: "q34_help", log: "Q34救錯: 電流表才是看滿刻度，歐姆表是要指在 0 歐姆的位置喔！" }
                 ]
             },
 
-            // --- 第 35 關：易混淆字 ---
+            // 🌸 第 35 關：東大特訓班 結局
             "q35": {
-                tag: "第 35 關：統測易混淆字",
-                text: "這家公司計畫明年將業務「擴張」到歐洲市場。請問擴張、擴大的英文是？",
+                tag: "🌸 第 35 關：大腦休息 (日劇)",
+                text: "最後一題日劇題！在《東大特訓班 1》的最終回，經過了一年的斯巴達特訓，特訓班的 6 位學生參加了東大入學考試。最後的結果如何？",
                 options: [
-                    { text: "A. expand", next: "q36", isCorrect: true },
-                    { text: "B. expend", next: "q35_help", log: "Q35錯: expend 是「花費、耗盡」" },
-                    { text: "C. extend", next: "q35_help", log: "Q35錯: extend 是「延長(時間/長度)」" },
-                    { text: "D. expect", next: "q35_help", log: "Q35錯: expect 是「期待」" }
+                    { text: "A. 有人考上，也有人落榜 (共 3 人考上)", next: "q36", isCorrect: true },
+                    { text: "B. 6 人全部考上東大", next: "q35_help", log: "Q35錯: 這太不切實際了" },
+                    { text: "C. 6 人全部落榜", next: "q35_help", log: "Q35錯: 這樣櫻木律師就太漏氣了" },
+                    { text: "D. 考試當天遇到颱風取消了", next: "q35_help", log: "Q35錯: 這是搞笑選項" }
                 ]
             },
             "q35_help": {
-                tag: "💊 救援任務：空間的變大",
-                text: "知識拆解：注意字尾！expAnd (有A) 是指體積、空間或事業版圖的「擴張」；而 expEnd (有E) 則是花費(Expense)。",
+                tag: "💊 提示：真實的青春",
+                text: "這部日劇最神的地方，就是它沒有給出「全員合格」的童話結局。有人因為考場上拉肚子落榜，有人決定不去讀東大改考律師。這展現了青春的真實與殘酷。",
                 options: [
-                    { text: "A. expand", next: "q35", isCorrect: true },
-                    { text: "B. extend", next: "q35_help", log: "Q35救錯: extend 是把線拉長或時間『延長』(如延期 deadline)，不是體積變大！" }
+                    { text: "A. 有人考上，也有人落榜", next: "q35", isCorrect: true },
+                    { text: "B. 全員考上東大", next: "q35_help", log: "Q35救錯: 全員考上就太像童話故事了，日劇的結局是非常寫實的喔！" }
                 ]
             },
 
-            // --- 第 36 關：核心形容詞 ---
+            // --- 第 36 關：電氣火災 ---
             "q36": {
-                tag: "第 36 關：統測核心詞彙",
-                text: "水和空氣是人類生存「不可或缺的、必要的」東西。請問不可或缺的英文是？",
+                tag: "第 36 關：實習安全",
+                text: "實習工場中，若變壓器、配電盤或電腦設備短路起火，這種「電氣火災」在消防分類上屬於哪一類火災？",
                 options: [
-                    { text: "A. essential", next: "q37", isCorrect: true },
-                    { text: "B. optional", next: "q36_help", log: "Q36錯: optional 是「可選擇的、非強制的」" },
-                    { text: "C. emotional", next: "q36_help", log: "Q36錯: emotional 是「情緒的」" },
-                    { text: "D. potential", next: "q36_help", log: "Q36錯: potential 是「潛在的」" }
+                    { text: "A. C 類火災", next: "q37", isCorrect: true },
+                    { text: "B. A 類火災", next: "q36_help", log: "Q36錯: 這是普通可燃物 (木材/紙張)" },
+                    { text: "C. B 類火災", next: "q36_help", log: "Q36錯: 這是易燃液體 (汽油)" },
+                    { text: "D. D 類火災", next: "q36_help", log: "Q36錯: 這是可燃金屬 (鎂/鉀)" }
                 ]
             },
             "q36_help": {
-                tag: "💊 救援任務：事物的本質",
-                text: "知識拆解：名詞 essence 是「本質、精華」。變成形容詞 essential，就是指構成事物本質的，也就是「絕對必要的、不可或缺的」。",
+                tag: "💊 救援任務：ABC的分類",
+                text: "知識拆解：A(Ash 灰燼)是普通紙木火災；B(Barrel 桶子)是汽油化學火災；C(Current 電流)就是電氣火災。所以答案是？",
                 options: [
-                    { text: "A. essential", next: "q36", isCorrect: true },
-                    { text: "B. optional", next: "q36_help", log: "Q36救錯: optional (由 option 變化來) 是隨便你選的，不是必需品喔！" }
+                    { text: "A. C 類火災", next: "q36", isCorrect: true },
+                    { text: "B. A 類火災", next: "q36_help", log: "Q36救錯: A 類是會燒成灰燼的木頭紙張喔！" }
                 ]
             },
 
-            // --- 第 37 關：核心形容詞 ---
+            // --- 第 37 關：NAND 邏輯閘 ---
             "q37": {
-                tag: "第 37 關：統測核心詞彙",
-                text: "在面試時，穿著「適當的、合宜的」服裝是非常重要的。請問適當的英文是？",
+                tag: "第 37 關：數位邏輯",
+                text: "關於「萬用閘」 NAND 閘 (反及閘)，它的真值表特性是什麼？",
                 options: [
-                    { text: "A. appropriate", next: "q38", isCorrect: true },
-                    { text: "B. appreciate", next: "q37_help", log: "Q37錯: appreciate 是動詞「感激、欣賞」" },
-                    { text: "C. approximate", next: "q37_help", log: "Q37錯: approximate 是「大約的」" },
-                    { text: "D. absolute", next: "q37_help", log: "Q37錯: absolute 是「絕對的」" }
+                    { text: "A. 只要有任何一個輸入為 0，輸出就是 1", next: "q38", isCorrect: true },
+                    { text: "B. 只有當所有輸入都是 1 時，輸出才是 1", next: "q37_help", log: "Q37錯: 這是 AND 閘" },
+                    { text: "C. 只要有任何一個輸入為 1，輸出就是 1", next: "q37_help", log: "Q37錯: 這是 OR 閘" },
+                    { text: "D. 輸入相同為 0，不同為 1", next: "q37_help", log: "Q37錯: 這是 XOR 閘" }
                 ]
             },
             "q37_help": {
-                tag: "💊 救援任務：合乎場合",
-                text: "知識拆解：這個字常配 prepositions 使用 (appropriate for...)，意思是完全符合某個場合的規矩。長得很像「感激(appreciate)」，但結尾是 priate。",
+                tag: "💊 救援任務：AND 的死對頭",
+                text: "知識拆解：AND 閘是「有 0 就是 0」。NAND 前面加了反相 (NOT)，所以把結果全部倒過來，變成「有 0 就是 ___」！",
                 options: [
-                    { text: "A. appropriate", next: "q37", isCorrect: true },
-                    { text: "B. approximate", next: "q37_help", log: "Q37救錯: approximate 是大約、估計的數字喔！" }
+                    { text: "A. 只要有 0，輸出就是 1", next: "q37", isCorrect: true },
+                    { text: "B. 只有全為 1，輸出才是 1", next: "q37_help", log: "Q37救錯: 全為 1 輸出 1 是 AND 閘，NAND 剛好要相反喔！" }
                 ]
             },
 
-            // --- 第 38 關：核心形容詞 ---
+            // --- 第 38 關：BJT vs FET ---
             "q38": {
-                tag: "第 38 關：統測核心詞彙",
-                text: "這位女歌手的嗓音非常「獨特的」，讓人一聽就能認出來。請問獨特的英文是？",
+                tag: "第 38 關：電晶體特性",
+                text: "比較 BJT 與 FET 兩種電晶體，下列敘述何者正確？",
                 options: [
-                    { text: "A. unique", next: "q39", isCorrect: true },
-                    { text: "B. united", next: "q38_help", log: "Q38錯: united 是「團結的、聯合的」" },
-                    { text: "C. universal", next: "q38_help", log: "Q38錯: universal 是「宇宙的、通用的」" },
-                    { text: "D. usual", next: "q38_help", log: "Q38錯: usual 是「平常的」" }
+                    { text: "A. BJT 是電流控制元件，FET 是電壓控制元件", next: "q39", isCorrect: true },
+                    { text: "B. BJT 的輸入阻抗比 FET 大", next: "q38_help", log: "Q38錯: FET 輸入端有絕緣，阻抗遠大於 BJT" },
+                    { text: "C. BJT 是單極性元件，FET 是雙極性元件", next: "q38_help", log: "Q38錯: 剛好相反 (Bipolar vs Field Effect)" },
+                    { text: "D. 兩者皆為被動元件", next: "q38_help", log: "Q38錯: 電晶體都是主動元件" }
                 ]
             },
             "q38_help": {
-                tag: "💊 救援任務：唯一無二",
-                text: "知識拆解：字首 uni- 是「單一、一」的意思 (如獨角獸 unicorn)。世上只有這一個，所以是「獨一無二的、獨特的」。",
+                tag: "💊 救援任務：名詞定義",
+                text: "知識拆解：BJT 靠基極的微小「電流」來控制大電流；FET 靠閘極的靜電場「電壓」來夾扁通道控制電流。",
                 options: [
-                    { text: "A. unique", next: "q38", isCorrect: true },
-                    { text: "B. universal", next: "q38_help", log: "Q38救錯: universal 是全世界(universe)都在用的「通用版」，剛好相反喔！" }
+                    { text: "A. BJT 電流控制，FET 電壓控制", next: "q38", isCorrect: true },
+                    { text: "B. BJT 輸入阻抗比 FET 大", next: "q38_help", log: "Q38救錯: FET 的閘極是絕緣的，阻力無限大，所以 FET 阻抗大很多！" }
                 ]
             },
 
-            // --- 第 39 關：核心名詞 ---
+            // --- 第 39 關：比較器 ---
             "q39": {
-                tag: "第 39 關：統測核心詞彙",
-                text: "這場車禍的「調查」結果顯示，肇事駕駛當時正在滑手機。請問調查(名詞)的英文是？",
+                tag: "第 39 關：運算放大器 OPA",
+                text: "若 OPA 運算放大器「完全沒有接任何回授電阻」（處於開迴路狀態），因為其開迴路增益無限大，此時它通常被當作什麼電路使用？",
                 options: [
-                    { text: "A. investigation", next: "q40", isCorrect: true },
-                    { text: "B. investment", next: "q39_help", log: "Q39錯: investment 是「投資」" },
-                    { text: "C. invention", next: "q39_help", log: "Q39錯: invention 是「發明」" },
-                    { text: "D. invitation", next: "q39_help", log: "Q39錯: invitation 是「邀請」" }
+                    { text: "A. 比較器 (Comparator)", next: "q40", isCorrect: true },
+                    { text: "B. 積分器", next: "q39_help", log: "Q39錯: 積分器需要接電容當回授" },
+                    { text: "C. 緩衝器 (Buffer)", next: "q39_help", log: "Q39錯: 緩衝器需要 100% 負回授" },
+                    { text: "D. 振盪器", next: "q39_help", log: "Q39錯: 振盪器需要正回授" }
                 ]
             },
             "q39_help": {
-                tag: "💊 救援任務：FBI的縮寫",
-                text: "知識拆解：美國聯邦調查局 (FBI) 的 I 就是這個字！(Federal Bureau of Investigation)。動詞 investigate。",
+                tag: "💊 救援任務：無限放大的暴走",
+                text: "知識拆解：沒有負回授拉住它，只要正端比負端大 0.001V，輸出就會瞬間衝到最高電壓。這就像是在「比較」兩端誰大誰小，贏的就拿走全部。",
                 options: [
-                    { text: "A. investigation", next: "q39", isCorrect: true },
-                    { text: "B. investment", next: "q39_help", log: "Q39救錯: investment 有 vest(背心)，把錢放在背心口袋裡拿去「投資」！" }
+                    { text: "A. 比較器", next: "q39", isCorrect: true },
+                    { text: "B. 積分器", next: "q39_help", log: "Q39救錯: 積分器必須在回授端接上電容器喔！" }
                 ]
             },
 
-            // --- 第 40 關：核心名詞 ---
+            // --- 第 40 關：交流波形因數 ---
             "q40": {
-                tag: "第 40 關：統測核心詞彙",
-                text: "在國外旅遊時，遇到緊急「情況、事件」可以撥打當地的求救專線。請問緊急情況的英文是？",
+                tag: "第 40 關：波形參數",
+                text: "在交流電中，將「有效值 (RMS)」除以「平均值 (Avg)」，這個比值稱為什麼？(正弦波為 1.11)",
                 options: [
-                    { text: "A. emergency", next: "q41", isCorrect: true },
-                    { text: "B. energy", next: "q40_help", log: "Q40錯: energy 是「能量」" },
-                    { text: "C. agency", next: "q40_help", log: "Q40錯: agency 是「代理機構」" },
-                    { text: "D. surgery", next: "q40_help", log: "Q40錯: surgery 是「外科手術」" }
+                    { text: "A. 波形因數 (Form Factor)", next: "q41", isCorrect: true },
+                    { text: "B. 波峰因數 (Crest Factor)", next: "q40_help", log: "Q40錯: 這是最大值除以有效值" },
+                    { text: "C. 功率因數 (Power Factor)", next: "q40_help", log: "Q40錯: 這是實功率除以視在功率" },
+                    { text: "D. 品質因數 (Q factor)", next: "q40_help", log: "Q40錯: 這是諧振電路的選擇性指標" }
                 ]
             },
             "q40_help": {
-                tag: "💊 救援任務：急診室 ER",
-                text: "知識拆解：醫院急診室的縮寫是 ER (Emergency Room)。動詞 emerge 是浮現、浮出水面，突然跑出來的事情就是緊急事件！",
+                tag: "💊 救援任務：統測必背名詞",
+                text: "知識拆解：背誦口訣「有效除以平均 ＝ 形狀」。它用來描述交流波形到底有多「平滑」還是多「尖銳」。所以叫作？",
                 options: [
-                    { text: "A. emergency", next: "q40", isCorrect: true },
-                    { text: "B. agency", next: "q40_help", log: "Q40救錯: agency 是機構(如旅行社 travel agency)，拼法有點像要注意！" }
+                    { text: "A. 波形因數 (Form Factor)", next: "q40", isCorrect: true },
+                    { text: "B. 波峰因數 (Crest Factor)", next: "q40_help", log: "Q40救錯: 波峰因數是拿最高點(最大值)去跟有效值比喔！" }
                 ]
             },
 
-            // --- 第 41 關：片語 ---
+            // --- 第 41 關：穩態開路 ---
             "q41": {
-                tag: "第 41 關：統測必考片語",
-                text: "片語題：當你「依靠、依賴」某人或某物時，除了 depend on，你還可以使用哪一個片語？",
+                tag: "第 41 關：直流暫態",
+                text: "在直流電路達到「穩態 (t=∞)」後，因為電壓不再變化 (ΔV=0)，水缸已經充飽了。此時「電容器 (C)」在電路中等效於什麼狀態？",
                 options: [
-                    { text: "A. rely on", next: "q42", isCorrect: true },
-                    { text: "B. result in", next: "q41_help", log: "Q41錯: result in 是「導致」" },
-                    { text: "C. refer to", next: "q41_help", log: "Q41錯: refer to 是「提及、參考」" },
-                    { text: "D. respond to", next: "q41_help", log: "Q41錯: respond to 是「回應」" }
+                    { text: "A. 開路 (Open, 視為斷線)", next: "q42", isCorrect: true },
+                    { text: "B. 短路 (Short, 視為一條線)", next: "q41_help", log: "Q41錯: 這是電感在穩態時的特徵" },
+                    { text: "C. 理想電壓源", next: "q41_help", log: "Q41錯: 它無法持續供電" },
+                    { text: "D. 短路並消耗大量功率", next: "q41_help", log: "Q41錯: 電容不消耗實功率" }
                 ]
             },
             "q41_help": {
-                tag: "💊 救援任務：信賴的好夥伴",
-                text: "知識拆解：動詞 rely 意思是信賴、依賴。它的形容詞 reliable (可靠的) 在統測也超級常考喔！",
+                tag: "💊 救援任務：水缸裝滿了",
+                text: "知識拆解：電容就像水缸，充飽電 (穩態) 之後，水就再也流不進去了。電流過不去，在電路中就等同於電線被剪斷。叫做什麼？",
                 options: [
-                    { text: "A. rely on", next: "q41", isCorrect: true },
-                    { text: "B. refer to", next: "q41_help", log: "Q41救錯: refer to 通常是指參考字典，或是談話中提到某事！" }
+                    { text: "A. 開路 (斷線)", next: "q41", isCorrect: true },
+                    { text: "B. 短路 (一條線)", next: "q41_help", log: "Q41救錯: 短路代表水流無限通暢，這是電感穩態的特性！" }
                 ]
             },
 
-            // --- 第 42 關：片語 ---
+            // --- 第 42 關：稽納二極體 ---
             "q42": {
-                tag: "第 42 關：統測必考片語",
-                text: "片語題：這場大雨「導致」比賽被迫取消。請問「導致、造成(結果)」的片語是？",
+                tag: "第 42 關：特殊二極體",
+                text: "稽納二極體 (Zener Diode) 主要是設計在它的哪一個工作區域，用來作為「穩壓」用途？",
                 options: [
-                    { text: "A. result in", next: "q43", isCorrect: true },
-                    { text: "B. result from", next: "q42_help", log: "Q42錯: result from 是「起因於」" },
-                    { text: "C. consist of", next: "q42_help", log: "Q42錯: consist of 是「由...組成」" },
-                    { text: "D. recover from", next: "q42_help", log: "Q42錯: recover from 是「從...恢復」" }
+                    { text: "A. 逆向崩潰區", next: "q43", isCorrect: true },
+                    { text: "B. 順向導通區", next: "q42_help", log: "Q42錯: 順向時就像普通二極體" },
+                    { text: "C. 逆向漏電流區", next: "q42_help", log: "Q42錯: 這區無法穩壓" },
+                    { text: "D. 零偏壓區", next: "q42_help", log: "Q42錯: 沒通電不會動作" }
                 ]
             },
             "q42_help": {
-                tag: "💊 救援任務：進進出出",
-                text: "知識拆解：這個片語最容易搞混！往前走到結果裡面 (in) = 導致。如果是從後面退回來 (from) = 起因於...。",
+                tag: "💊 救援任務：絕處逢生",
+                text: "知識拆解：普通二極體逆向崩潰會燒毀，但稽納二極體天生神力，它專門設計在「逆向」被高壓打穿時，兩端電壓能死守不變，達成穩壓！",
                 options: [
-                    { text: "A. result in", next: "q42", isCorrect: true },
-                    { text: "B. result from", next: "q42_help", log: "Q42救錯: from 的後面要接原因(因為下雨)，in 的後面才是接結果(比賽取消)！" }
+                    { text: "A. 逆向崩潰區", next: "q42", isCorrect: true },
+                    { text: "B. 順向導通區", next: "q42_help", log: "Q42救錯: 順向的時候它只會吃掉 0.7V，不能穩住高壓喔！" }
                 ]
             },
 
-            // --- 第 43 關：片語 ---
+            // --- 第 43 關：積分器 ---
             "q43": {
-                tag: "第 43 關：統測必考片語",
-                text: "片語題：出門前別忘了「關掉」冷氣和電燈。請問「關閉(電源)」的片語是？",
+                tag: "第 43 關：運算放大器 OPA",
+                text: "如果我們在 OPA 反相放大器的「負回授路徑」上（也就是從輸出端拉回輸入端的位置），接上一顆「電容器」，這個電路會變成什麼運算功能？",
                 options: [
-                    { text: "A. turn off", next: "q44", isCorrect: true },
-                    { text: "B. turn out", next: "q43_help", log: "Q43錯: turn out 是「結果變成是...」" },
-                    { text: "C. turn up", next: "q43_help", log: "Q43錯: turn up 是「調大聲、出現」" },
-                    { text: "D. turn down", next: "q43_help", log: "Q43錯: turn down 是「拒絕、調小聲」" }
+                    { text: "A. 積分器", next: "q44", isCorrect: true },
+                    { text: "B. 微分器", next: "q43_help", log: "Q43錯: 微分器的電容是接在輸入端" },
+                    { text: "C. 減法器", next: "q43_help", log: "Q43錯: 減法器只用電阻" },
+                    { text: "D. 比較器", next: "q43_help", log: "Q43錯: 比較器不接回授元件" }
                 ]
             },
             "q43_help": {
-                tag: "💊 救援任務：離開電源",
-                text: "知識拆解：off 有脫離、離開的狀態。把電路的開關轉到脫離不通電的狀態，就是「關閉」。同義詞還有 switch off。",
+                tag: "💊 救援任務：累積的電容",
+                text: "知識拆解：電容會把流過來的電流一點一滴「累積」起來變成電壓。在數學上，把東西隨時間累積起來的運算，就叫做？",
                 options: [
-                    { text: "A. turn off", next: "q43", isCorrect: true },
-                    { text: "B. turn down", next: "q43_help", log: "Q43救錯: turn down 只能把冷氣溫度調低(變冷)，或者拒絕別人的表白！" }
+                    { text: "A. 積分器", next: "q43", isCorrect: true },
+                    { text: "B. 微分器", next: "q43_help", log: "Q43救錯: 如果電容裝在最前面的輸入端(擋住低頻)，那才是微分器喔！" }
                 ]
             },
 
-            // --- 第 44 關：時事 ---
+            // --- 第 44 關：電容標示 ---
             "q44": {
-                tag: "第 44 關：疫情復甦",
-                text: "隨著各國解封，國際旅遊正快速「恢復」到疫情前的水準。請問「恢復、康復」的動詞是？",
+                tag: "第 44 關：儀表與量測",
+                text: "一顆陶瓷電容上面印著數字「104」，請問這代表它的電容值是多少？",
                 options: [
-                    { text: "A. recover", next: "q45", isCorrect: true },
-                    { text: "B. discover", next: "q44_help", log: "Q44錯: discover 是「發現」" },
-                    { text: "C. cover", next: "q44_help", log: "Q44錯: cover 是「覆蓋」" },
-                    { text: "D. uncover", next: "q44_help", log: "Q44錯: uncover 是「揭開」" }
+                    { text: "A. 0.1 μF", next: "q45", isCorrect: true },
+                    { text: "B. 104 pF", next: "q44_help", log: "Q44錯: 最後一碼 4 代表有四個零" },
+                    { text: "C. 10 μF", next: "q44_help", log: "Q44錯: 這是 106 的標示" },
+                    { text: "D. 0.01 μF", next: "q44_help", log: "Q44錯: 這是 103 的標示" }
                 ]
             },
             "q44_help": {
-                tag: "💊 救援任務：找回失去的",
-                text: "知識拆解：字首 re- (再次) + cover (拿回)。把失去的健康或業績「再次拿回來」，就是復甦、康復。常接 from (從...中恢復)。",
+                tag: "💊 救援任務：密碼解碼",
+                text: "知識拆解：這跟電阻色碼一樣！前兩碼是 10，最後一碼 4 代表加四個 0，單位是 pF ($10^{-12}$)。所以是 100000 pF。把它換算成 μF ($10^{-6}$)，要把小數點往前移 6 位。答案是？",
                 options: [
-                    { text: "A. recover", next: "q44", isCorrect: true },
-                    { text: "B. discover", next: "q44_help", log: "Q44救錯: dis(不)+cover(蓋住)=把蓋子拿掉，所以是『發現』新大陸喔！" }
+                    { text: "A. 0.1 μF", next: "q44", isCorrect: true },
+                    { text: "B. 104 pF", next: "q44_help", log: "Q44救錯: 第三碼是乘數(加幾個0)，不是直接唸 104 啦！" }
                 ]
             },
 
-            // 🏆 第 45 關：最終魔王 ---
+            // 🏆 第 45 關：戴維寧消除電源 ---
             "q45": {
-                tag: "🏆 最終關：魔王字義題",
-                text: "最後一題大魔王！請選出空格中最合適的單字：Due to the global _______, the prices of daily goods have increased significantly. (由於全球的_____，民生日用品的價格大幅上漲了。)",
+                tag: "🏆 最終關：網路定理",
+                text: "最後一題大魔王！在求取「戴維寧等效電阻 (Rth)」時，必須將電路內部的電源「消除」。請問正確的消除方式為何？",
                 options: [
-                    { text: "A. inflation (通貨膨脹)", next: "end", isCorrect: true },
-                    { text: "B. invention (發明)", next: "q45_help", log: "Q45錯: 發明不會導致物價全面上漲" },
-                    { text: "C. isolation (隔離)", next: "q45_help", log: "Q45錯: 隔離與物價無直接絕對關聯" },
-                    { text: "D. inspection (調查/視察)", next: "q45_help", log: "Q45錯: 視察不會導致物價上漲" }
+                    { text: "A. 電壓源短路 (Short)；電流源開路 (Open)", next: "end", isCorrect: true },
+                    { text: "B. 電壓源開路 (Open)；電流源短路 (Short)", next: "q45_help", log: "Q45錯: 完全搞反了" },
+                    { text: "C. 全部短路", next: "q45_help", log: "Q45錯: 電流源短路會發生錯誤" },
+                    { text: "D. 全部開路", next: "q45_help", log: "Q45錯: 電壓源開路會中斷電路" }
                 ]
             },
             "q45_help": {
-                tag: "💊 救援任務：找關鍵字",
-                text: "知識拆解：句子的後半段說 prices(價格) 已經 increased(增加)。能直接造成大範圍物價上漲的全球性經濟現象是什麼？",
+                tag: "💊 救援任務：讓它歸零",
+                text: "知識拆解：要把電壓變成 0，就是把兩端接在一起 (短路)；要把電流變成 0，就是把電線剪斷不讓水流 (開路)。",
                 options: [
-                    { text: "A. inflation", next: "q45", isCorrect: true },
-                    { text: "B. isolation", next: "q45_help", log: "Q45救錯: isolation 是孤立隔離(如疫情期間)，題目線索是 prices increased！" }
+                    { text: "A. 電壓源短路，電流源開路", next: "q45", isCorrect: true },
+                    { text: "B. 電壓源開路，電流源短路", next: "q45_help", log: "Q45救錯: 記反了！電壓是短路(V=0)喔！" }
                 ]
             }
         };
