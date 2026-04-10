@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>微處理機全 - 抽卡特訓班 (第三階段擴充版)</title>
+    <title>程式設計後3章 - 抽卡特訓班 (第三階段擴充版)</title>
 
     <script>
         window.MathJax = {
@@ -177,7 +177,7 @@
 
     <div class="container">
         <div id="student-setup">
-            <h1>🏀 電子學觀念特訓：測驗大挑戰！</h1>
+            <h1>🏀 程式設計後3章觀念特訓：測驗大挑戰！</h1>
             <div class="subtitle">連續答對 2 題即可抽卡！(滿5張特定卡可覺醒神卡)</div>
             
             <div class="warning-box">
@@ -378,906 +378,606 @@
         };
 
         // ==========================================
-        // 教師設定區：微處理機 (架構、記憶體、中斷、通訊、組合語言) 45題 + 淡商交通法規
+        // 教師設定區：C/C++ 指標、結構、物件導向 (30題 + 30救援)
         // ==========================================
         const quizData = {
-            // --- 第 1 關：電腦發展與架構 ---
+            // --- 第 1 題：取址符號 ---
             "q1": {
-                tag: "第 1 關：微處理機基礎",
-                text: "著名的半導體經驗法則「摩爾定律 (Moore's Law)」，其具體的內容是指積體電路上可容納的電晶體數目，大約每隔多久會增加一倍？",
+                tag: "第 1 關：指標基礎",
+                text: "在 C/C++ 中，變數都存放在記憶體裡。如果要印出變數 x 在記憶體中的「門牌號碼（記憶體位址）」，應該在 x 前面加上什麼符號？",
                 options: [
-                    { text: "18 個月", next: "q2", isCorrect: true },
-                    { text: "6 個月", next: "q1_help", log: "Q1錯: 時間太短了，科技發展沒有這麼神速" },
-                    { text: "3 年", next: "q1_help", log: "Q1錯: 時間太長了" },
-                    { text: "5 年", next: "q1_help", log: "Q1錯: 這是電池壽命的週期吧" }
+                    { text: "&", next: "q2", isCorrect: true },
+                    { text: "*", next: "q1_help", log: "Q1錯: 這是用來解參考的" },
+                    { text: "#", next: "q1_help", log: "Q1錯: 這是給前置處理器用的" },
+                    { text: "@", next: "q1_help", log: "Q1錯: 語法錯誤" }
                 ]
             },
             "q1_help": {
-                tag: "🔍 PBL 情報搜索：科技的摩爾",
-                text: "【搜索任務】請上網 Google 或翻閱課本查閱「摩爾定律 週期」。Intel 創始人提出的這個黃金定律，指出晶片效能翻倍的週期大約是一年半。換算成幾個月？",
+                tag: "💊 PBL 救援任務：尋找地址",
+                text: "【生活比喻】你想知道朋友家住哪裡。這個符號在英文裡唸作 ampersand (And的意思)，但在 C 語言中，它長得像一個人在打結，專門用來把變數的「地址」抓出來！",
                 options: [
-                    { text: "18 個月", next: "q1", isCorrect: true },
-                    { text: "6 個月", next: "q1_help", log: "Q1救錯: 一年半是 12 + 6 = 18 個月喔！" }
+                    { text: "& (取址符號)", next: "q1", isCorrect: true },
+                    { text: "* (米字號)", next: "q1_help", log: "Q1救錯: * 是用來開門拿東西的，找地址要用 & 喔！" }
                 ]
             },
 
-            // --- 第 2 關：系統軟體 ---
+            // --- 第 2 題：指標宣告 ---
             "q2": {
-                tag: "第 2 關：系統軟體",
-                text: "當電腦開機後，第一個被硬體強制啟動，用來喚醒並測試周邊設備的程式是什麼？",
+                tag: "第 2 關：指標基礎",
+                text: "宣告指標變數時，用來代表「這是一個指標，裡面裝的是位址」的符號是什麼？<div class='code-block'>int ___ p;</div>",
                 options: [
-                    { text: "基本輸入/輸出系統 (BIOS)", next: "q3", isCorrect: true },
-                    { text: "作業系統 (OS)", next: "q2_help", log: "Q2錯: OS 是被 BIOS 叫醒的" },
-                    { text: "應用程式", next: "q2_help", log: "Q2錯: 這是使用者最後才開的" },
-                    { text: "直譯器 (Interpreter)", next: "q2_help", log: "Q2錯: 這是翻譯程式用的" }
+                    { text: "*", next: "q3", isCorrect: true },
+                    { text: "&", next: "q2_help", log: "Q2錯: 宣告時不用 &" },
+                    { text: "$", next: "q2_help", log: "Q2錯: 這是 PHP 用的" },
+                    { text: "%", next: "q2_help", log: "Q2錯: 這是取餘數" }
                 ]
             },
             "q2_help": {
-                tag: "🛠️ PBL 邏輯推演：開機第一步",
-                text: "【推演任務】電腦剛通電時，硬碟裡的 Windows (OS) 還在睡覺。主機板上有一顆 ROM，裡面燒錄了一支專門負責「基本輸入與輸出檢測」的程式，它的英文縮寫是？",
+                tag: "💊 PBL 救援任務：閃亮的星星",
+                text: "【語法推演】要告訴電腦「這是一個特別的變數，專門用來指著別人」，我們會在變數名稱前面加上一顆「星星」。",
                 options: [
-                    { text: "BIOS", next: "q2", isCorrect: true },
-                    { text: "OS 作業系統", next: "q2_help", log: "Q2救錯: BIOS 檢查完硬體沒問題後，才會把控制權交給 OS 喔！" }
+                    { text: "*", next: "q2", isCorrect: true },
+                    { text: "&", next: "q2_help", log: "Q2救錯: 宣告指標要用 * 喔！" }
                 ]
             },
 
-            // --- 第 3 關：哈佛 vs 馮紐曼 ---
+            // --- 第 3 題：指標裝什麼 ---
             "q3": {
-                tag: "第 3 關：匯流排架構",
-                text: "若一台微處理機的「程式記憶體 (ROM)」與「資料記憶體 (RAM)」是分開存放，且擁有各自獨立的匯流排與 CPU 連接。這種執行效率較高的架構稱為？",
+                tag: "第 3 關：指標追蹤",
+                text: "執行這兩行程式碼後，變數 `p` 裡面裝的內容是什麼？<div class='code-block'>int a = 10;<br>int *p = &a;</div>",
                 options: [
-                    { text: "哈佛結構 (Harvard)", next: "q4", isCorrect: true },
-                    { text: "馮紐曼結構 (Von Neumann)", next: "q3_help", log: "Q3錯: 馮紐曼是共用同一組匯流排" },
-                    { text: "普林斯頓結構", next: "q3_help", log: "Q3錯: 這就是馮紐曼結構的別名" },
-                    { text: "圖靈結構", next: "q3_help", log: "Q3錯: 沒有這種硬體結構" }
+                    { text: "a 的記憶體位址", next: "q4", isCorrect: true },
+                    { text: "數字 10", next: "q3_help", log: "Q3錯: p 是指標，只能裝位址" },
+                    { text: "p 自己的記憶體位址", next: "q3_help", log: "Q3錯: 它裝的是別人的位址" },
+                    { text: "沒有東西", next: "q3_help", log: "Q3錯: 有明確指派" }
                 ]
             },
             "q3_help": {
-                tag: "📖 PBL 翻書任務：名校架構",
-                text: "【查閱任務】請查閱課本第一章。傳統架構因為共用通道會塞車（瓶頸）。後來將指令與資料「雙通道分離」的架構，是以美國一所頂尖常春藤名校命名的。是哪一所？",
+                tag: "💊 PBL 救援任務：信箱與紙條",
+                text: "【生活比喻】`a` 是一個信箱，裡面放了 10 元。`p` 是一張紙條。`p = &a` 的意思是：我在紙條上寫下「信箱 a 的地址」。所以 p 裡面裝的是？",
                 options: [
-                    { text: "哈佛結構", next: "q3", isCorrect: true },
-                    { text: "馮紐曼結構", next: "q3_help", log: "Q3救錯: 馮紐曼是共用通道，會發生塞車的喔！" }
+                    { text: "a 的記憶體位址", next: "q3", isCorrect: true },
+                    { text: "數字 10", next: "q3_help", log: "Q3救錯: p 只是一張寫著地址的紙條，錢(10)還在 a 信箱裡喔！" }
                 ]
             },
 
-            // --- 第 4 關：編譯與直譯 ---
+            // --- 第 4 題：解參考印出 ---
             "q4": {
-                tag: "第 4 關：程式語言翻譯",
-                text: "關於高階語言的翻譯程式，下列哪一種會「將原始程式碼整批翻譯成機器碼，並產生一個可執行的目的檔 (Object file)」，因此後續執行速度較快？",
+                tag: "第 4 關：指標追蹤",
+                text: "承上題，如果我們已經讓 `p` 指向 `a` 了。現在如果要透過指標 p 把「10」印出來，程式碼應該怎麼寫？",
                 options: [
-                    { text: "編譯器 (Compiler)", next: "q5", isCorrect: true },
-                    { text: "直譯器 (Interpreter)", next: "q4_help", log: "Q4錯: 直譯器是逐行翻譯，不產生目的檔" },
-                    { text: "組譯器 (Assembler)", next: "q4_help", log: "Q4錯: 這是專門翻譯低階組合語言的" },
-                    { text: "聯結器 (Linker)", next: "q4_help", log: "Q4錯: 這是把多個目的檔綁在一起的" }
+                    { text: "printf(\"%d\", *p);", next: "q5", isCorrect: true },
+                    { text: "printf(\"%d\", p);", next: "q4_help", log: "Q4錯: 這樣會印出一串奇怪的位址數字" },
+                    { text: "printf(\"%d\", &p);", next: "q4_help", log: "Q4錯: 這樣會印出 p 的位址" },
+                    { text: "printf(\"%d\", a*p);", next: "q4_help", log: "Q4錯: 語法錯誤" }
                 ]
             },
             "q4_help": {
-                tag: "🧠 PBL 邏輯推演：寫成一本書 vs 同步口譯",
-                text: "【推演任務】「直譯器 (Interpreter)」就像同步口譯員，講一句翻一句，不留紀錄。「ＯＯ器」則是像把整本英文書一次翻譯成中文版印出來(產生目的檔)，以後直接看中文版超快！",
+                tag: "💊 PBL 救援任務：拿鑰匙開門",
+                text: "【生活比喻】p 是一張寫著地址的紙條。你要走到那個地址，並且「打開門把東西拿出來」，必須在 p 前面加上一把「星星鑰匙 (*)」！",
                 options: [
-                    { text: "編譯器 (Compiler)", next: "q4", isCorrect: true },
-                    { text: "直譯器 (Interpreter)", next: "q4_help", log: "Q4救錯: 直譯器翻譯完就忘了，不會產生可以留下來的執行檔喔！" }
+                    { text: "*p", next: "q4", isCorrect: true },
+                    { text: "p", next: "q4_help", log: "Q4救錯: 直接印 p 只會印出紙條上的地址文字，拿不到裡面的 10 喔！" }
                 ]
             },
 
-            // 🛑 第 5 關：交通法規 (停讓行人)
+            // --- 第 5 題：解參考定義 ---
             "q5": {
-                tag: "🛑 第 5 關：大腦休息 (淡商交通日常)",
-                text: "【情境】早上你從商工路走斑馬線準備進校門。這時有一輛機車準備轉彎。根據最新的交通法規，汽機車「未停讓行人」將面臨重罰。請問汽機車必須距離行人多遠才算合法停讓？",
+                tag: "第 5 關：指標觀念",
+                text: "我們常把指標前面的 `*` 叫做「解參考 (Dereference)」運算子。它的白話文意思最接近下列哪一個？",
                 options: [
-                    { text: "約 3 公尺 (大約 3 個斑馬線枕木紋的距離)", next: "q6", isCorrect: true },
-                    { text: "約 1 公尺 (只要沒撞到就算停讓)", next: "q5_help", log: "Q5錯: 這樣太危險了，會被開罰單" },
-                    { text: "完全不需要讓，行人要看車", next: "q5_help", log: "Q5錯: 這是違法的帝王條款錯覺" },
-                    { text: "必須等行人完全走到對面人行道才能動", next: "q5_help", log: "Q5錯: 只要距離超過三個枕木紋就可以通過" }
+                    { text: "打開這個門牌號碼，把裡面的東西拿出來", next: "q6", isCorrect: true },
+                    { text: "計算數字的乘法", next: "q5_help", log: "Q5錯: 在宣告或變數前，它不是乘法" },
+                    { text: "把這個變數鎖起來不准別人改", next: "q5_help", log: "Q5錯: 這跟 const 有關" },
+                    { text: "把東西丟進垃圾桶", next: "q5_help", log: "Q5錯: 這是 free 或 delete" }
                 ]
             },
             "q5_help": {
-                tag: "🚔 PBL 法規檢索：三個枕木紋",
-                text: "【檢索任務】請回想新聞報導或是自己查閱法規。為了洗刷行人地獄的惡名，現在規定車輛的前懸必須與行人保持一定的安全距離。這個距離通常以斑馬線的「3個白色條紋」為基準。大約是幾公尺？",
+                tag: "💊 PBL 救援任務：Reference 的相反",
+                text: "【字義拆解】Reference 是「參考、參照某個地址」。De- 是「解除」。所以 Dereference 就是「沿著地址走過去，把裡面的實體內容挖出來」。",
                 options: [
-                    { text: "約 3 公尺", next: "q5", isCorrect: true },
-                    { text: "約 1 公尺", next: "q5_help", log: "Q5救錯: 1 公尺太近了！警察杯杯會在旁邊開你 6000 元罰單喔！" }
+                    { text: "打開門牌拿東西", next: "q5", isCorrect: true },
+                    { text: "計算乘法", next: "q5_help", log: "Q5救錯: 在指標的世界裡，* 是一把萬能鑰匙，不是乘法喔！" }
                 ]
             },
 
-            // --- 第 6 關：CPU 內部暫存器 ---
+            // --- 第 6 題：陣列與指標 ---
             "q6": {
-                tag: "第 6 關：CPU 架構",
-                text: "在 CPU 的控制單元中，負責「存放下一個即將被執行的指令之記憶體位址」的暫存器稱為什麼？",
+                tag: "第 6 關：指標與陣列",
+                text: "在 C 語言中，當你宣告一個陣列 `int arr[5];`，陣列的名稱 `arr` 本身就代表什麼意義？",
                 options: [
-                    { text: "程式計數器 (Program Counter, PC)", next: "q7", isCorrect: true },
-                    { text: "指令暫存器 (Instruction Register, IR)", next: "q6_help", log: "Q6錯: 這是放「正在執行」的指令內容" },
-                    { text: "記憶體位址暫存器 (MAR)", next: "q6_help", log: "Q6錯: 這是用來鎖定位址匯流排的" },
-                    { text: "堆疊指標暫存器 (SP)", next: "q6_help", log: "Q6錯: 這是指向堆疊頂端的" }
+                    { text: "陣列第 0 個元素的記憶體位址 (&arr[0])", next: "q7", isCorrect: true },
+                    { text: "陣列裡所有元素的總和", next: "q6_help", log: "Q6錯: 陣列名稱不負責計算" },
+                    { text: "陣列的長度 (5)", next: "q6_help", log: "Q6錯: 這是 sizeof 的事" },
+                    { text: "陣列最後一個元素的位址", next: "q6_help", log: "Q6錯: 指標是指向開頭的" }
                 ]
             },
             "q6_help": {
-                tag: "🔍 PBL 詞意解析：拿號碼牌",
-                text: "【解析任務】程式是一行一行執行的。CPU 必須有一個計數器來記住「我現在跑到第幾行了，下一行的地址在哪裡」。這個專門數程式跑到哪裡的暫存器叫做？",
+                tag: "💊 PBL 救援任務：火車頭",
+                text: "【生活比喻】陣列就像一列長長的火車。當你呼叫這台火車的名字 `arr` 時，電腦其實是直接給你這台火車「第一節車廂 (第0格)」的所在位置。因為抓著火車頭，就能找到整列火車。",
                 options: [
-                    { text: "程式計數器 (PC)", next: "q6", isCorrect: true },
-                    { text: "指令暫存器 (IR)", next: "q6_help", log: "Q6救錯: IR 是拿來解碼「現在正在做什麼事」的，PC 才是記住「下一個去哪裡」的喔！" }
+                    { text: "第 0 個元素的位址", next: "q6", isCorrect: true },
+                    { text: "陣列的長度", next: "q6_help", log: "Q6救錯: 陣列名稱是一把鑰匙(位址)，不是一個數字喔！" }
                 ]
             },
 
-            // --- 第 7 關：記憶體容量計算 ---
+            // --- 第 7 題：指標運算 ---
             "q7": {
-                tag: "第 7 關：記憶體計算",
-                text: "若一顆微處理機具有 32 條位址線 (Address Bus)，請問它可以直接定址的最大記憶體空間容量為多少？",
+                tag: "第 7 關：指標運算",
+                text: "若 `int *p = &arr[0];` (指標 p 指向陣列的第 0 格)。當我們執行 `p++;` 後，指標 p 會發生什麼事？",
                 options: [
-                    { text: "4 GB", next: "q8", isCorrect: true },
-                    { text: "1 GB", next: "q7_help", log: "Q7錯: 這是 30 條位址線的容量" },
-                    { text: "16 MB", next: "q7_help", log: "Q7錯: 這是 24 條位址線的容量" },
-                    { text: "4 TB", next: "q7_help", log: "Q7錯: 這是 42 條位址線的容量" }
+                    { text: "指標 p 會指向陣列的第 1 格 (&arr[1])", next: "q8", isCorrect: true },
+                    { text: "陣列的第 0 格裡面的數值會加 1", next: "q7_help", log: "Q7錯: 這是 (*p)++ 的結果" },
+                    { text: "程式會當機", next: "q7_help", log: "Q7錯: 指標加減是合法的" },
+                    { text: "指標 p 會消失", next: "q7_help", log: "Q7錯: 不會消失" }
                 ]
             },
             "q7_help": {
-                tag: "🛠️ PBL 邏輯推演：指數法則",
-                text: "【推演任務】位址線數量 $n$，容量就是 $2^n$。公式拆解：$2^{32} = 2^2 \\times 2^{30}$。因為 $2^{30}$ 是 Giga (G)，而 $2^2$ 是 4。所以組合起來是？",
+                tag: "💊 PBL 救援任務：查水表",
+                text: "【生活比喻】p 是一個查水表的人，他現在站在 0 號房門口。`p++` 的意思是叫這個人「往下走一步」。所以他現在走到哪裡了？",
                 options: [
-                    { text: "4 GB", next: "q7", isCorrect: true },
-                    { text: "4 TB", next: "q7_help", log: "Q7救錯: TB 是 $2^{40}$，位址線需要 40 條以上才夠喔！" }
+                    { text: "指向陣列的第 1 格", next: "q7", isCorrect: true },
+                    { text: "第 0 格的數值加 1", next: "q7_help", log: "Q7救錯: `p++` 是地址加一(走路)，`(*p)++` 才是把裡面的數值加一(改內容)喔！" }
                 ]
             },
 
-            // --- 第 8 關：執行速度 MIPS ---
+            // --- 第 8 題：Call by Address ---
             "q8": {
-                tag: "第 8 關：CPU 效能",
-                text: "規格標示為「200 MIPS」的微處理機，代表它每秒鐘可以執行多少個指令？",
+                tag: "第 8 關：指標與函式",
+                text: "如果我們希望傳給函式的變數，在函式裡面被修改後，外面的正本「也會跟著改變」，應該使用哪一種參數傳遞方式？",
                 options: [
-                    { text: "2 億個 (200 Million)", next: "q9", isCorrect: true },
-                    { text: "200 個", next: "q8_help", log: "Q8錯: 忘了 M 代表的數量級" },
-                    { text: "2 萬個", next: "q8_help", log: "Q8錯: 數量級算錯了" },
-                    { text: "2 千萬個", next: "q8_help", log: "Q8錯: 差了一個零" }
+                    { text: "傳址呼叫 (Call by Address)", next: "q9", isCorrect: true },
+                    { text: "傳值呼叫 (Call by Value)", next: "q8_help", log: "Q8錯: 傳值只是給影印本，不會改到正本" },
+                    { text: "傳名呼叫 (Call by Name)", next: "q8_help", log: "Q8錯: C語言沒有這個" },
+                    { text: "遞迴呼叫", next: "q8_help", log: "Q8錯: 這是函式自己呼叫自己" }
                 ]
             },
             "q8_help": {
-                tag: "📖 PBL 翻書任務：MIPS 的縮寫",
-                text: "【查閱任務】MIPS 的全名是 Millions of Instructions Per Second。其中 Million 代表的是「百萬」。200 個百萬，加起來總共是台灣說的多少？",
+                tag: "💊 PBL 救援任務：給地址還是給照片",
+                text: "【生活比喻】你想請水電工來修家裡的冷氣。如果你只傳冷氣的「照片 (Value)」給他，他在照片上畫畫，你家冷氣不會變好。你必須傳你家的「地址 (Address)」給他，他才能真的改到正本！",
                 options: [
-                    { text: "2 億個", next: "q8", isCorrect: true },
-                    { text: "2 千萬個", next: "q8_help", log: "Q8救錯: 200 乘上一百萬 (1,000,000)，後面會有 8 個零，所以是 2 億喔！" }
+                    { text: "傳址呼叫 (Call by Address)", next: "q8", isCorrect: true },
+                    { text: "傳值呼叫 (Call by Value)", next: "q8_help", log: "Q8救錯: 傳值就像傳影印本，撕破了也不會影響正本喔！" }
                 ]
             },
 
-            // --- 第 9 關：獨立式 I/O ---
+            // --- 第 9 題：函式呼叫寫法 ---
             "q9": {
-                tag: "第 9 關：I/O 規劃",
-                text: "關於微電腦的 I/O 位址規劃，下列關於「獨立式 I/O (Isolated I/O)」的敘述何者正確？",
+                tag: "第 9 關：指標與函式",
+                text: "承上題，函式定義為 `void addTen(int *n) { *n = *n + 10; }`。要在主程式呼叫它來改變變數 `x` 的值，應該怎麼寫？",
                 options: [
-                    { text: "擁有專屬的 I/O 讀寫指令 (如 IN / OUT)", next: "q10", isCorrect: true },
-                    { text: "I/O 裝置會佔用主記憶體的位址空間", next: "q9_help", log: "Q9錯: 這是記憶體對映 I/O 的缺點" },
-                    { text: "解碼電路非常簡單", next: "q9_help", log: "Q9錯: 獨立式 I/O 需要額外的控制線來區分" },
-                    { text: "所有的記憶體指令都可以拿來控制 I/O", next: "q9_help", log: "Q9錯: 必須用專用的指令" }
+                    { text: "addTen(&x);", next: "q10", isCorrect: true },
+                    { text: "addTen(x);", next: "q9_help", log: "Q9錯: x 只是數字，函式需要的是指標" },
+                    { text: "addTen(*x);", next: "q9_help", log: "Q9錯: 不能對普通變數解參考" },
+                    { text: "addTen(x+10);", next: "q9_help", log: "Q9錯: 語法錯誤" }
                 ]
             },
             "q9_help": {
-                tag: "🔍 PBL 詞意解析：門牌分開",
-                text: "【解析任務】「獨立式」代表 I/O 的門牌號碼跟記憶體的門牌是完全分開、不重疊的。既然系統分開了，CPU 要去找 I/O 聊天時，就必須使用「專屬」的特定密語(指令)才能進去。這兩個指令是？",
+                tag: "💊 PBL 救援任務：投遞地址",
+                text: "【語法推演】函式的括號裡寫著 `int *n`，代表它正在討要一個「地址」。所以你要把變數 x 送進去之前，必須先用某個符號把 x 的地址挖出來。是哪一個？",
                 options: [
-                    { text: "有專屬的 IN / OUT 指令", next: "q9", isCorrect: true },
-                    { text: "佔用記憶體空間", next: "q9_help", log: "Q9救錯: 既然都叫「獨立式」了，它就不會去搶記憶體的地盤喔！" }
+                    { text: "addTen(&x);", next: "q9", isCorrect: true },
+                    { text: "addTen(x);", next: "q9_help", log: "Q9救錯: 如果直接丟 x 進去，函式會把它當成地址，程式會當機喔！" }
                 ]
             },
 
-            // 🛑 第 10 關：交通法規 (YouBike 酒駕)
+            // --- 第 10 題：NULL 指標 ---
             "q10": {
-                tag: "🛑 第 10 關：大腦休息 (淡商交通日常)",
-                text: "【情境】放學後你和同學去淡水老街聚餐，同學偷偷喝了兩瓶啤酒。為了省錢，他決定騎 YouBike 微笑單車回家。請問騎無動力的腳踏車酒駕，會觸犯法規嗎？",
+                tag: "第 10 關：指標常數",
+                text: "當一個指標剛宣告，還沒有要指向任何有效的記憶體位址時，為了安全起見，避免它變成亂指的野指標，我們會把它設定為什麼值？",
                 options: [
-                    { text: "會，腳踏車屬於慢車，酒駕一樣會被警察開罰單", next: "q11", isCorrect: true },
-                    { text: "不會，因為腳踏車沒有引擎，不算機動車輛", next: "q10_help", log: "Q10錯: 慢車酒駕現在有明確罰則" },
-                    { text: "不會，只要慢慢騎在人行道上就好", next: "q10_help", log: "Q10錯: 騎腳踏車酒駕非常危險" },
-                    { text: "會，而且會直接被吊銷機車駕照", next: "q10_help", log: "Q10錯: 腳踏車酒駕罰鍰，但一般不會直接吊銷別種駕照" }
+                    { text: "NULL (或 nullptr)", next: "q11", isCorrect: true },
+                    { text: "0", next: "q10_help", log: "Q10錯: 雖然底層是0，但正規寫法是 NULL" },
+                    { text: "1", next: "q10_help", log: "Q10錯: 這是一個危險的位址" },
+                    { text: "-1", next: "q10_help", log: "Q10錯: 這也是危險的位址" }
                 ]
             },
             "q10_help": {
-                tag: "🚔 PBL 法規檢索：慢車酒駕罰則",
-                text: "【檢索任務】請上網搜尋「腳踏車 酒駕 罰款」。根據道路交通管理處罰條例，慢車(含腳踏車)駕駛人酒測值超標，依然會被處以新臺幣 1200 元至 2400 元罰鍰，拒測罰 4800 元！",
+                tag: "💊 PBL 救援任務：空無一物",
+                text: "【生活比喻】指標就像一把槍，如果你還沒決定要瞄準誰，千萬不能亂指，不然會射傷無辜的記憶體（當機）。所以要讓它指著「空無一物」的安全方向。這個字的英文是？",
                 options: [
-                    { text: "會，腳踏車酒駕依法開罰", next: "q10", isCorrect: true },
-                    { text: "不會，因為沒有引擎", next: "q10_help", log: "Q10救錯: 腳踏車酒駕一樣會害人害己，警察是真的會開單的！" }
+                    { text: "NULL", next: "q10", isCorrect: true },
+                    { text: "0", next: "q10_help", log: "Q10救錯: 雖然底層代表 0，但在指標的世界裡，標準的安全詞是 NULL 喔！" }
                 ]
             },
 
-            // --- 第 11 關：堆疊特性 ---
+            // --- 第 11 題：結構關鍵字 ---
             "q11": {
-                tag: "第 11 關：記憶體結構",
-                text: "微處理機在執行呼叫副程式 (CALL) 或中斷時，會使用「堆疊 (Stack)」來保存返回位址。請問堆疊的資料存取原則是什麼？",
+                tag: "第 11 關：結構基礎",
+                text: "如果想把一個學生的「學號(int)、姓名(char陣列)、成績(float)」這三種不同型態的資料「綁在一起」變成一個新的資料型態，應該使用哪一個關鍵字？",
                 options: [
-                    { text: "先進後出 (FILO) / 後進先出 (LIFO)", next: "q12", isCorrect: true },
-                    { text: "先進先出 (FIFO)", next: "q11_help", log: "Q11錯: 這是佇列 (Queue) 的特性" },
-                    { text: "隨機存取 (Random Access)", next: "q11_help", log: "Q11錯: 堆疊只能從頂端存取" },
-                    { text: "循序存取 (Sequential Access)", next: "q11_help", log: "Q11錯: 這是磁帶的特性" }
+                    { text: "struct", next: "q12", isCorrect: true },
+                    { text: "array", next: "q11_help", log: "Q11錯: 陣列只能裝同一種型態的資料" },
+                    { text: "union", next: "q11_help", log: "Q11錯: union 會共用記憶體，無法同時保存三種資料" },
+                    { text: "class", next: "q11_help", log: "Q11錯: class 是 C++ 才有的，C 語言用 struct" }
                 ]
             },
             "q11_help": {
-                tag: "🧠 PBL 邏輯推演：疊盤子",
-                text: "【推演任務】想像你在洗盤子，洗好的盤子一個一個往上疊 (Push)。當你要拿盤子來用的時候 (Pop)，你一定會從「最上面、最後放上去」的那一個開始拿。這種原則英文縮寫是 LIFO，中文是？",
+                tag: "💊 PBL 救援任務：自訂結構",
+                text: "【詞意解析】我們需要自己定義一個資料的「結構 (Structure)」，來把不同種類的東西裝在同一個大箱子裡。它的縮寫關鍵字是？",
                 options: [
-                    { text: "後進先出 (LIFO)", next: "q11", isCorrect: true },
-                    { text: "先進先出 (FIFO)", next: "q11_help", log: "Q11救錯: 先進先出是排隊買便當 (Queue)，堆疊是疊盤子喔！" }
+                    { text: "struct", next: "q11", isCorrect: true },
+                    { text: "array", next: "q11_help", log: "Q11救錯: Array(陣列) 就像雞蛋盒，只能裝長得一模一樣的雞蛋，不能混裝喔！" }
                 ]
             },
 
-            // --- 第 12 關：組合語言 假指令 ---
+            // --- 第 12 題：結構宣告語法 ---
             "q12": {
-                tag: "第 12 關：組合語言",
-                text: "在組合語言中，有一種指令是用來「告訴組譯器如何分配記憶體或設定起始位址」，它在翻譯後『不會』產生任何機器碼給 CPU 執行。這種指令稱為？",
+                tag: "第 12 關：結構宣告",
+                text: "下列哪一個是 C 語言宣告「結構 (struct)」的正確語法格式？ (注意大括號與分號)",
                 options: [
-                    { text: "虛擬指令 (Pseudo-code) 或 假指令", next: "q13", isCorrect: true },
-                    { text: "巨集指令 (Macro)", next: "q12_help", log: "Q12錯: 巨集展開後會產生機器碼" },
-                    { text: "算術邏輯指令", next: "q12_help", log: "Q12錯: 這絕對會產生機器碼" },
-                    { text: "跳躍指令 (JMP)", next: "q12_help", log: "Q12錯: 這是控制流程的實體指令" }
+                    { text: "struct Student { int id; float score; };", next: "q13", isCorrect: true },
+                    { text: "struct Student ( int id, float score )", next: "q12_help", log: "Q12錯: 應該用大括號，且結尾要有分號" },
+                    { text: "struct Student [ int id; float score; ]", next: "q12_help", log: "Q12錯: 中括號是陣列用的" },
+                    { text: "Student struct { int id; float score; }", next: "q12_help", log: "Q12錯: struct 關鍵字要放最前面" }
                 ]
             },
             "q12_help": {
-                tag: "📖 PBL 翻書任務：不是給 CPU 看的",
-                text: "【查閱任務】如 ORG、EQU、END 這些指令，只是寫程式的人在跟「組譯軟體」溝通，CPU 根本不知道有這些東西存在。因為它不是真正的指令，所以被稱為？",
+                tag: "💊 PBL 救援任務：大括號與分號",
+                text: "【語法推演】宣告一個結構就像定義一條法律。必須把內容包在「大括號 `{}`」裡面，並且在最後面加上「分號 `;`」當作句點！",
                 options: [
-                    { text: "虛擬指令 (假指令)", next: "q12", isCorrect: true },
-                    { text: "巨集指令", next: "q12_help", log: "Q12救錯: 巨集只是把很多行程式包裝起來，它最後還是會變成機器碼喔！" }
+                    { text: "struct Student { ... };", next: "q12", isCorrect: true },
+                    { text: "struct Student ( ... )", next: "q12_help", log: "Q12救錯: 小括號是給函式用的，而且你忘記加最後的分號了！" }
                 ]
             },
 
-            // --- 第 13 關：定址法 ---
+            // --- 第 13 題：結構小數點 ---
             "q13": {
-                tag: "第 13 關：組合語言定址",
-                text: "在 8086 組合語言中，指令 `MOV AX, 4BH` 代表將數值 4BH 直接存入 AX 暫存器中。請問這是使用了哪一種定址法？",
+                tag: "第 13 關：結構存取",
+                text: "假設已經宣告了結構變數 `struct Student s1;`。如果要存取 s1 的成績 (score) 並設為 90 分，應該使用哪一個符號來連接？",
                 options: [
-                    { text: "立即定址法 (Immediate Addressing)", next: "q14", isCorrect: true },
-                    { text: "直接定址法 (Direct Addressing)", next: "q13_help", log: "Q13錯: 直接定址是給一個記憶體門牌號碼，沒有加括號的話在某些語法才是" },
-                    { text: "暫存器間接定址法", next: "q13_help", log: "Q13錯: 這需要用 [BX] 這種形式" },
-                    { text: "索引定址法", next: "q13_help", log: "Q13錯: 這需要使用 SI 或 DI 暫存器" }
+                    { text: "s1.score = 90;", next: "q14", isCorrect: true },
+                    { text: "s1->score = 90;", next: "q13_help", log: "Q13錯: s1 是普通變數，不是指標，不能用箭頭" },
+                    { text: "s1:score = 90;", next: "q13_help", log: "Q13錯: 語法錯誤" },
+                    { text: "s1_score = 90;", next: "q13_help", log: "Q13錯: 語法錯誤" }
                 ]
             },
             "q13_help": {
-                tag: "🔍 PBL 詞意解析：馬上拿現金",
-                text: "【解析任務】指令後面的 4BH 不是門牌號碼，而是白花花的「數值現金」。CPU 解碼後「立刻、馬上」就能拿到資料，不用再去記憶體翻找。這叫什麼定址法？",
+                tag: "💊 PBL 救援任務：打開箱子的鎖",
+                text: "【生活比喻】s1 是一個實體的箱子。要拿箱子裡面的東西，C 語言規定要用一個「小數點 (dot)」來打開它。寫法是「箱子名稱 . 內容物」。",
                 options: [
-                    { text: "立即定址法", next: "q13", isCorrect: true },
-                    { text: "直接定址法", next: "q13_help", log: "Q13救錯: 直接定址法是給「地址」，還要跑一趟記憶體，沒有這麼快喔！" }
+                    { text: "s1.score", next: "q13", isCorrect: true },
+                    { text: "s1->score", next: "q13_help", log: "Q13救錯: s1 就在你手上，直接用小數點拿就好，不需要射箭(指標)喔！" }
                 ]
             },
 
-            // --- 第 14 關：堆疊 PUSH POP ---
+            // --- 第 14 題：結構指標箭頭 ---
             "q14": {
-                tag: "第 14 關：組合語言操作",
-                text: "若執行以下程式碼：`PUSH A`, `PUSH B`, `PUSH C`。接著執行兩次 `POP` 動作。請問最後從堆疊中被取出來 (POP) 的資料是哪一個？",
+                tag: "第 14 關：結構指標",
+                text: "如果我們宣告了一個指向結構的指標 `struct Student *p = &s1;`。如果要透過指標 p 來存取 s1 的 score，更常見的「箭頭」寫法是什麼？",
                 options: [
-                    { text: "B", next: "q15", isCorrect: true },
-                    { text: "A", next: "q14_help", log: "Q14錯: A 被壓在最底層，要 POP 三次才拿得到" },
-                    { text: "C", next: "q14_help", log: "Q14錯: 這是第一次 POP 出來的東西" },
-                    { text: "都會被拿出來", next: "q14_help", log: "Q14錯: 只有執行兩次 POP" }
+                    { text: "p->score", next: "q15", isCorrect: true },
+                    { text: "p=>score", next: "q14_help", log: "Q14錯: 這是 PHP 或 ES6 箭頭函式的寫法" },
+                    { text: "p.score", next: "q14_help", log: "Q14錯: p 裡面裝的是地址，沒有小數點可以用" },
+                    { text: "p:>score", next: "q14_help", log: "Q14錯: 語法錯誤" }
                 ]
             },
             "q14_help": {
-                tag: "🛠️ PBL 邏輯推演：畫圖解題",
-                text: "【推演任務】拿張紙畫一個深井！依序把 A 丟進去，再把 B 丟進去，最後把 C 丟進去(C在最上面)。第一次 POP 會拿出 C。那「第二次」POP 會拿出誰呢？",
+                tag: "💊 PBL 救援任務：遠端射箭",
+                text: "【生活比喻】你手上只有一張寫著地址的紙條 (p)。你要拿那間房子裡的 score，不能直接用小數點。你必須射出一支由減號和右角括號組成的「箭頭」，遠端戳中那個屬性！",
                 options: [
-                    { text: "B", next: "q14", isCorrect: true },
-                    { text: "A", next: "q14_help", log: "Q14救錯: A 在最下面，你只 POP 兩次是挖不到 A 的喔！" }
+                    { text: "p->score", next: "q14", isCorrect: true },
+                    { text: "p.score", next: "q14_help", log: "Q14救錯: p 只是一張紙條，上面沒有 score 可以拿，要用箭頭飛過去拿喔！" }
                 ]
             },
 
-            // 🛑 第 15 關：交通法規 (微型電動二輪車)
+            // --- 第 15 題：結構陣列 ---
             "q15": {
-                tag: "🛑 第 15 關：大腦休息 (淡商交通日常)",
-                text: "【情境】很多高中生沒有機車駕照，會選擇騎乘「微型電動二輪車」(以前俗稱的電動自行車，最高時速 25km/h 以下) 往返淡水商工。根據最新法規，騎乘這類車輛必須遵守什麼新規定？",
+                tag: "第 15 關：結構陣列",
+                text: "如果宣告了結構陣列 `struct Student classA[30];`。要印出第 5 個學生（索引值為4）的學號 (id)，應該怎麼寫？",
                 options: [
-                    { text: "需滿 14 歲，且車輛必須掛牌、投保強制險並配戴安全帽", next: "q16", isCorrect: true },
-                    { text: "完全不需駕照也不限年齡，誰都可以騎", next: "q15_help", log: "Q15錯: 現在有嚴格年齡與掛牌限制了" },
-                    { text: "不需要戴安全帽，但不能載人", next: "q15_help", log: "Q15錯: 沒戴安全帽會被重罰" },
-                    { text: "必須考取普通重型機車駕照才能騎", next: "q15_help", log: "Q15錯: 微電車目前免考駕照，只需年齡限制與掛牌" }
+                    { text: "classA[4].id", next: "q16", isCorrect: true },
+                    { text: "classA.id[4]", next: "q15_help", log: "Q15錯: 中括號放錯位置了" },
+                    { text: "classA(4).id", next: "q15_help", log: "Q15錯: 不能用小括號" },
+                    { text: "id.classA[4]", next: "q15_help", log: "Q15錯: 順序顛倒" }
                 ]
             },
             "q15_help": {
-                tag: "🚔 PBL 法規檢索：納管新制",
-                text: "【檢索任務】為了改善交通亂象，法規在近年已經大改版！現在這些微型電動車不能隨便買來就騎，必須要「掛上車牌」、「買保險」，而且騎車的人一定要戴安全帽，且年紀不能太小(國中生以上)。",
+                tag: "💊 PBL 救援任務：先找人再扒衣服",
+                text: "【生活比喻】要拿東西有順序！第一步：先從陣列裡抓出「第 4 號同學 (`classA[4]`)」。第二步：再用小數點打開他身上的口袋拿學號 (`.id`)。拼起來是？",
                 options: [
-                    { text: "需掛牌、保險、戴安全帽並滿14歲", next: "q15", isCorrect: true },
-                    { text: "必須考取機車駕照", next: "q15_help", log: "Q15救錯: 它之所以受學生歡迎，就是因為它「免考駕照」，但其他安全規定都要遵守！" }
+                    { text: "classA[4].id", next: "q15", isCorrect: true },
+                    { text: "classA.id[4]", next: "q15_help", log: "Q15救錯: 整個班級(`classA`)沒有一個叫 `id` 的東西，是裡面的學生才有喔！" }
                 ]
             },
 
-            // --- 第 16 關：位元運算 ---
+            // --- 第 16 題：typedef ---
             "q16": {
-                tag: "第 16 關：邏輯指令",
-                text: "若暫存器 AL = 11001011 (CBH)，我們想把它的前 4 個 bit 變成 0000，且保留後 4 個 bit 不變，應該使用哪一種邏輯指令與遮罩？",
+                tag: "第 16 關：typedef 應用",
+                text: "C 語言中常使用 `typedef` 關鍵字，它的主要功能是什麼？",
                 options: [
-                    { text: "AND AL, 0FH", next: "q17", isCorrect: true },
-                    { text: "OR AL, 0FH", next: "q16_help", log: "Q16錯: OR 會把後 4 個 bit 強制變成 1111" },
-                    { text: "AND AL, F0H", next: "q16_help", log: "Q16錯: 這會保留前 4 個，把後 4 個變 0" },
-                    { text: "XOR AL, 0FH", next: "q16_help", log: "Q16錯: 這會把後 4 個 bit 反相" }
+                    { text: "幫現有的資料型態取一個簡短的新名字", next: "q17", isCorrect: true },
+                    { text: "定義常數", next: "q16_help", log: "Q16錯: 定義常數是用 #define 或 const" },
+                    { text: "宣告一個新的指標變數", next: "q16_help", log: "Q16錯: 這不需要 typedef" },
+                    { text: "計算變數佔用的記憶體空間", next: "q16_help", log: "Q16錯: 這是 sizeof 的功能" }
                 ]
             },
             "q16_help": {
-                tag: "🧠 PBL 邏輯推演：殺手與護盾",
-                text: "【推演任務】在邏輯運算中，`AND 0` 就像殺手，會把任何東西變成 0；`AND 1` 就像護盾，會把原本的東西完整保留下來。我們想要「前 4 個變 0，後 4 個保留」，遮罩應該是 00001111。換成十六進位是？",
+                tag: "💊 PBL 救援任務：Type Define",
+                text: "【詞意解析】每次都要寫 `struct Student` 太長太累了。用 `typedef` (Type Definition 型別定義)，就可以幫它取個綽號，以後只要寫 `STU` 就好！",
                 options: [
-                    { text: "AND AL, 0FH", next: "q16", isCorrect: true },
-                    { text: "AND AL, F0H", next: "q16_help", log: "Q16救錯: F0H 是 11110000，這會把後面的資料殺光光喔！" }
+                    { text: "幫資料型態取新名字", next: "q16", isCorrect: true },
+                    { text: "定義常數", next: "q16_help", log: "Q16救錯: 定義常數是 #define 的工作啦！" }
                 ]
             },
 
-            // --- 第 17 關：通訊模式 ---
+            // --- 第 17 題：結構大小 ---
             "q17": {
-                tag: "第 17 關：資料通訊",
-                text: "警察伯伯使用的「無線電對講機」，按下去可以講話但不能聽，放開按鈕才能聽到對方的聲音。這種「同一時間只能單向傳輸，但雙方可以輪流」的通訊方式稱為？",
+                tag: "第 17 關：結構大小",
+                text: "假設 `struct Point { int x; int y; };` (假設一個 int 佔 4 bytes)。請問宣告一個 `struct Point p1;`，p1 總共會佔用多少 bytes 的記憶體？",
                 options: [
-                    { text: "半雙工 (Half-duplex)", next: "q18", isCorrect: true },
-                    { text: "單工 (Simplex)", next: "q17_help", log: "Q17錯: 單工是永遠只能單向，像廣播電台" },
-                    { text: "全雙工 (Full-duplex)", next: "q17_help", log: "Q17錯: 這是講電話，可以同時互罵" },
-                    { text: "多工 (Multiplex)", next: "q17_help", log: "Q17錯: 這是把多個訊號擠在一條線上的技術" }
+                    { text: "8 bytes", next: "q18", isCorrect: true },
+                    { text: "4 bytes", next: "q17_help", log: "Q17錯: 這是只有一個 int 的大小" },
+                    { text: "2 bytes", next: "q17_help", log: "Q17錯: 計算錯誤" },
+                    { text: "16 bytes", next: "q17_help", log: "Q17錯: 計算錯誤" }
                 ]
             },
             "q17_help": {
-                tag: "🔍 PBL 詞意解析：橋上的會車",
-                text: "【解析任務】想像一座很窄的橋。車子可以過去，也可以過來，但是「不能同時」雙向通車，必須輪流。這種只有「一半」功能的雙向溝通，叫做什麼？",
+                tag: "💊 PBL 救援任務：加總空間",
+                text: "【生活比喻】這個箱子裡面裝了兩個物品：變數 x (佔 4 格空間) 和變數 y (佔 4 格空間)。把兩個加起來，箱子總共佔了多大？",
                 options: [
-                    { text: "半雙工 (Half-duplex)", next: "q17", isCorrect: true },
-                    { text: "全雙工 (Full-duplex)", next: "q17_help", log: "Q17救錯: 全雙工就像我們打 LINE 電話，兩個人可以同時講話喔！" }
+                    { text: "8 bytes", next: "q17", isCorrect: true },
+                    { text: "4 bytes", next: "q17_help", log: "Q17救錯: 結構會把裡面的東西通通包起來，所以空間是要相加的喔！" }
                 ]
             },
 
-            // --- 第 18 關：傳輸介面 ---
+            // --- 第 18 題：結構與指標效能 ---
             "q18": {
-                tag: "第 18 關：資料通訊",
-                text: "下列哪一種傳輸介面是電腦內部硬碟最常使用的「串列傳輸介面」，且具有熱插拔的特性？",
+                tag: "第 18 關：結構與函式",
+                text: "將結構變數傳給函式時，如果結構非常大（包含很多資料），為了節省記憶體與傳遞時間，通常會建議改傳什麼東西給函式？",
                 options: [
-                    { text: "SATA", next: "q19", isCorrect: true },
-                    { text: "PATA (IDE)", next: "q18_help", log: "Q18錯: 這是早期的排線並列傳輸，沒有熱插拔" },
-                    { text: "Centronics", next: "q18_help", log: "Q18錯: 這是早期的印表機並列介面" },
-                    { text: "IEEE-488 (GPIB)", next: "q18_help", log: "Q18錯: 這是儀表專用的並列介面" }
+                    { text: "結構的指標 (位址)", next: "q19", isCorrect: true },
+                    { text: "結構的第一個字元", next: "q18_help", log: "Q18錯: 這樣資料就殘缺了" },
+                    { text: "結構的最後一個整數", next: "q18_help", log: "Q18錯: 同樣會資料殘缺" },
+                    { text: "將結構拆成好幾個變數分開傳", next: "q18_help", log: "Q18錯: 這樣程式碼會非常難寫" }
                 ]
             },
             "q18_help": {
-                tag: "📖 PBL 翻書任務：S 開頭的意義",
-                text: "【查閱任務】以前硬碟用的是很大一條扁平排線叫 ATA (並列)。後來改成細細的一條線，速度超快，叫做 Serial ATA (串列 ATA)。它的簡寫是？",
+                tag: "💊 PBL 救援任務：搬家還是給地址",
+                text: "【生活比喻】你的結構是一個超大圖書館。如果要讓別人來圖書館找書，你是要「蓋一棟一模一樣的圖書館 (傳值拷貝)」給他，還是直接給他「圖書館的地址」？",
                 options: [
-                    { text: "SATA", next: "q18", isCorrect: true },
-                    { text: "PATA", next: "q18_help", log: "Q18救錯: PATA 的 P 就是 Parallel (並列)，速度比較慢而且線很粗喔！" }
+                    { text: "結構的指標 (地址)", next: "q18", isCorrect: true },
+                    { text: "拆成分開傳", next: "q18_help", log: "Q18救錯: 拆開傳太累了，直接給一張寫著地址的薄紙條最快！" }
                 ]
             },
 
-            // --- 第 19 關：通訊計算 ---
+            // --- 第 19 題：巢狀結構 ---
             "q19": {
-                tag: "第 19 關：通訊速度計算",
-                text: "若一個 RS-232 介面的傳輸速度設為 9600 bps。假設資料格式包含 1 個起始位元、8 個資料位元、1 個結束位元 (沒有同位元)，傳送「一個字元」共需 10 bits。請問 1 秒鐘最多可以傳送幾個字元 (Bytes)？",
+                tag: "第 19 關：巢狀結構",
+                text: "一個結構裡面，還可以再包另外一個結構嗎？（例如：學生結構裡面，包含了一個「生日Date」結構）",
                 options: [
-                    { text: "960 個", next: "q20", isCorrect: true },
-                    { text: "1200 個", next: "q19_help", log: "Q19錯: 這是把 9600 除以 8，沒算到頭尾包裝" },
-                    { text: "9600 個", next: "q19_help", log: "Q19錯: 這是 bit 的數量，不是 byte 的數量" },
-                    { text: "96 個", next: "q19_help", log: "Q19錯: 少算了一個零" }
+                    { text: "可以，這稱為巢狀結構 (Nested Structure)", next: "q20", isCorrect: true },
+                    { text: "不可以，編譯器會報錯", next: "q19_help", log: "Q19錯: C 語言是允許的" },
+                    { text: "可以，但只能包一樣名稱的結構", next: "q19_help", log: "Q19錯: 不能包自己，這叫無窮遞迴定義" },
+                    { text: "不可以，結構只能裝基本型態", next: "q19_help", log: "Q19錯: 結構可以裝任何型態" }
                 ]
             },
             "q19_help": {
-                tag: "🛠️ PBL 邏輯推演：包裹的重量",
-                text: "【推演任務】傳輸線一秒鐘可以送出 9600 個小零件 (bits)。因為每個完整的「包裹(字元)」是由 10 個小零件組裝成的。請問 9600 除以 10 是多少個包裹？",
+                tag: "💊 PBL 救援任務：俄羅斯娃娃",
+                text: "【生活比喻】就像俄羅斯娃娃一樣，大箱子裡面絕對可以再裝小箱子。你可以在「員工結構」裡面，放入一個名為「聯絡資訊」的子結構。這是完全合法的！",
                 options: [
-                    { text: "960 個", next: "q19", isCorrect: true },
-                    { text: "1200 個", next: "q19_help", log: "Q19救錯: 不能只除以裡面的 8 個資料位元，外面的紙箱跟膠帶 (起始/結束位元) 也是要佔體積的！" }
+                    { text: "可以，稱為巢狀結構", next: "q19", isCorrect: true },
+                    { text: "不可以", next: "q19_help", log: "Q19救錯: C 語言非常彈性，結構包結構是專案中最常見的寫法喔！" }
                 ]
             },
 
-            // 🛑 第 20 關：交通法規 (輕軌路權)
+            // --- 第 20 題：class 關鍵字 ---
             "q20": {
-                tag: "🛑 第 20 關：大腦休息 (淡商交通日常)",
-                text: "【情境】搭乘淡海輕軌上下學是很多淡水商工學生的日常。當你騎車行經淡金路，遇到輕軌軌道與一般道路的「共用路口」時，根據法規，哪一種交通工具有「絕對優先通行權」？",
+                tag: "第 20 關：類別基礎",
+                text: "C++ 引入了物件導向的概念，用來取代或擴充 C 語言 struct 的關鍵字是什麼？它不僅可以把資料綁在一起，還可以把「函式（動作）」也綁進去！",
                 options: [
-                    { text: "大眾捷運系統 (輕軌車輛)", next: "q21", isCorrect: true },
-                    { text: "直行的一般汽機車", next: "q20_help", log: "Q20錯: 輕軌路權高於一般車輛" },
-                    { text: "先到路口的車輛先走", next: "q20_help", log: "Q20錯: 輕軌沒有在看先來後到的" },
-                    { text: "兩邊都要停下來等行人走完才能走", next: "q20_help", log: "Q20錯: 輕軌不會停下來等你" }
+                    { text: "class", next: "q21", isCorrect: true },
+                    { text: "object", next: "q20_help", log: "Q20錯: object 是做出來的實體" },
+                    { text: "function", next: "q20_help", log: "Q20錯: function 只是函式" },
+                    { text: "method", next: "q20_help", log: "Q20錯: method 只是函式的另一個名字" }
                 ]
             },
             "q20_help": {
-                tag: "🚔 PBL 法規檢索：絕對路權",
-                text: "【檢索任務】為了確保大眾運輸的安全與順暢，大眾捷運法與交通法規賦予了輕軌列車在共用路口「絕對的優先權」。不管你是直行還是轉彎，只要輕軌來了，連紅綠燈都會配合它變燈，你只能乖乖讓它！",
+                tag: "💊 PBL 救援任務：升級版的保險箱",
+                text: "【詞意解析】我們需要一個比 struct 更強大的東西，它就像是一個班級或類別。這也是 C++ 物件導向 (OOP) 最具代表性的英文單字。",
                 options: [
-                    { text: "大眾捷運系統 (輕軌)", next: "q20", isCorrect: true },
-                    { text: "直行的汽機車", next: "q20_help", log: "Q20救錯: 敢跟輕軌搶路權，不僅會吃天價罰單，撞上去連賠都賠不完喔！" }
+                    { text: "class", next: "q20", isCorrect: true },
+                    { text: "object", next: "q20_help", log: "Q20救錯: object (物件) 是用 class 這張藍圖做出來的車子喔！" }
                 ]
             },
 
-            // --- 第 21 關：中斷機制 ---
+            // --- 第 21 題：物件 Object ---
             "q21": {
-                tag: "第 21 關：I/O 控制",
-                text: "當 I/O 裝置準備好資料時，「主動」向 CPU 發出訊號請求服務，CPU 會暫停手邊工作去處理，處理完再回來繼續。這種有效率的 I/O 控制方式稱為？",
+                tag: "第 21 關：類別與物件",
+                text: "我們寫好了一個 `class Car { ... };` 的藍圖。接著在程式裡寫 `Car myCar;` 創造出一台實體車子。在物件導向中，這個 `myCar` 稱為什麼？",
                 options: [
-                    { text: "中斷式 I/O (Interrupt I/O)", next: "q22", isCorrect: true },
-                    { text: "輪詢式 I/O (Polling I/O)", next: "q21_help", log: "Q21錯: 輪詢是 CPU 不斷去問裝置好了沒，很浪費時間" },
-                    { text: "交握式 (Handshake)", next: "q21_help", log: "Q21錯: 這是雙方傳資料時互相打招呼的協定" },
-                    { text: "記憶體映像式 I/O", next: "q21_help", log: "Q21錯: 這是位址的規劃方式，不是控制流程" }
+                    { text: "物件 (Object)", next: "q22", isCorrect: true },
+                    { text: "函式 (Function)", next: "q21_help", log: "Q21錯: 這是一個名詞，不是動詞" },
+                    { text: "指標 (Pointer)", next: "q21_help", log: "Q21錯: 宣告中沒有星星 *" },
+                    { text: "陣列 (Array)", next: "q21_help", log: "Q21錯: 宣告中沒有中括號 []" }
                 ]
             },
             "q21_help": {
-                tag: "🧠 PBL 邏輯推演：被動的服務生",
-                text: "【推演任務】輪詢(Polling)就像服務生每 10 秒跑來問你「點好餐了嗎」，很煩又浪費體力。另一種方法是：你點好餐後「按桌上的服務鈴」，把服務生「打斷」叫過來。這叫做什麼式？",
+                tag: "💊 PBL 救援任務：藍圖與實體",
+                text: "【生活比喻】`class` 是工程師畫的汽車設計圖，它是虛的。當你照著設計圖把一輛可以在路上跑的車子打造出來，這個實體在英文裡就叫做？",
                 options: [
-                    { text: "中斷式 (Interrupt)", next: "q21", isCorrect: true },
-                    { text: "輪詢式 (Polling)", next: "q21_help", log: "Q21救錯: 輪詢式是 CPU 一直主動去問，效率是最低的喔！" }
+                    { text: "物件 (Object)", next: "q21", isCorrect: true },
+                    { text: "函式 (Function)", next: "q21_help", log: "Q21救錯: 函式是指車子會「跑」這個動作，但車子本身是一個有形體的「物件」喔！" }
                 ]
             },
 
-            // --- 第 22 關：DMA 特性 ---
+            // --- 第 22 題：private ---
             "q22": {
-                tag: "第 22 關：DMA 傳輸",
-                text: "當硬碟有超大量的高畫質影片資料要寫入主記憶體時，為了不讓 CPU 忙死，會請出一個代理人，讓硬碟跟記憶體「直接溝通、直接存取」。這種技術的縮寫是？",
+                tag: "第 22 關：存取修飾詞",
+                text: "在 class 中，如果不希望外面的程式直接修改裡面的資料（例如密碼或存款），我們會用哪一個關鍵字把資料「藏起來、設為私有」？",
                 options: [
-                    { text: "DMA (Direct Memory Access)", next: "q23", isCorrect: true },
-                    { text: "INTR (Interrupt Request)", next: "q22_help", log: "Q22錯: 中斷還是需要 CPU 親自搬運資料" },
-                    { text: "NMI (Non-Maskable Interrupt)", next: "q22_help", log: "Q22錯: 這是用來處理停電等緊急狀況的中斷" },
-                    { text: "ISR (Interrupt Service Routine)", next: "q22_help", log: "Q22錯: 這是中斷服務程式" }
+                    { text: "private", next: "q23", isCorrect: true },
+                    { text: "public", next: "q22_help", log: "Q22錯: 這是公開的意思" },
+                    { text: "protected", next: "q22_help", log: "Q22錯: 這是給繼承用的" },
+                    { text: "hidden", next: "q22_help", log: "Q22錯: C++ 沒有這個修飾詞" }
                 ]
             },
             "q22_help": {
-                tag: "🔍 PBL 詞意解析：縮寫還原",
-                text: "【解析任務】直接 (Direct) 記憶體 (Memory) 存取 (Access)。把這三個英文字的字首拼起來，就是這項能繞過 CPU 直接搬磚的神奇技術！",
+                tag: "💊 PBL 救援任務：私人的財產",
+                text: "【詞意解析】我們需要一個英文單字，代表「私人的、私有的」。就像你房間的日記本，不准外面的人隨便翻閱。",
                 options: [
-                    { text: "DMA", next: "q22", isCorrect: true },
-                    { text: "INTR", next: "q22_help", log: "Q22救錯: 中斷(INTR)每次只搬一個 byte 就會煩 CPU 一次，大量資料傳輸必須靠 DMA！" }
+                    { text: "private", next: "q22", isCorrect: true },
+                    { text: "public", next: "q22_help", log: "Q22救錯: Public 是像公園一樣大家都可以用，私有的是 Private 喔！" }
                 ]
             },
 
-            // --- 第 23 關：DMA IC 8237 ---
+            // --- 第 23 題：public ---
             "q23": {
-                tag: "第 23 關：周邊晶片",
-                text: "在傳統的 IBM PC 架構中，負責掌控剛剛提到的「直接記憶體存取 (DMA)」大權的經典控制晶片，其編號是？",
+                tag: "第 23 關：存取修飾詞",
+                text: "承上題，如果希望 class 裡面的某個函式（例如印出資料的函式）可以被外面的程式自由呼叫，應該用哪一個關鍵字將它「公開」？",
                 options: [
-                    { text: "8237", next: "q24", isCorrect: true },
-                    { text: "8259", next: "q23_help", log: "Q23錯: 8259 是中斷控制器" },
-                    { text: "8255", next: "q23_help", log: "Q23錯: 8255 是可程式化並列 I/O 晶片" },
-                    { text: "8251", next: "q23_help", log: "Q23錯: 8251 是串列通訊晶片 (UART)" }
+                    { text: "public", next: "q24", isCorrect: true },
+                    { text: "private", next: "q23_help", log: "Q23錯: 這樣外面就呼叫不到了" },
+                    { text: "global", next: "q23_help", log: "Q23錯: 這是指全域變數" },
+                    { text: "open", next: "q23_help", log: "Q23錯: C++ 沒有這個修飾詞" }
                 ]
             },
             "q23_help": {
-                tag: "📖 PBL 翻書任務：統測必背晶片",
-                text: "【查閱任務】微處理機有「三大經典輔助晶片」必考。8255 負責並列，8259 負責處理中斷插隊。負責當 CPU 代理人搬大量資料的 DMA 晶片，尾數是 7。是哪一顆？",
+                tag: "💊 PBL 救援任務：大眾的公園",
+                text: "【詞意解析】這個單字的意思是「公開的、大眾的」。就像公共廁所或公園，任何人(任何外部程式)都可以自由走進去使用。",
                 options: [
-                    { text: "8237", next: "q23", isCorrect: true },
-                    { text: "8259", next: "q23_help", log: "Q23救錯: 8259 是專門處理別人按服務鈴 (中斷) 的總管喔！" }
+                    { text: "public", next: "q23", isCorrect: true },
+                    { text: "open", next: "q23_help", log: "Q23救錯: 雖然 open 也是開著的意思，但 C++ 的標準語法是 Public 喔！" }
                 ]
             },
 
-            // --- 第 24 關：中斷優先權 ---
+            // --- 第 24 題：class 預設存取 ---
             "q24": {
-                tag: "第 24 關：中斷控制器",
-                text: "承上題，如果同時有好幾個周邊裝置向 8259A (中斷控制器) 發出求救訊號，8259A 預設會優先處理哪一個腳位的請求？",
+                tag: "第 24 關：類別預設",
+                text: "在 C++ 中，如果在 class 裡面沒有寫任何存取修飾詞，預設情況下，裡面的資料和函式是公開的(public) 還是私有的(private)？",
                 options: [
-                    { text: "IR0 (第 0 號接腳)", next: "q25", isCorrect: true },
-                    { text: "IR7 (第 7 號接腳)", next: "q24_help", log: "Q24錯: 數字越大的預設優先權越低" },
-                    { text: "隨機處理", next: "q24_help", log: "Q24錯: 8259A 是一個非常有紀律的仲裁者" },
-                    { text: "最後發出請求的", next: "q24_help", log: "Q24錯: 不會看先來後到，看腳位編號" }
+                    { text: "預設是私有的 (private)", next: "q25", isCorrect: true },
+                    { text: "預設是公開的 (public)", next: "q24_help", log: "Q24錯: 這是 struct 的預設" },
+                    { text: "會產生編譯錯誤", next: "q24_help", log: "Q24錯: C++ 允許不寫，有預設值" },
+                    { text: "一半公開一半私有", next: "q24_help", log: "Q24錯: 沒有這種奇怪的規定" }
                 ]
             },
             "q24_help": {
-                tag: "🛠️ PBL 邏輯推演：數字越小越偉大",
-                text: "【推演任務】在電腦硬體的世界裡，編號通常是從 0 開始排。0 號就像是大師兄，擁有絕對的最高優先權 (通常接系統計時器)。所以誰最大？",
+                tag: "💊 PBL 救援任務：保護機密",
+                text: "【邏輯推演】發明 class 的目的，就是為了把資料保護好不被亂改。所以如果你什麼都不寫，電腦會自動預設開啟「最嚴格的防護罩」把東西鎖起來。",
                 options: [
-                    { text: "IR0", next: "q24", isCorrect: true },
-                    { text: "IR7", next: "q24_help", log: "Q24救錯: 7 號是小老弟，要等前面的大哥都處理完才輪得到他喔！" }
+                    { text: "預設是私有的 (private)", next: "q24", isCorrect: true },
+                    { text: "預設是公開的 (public)", next: "q24_help", log: "Q24救錯: 如果預設公開，那就跟以前的 struct 一樣不安全了，所以預設是鎖起來的！" }
                 ]
             },
 
-            // 🛑 第 25 關：交通法規 (山路會車)
+            // --- 第 25 題：建構子 ---
             "q25": {
-                tag: "🛑 第 25 關：大腦休息 (淡商交通日常)",
-                text: "【情境】淡水商工位在山坡上。假設你騎著腳踏車上山，在狹窄且沒有劃設車道線的陡坡處，剛好遇到另一輛腳踏車要下山。路太窄無法同時通過，根據法規，誰必須讓誰？",
+                tag: "第 25 關：建構子",
+                text: "在 class 中有一種特殊的函式，名稱跟 class 一模一樣，且沒有回傳值型態。它會在物件「剛被創造出來時」自動執行（用來做初始化）。這稱為什麼？",
                 options: [
-                    { text: "下坡車 必須讓 上坡車 先行", next: "q26", isCorrect: true },
-                    { text: "上坡車 必須讓 下坡車 先行", next: "q25_help", log: "Q25錯: 剛好相反，上坡起步困難" },
-                    { text: "體積大的車 讓 體積小的車", next: "q25_help", log: "Q25錯: 法規是依據上下坡判斷，不是體積" },
-                    { text: "先按喇叭的人先走", next: "q25_help", log: "Q25錯: 這是逼車行為了" }
+                    { text: "建構子 (Constructor)", next: "q26", isCorrect: true },
+                    { text: "解構子 (Destructor)", next: "q25_help", log: "Q25錯: 這是死亡時執行的" },
+                    { text: "主函式 (Main)", next: "q25_help", log: "Q25錯: 這是整個程式的入口" },
+                    { text: "指標函式", next: "q25_help", log: "Q25錯: 這不是專有名詞" }
                 ]
             },
             "q25_help": {
-                tag: "🚔 PBL 法規檢索：體諒起步的困難",
-                text: "【檢索任務】請想像一下物理原理。上坡車如果停下來，要重新起步非常吃力，甚至可能會向後滑。下坡車有地心引力幫忙，踩煞車停下來比較容易。所以法規規定是誰要讓誰？",
+                tag: "💊 PBL 救援任務：出生的第一聲哭啼",
+                text: "【詞意解析】就像蓋房子一樣，打地基、建造(Construct) 這個物件時，立刻要做的事。所以這個負責「建構」初值的函式叫什麼？",
                 options: [
-                    { text: "下坡車 讓 上坡車", next: "q25", isCorrect: true },
-                    { text: "上坡車 讓 下坡車", next: "q25_help", log: "Q25救錯: 叫上坡車停下來，他等一下就騎不上去啦！" }
+                    { text: "建構子 (Constructor)", next: "q25", isCorrect: true },
+                    { text: "解構子", next: "q25_help", log: "Q25救錯: 解構是把東西拆掉摧毀，建構才是把東西建立起來喔！" }
                 ]
             },
 
-            // --- 第 26 關：記憶體揮發性 ---
+            // --- 第 26 題：解構子 ---
             "q26": {
-                tag: "第 26 關：記憶體特性",
-                text: "電腦裡的主記憶體 (RAM) 有一個致命的弱點：只要一停電或把插頭拔掉，裡面儲存的資料就會瞬間完全消失。這種特性稱為什麼？",
+                tag: "第 26 關：解構子",
+                text: "與建構子相對，當物件的生命週期結束（例如程式結束時）會自動執行的函式，名稱前面會加上一個 `~` 符號（例如 `~Car()`）。這稱為什麼？",
                 options: [
-                    { text: "揮發性 (Volatile)", next: "q27", isCorrect: true },
-                    { text: "非揮發性 (Non-volatile)", next: "q26_help", log: "Q26錯: 這是 ROM 或隨身碟的特性" },
-                    { text: "唯讀性 (Read-only)", next: "q26_help", log: "Q26錯: RAM 是可讀可寫的" },
-                    { text: "循序性 (Sequential)", next: "q26_help", log: "Q26錯: RAM 是隨機存取的" }
+                    { text: "解構子 (Destructor)", next: "q27", isCorrect: true },
+                    { text: "建構子 (Constructor)", next: "q26_help", log: "Q26錯: 這是出生時執行的" },
+                    { text: "結束子", next: "q26_help", log: "Q26錯: C++ 沒有這個名詞" },
+                    { text: "清空子", next: "q26_help", log: "Q26錯: C++ 沒有這個名詞" }
                 ]
             },
             "q26_help": {
-                tag: "🔍 PBL 詞意解析：像酒精一樣蒸發",
-                text: "【解析任務】就像把酒精倒在桌上，時間一到它就蒸發不見了。記憶體只要失去電力的滋潤，資料就會像這樣不見。這個名詞是？",
+                tag: "💊 PBL 救援任務：收拾殘局",
+                text: "【詞意解析】當物件要死亡、被摧毀(Destroy)時，用來釋放記憶體、收拾殘局的機制。這個負責「解除建構」的函式叫做？",
                 options: [
-                    { text: "揮發性", next: "q26", isCorrect: true },
-                    { text: "非揮發性", next: "q26_help", log: "Q26救錯: ROM (唯讀記憶體) 才是不會揮發的，斷電資料還在！" }
+                    { text: "解構子 (Destructor)", next: "q26", isCorrect: true },
+                    { text: "結束子", next: "q26_help", log: "Q26救錯: 雖然意思是結束，但在中文課本裡的正式翻譯是解構子喔！" }
                 ]
             },
 
-            // --- 第 27 關：SRAM vs DRAM ---
+            // --- 第 27 題：class vs struct ---
             "q27": {
-                tag: "第 27 關：RAM 的種類",
-                text: "主記憶體 DRAM (動態隨機存取記憶體) 的儲存單元是利用「極微小的電容器」來記憶 0 和 1。因為電容器會漏電，所以它必須依靠什麼動作來維持資料不消失？",
+                tag: "第 27 關：類別與結構比較",
+                text: "在 C++ 中，`class` 與 `struct` 最大的差別在於「預設的存取權限」。struct 預設是公開的(public)，那 class 預設是什麼？",
                 options: [
-                    { text: "每隔幾毫秒就必須 更新/刷新 (Refresh) 一次充電", next: "q28", isCorrect: true },
-                    { text: "接上一顆水銀電池", next: "q27_help", log: "Q27錯: 這救不了 DRAM，這是早期 CMOS 存 BIOS 設定的作法" },
-                    { text: "放在極低溫的環境中", next: "q27_help", log: "Q27錯: 降溫能減緩漏電，但仍需刷新" },
-                    { text: "寫入時使用紫外線照射", next: "q27_help", log: "Q27錯: 這是清除 EPROM 資料的方法" }
+                    { text: "私有的 (private)", next: "q28", isCorrect: true },
+                    { text: "也是公開的 (public)", next: "q27_help", log: "Q27錯: 兩者剛好相反" },
+                    { text: "受保護的 (protected)", next: "q27_help", log: "Q27錯: 這要手動打上去" },
+                    { text: "沒有預設值", next: "q27_help", log: "Q27錯: 一定有預設" }
                 ]
             },
             "q27_help": {
-                tag: "🧠 PBL 邏輯推演：漏水的破水桶",
-                text: "【推演任務】DRAM 就像一個底部有破洞的水桶 (微小電容)。如果水桶有水代表 1，沒水代表 0。因為水一直漏，你要怎麼確保代表 1 的水桶不會變成 0？當然是派人一直不斷去「補水」！這個動作叫？",
+                tag: "💊 PBL 救援任務：防禦升級",
+                text: "【邏輯推演】前面學過，class 是一個防護力很強的保險箱。如果甚麼都不寫，它預設會把你所有的東西設定為「私人專屬」。",
                 options: [
-                    { text: "不斷更新/刷新 (Refresh)", next: "q27", isCorrect: true },
-                    { text: "接上水銀電池", next: "q27_help", log: "Q27救錯: 水銀電池撐不住 DRAM 這麼龐大的漏電量啦！" }
+                    { text: "私有的 (private)", next: "q27", isCorrect: true },
+                    { text: "也是公開的", next: "q27_help", log: "Q27救錯: struct 才是毫無防備的公開，class 是進階的私有保護！" }
                 ]
             },
 
-            // --- 第 28 關：SRAM 速度 ---
+            // --- 第 28 題：封裝 Encapsulation ---
             "q28": {
-                tag: "第 28 關：快取記憶體",
-                text: "因為 DRAM 必須一直停下來補水 (Refresh)，速度太慢跟不上 CPU。所以 CPU 內部會內建一種用「正反器 (Flip-Flop)」製作、不用充電、速度極快但造價昂貴的記憶體來當作快取 (Cache)。它是什麼？",
+                tag: "第 28 關：封裝概念",
+                text: "把資料隱藏在 private 中，只提供 public 的函式（如 getScore）讓外面讀取，這種保護資料不被亂改的機制，在物件導向中稱為？",
                 options: [
-                    { text: "SRAM (靜態隨機存取記憶體)", next: "q29", isCorrect: true },
-                    { text: "EEPROM", next: "q28_help", log: "Q28錯: 這是用電氣清除的唯讀記憶體，寫入極慢" },
-                    { text: "Flash Memory (快閃記憶體)", next: "q28_help", log: "Q28錯: 雖然叫快閃，但其實比 RAM 慢很多" },
-                    { text: "硬碟 (HDD)", next: "q28_help", log: "Q28錯: 這是最慢的輔助記憶體" }
+                    { text: "封裝 (Encapsulation)", next: "q29", isCorrect: true },
+                    { text: "繼承 (Inheritance)", next: "q28_help", log: "Q28錯: 這是爸爸傳給兒子的特性" },
+                    { text: "多型 (Polymorphism)", next: "q28_help", log: "Q28錯: 這是同一個函式有多種面貌" },
+                    { text: "多載 (Overloading)", next: "q28_help", log: "Q28錯: 這是同名函式不同參數" }
                 ]
             },
             "q28_help": {
-                tag: "📖 PBL 翻書任務：靜與動的對決",
-                text: "【查閱任務】DRAM 的 D 代表 Dynamic (動態)，因為水一直漏一直補，很忙碌。另一種用電晶體做的，只要通電資料就穩如泰山死死抓住的，S 代表 Static (靜態)。它是？",
+                tag: "💊 PBL 救援任務：膠囊包裝",
+                text: "【生活比喻】就像吃感冒藥的膠囊 (Capsule)。藥廠把苦苦的藥粉「包裝、封閉」在膠囊裡面，你不可以直接碰到藥粉，只能把它整顆吞下去。這個機制叫做？",
                 options: [
-                    { text: "SRAM", next: "q28", isCorrect: true },
-                    { text: "Flash Memory", next: "q28_help", log: "Q28救錯: Flash 是隨身碟用的，雖然也不會掉資料，但速度遠遠跟不上 CPU 喔！" }
+                    { text: "封裝", next: "q28", isCorrect: true },
+                    { text: "繼承", next: "q28_help", log: "Q28救錯: 把東西藏進膠囊裡面，這個動作叫做封裝啦！" }
                 ]
             },
 
-            // --- 第 29 關：固態硬碟 ---
+            // --- 第 29 題：範圍解析運算子 ---
             "q29": {
-                tag: "第 29 關：輔助記憶體",
-                text: "近年來，傳統利用磁盤旋轉的笨重硬碟 (HDD)，逐漸被輕薄、抗震、速度飛快的「固態硬碟 (SSD)」取代。請問 SSD 主要是使用哪一種記憶體晶片來儲存資料？",
+                tag: "第 29 關：成員函式實作",
+                text: "要在 class 的「外面」寫出內部的函式時，需要使用哪一個符號來連接類別名稱與函式名稱？（例如：`void Student____printInfo()`）",
                 options: [
-                    { text: "Flash Memory (快閃記憶體)", next: "q30", isCorrect: true },
-                    { text: "SRAM", next: "q29_help", log: "Q29錯: SRAM 斷電資料就沒了，不能當硬碟" },
-                    { text: "DRAM", next: "q29_help", log: "Q29錯: DRAM 斷電資料也會消失" },
-                    { text: "ROM", next: "q29_help", log: "Q29錯: ROM 不能自由快速的寫入新檔案" }
+                    { text: ":: (範圍解析運算子)", next: "q30", isCorrect: true },
+                    { text: ". (小數點)", next: "q29_help", log: "Q29錯: 這是用物件呼叫時用的" },
+                    { text: "-> (箭頭)", next: "q29_help", log: "Q29錯: 這是用指標呼叫時用的" },
+                    { text: "& (取址符號)", next: "q29_help", log: "Q29錯: 這是取地址的" }
                 ]
             },
             "q29_help": {
-                tag: "🛠️ PBL 邏輯推演：隨身碟的進化版",
-                text: "【推演任務】其實 SSD 的底層技術，就跟我們掛在鑰匙圈上的「隨身碟」一模一樣，只是晶片裝得更多、控制器更強而已。隨身碟使用的那種不怕斷電、又可以重複擦寫的晶片叫什麼？",
+                tag: "💊 PBL 救援任務：兩個冒號",
+                text: "【語法推演】這個符號叫做 Scope Resolution Operator。在 C++ 中，當你要告訴電腦「這個函式是屬於那個 class 的勢力範圍」，必須使用「連續兩個冒號」。",
                 options: [
-                    { text: "Flash Memory (快閃記憶體)", next: "q29", isCorrect: true },
-                    { text: "SRAM", next: "q29_help", log: "Q29救錯: SRAM 是 CPU 裡面的超級 VIP 記憶體，貴到不可能拿來存好幾 GB 的遊戲啦！" }
+                    { text: "::", next: "q29", isCorrect: true },
+                    { text: ".", next: "q29_help", log: "Q29救錯: 小數點是等車子造出來(物件化)才能用。在寫藍圖的時候要用 :: 喔！" }
                 ]
             },
 
-            // 🛑 第 30 關：交通法規 (考照年齡)
+            // --- 第 30 題：類別指標箭頭 ---
             "q30": {
-                tag: "🛑 第 30 關：大腦休息 (淡商交通日常)",
-                text: "【情境】淡水商工三年級的同學，很多人滿懷期待地準備考取人生第一張駕照。請問根據台灣法規，必須年滿幾歲才能報考「普通重型機車」(也就是大家常騎的 125cc 白牌機車) 駕照？",
+                tag: "🏆 最終關：綜合追蹤",
+                text: "如果我有一個類別指標 `Student *ptr;`，我要呼叫它裡面的 `study()` 函式，應該寫 `ptr.study();` 還是 `ptr->study();`？",
                 options: [
-                    { text: "滿 18 歲", next: "q31", isCorrect: true },
-                    { text: "滿 16 歲", next: "q30_help", log: "Q30錯: 16歲還不能考駕照" },
-                    { text: "滿 20 歲", next: "q30_help", log: "Q30錯: 以前民法成年的年紀，但駕照 18 歲就能考" },
-                    { text: "沒有年齡限制，只要會騎腳踏車就可以", next: "q30_help", log: "Q30錯: 這絕對違法，無照駕駛罰超重" }
+                    { text: "ptr->study(); (因為 ptr 是指標)", next: "end", isCorrect: true },
+                    { text: "ptr.study();", next: "q30_help", log: "Q30錯: ptr 裡面裝的是位址，不能直接用小數點" },
+                    { text: "(*ptr)->study();", next: "q30_help", log: "Q30錯: 語法錯誤" },
+                    { text: "&ptr.study();", next: "q30_help", log: "Q30錯: 語法錯誤" }
                 ]
             },
             "q30_help": {
-                tag: "🚔 PBL 法規檢索：成年的禮物",
-                text: "【檢索任務】在台灣，高三學生最期待的生日禮物就是去監理站考駕照。不管是汽車還是普通重型機車，都必須跨過這個法定的「成年」門檻才能報考。是幾歲呢？",
+                tag: "💊 PBL 救援任務：遠端的遙控器",
+                text: "【生活比喻】這跟 struct 一模一樣！只要你手上拿的是「寫著地址的紙條(指標 *)」，你就不能直接碰它，你必須遠遠地射出一支「箭頭」來操作它！",
                 options: [
-                    { text: "滿 18 歲", next: "q30", isCorrect: true },
-                    { text: "滿 20 歲", next: "q30_help", log: "Q30救錯: 20 歲是考大型重機 (黃牌/紅牌) 的門檻喔，普通的白牌 18 歲就可以了！" }
-                ]
-            },
-
-            // --- 第 31 關：組合語言 MOV ---
-            "q31": {
-                tag: "第 31 關：組合語言指令",
-                text: "在 8086 組合語言中，哪一個指令的作用是「將資料進行複製、搬移」？（例如把暫存器 A 的資料複製給暫存器 B）",
-                options: [
-                    { text: "MOV", next: "q32", isCorrect: true },
-                    { text: "ADD", next: "q31_help", log: "Q31錯: 這是做加法" },
-                    { text: "SUB", next: "q31_help", log: "Q31錯: 這是做減法" },
-                    { text: "INC", next: "q31_help", log: "Q31錯: 這是把自己加一 (+1)" }
-                ]
-            },
-            "q31_help": {
-                tag: "🔍 PBL 詞意解析：移動的英文",
-                text: "【解析任務】組合語言的指令都是英文單字的縮寫。要把資料從甲地「移動」到乙地，英文的 Move 縮寫成三個字母，就是這個最經典的指令！",
-                options: [
-                    { text: "MOV", next: "q31", isCorrect: true },
-                    { text: "ADD", next: "q31_help", log: "Q31救錯: ADD 是 Add (加) 的縮寫，用來算數學的喔！" }
-                ]
-            },
-
-            // --- 第 32 關：旗標暫存器 ZF ---
-            "q32": {
-                tag: "第 32 關：CPU 狀態旗標",
-                text: "當 CPU 執行算術運算 (例如 SUB 相減指令) 後，若「運算的最終結果恰好等於 0」，則 CPU 內的哪一個狀態旗標會被舉起 (設定為 1)？",
-                options: [
-                    { text: "ZF (Zero Flag, 零旗標)", next: "q33", isCorrect: true },
-                    { text: "CF (Carry Flag, 進位旗標)", next: "q32_help", log: "Q32錯: 這是運算超出邊界產生進位或借位時用的" },
-                    { text: "SF (Sign Flag, 符號旗標)", next: "q32_help", log: "Q32錯: 這是看結果是正數還是負數的" },
-                    { text: "OF (Overflow Flag, 溢位旗標)", next: "q32_help", log: "Q32錯: 這是發生二補數溢位錯誤時用的" }
-                ]
-            },
-            "q32_help": {
-                tag: "🧠 PBL 邏輯推演：顧名思義",
-                text: "【推演任務】這題根本是送分題！當結果變成「零 (Zero)」的時候，專門負責監視「零」的旗標就會發出警報 (變成 1)。英文字母縮寫是？",
-                options: [
-                    { text: "ZF (零旗標)", next: "q32", isCorrect: true },
-                    { text: "SF (符號旗標)", next: "q32_help", log: "Q32救錯: SF 是在看最高位元，用來判斷答案是正的還是負的喔！" }
-                ]
-            },
-
-            // --- 第 33 關：移位乘法 ---
-            "q33": {
-                tag: "第 33 關：二進位運算",
-                text: "在微處理機中，若我們對一個暫存器內的二進位數值執行一次「向左移 1 位 (SHL)」的動作，且沒有發生溢位。在數學上，這個數值的變化等同於？",
-                options: [
-                    { text: "乘以 2", next: "q34", isCorrect: true },
-                    { text: "除以 2", next: "q33_help", log: "Q33錯: 這是向右移位 (SHR) 的結果" },
-                    { text: "加上 2", next: "q33_help", log: "Q33錯: 移位是倍數關係，不是加法" },
-                    { text: "變成 2 的次方", next: "q33_help", log: "Q33錯: 不是自己平方" }
-                ]
-            },
-            "q33_help": {
-                tag: "🛠️ PBL 邏輯推演：進位的奧秘",
-                text: "【推演任務】在十進位裡，把 5「向左移一位」後面補 0，變成 50，就是乘以 10。在「二進位」裡，底數是 2。所以把數字往左邊推一格，就等同於乘上它的底數。也就是乘以？",
-                options: [
-                    { text: "乘以 2", next: "q33", isCorrect: true },
-                    { text: "除以 2", next: "q33_help", log: "Q33救錯: 向右移位 (數值變小) 才是除以 2 喔！" }
-                ]
-            },
-
-            // --- 第 34 關：多核心架構 ---
-            "q34": {
-                tag: "第 34 關：多核心處理器",
-                text: "現代電腦常標榜「雙核心」、「四核心」甚至「八核心」。請問「多核心微處理機」的本質是什麼？",
-                options: [
-                    { text: "將多個獨立的運算核心 (ALU+CU) 封裝在『同一個』CPU 實體晶片中", next: "q35", isCorrect: true },
-                    { text: "在一塊主機板上，插上好幾顆獨立的 CPU 晶片", next: "q34_help", log: "Q34錯: 這是『多處理機 (Multi-Processor)』系統，不是多核心" },
-                    { text: "利用網路把全世界的電腦連起來一起算", next: "q34_help", log: "Q34錯: 這是分散式運算或雲端運算" },
-                    { text: "加大單一 CPU 的時脈頻率到好幾倍", next: "q34_help", log: "Q34錯: 這是超頻，核心數還是只有一個" }
-                ]
-            },
-            "q34_help": {
-                tag: "📖 PBL 翻書任務：單獨套房 vs 合租公寓",
-                text: "【查閱任務】請查閱第七章。多處理機是「很多棟房子(晶片)」。而多核心技術，是把好幾間獨立的套房(核心)，全部塞進「同一棟公寓(單一晶片)」裡面！",
-                options: [
-                    { text: "多個核心封裝在同一個晶片中", next: "q34", isCorrect: true },
-                    { text: "主機板上插好幾顆 CPU 晶片", next: "q34_help", log: "Q34救錯: 主機板插很多顆 CPU 的那叫伺服器級的「多處理機」系統喔！" }
-                ]
-            },
-
-            // 🛑 第 35 關：交通法規 (大型車視線死角)
-            "q35": {
-                tag: "🛑 第 35 關：大腦休息 (淡商交通日常)",
-                text: "【情境】放學時，淡水市區車流繁忙，有許多大客車與聯結車。騎腳踏車或機車時，絕對不能跟這些大型車輛併行轉彎，因為它們有致命的「內輪差」與「視線死角」。請問何謂內輪差？",
-                options: [
-                    { text: "轉彎時，車輛『後輪』往內側偏移的軌跡，比前輪更靠近人行道", next: "q36", isCorrect: true },
-                    { text: "轉彎時，車輛的『前輪』會突然爆胎", next: "q35_help", log: "Q35錯: 這跟內輪差無關" },
-                    { text: "大車車輪比較大，會輾過小車", next: "q35_help", log: "Q35錯: 這不是內輪差的物理定義" },
-                    { text: "轉彎時，車尾會往外側大甩尾", next: "q35_help", log: "Q35錯: 這是外輪差，內輪差是往內捲" }
-                ]
-            },
-            "q35_help": {
-                tag: "🚔 PBL 法規檢索：死神的鐮刀",
-                text: "【檢索任務】請回想宣導影片。大車轉彎時，前輪雖然過了，但因為車身很長，後輪會切西瓜「向內側偏移」。很多機車騎士以為車頭過了就安全，結果被後輪捲進去！這就是？",
-                options: [
-                    { text: "後輪軌跡向內側偏移", next: "q35", isCorrect: true },
-                    { text: "車尾向外側大甩尾", next: "q35_help", log: "Q35救錯: 外甩的是車尾，但最危險會把人捲進車底的是往內側切的「後輪」喔！" }
-                ]
-            },
-
-            // --- 第 36 關：位址解碼器 ---
-            "q36": {
-                tag: "第 36 關：位址解碼",
-                text: "在微電腦系統中，為了喚醒特定位置的記憶體晶片，我們常會使用「74138 (3對8解碼器)」。若 74138 的輸入端 C, B, A 給予訊號 1, 0, 1，請問哪一個輸出腳位 (Y0~Y7) 會產生低電位動作？",
-                options: [
-                    { text: "Y5", next: "q37", isCorrect: true },
-                    { text: "Y1", next: "q36_help", log: "Q36錯: 這是輸入 001 的結果" },
-                    { text: "Y3", next: "q36_help", log: "Q36錯: 這是 011 的結果" },
-                    { text: "Y6", next: "q36_help", log: "Q36錯: 這是 110 的結果" }
-                ]
-            },
-            "q36_help": {
-                tag: "🛠️ PBL 邏輯推演：二進位轉十進位",
-                text: "【推演任務】解碼器就像個翻譯機。輸入端 CBA (1, 0, 1) 代表一個二進位數字 $101_2$。請把 101 換算成十進位：$1 \\times 4 + 0 \\times 2 + 1 \\times 1 = ?$，所以就是第幾號腳位？",
-                options: [
-                    { text: "Y5", next: "q36", isCorrect: true },
-                    { text: "Y6", next: "q36_help", log: "Q36救錯: 110 (4+2=6) 才是 Y6 喔！101 是 5！" }
-                ]
-            },
-
-            // --- 第 37 關：北橋與南橋 ---
-            "q37": {
-                tag: "第 37 關：主機板架構",
-                text: "在傳統的個人電腦主機板上，晶片組分為「北橋」與「南橋」。下列哪一項硬體設備通常是連接在處理「低速訊號」的「南橋晶片」上？",
-                options: [
-                    { text: "USB 控制器 與 音效卡", next: "q38", isCorrect: true },
-                    { text: "主記憶體 (RAM)", next: "q37_help", log: "Q37錯: 主記憶體是最高速的，歸北橋管" },
-                    { text: "PCI-E 獨立顯示卡", next: "q37_help", log: "Q37錯: 顯示卡需要龐大頻寬，歸北橋管" },
-                    { text: "CPU 本身", next: "q37_help", log: "Q37錯: CPU 位於架構的最頂端" }
-                ]
-            },
-            "q37_help": {
-                tag: "🔍 PBL 詞意解析：南北的快慢",
-                text: "【解析任務】北橋 (靠近 CPU) 專門管「跑得飛快」的高級零件，如主記憶體和顯示卡。南橋 (遠離 CPU) 就像里長伯，專管一些速度不快但很雜的周邊。滑鼠鍵盤用的 USB 算哪一種？",
-                options: [
-                    { text: "USB 控制器", next: "q37", isCorrect: true },
-                    { text: "主記憶體 (RAM)", next: "q37_help", log: "Q37救錯: 記憶體如果被丟去給南橋管，整台電腦會卡到崩潰喔！" }
-                ]
-            },
-
-            // --- 第 38 關：RISC 特性 ---
-            "q38": {
-                tag: "第 38 關：CPU 架構設計",
-                text: "目前市面上的手機處理器 (如 ARM 架構) 大多採用「RISC (精簡指令集)」設計。關於 RISC，下列敘述何者正確？",
-                options: [
-                    { text: "指令數量少、長度固定，且大多能在單一時脈週期內執行完畢", next: "q39", isCorrect: true },
-                    { text: "擁有極大量且複雜的指令", next: "q38_help", log: "Q38錯: 這是 CISC 的特徵" },
-                    { text: "使用微程式 (Micro-program) 來控制執行", next: "q38_help", log: "Q38錯: CISC 才是用微程式，RISC 是硬體直接連線" },
-                    { text: "指令長度變化很大，非常不固定", next: "q38_help", log: "Q38錯: 為了追求速度，RISC 的指令長度是固定的" }
-                ]
-            },
-            "q38_help": {
-                tag: "📖 PBL 翻書任務：Reduced 的真諦",
-                text: "【查閱任務】RISC 的 R 代表 Reduced (精簡)。為了讓 CPU 跑得飛快，工程師把那些很少用的複雜指令全部丟掉，只留下長度一樣、簡單暴力的基本招式，每一招都在一個瞬間(週期)打完！",
-                options: [
-                    { text: "指令少、長度固定、單一週期執行", next: "q38", isCorrect: true },
-                    { text: "擁有極大量且複雜的指令", next: "q38_help", log: "Q38救錯: 複雜指令集叫做 CISC (Complex)，那是 Intel 電腦 CPU 在用的喔！" }
-                ]
-            },
-
-            // --- 第 39 關：超純量架構 ---
-            "q39": {
-                tag: "第 39 關：進階 CPU 技術",
-                text: "為了突破執行速度的極限，現代微處理機引入了「超純量架構 (Superscalar)」。這項技術最核心的能力是什麼？",
-                options: [
-                    { text: "在「同一個」時脈週期內，可以「同時」執行多個指令", next: "q40", isCorrect: true },
-                    { text: "可以將時脈頻率超頻到極限", next: "q39_help", log: "Q39錯: 超頻只是加快時鐘，超純量是增加管線" },
-                    { text: "可以讓記憶體容量變大兩倍", next: "q39_help", log: "Q39錯: 這與記憶體容量無關" },
-                    { text: "能自動消滅程式的 Bug", next: "q39_help", log: "Q39錯: 世上沒有這種魔法硬體" }
-                ]
-            },
-            "q39_help": {
-                tag: "🧠 PBL 邏輯推演：多條生產線",
-                text: "【推演任務】傳統的 CPU 就像一家工廠只有一條輸送帶，滴答一聲只能做一件事。超純量架構就是在工廠裡建了「好幾條平行的輸送帶」。所以滴答一聲，它可以？",
-                options: [
-                    { text: "在一個週期內同時執行多個指令", next: "q39", isCorrect: true },
-                    { text: "可以將時脈頻率超頻", next: "q39_help", log: "Q39救錯: 超頻是讓輸送帶轉快一點，而超純量是直接多蓋幾條輸送帶喔！" }
-                ]
-            },
-
-            // 🛑 第 40 關：交通法規 (客運繫安全帶)
-            "q40": {
-                tag: "🛑 第 40 關：大腦休息 (淡商交通日常)",
-                text: "【情境】搭乘淡水客運或是學校專車出門校外教學時，不論車輛是行駛在高速公路、快速公路或是「一般市區道路」，根據最新的法規，乘客對於「安全帶」的規定為何？",
-                options: [
-                    { text: "所有乘客(滿4歲以上)皆必須全程繫上安全帶，違者可依法開罰", next: "q41", isCorrect: true },
-                    { text: "只有開上高速公路才需要繫，在市區不用", next: "q40_help", log: "Q40錯: 最新法規已擴大到一般道路也要繫" },
-                    { text: "只有坐在第一排的乘客需要繫", next: "q40_help", log: "Q40錯: 全車都要繫" },
-                    { text: "大客車很安全，法規沒有強制規定", next: "q40_help", log: "Q40錯: 翻車事故頻傳，法規已經強制規定了" }
-                ]
-            },
-            "q40_help": {
-                tag: "🚔 PBL 法規檢索：安全無死角",
-                text: "【檢索任務】近年來因為大客車翻覆造成嚴重死傷，立法院已經三讀通過修法！現在搭乘大客車，不管是走山路、市區還是國道，為了你的生命安全，上車第一件事就是？",
-                options: [
-                    { text: "全車乘客皆須繫上安全帶", next: "q40", isCorrect: true },
-                    { text: "只有上高速公路才需要繫", next: "q40_help", log: "Q40救錯: 一般道路如果發生車禍，沒繫安全帶一樣會被拋飛出車外的！" }
-                ]
-            },
-
-            // --- 第 41 關：交握式通訊 ---
-            "q41": {
-                tag: "第 41 關：I/O 控制方式",
-                text: "當 CPU 與速度較慢的印表機傳送資料時，CPU 會先送出「資料準備好了(Strobe)」，印表機收到後回傳一個「我收到了(ACK)」，CPU 才會送下一筆。這種一來一往互相確認的機制稱為？",
-                options: [
-                    { text: "交握式 (Handshake)", next: "q42", isCorrect: true },
-                    { text: "直接記憶體存取 (DMA)", next: "q41_help", log: "Q41錯: 這是用來搬大量資料的" },
-                    { text: "輪詢式 (Polling)", next: "q41_help", log: "Q41錯: 這是 CPU 單方面一直問" },
-                    { text: "中斷式 (Interrupt)", next: "q41_help", log: "Q41錯: 這是周邊主動打斷 CPU" }
-                ]
-            },
-            "q41_help": {
-                tag: "🔍 PBL 詞意解析：握手言和",
-                text: "【解析任務】這就像兩個人在傳接球。我說「要丟囉！」，你回答「好，我準備好了！」。這種雙方透過控制訊號互相打招呼、確認狀態的行為，英文直譯就是「握手」。所以叫？",
-                options: [
-                    { text: "交握式 (Handshake)", next: "q41", isCorrect: true },
-                    { text: "輪詢式 (Polling)", next: "q41_help", log: "Q41救錯: 輪詢是只有單方面在查勤，沒有互相確認的禮貌機制喔！" }
-                ]
-            },
-
-            // --- 第 42 關：RS-232 腳位 ---
-            "q42": {
-                tag: "第 42 關：通訊介面",
-                text: "早期的工業機台或條碼掃描器常使用的 RS-232 串列通訊介面，它標準的硬體接頭外觀通常是什麼形狀，且擁有幾支接腳？",
-                options: [
-                    { text: "D 型接頭，25 支接腳 (或簡化為 9 支)", next: "q43", isCorrect: true },
-                    { text: "方型接頭，36 支接腳", next: "q42_help", log: "Q42錯: 這是並列的 Centronics 印表機介面" },
-                    { text: "長扁型，4 支接腳", next: "q42_help", log: "Q42錯: 這是 USB 介面" },
-                    { text: "圓形接頭，5 支接腳", next: "q42_help", log: "Q42錯: 這是早期鍵盤的 DIN 接頭" }
-                ]
-            },
-            "q42_help": {
-                tag: "📖 PBL 翻書任務：老科技的形狀",
-                text: "【查閱任務】請查閱課本第四章。RS-232 接頭長得很像一個倒寫的英文字母 D，最古老的標準版本有高達 25 根針腳 (後來被簡化成 9 根的 COM port)。",
-                options: [
-                    { text: "D 型接頭，25 支接腳", next: "q42", isCorrect: true },
-                    { text: "方型接頭，36 支接腳", next: "q42_help", log: "Q42救錯: 36 根針腳的超大方型接頭，是以前印表機用的並列介面喔！" }
-                ]
-            },
-
-            // --- 第 43 關：BJT 組合語言 POP ---
-            "q43": {
-                tag: "第 43 關：組合語言進階",
-                text: "在 8086 組合語言中，執行 `POP AX` 指令，會將堆疊頂端的資料彈出，並存入 AX 暫存器中。這時，記錄堆疊位置的「堆疊指標暫存器 (SP)」數值會如何變化？",
-                options: [
-                    { text: "SP 的數值會 加 2 (+2)", next: "q44", isCorrect: true },
-                    { text: "SP 的數值會 減 2 (-2)", next: "q43_help", log: "Q43錯: 這是 PUSH (壓入) 時的動作" },
-                    { text: "SP 的數值維持不變", next: "q43_help", log: "Q43錯: 拿出東西，指標當然要移動" },
-                    { text: "SP 會歸零", next: "q43_help", log: "Q43錯: 這樣堆疊就全毀了" }
-                ]
-            },
-            "q43_help": {
-                tag: "🛠️ PBL 邏輯推演：倒著長的塔",
-                text: "【推演任務】記憶體的位址是由下往上增加 (0000 到 FFFF)。但堆疊很奇怪，它是「從上面高樓層往地下室蓋」。放東西進去 (PUSH) 時，樓層變低 (減 2)。那把東西拿走 (POP) 時，指標會退回高樓層，所以是？",
-                options: [
-                    { text: "數值加 2 (+2)", next: "q43", isCorrect: true },
-                    { text: "數值減 2 (-2)", next: "q43_help", log: "Q43救錯: 減 2 是往更深的地方壓進去 (PUSH)，POP 是要拿出來喔！" }
-                ]
-            },
-
-            // --- 第 44 關：並列晶片 8255 ---
-            "q44": {
-                tag: "第 44 關：周邊晶片",
-                text: "為了讓 CPU 可以控制外部的紅綠燈 LED 或讀取多個開關狀態，常會使用編號「8255A」的可程式化晶片。請問這顆晶片的主要功能是什麼？",
-                options: [
-                    { text: "提供可擴充的「並列式」輸出入埠 (Parallel I/O Ports)", next: "q45", isCorrect: true },
-                    { text: "提供「串列式」資料通訊", next: "q44_help", log: "Q44錯: 這是 8251 (UART) 的功能" },
-                    { text: "負責仲裁多個中斷要求", next: "q44_help", log: "Q44錯: 這是 8259 的功能" },
-                    { text: "負責精準的計時與產生方波", next: "q44_help", log: "Q44錯: 這是 8253 或 8254 的功能" }
-                ]
-            },
-            "q44_help": {
-                tag: "📖 PBL 翻書任務：它有三個 Port",
-                text: "【查閱任務】8255 內部有 Port A、Port B、Port C 三個大門，每個門都有 8 條線可以「同時」送出或接收信號。這種多條線同時傳送的技術叫？",
-                options: [
-                    { text: "並列式輸出入埠", next: "q44", isCorrect: true },
-                    { text: "串列式資料通訊", next: "q44_help", log: "Q44救錯: 串列是一次只排隊送一個 bit (像 USB)，8255 是一次送 8 個 bit 的並列喔！" }
-                ]
-            },
-
-            // 🏆 第 45 關：最終大魔王 ---
-            "q45": {
-                tag: "🏆 最終關：微處理機大魔王",
-                text: "最後一題大魔王！請綜合比較 CPU 對周邊裝置存取資料的三種控制方式，若單純比較「資料傳輸的效率與速度（不佔用 CPU 時間）」，由快到慢的排序為何？",
-                options: [
-                    { text: "DMA 傳輸 > 中斷式 (Interrupt) > 輪詢式 (Polling)", next: "end", isCorrect: true },
-                    { text: "輪詢式 > 中斷式 > DMA 傳輸", next: "q45_help", log: "Q45錯: 輪詢式是最慢最浪費 CPU 時間的" },
-                    { text: "中斷式 > DMA 傳輸 > 輪詢式", next: "q45_help", log: "Q45錯: DMA 繞過 CPU，絕對是最快的" },
-                    { text: "DMA 傳輸 > 輪詢式 > 中斷式", next: "q45_help", log: "Q45錯: 輪詢式墊底" }
-                ]
-            },
-            "q45_help": {
-                tag: "🧠 PBL 邏輯推演：老闆的辦事效率",
-                text: "【推演任務】輪詢：老闆(CPU)每五分鐘親自跑去工廠看貨做好了沒 (最沒效率)。中斷：貨做好了工人按鈴叫老闆來搬 (效率尚可)。DMA：老闆直接請貨運公司(DMA晶片)自己把貨搬進倉庫，完全不煩老闆 (效率最高)！所以排序是？",
-                options: [
-                    { text: "DMA > 中斷 > 輪詢", next: "q45", isCorrect: true },
-                    { text: "中斷 > DMA > 輪詢", next: "q45_help", log: "Q45救錯: 中斷還是需要老闆親自去搬貨，沒有 DMA 這種專屬搬運工快喔！" }
+                    { text: "ptr->study();", next: "q30", isCorrect: true },
+                    { text: "ptr.study();", next: "q30_help", log: "Q30救錯: 普通的 Student s1 才能用小數點。遇到指標 *ptr，一定要用箭頭喔！" }
                 ]
             }
         };
