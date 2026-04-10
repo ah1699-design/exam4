@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>統測英文單字 - 抽卡特訓班 (第三階段擴充版)</title>
+    <title>微處理機全 - 抽卡特訓班 (第三階段擴充版)</title>
 
     <script>
         window.MathJax = {
@@ -377,868 +377,906 @@
         };
 
         // ==========================================
-        // 教師設定區：統測英文總複習 (30題字彙 + 15題同義字)
+        // 教師設定區：微處理機 (架構、記憶體、中斷、通訊、組合語言) 45題 + 淡商交通法規
         // ==========================================
         const quizData = {
-            // ==========================================
-            // 第一部分：字彙測驗 (Q1 - Q30)
-            // ==========================================
+            // --- 第 1 關：電腦發展與架構 ---
             "q1": {
-                tag: "第 1 關：字彙測驗 (職場與環境)",
-                text: "The company offers free _____ for its employees who travel on business, including hotel rooms and meals.",
+                tag: "第 1 關：微處理機基礎",
+                text: "著名的半導體經驗法則「摩爾定律 (Moore's Law)」，其具體的內容是指積體電路上可容納的電晶體數目，大約每隔多久會增加一倍？",
                 options: [
-                    { text: "accommodation", next: "q2", isCorrect: true },
-                    { text: "application", next: "q1_help", log: "Q1錯: application 是申請(書)" },
-                    { text: "appreciation", next: "q1_help", log: "Q1錯: appreciation 是感謝" },
-                    { text: "appointment", next: "q1_help", log: "Q1錯: appointment 是預約/指派" }
+                    { text: "18 個月", next: "q2", isCorrect: true },
+                    { text: "6 個月", next: "q1_help", log: "Q1錯: 時間太短了，科技發展沒有這麼神速" },
+                    { text: "3 年", next: "q1_help", log: "Q1錯: 時間太長了" },
+                    { text: "5 年", next: "q1_help", log: "Q1錯: 這是電池壽命的週期吧" }
                 ]
             },
             "q1_help": {
-                tag: "🔍 PBL 邏輯推演：尋找上下文線索",
-                text: "【線索任務】請觀察句子後面的「including hotel rooms and meals (包含飯店房間與餐點)」。這代表公司提供出差員工免費的什麼？",
+                tag: "🔍 PBL 情報搜索：科技的摩爾",
+                text: "【搜索任務】請上網 Google 或翻閱課本查閱「摩爾定律 週期」。Intel 創始人提出的這個黃金定律，指出晶片效能翻倍的週期大約是一年半。換算成幾個月？",
                 options: [
-                    { text: "accommodation (住宿)", next: "q1", isCorrect: true },
-                    { text: "application (申請)", next: "q1_help", log: "Q1救錯: 提供免費的申請聽起來不合邏輯喔！" }
+                    { text: "18 個月", next: "q1", isCorrect: true },
+                    { text: "6 個月", next: "q1_help", log: "Q1救錯: 一年半是 12 + 6 = 18 個月喔！" }
                 ]
             },
 
+            // --- 第 2 關：系統軟體 ---
             "q2": {
-                tag: "第 2 關：字彙測驗 (日常通勤)",
-                text: "Many people choose to take the MRT to _____ to work because it avoids the heavy traffic during rush hours.",
+                tag: "第 2 關：系統軟體",
+                text: "當電腦開機後，第一個被硬體強制啟動，用來喚醒並測試周邊設備的程式是什麼？",
                 options: [
-                    { text: "commute", next: "q3", isCorrect: true },
-                    { text: "compete", next: "q2_help", log: "Q2錯: compete 是競爭" },
-                    { text: "consume", next: "q2_help", log: "Q2錯: consume 是消耗" },
-                    { text: "confirm", next: "q2_help", log: "Q2錯: confirm 是確認" }
+                    { text: "基本輸入/輸出系統 (BIOS)", next: "q3", isCorrect: true },
+                    { text: "作業系統 (OS)", next: "q2_help", log: "Q2錯: OS 是被 BIOS 叫醒的" },
+                    { text: "應用程式", next: "q2_help", log: "Q2錯: 這是使用者最後才開的" },
+                    { text: "直譯器 (Interpreter)", next: "q2_help", log: "Q2錯: 這是翻譯程式用的" }
                 ]
             },
             "q2_help": {
-                tag: "🧠 PBL 詞意解析：往返的動作",
-                text: "【推演任務】句子提到搭捷運去工作(to work)，以避開尖峰時段的交通阻塞。往返家裡與工作地點的這個動作稱為什麼？",
+                tag: "🛠️ PBL 邏輯推演：開機第一步",
+                text: "【推演任務】電腦剛通電時，硬碟裡的 Windows (OS) 還在睡覺。主機板上有一顆 ROM，裡面燒錄了一支專門負責「基本輸入與輸出檢測」的程式，它的英文縮寫是？",
                 options: [
-                    { text: "commute (通勤)", next: "q2", isCorrect: true },
-                    { text: "compete (競爭)", next: "q2_help", log: "Q2救錯: 搭捷運不是去跟別人競爭喔！" }
+                    { text: "BIOS", next: "q2", isCorrect: true },
+                    { text: "OS 作業系統", next: "q2_help", log: "Q2救錯: BIOS 檢查完硬體沒問題後，才會把控制權交給 OS 喔！" }
                 ]
             },
 
+            // --- 第 3 關：哈佛 vs 馮紐曼 ---
             "q3": {
-                tag: "第 3 關：字彙測驗 (商業財務)",
-                text: "Because of the limited _____, we cannot afford to buy new computers for the office this year.",
+                tag: "第 3 關：匯流排架構",
+                text: "若一台微處理機的「程式記憶體 (ROM)」與「資料記憶體 (RAM)」是分開存放，且擁有各自獨立的匯流排與 CPU 連接。這種執行效率較高的架構稱為？",
                 options: [
-                    { text: "budget", next: "q4", isCorrect: true },
-                    { text: "bargain", next: "q3_help", log: "Q3錯: bargain 是交易/便宜貨" },
-                    { text: "burden", next: "q3_help", log: "Q3錯: burden 是負擔" },
-                    { text: "benefit", next: "q3_help", log: "Q3錯: benefit 是利益" }
+                    { text: "哈佛結構 (Harvard)", next: "q4", isCorrect: true },
+                    { text: "馮紐曼結構 (Von Neumann)", next: "q3_help", log: "Q3錯: 馮紐曼是共用同一組匯流排" },
+                    { text: "普林斯頓結構", next: "q3_help", log: "Q3錯: 這就是馮紐曼結構的別名" },
+                    { text: "圖靈結構", next: "q3_help", log: "Q3錯: 沒有這種硬體結構" }
                 ]
             },
             "q3_help": {
-                tag: "💡 PBL 邏輯推演：錢不夠用",
-                text: "【線索任務】句子提到「cannot afford to buy (買不起)」，代表受限於什麼東西？通常跟公司的錢有關。",
+                tag: "📖 PBL 翻書任務：名校架構",
+                text: "【查閱任務】請查閱課本第一章。傳統架構因為共用通道會塞車（瓶頸）。後來將指令與資料「雙通道分離」的架構，是以美國一所頂尖常春藤名校命名的。是哪一所？",
                 options: [
-                    { text: "budget (預算)", next: "q3", isCorrect: true },
-                    { text: "burden (負擔)", next: "q3_help", log: "Q3救錯: 是因為「預算」有限，不是負擔有限喔！" }
+                    { text: "哈佛結構", next: "q3", isCorrect: true },
+                    { text: "馮紐曼結構", next: "q3_help", log: "Q3救錯: 馮紐曼是共用通道，會發生塞車的喔！" }
                 ]
             },
 
+            // --- 第 4 關：編譯與直譯 ---
             "q4": {
-                tag: "第 4 關：字彙測驗 (職場評估)",
-                text: "The manager will _____ the performance of all the new employees at the end of their three-month trial period.",
+                tag: "第 4 關：程式語言翻譯",
+                text: "關於高階語言的翻譯程式，下列哪一種會「將原始程式碼整批翻譯成機器碼，並產生一個可執行的目的檔 (Object file)」，因此後續執行速度較快？",
                 options: [
-                    { text: "evaluate", next: "q5", isCorrect: true },
-                    { text: "eliminate", next: "q4_help", log: "Q4錯: eliminate 是消滅/排除" },
-                    { text: "estimate", next: "q4_help", log: "Q4錯: estimate 是估計(通常指數量/花費)" },
-                    { text: "exaggerate", next: "q4_help", log: "Q4錯: exaggerate 是誇大" }
+                    { text: "編譯器 (Compiler)", next: "q5", isCorrect: true },
+                    { text: "直譯器 (Interpreter)", next: "q4_help", log: "Q4錯: 直譯器是逐行翻譯，不產生目的檔" },
+                    { text: "組譯器 (Assembler)", next: "q4_help", log: "Q4錯: 這是專門翻譯低階組合語言的" },
+                    { text: "聯結器 (Linker)", next: "q4_help", log: "Q4錯: 這是把多個目的檔綁在一起的" }
                 ]
             },
             "q4_help": {
-                tag: "🔍 PBL 字根字首：找到價值",
-                text: "【解析任務】試用期結束後，經理會對新員工的表現做什麼？這個字的字根包含 value (價值)，也就是去「評估」他們的價值。",
+                tag: "🧠 PBL 邏輯推演：寫成一本書 vs 同步口譯",
+                text: "【推演任務】「直譯器 (Interpreter)」就像同步口譯員，講一句翻一句，不留紀錄。「ＯＯ器」則是像把整本英文書一次翻譯成中文版印出來(產生目的檔)，以後直接看中文版超快！",
                 options: [
-                    { text: "evaluate (評估)", next: "q4", isCorrect: true },
-                    { text: "eliminate (淘汰)", next: "q4_help", log: "Q4救錯: 經理是要先評估表現，不一定會直接淘汰所有人喔！" }
+                    { text: "編譯器 (Compiler)", next: "q4", isCorrect: true },
+                    { text: "直譯器 (Interpreter)", next: "q4_help", log: "Q4救錯: 直譯器翻譯完就忘了，不會產生可以留下來的執行檔喔！" }
                 ]
             },
 
+            // 🛑 第 5 關：交通法規 (停讓行人)
             "q5": {
-                tag: "第 5 關：字彙測驗 (科技創新)",
-                text: "To survive in the highly competitive market, smartphone companies must constantly design _____ features to attract buyers.",
+                tag: "🛑 第 5 關：大腦休息 (淡商交通日常)",
+                text: "【情境】早上你從商工路走斑馬線準備進校門。這時有一輛機車準備轉彎。根據最新的交通法規，汽機車「未停讓行人」將面臨重罰。請問汽機車必須距離行人多遠才算合法停讓？",
                 options: [
-                    { text: "innovative", next: "q6", isCorrect: true },
-                    { text: "conservative", next: "q5_help", log: "Q5錯: conservative 是保守的" },
-                    { text: "repetitive", next: "q5_help", log: "Q5錯: repetitive 是重複的" },
-                    { text: "alternative", next: "q5_help", log: "Q5錯: alternative 是替代的" }
+                    { text: "約 3 公尺 (大約 3 個斑馬線枕木紋的距離)", next: "q6", isCorrect: true },
+                    { text: "約 1 公尺 (只要沒撞到就算停讓)", next: "q5_help", log: "Q5錯: 這樣太危險了，會被開罰單" },
+                    { text: "完全不需要讓，行人要看車", next: "q5_help", log: "Q5錯: 這是違法的帝王條款錯覺" },
+                    { text: "必須等行人完全走到對面人行道才能動", next: "q5_help", log: "Q5錯: 只要距離超過三個枕木紋就可以通過" }
                 ]
             },
             "q5_help": {
-                tag: "🧠 PBL 邏輯推演：競爭的市場",
-                text: "【推演任務】要在高度競爭的市場存活，手機公司必須設計出什麼樣的功能才能吸引買家？(字根 nov 代表 new 新的)",
+                tag: "🚔 PBL 法規檢索：三個枕木紋",
+                text: "【檢索任務】請回想新聞報導或是自己查閱法規。為了洗刷行人地獄的惡名，現在規定車輛的前懸必須與行人保持一定的安全距離。這個距離通常以斑馬線的「3個白色條紋」為基準。大約是幾公尺？",
                 options: [
-                    { text: "innovative (創新的)", next: "q5", isCorrect: true },
-                    { text: "conservative (保守的)", next: "q5_help", log: "Q5救錯: 保守的功能無法在科技業吸引買家喔！" }
+                    { text: "約 3 公尺", next: "q5", isCorrect: true },
+                    { text: "約 1 公尺", next: "q5_help", log: "Q5救錯: 1 公尺太近了！警察杯杯會在旁邊開你 6000 元罰單喔！" }
                 ]
             },
 
+            // --- 第 6 關：CPU 內部暫存器 ---
             "q6": {
-                tag: "第 6 關：字彙測驗 (規則要求)",
-                text: "Wearing a safety helmet is _____ for all workers entering the construction site; no exceptions will be made.",
+                tag: "第 6 關：CPU 架構",
+                text: "在 CPU 的控制單元中，負責「存放下一個即將被執行的指令之記憶體位址」的暫存器稱為什麼？",
                 options: [
-                    { text: "mandatory", next: "q7", isCorrect: true },
-                    { text: "voluntary", next: "q6_help", log: "Q6錯: voluntary 是自願的" },
-                    { text: "temporary", next: "q6_help", log: "Q6錯: temporary 是暫時的" },
-                    { text: "imaginary", next: "q6_help", log: "Q6錯: imaginary 是想像的" }
+                    { text: "程式計數器 (Program Counter, PC)", next: "q7", isCorrect: true },
+                    { text: "指令暫存器 (Instruction Register, IR)", next: "q6_help", log: "Q6錯: 這是放「正在執行」的指令內容" },
+                    { text: "記憶體位址暫存器 (MAR)", next: "q6_help", log: "Q6錯: 這是用來鎖定位址匯流排的" },
+                    { text: "堆疊指標暫存器 (SP)", next: "q6_help", log: "Q6錯: 這是指向堆疊頂端的" }
                 ]
             },
             "q6_help": {
-                tag: "💡 PBL 尋找線索：沒有例外",
-                text: "【線索任務】注意後面的「no exceptions (沒有例外)」。這代表戴安全帽這件事是規定好、強制的。",
+                tag: "🔍 PBL 詞意解析：拿號碼牌",
+                text: "【解析任務】程式是一行一行執行的。CPU 必須有一個計數器來記住「我現在跑到第幾行了，下一行的地址在哪裡」。這個專門數程式跑到哪裡的暫存器叫做？",
                 options: [
-                    { text: "mandatory (強制的/義務的)", next: "q6", isCorrect: true },
-                    { text: "voluntary (自願的)", next: "q6_help", log: "Q6救錯: 自願的代表可以不戴，跟「沒有例外」矛盾喔！" }
+                    { text: "程式計數器 (PC)", next: "q6", isCorrect: true },
+                    { text: "指令暫存器 (IR)", next: "q6_help", log: "Q6救錯: IR 是拿來解碼「現在正在做什麼事」的，PC 才是記住「下一個去哪裡」的喔！" }
                 ]
             },
 
+            // --- 第 7 關：記憶體容量計算 ---
             "q7": {
-                tag: "第 7 關：字彙測驗 (商業談判)",
-                text: "The two companies spent hours trying to _____ a better deal, but they still couldn't reach an agreement.",
+                tag: "第 7 關：記憶體計算",
+                text: "若一顆微處理機具有 32 條位址線 (Address Bus)，請問它可以直接定址的最大記憶體空間容量為多少？",
                 options: [
-                    { text: "negotiate", next: "q8", isCorrect: true },
-                    { text: "navigate", next: "q7_help", log: "Q7錯: navigate 是航行/導航" },
-                    { text: "nominate", next: "q7_help", log: "Q7錯: nominate 是提名" },
-                    { text: "neglect", next: "q7_help", log: "Q7錯: neglect 是忽略" }
+                    { text: "4 GB", next: "q8", isCorrect: true },
+                    { text: "1 GB", next: "q7_help", log: "Q7錯: 這是 30 條位址線的容量" },
+                    { text: "16 MB", next: "q7_help", log: "Q7錯: 這是 24 條位址線的容量" },
+                    { text: "4 TB", next: "q7_help", log: "Q7錯: 這是 42 條位址線的容量" }
                 ]
             },
             "q7_help": {
-                tag: "🧠 PBL 邏輯推演：談判桌上",
-                text: "【推演任務】兩家公司花了數小時想得到一個 better deal (更好的交易)，但最後沒有達成協議。他們在做什麼動作？",
+                tag: "🛠️ PBL 邏輯推演：指數法則",
+                text: "【推演任務】位址線數量 $n$，容量就是 $2^n$。公式拆解：$2^{32} = 2^2 \\times 2^{30}$。因為 $2^{30}$ 是 Giga (G)，而 $2^2$ 是 4。所以組合起來是？",
                 options: [
-                    { text: "negotiate (談判/協商)", next: "q7", isCorrect: true },
-                    { text: "navigate (導航)", next: "q7_help", log: "Q7救錯: 公司之間是在談判，不是在導航喔！" }
+                    { text: "4 GB", next: "q7", isCorrect: true },
+                    { text: "4 TB", next: "q7_help", log: "Q7救錯: TB 是 $2^{40}$，位址線需要 40 條以上才夠喔！" }
                 ]
             },
 
+            // --- 第 8 關：執行速度 MIPS ---
             "q8": {
-                tag: "第 8 關：字彙測驗 (商業財務)",
-                text: "Selling coffee and snacks near the train station turned out to be a highly _____ business for the young couple.",
+                tag: "第 8 關：CPU 效能",
+                text: "規格標示為「200 MIPS」的微處理機，代表它每秒鐘可以執行多少個指令？",
                 options: [
-                    { text: "profitable", next: "q9", isCorrect: true },
-                    { text: "predictable", next: "q8_help", log: "Q8錯: predictable 是可預測的" },
-                    { text: "miserable", next: "q8_help", log: "Q8錯: miserable 是悲慘的" },
-                    { text: "charitable", next: "q8_help", log: "Q8錯: charitable 是慈善的" }
+                    { text: "2 億個 (200 Million)", next: "q9", isCorrect: true },
+                    { text: "200 個", next: "q8_help", log: "Q8錯: 忘了 M 代表的數量級" },
+                    { text: "2 萬個", next: "q8_help", log: "Q8錯: 數量級算錯了" },
+                    { text: "2 千萬個", next: "q8_help", log: "Q8錯: 差了一個零" }
                 ]
             },
             "q8_help": {
-                tag: "🔍 PBL 詞意解析：賺錢的生意",
-                text: "【解析任務】在車站附近賣咖啡跟點心，通常人潮很多。這個字的字首是 profit (利潤)，加上 able 代表這是一門什麼樣的生意？",
+                tag: "📖 PBL 翻書任務：MIPS 的縮寫",
+                text: "【查閱任務】MIPS 的全名是 Millions of Instructions Per Second。其中 Million 代表的是「百萬」。200 個百萬，加起來總共是台灣說的多少？",
                 options: [
-                    { text: "profitable (有利可圖的)", next: "q8", isCorrect: true },
-                    { text: "charitable (慈善的)", next: "q8_help", log: "Q8救錯: 他們是做生意賺錢，不是做慈善免費送喔！" }
+                    { text: "2 億個", next: "q8", isCorrect: true },
+                    { text: "2 千萬個", next: "q8_help", log: "Q8救錯: 200 乘上一百萬 (1,000,000)，後面會有 8 個零，所以是 2 億喔！" }
                 ]
             },
 
+            // --- 第 9 關：獨立式 I/O ---
             "q9": {
-                tag: "第 9 關：字彙測驗 (身心健康)",
-                text: "Taking a hot bath and listening to soft music can help _____ the stress and tension from a long day at work.",
+                tag: "第 9 關：I/O 規劃",
+                text: "關於微電腦的 I/O 位址規劃，下列關於「獨立式 I/O (Isolated I/O)」的敘述何者正確？",
                 options: [
-                    { text: "relieve", next: "q10", isCorrect: true },
-                    { text: "release", next: "q9_help", log: "Q9錯: release 是釋放(實體或發表)，relieve更適合緩解壓力" },
-                    { text: "recover", next: "q9_help", log: "Q9錯: recover 是恢復(不及物或加from)" },
-                    { text: "reveal", next: "q9_help", log: "Q9錯: reveal 是揭露" }
+                    { text: "擁有專屬的 I/O 讀寫指令 (如 IN / OUT)", next: "q10", isCorrect: true },
+                    { text: "I/O 裝置會佔用主記憶體的位址空間", next: "q9_help", log: "Q9錯: 這是記憶體對映 I/O 的缺點" },
+                    { text: "解碼電路非常簡單", next: "q9_help", log: "Q9錯: 獨立式 I/O 需要額外的控制線來區分" },
+                    { text: "所有的記憶體指令都可以拿來控制 I/O", next: "q9_help", log: "Q9錯: 必須用專用的指令" }
                 ]
             },
             "q9_help": {
-                tag: "💡 PBL 慣用語搭配：減輕壓力",
-                text: "【線索任務】洗熱水澡和聽音樂可以對 stress (壓力) 起到什麼作用？英文中用來表示「減輕、緩解(疼痛或壓力)」的最常見動詞是？",
+                tag: "🔍 PBL 詞意解析：門牌分開",
+                text: "【解析任務】「獨立式」代表 I/O 的門牌號碼跟記憶體的門牌是完全分開、不重疊的。既然系統分開了，CPU 要去找 I/O 聊天時，就必須使用「專屬」的特定密語(指令)才能進去。這兩個指令是？",
                 options: [
-                    { text: "relieve (緩解)", next: "q9", isCorrect: true },
-                    { text: "reveal (揭露)", next: "q9_help", log: "Q9救錯: 你不會想把壓力「揭露」給別人看，而是想把它減輕喔！" }
+                    { text: "有專屬的 IN / OUT 指令", next: "q9", isCorrect: true },
+                    { text: "佔用記憶體空間", next: "q9_help", log: "Q9救錯: 既然都叫「獨立式」了，它就不會去搶記憶體的地盤喔！" }
                 ]
             },
 
+            // 🛑 第 10 關：交通法規 (YouBike 酒駕)
             "q10": {
-                tag: "第 10 關：字彙測驗 (環保議題)",
-                text: "More and more brands are using eco-friendly materials to promote _____ development and protect our planet.",
+                tag: "🛑 第 10 關：大腦休息 (淡商交通日常)",
+                text: "【情境】放學後你和同學去淡水老街聚餐，同學偷偷喝了兩瓶啤酒。為了省錢，他決定騎 YouBike 微笑單車回家。請問騎無動力的腳踏車酒駕，會觸犯法規嗎？",
                 options: [
-                    { text: "sustainable", next: "q11", isCorrect: true },
-                    { text: "vulnerable", next: "q10_help", log: "Q10錯: vulnerable 是脆弱的" },
-                    { text: "acceptable", next: "q10_help", log: "Q10錯: acceptable 是可接受的" },
-                    { text: "questionable", next: "q10_help", log: "Q10錯: questionable 是可疑的" }
+                    { text: "會，腳踏車屬於慢車，酒駕一樣會被警察開罰單", next: "q11", isCorrect: true },
+                    { text: "不會，因為腳踏車沒有引擎，不算機動車輛", next: "q10_help", log: "Q10錯: 慢車酒駕現在有明確罰則" },
+                    { text: "不會，只要慢慢騎在人行道上就好", next: "q10_help", log: "Q10錯: 騎腳踏車酒駕非常危險" },
+                    { text: "會，而且會直接被吊銷機車駕照", next: "q10_help", log: "Q10錯: 腳踏車酒駕罰鍰，但一般不會直接吊銷別種駕照" }
                 ]
             },
             "q10_help": {
-                tag: "🧠 PBL 統測必考字：永續發展",
-                text: "【推演任務】eco-friendly 是環保的。保護地球是為了促進什麼樣的發展？這個字(Sustain + able)是近年考試出現率最高的單字之一！",
+                tag: "🚔 PBL 法規檢索：慢車酒駕罰則",
+                text: "【檢索任務】請上網搜尋「腳踏車 酒駕 罰款」。根據道路交通管理處罰條例，慢車(含腳踏車)駕駛人酒測值超標，依然會被處以新臺幣 1200 元至 2400 元罰鍰，拒測罰 4800 元！",
                 options: [
-                    { text: "sustainable (永續的)", next: "q10", isCorrect: true },
-                    { text: "vulnerable (脆弱的)", next: "q10_help", log: "Q10救錯: 我們要保護地球，不是促進「脆弱的」發展喔！" }
+                    { text: "會，腳踏車酒駕依法開罰", next: "q10", isCorrect: true },
+                    { text: "不會，因為沒有引擎", next: "q10_help", log: "Q10救錯: 腳踏車酒駕一樣會害人害己，警察是真的會開單的！" }
                 ]
             },
 
+            // --- 第 11 關：堆疊特性 ---
             "q11": {
-                tag: "第 11 關：字彙測驗 (特質形容)",
-                text: "A smartphone is a very _____ device; you can use it to make calls, take photos, surf the internet, and play games.",
+                tag: "第 11 關：記憶體結構",
+                text: "微處理機在執行呼叫副程式 (CALL) 或中斷時，會使用「堆疊 (Stack)」來保存返回位址。請問堆疊的資料存取原則是什麼？",
                 options: [
-                    { text: "versatile", next: "q12", isCorrect: true },
-                    { text: "fragile", next: "q11_help", log: "Q11錯: fragile 是易碎的" },
-                    { text: "hostile", next: "q11_help", log: "Q11錯: hostile 是有敵意的" },
-                    { text: "fertile", next: "q11_help", log: "Q11錯: fertile 是肥沃的" }
+                    { text: "先進後出 (FILO) / 後進先出 (LIFO)", next: "q12", isCorrect: true },
+                    { text: "先進先出 (FIFO)", next: "q11_help", log: "Q11錯: 這是佇列 (Queue) 的特性" },
+                    { text: "隨機存取 (Random Access)", next: "q11_help", log: "Q11錯: 堆疊只能從頂端存取" },
+                    { text: "循序存取 (Sequential Access)", next: "q11_help", log: "Q11錯: 這是磁帶的特性" }
                 ]
             },
             "q11_help": {
-                tag: "🔍 PBL 邏輯推演：多種功能",
-                text: "【推演任務】句子後面列舉了打電話、拍照、上網、玩遊戲等超多功能。這代表智慧型手機是一個「多才多藝、多功能的」設備。",
+                tag: "🧠 PBL 邏輯推演：疊盤子",
+                text: "【推演任務】想像你在洗盤子，洗好的盤子一個一個往上疊 (Push)。當你要拿盤子來用的時候 (Pop)，你一定會從「最上面、最後放上去」的那一個開始拿。這種原則英文縮寫是 LIFO，中文是？",
                 options: [
-                    { text: "versatile (多功能的)", next: "q11", isCorrect: true },
-                    { text: "fragile (易碎的)", next: "q11_help", log: "Q11救錯: 雖然螢幕易碎，但後面的線索是在講它功能很多喔！" }
+                    { text: "後進先出 (LIFO)", next: "q11", isCorrect: true },
+                    { text: "先進先出 (FIFO)", next: "q11_help", log: "Q11救錯: 先進先出是排隊買便當 (Queue)，堆疊是疊盤子喔！" }
                 ]
             },
 
+            // --- 第 12 關：組合語言 假指令 ---
             "q12": {
-                tag: "第 12 關：字彙測驗 (自然資源)",
-                text: "Taiwan has an _____ supply of rainfall in summer due to typhoons, but water shortages still happen in winter.",
+                tag: "第 12 關：組合語言",
+                text: "在組合語言中，有一種指令是用來「告訴組譯器如何分配記憶體或設定起始位址」，它在翻譯後『不會』產生任何機器碼給 CPU 執行。這種指令稱為？",
                 options: [
-                    { text: "abundant", next: "q13", isCorrect: true },
-                    { text: "absent", next: "q12_help", log: "Q12錯: absent 是缺席的" },
-                    { text: "absolute", next: "q12_help", log: "Q12錯: absolute 是絕對的" },
-                    { text: "abstract", next: "q12_help", log: "Q12錯: abstract 是抽象的" }
+                    { text: "虛擬指令 (Pseudo-code) 或 假指令", next: "q13", isCorrect: true },
+                    { text: "巨集指令 (Macro)", next: "q12_help", log: "Q12錯: 巨集展開後會產生機器碼" },
+                    { text: "算術邏輯指令", next: "q12_help", log: "Q12錯: 這絕對會產生機器碼" },
+                    { text: "跳躍指令 (JMP)", next: "q12_help", log: "Q12錯: 這是控制流程的實體指令" }
                 ]
             },
             "q12_help": {
-                tag: "💡 PBL 尋找線索：颱風帶來的",
-                text: "【線索任務】因為夏天有颱風，所以降雨量(rainfall)會非常「充足、豐富」。但句子後半段說冬天還是會缺水(shortage)。",
+                tag: "📖 PBL 翻書任務：不是給 CPU 看的",
+                text: "【查閱任務】如 ORG、EQU、END 這些指令，只是寫程式的人在跟「組譯軟體」溝通，CPU 根本不知道有這些東西存在。因為它不是真正的指令，所以被稱為？",
                 options: [
-                    { text: "abundant (豐富的)", next: "q12", isCorrect: true },
-                    { text: "absent (缺席的)", next: "q12_help", log: "Q12救錯: 颱風天不可能「缺乏」雨水吧！" }
+                    { text: "虛擬指令 (假指令)", next: "q12", isCorrect: true },
+                    { text: "巨集指令", next: "q12_help", log: "Q12救錯: 巨集只是把很多行程式包裝起來，它最後還是會變成機器碼喔！" }
                 ]
             },
 
+            // --- 第 13 關：定址法 ---
             "q13": {
-                tag: "第 13 關：字彙測驗 (健康建議)",
-                text: "Drinking plenty of water and getting enough sleep are highly _____ to your overall health and immune system.",
+                tag: "第 13 關：組合語言定址",
+                text: "在 8086 組合語言中，指令 `MOV AX, 4BH` 代表將數值 4BH 直接存入 AX 暫存器中。請問這是使用了哪一種定址法？",
                 options: [
-                    { text: "beneficial", next: "q14", isCorrect: true },
-                    { text: "artificial", next: "q13_help", log: "Q13錯: artificial 是人工的" },
-                    { text: "superficial", next: "q13_help", log: "Q13錯: superficial 是表面的" },
-                    { text: "commercial", next: "q13_help", log: "Q13錯: commercial 是商業的" }
+                    { text: "立即定址法 (Immediate Addressing)", next: "q14", isCorrect: true },
+                    { text: "直接定址法 (Direct Addressing)", next: "q13_help", log: "Q13錯: 直接定址是給一個記憶體門牌號碼，沒有加括號的話在某些語法才是" },
+                    { text: "暫存器間接定址法", next: "q13_help", log: "Q13錯: 這需要用 [BX] 這種形式" },
+                    { text: "索引定址法", next: "q13_help", log: "Q13錯: 這需要使用 SI 或 DI 暫存器" }
                 ]
             },
             "q13_help": {
-                tag: "🧠 PBL 字根字首：好的影響",
-                text: "【解析任務】喝水跟充足睡眠對健康一定有「好處」。字首 bene- 在英文中代表 good (好)。所以這個字是？",
+                tag: "🔍 PBL 詞意解析：馬上拿現金",
+                text: "【解析任務】指令後面的 4BH 不是門牌號碼，而是白花花的「數值現金」。CPU 解碼後「立刻、馬上」就能拿到資料，不用再去記憶體翻找。這叫什麼定址法？",
                 options: [
-                    { text: "beneficial (有益的)", next: "q13", isCorrect: true },
-                    { text: "artificial (人工的)", next: "q13_help", log: "Q13救錯: 喝水睡覺是天然的，對健康是有益處，不是人工的喔！" }
+                    { text: "立即定址法", next: "q13", isCorrect: true },
+                    { text: "直接定址法", next: "q13_help", log: "Q13救錯: 直接定址法是給「地址」，還要跑一趟記憶體，沒有這麼快喔！" }
                 ]
             },
 
+            // --- 第 14 關：堆疊 PUSH POP ---
             "q14": {
-                tag: "第 14 關：字彙測驗 (資格條件)",
-                text: "To be _____ for the scholarship, students must maintain a GPA of 3.8 or higher and submit two recommendation letters.",
+                tag: "第 14 關：組合語言操作",
+                text: "若執行以下程式碼：`PUSH A`, `PUSH B`, `PUSH C`。接著執行兩次 `POP` 動作。請問最後從堆疊中被取出來 (POP) 的資料是哪一個？",
                 options: [
-                    { text: "eligible", next: "q15", isCorrect: true },
-                    { text: "flexible", next: "q14_help", log: "Q14錯: flexible 是有彈性的" },
-                    { text: "visible", next: "q14_help", log: "Q14錯: visible 是可見的" },
-                    { text: "terrible", next: "q14_help", log: "Q14錯: terrible 是可怕的" }
+                    { text: "B", next: "q15", isCorrect: true },
+                    { text: "A", next: "q14_help", log: "Q14錯: A 被壓在最底層，要 POP 三次才拿得到" },
+                    { text: "C", next: "q14_help", log: "Q14錯: 這是第一次 POP 出來的東西" },
+                    { text: "都會被拿出來", next: "q14_help", log: "Q14錯: 只有執行兩次 POP" }
                 ]
             },
             "q14_help": {
-                tag: "🔍 PBL 慣用語搭配：有資格做...",
-                text: "【線索任務】後面列出了拿獎學金的條件(成績3.8以上、推薦信)。代表你必須符合這些條件，才能「具備資格」。搭配詞常寫作 be ____ for。",
+                tag: "🛠️ PBL 邏輯推演：畫圖解題",
+                text: "【推演任務】拿張紙畫一個深井！依序把 A 丟進去，再把 B 丟進去，最後把 C 丟進去(C在最上面)。第一次 POP 會拿出 C。那「第二次」POP 會拿出誰呢？",
                 options: [
-                    { text: "eligible (有資格的)", next: "q14", isCorrect: true },
-                    { text: "flexible (有彈性的)", next: "q14_help", log: "Q14救錯: 規定很死(要3.8分以上)，一點都不彈性喔！" }
+                    { text: "B", next: "q14", isCorrect: true },
+                    { text: "A", next: "q14_help", log: "Q14救錯: A 在最下面，你只 POP 兩次是挖不到 A 的喔！" }
                 ]
             },
 
+            // 🛑 第 15 關：交通法規 (微型電動二輪車)
             "q15": {
-                tag: "第 15 關：字彙測驗 (圖表趨勢)",
-                text: "Stock prices often _____ depending on the global economic situation, sometimes rising sharply and dropping suddenly.",
+                tag: "🛑 第 15 關：大腦休息 (淡商交通日常)",
+                text: "【情境】很多高中生沒有機車駕照，會選擇騎乘「微型電動二輪車」(以前俗稱的電動自行車，最高時速 25km/h 以下) 往返淡水商工。根據最新法規，騎乘這類車輛必須遵守什麼新規定？",
                 options: [
-                    { text: "fluctuate", next: "q16", isCorrect: true },
-                    { text: "fascinate", next: "q15_help", log: "Q15錯: fascinate 是使著迷" },
-                    { text: "frustrate", next: "q15_help", log: "Q15錯: frustrate 是使挫折" },
-                    { text: "formulate", next: "q15_help", log: "Q15錯: formulate 是制定" }
+                    { text: "需滿 14 歲，且車輛必須掛牌、投保強制險並配戴安全帽", next: "q16", isCorrect: true },
+                    { text: "完全不需駕照也不限年齡，誰都可以騎", next: "q15_help", log: "Q15錯: 現在有嚴格年齡與掛牌限制了" },
+                    { text: "不需要戴安全帽，但不能載人", next: "q15_help", log: "Q15錯: 沒戴安全帽會被重罰" },
+                    { text: "必須考取普通重型機車駕照才能騎", next: "q15_help", log: "Q15錯: 微電車目前免考駕照，只需年齡限制與掛牌" }
                 ]
             },
             "q15_help": {
-                tag: "💡 PBL 尋找線索：忽高忽低",
-                text: "【線索任務】句子後面解釋了這個動作：「sometimes rising sharply and dropping suddenly (有時暴漲，有時暴跌)」。這代表股價在做什麼？",
+                tag: "🚔 PBL 法規檢索：納管新制",
+                text: "【檢索任務】為了改善交通亂象，法規在近年已經大改版！現在這些微型電動車不能隨便買來就騎，必須要「掛上車牌」、「買保險」，而且騎車的人一定要戴安全帽，且年紀不能太小(國中生以上)。",
                 options: [
-                    { text: "fluctuate (波動)", next: "q15", isCorrect: true },
-                    { text: "frustrate (使挫折)", next: "q15_help", log: "Q15救錯: 雖然跌的時候很挫折，但這個字是用來形容數值的起伏不定喔！" }
+                    { text: "需掛牌、保險、戴安全帽並滿14歲", next: "q15", isCorrect: true },
+                    { text: "必須考取機車駕照", next: "q15_help", log: "Q15救錯: 它之所以受學生歡迎，就是因為它「免考駕照」，但其他安全規定都要遵守！" }
                 ]
             },
 
+            // --- 第 16 關：位元運算 ---
             "q16": {
-                tag: "第 16 關：字彙測驗 (商業保固)",
-                text: "The store provides a two-year _____ on all its electronic products, promising a free repair if they break down.",
+                tag: "第 16 關：邏輯指令",
+                text: "若暫存器 AL = 11001011 (CBH)，我們想把它的前 4 個 bit 變成 0000，且保留後 4 個 bit 不變，應該使用哪一種邏輯指令與遮罩？",
                 options: [
-                    { text: "guarantee", next: "q17", isCorrect: true },
-                    { text: "guidance", next: "q16_help", log: "Q16錯: guidance 是指導" },
-                    { text: "gesture", next: "q16_help", log: "Q16錯: gesture 是手勢" },
-                    { text: "grocery", next: "q16_help", log: "Q16錯: grocery 是食品雜貨" }
+                    { text: "AND AL, 0FH", next: "q17", isCorrect: true },
+                    { text: "OR AL, 0FH", next: "q16_help", log: "Q16錯: OR 會把後 4 個 bit 強制變成 1111" },
+                    { text: "AND AL, F0H", next: "q16_help", log: "Q16錯: 這會保留前 4 個，把後 4 個變 0" },
+                    { text: "XOR AL, 0FH", next: "q16_help", log: "Q16錯: 這會把後 4 個 bit 反相" }
                 ]
             },
             "q16_help": {
-                tag: "🧠 PBL 邏輯推演：買東西的承諾",
-                text: "【推演任務】後面說「promising a free repair (承諾免費維修)」。買電器時，店家提供的這種兩年免費維修的承諾，我們稱為什麼？",
+                tag: "🧠 PBL 邏輯推演：殺手與護盾",
+                text: "【推演任務】在邏輯運算中，`AND 0` 就像殺手，會把任何東西變成 0；`AND 1` 就像護盾，會把原本的東西完整保留下來。我們想要「前 4 個變 0，後 4 個保留」，遮罩應該是 00001111。換成十六進位是？",
                 options: [
-                    { text: "guarantee (保證/保固)", next: "q16", isCorrect: true },
-                    { text: "guidance (指導)", next: "q16_help", log: "Q16救錯: 店家是提供維修保證，不是指導你怎麼修喔！" }
+                    { text: "AND AL, 0FH", next: "q16", isCorrect: true },
+                    { text: "AND AL, F0H", next: "q16_help", log: "Q16救錯: F0H 是 11110000，這會把後面的資料殺光光喔！" }
                 ]
             },
 
+            // --- 第 17 關：通訊模式 ---
             "q17": {
-                tag: "第 17 關：字彙測驗 (客服應對)",
-                text: "If you have any further questions regarding the contract, please do not _____ to contact our customer service team.",
+                tag: "第 17 關：資料通訊",
+                text: "警察伯伯使用的「無線電對講機」，按下去可以講話但不能聽，放開按鈕才能聽到對方的聲音。這種「同一時間只能單向傳輸，但雙方可以輪流」的通訊方式稱為？",
                 options: [
-                    { text: "hesitate", next: "q18", isCorrect: true },
-                    { text: "calculate", next: "q17_help", log: "Q17錯: calculate 是計算" },
-                    { text: "illustrate", next: "q17_help", log: "Q17錯: illustrate 是說明" },
-                    { text: "dominate", next: "q17_help", log: "Q17錯: dominate 是主導" }
+                    { text: "半雙工 (Half-duplex)", next: "q18", isCorrect: true },
+                    { text: "單工 (Simplex)", next: "q17_help", log: "Q17錯: 單工是永遠只能單向，像廣播電台" },
+                    { text: "全雙工 (Full-duplex)", next: "q17_help", log: "Q17錯: 這是講電話，可以同時互罵" },
+                    { text: "多工 (Multiplex)", next: "q17_help", log: "Q17錯: 這是把多個訊號擠在一條線上的技術" }
                 ]
             },
             "q17_help": {
-                tag: "🔍 PBL 慣用語搭配：別猶豫",
-                text: "【線索任務】這是一句非常經典的商業書信結尾。「Please do not _____ to contact us」意思是「請不要遲疑與我們聯繫」。",
+                tag: "🔍 PBL 詞意解析：橋上的會車",
+                text: "【解析任務】想像一座很窄的橋。車子可以過去，也可以過來，但是「不能同時」雙向通車，必須輪流。這種只有「一半」功能的雙向溝通，叫做什麼？",
                 options: [
-                    { text: "hesitate (猶豫/遲疑)", next: "q17", isCorrect: true },
-                    { text: "calculate (計算)", next: "q17_help", log: "Q17救錯: 不用計算啦，直接打電話過來就好！" }
+                    { text: "半雙工 (Half-duplex)", next: "q17", isCorrect: true },
+                    { text: "全雙工 (Full-duplex)", next: "q17_help", log: "Q17救錯: 全雙工就像我們打 LINE 電話，兩個人可以同時講話喔！" }
                 ]
             },
 
+            // --- 第 18 關：傳輸介面 ---
             "q18": {
-                tag: "第 18 關：字彙測驗 (行為解釋)",
-                text: "The manager asked the employee to _____ his reason for being late to the important meeting without prior notice.",
+                tag: "第 18 關：資料通訊",
+                text: "下列哪一種傳輸介面是電腦內部硬碟最常使用的「串列傳輸介面」，且具有熱插拔的特性？",
                 options: [
-                    { text: "justify", next: "q19", isCorrect: true },
-                    { text: "magnify", next: "q18_help", log: "Q18錯: magnify 是放大" },
-                    { text: "notify", next: "q18_help", log: "Q18錯: notify 是通知" },
-                    { text: "clarify", next: "q18_help", log: "Q18錯: clarify 是澄清(雖近，但justify帶有證明正當性的意思)" }
+                    { text: "SATA", next: "q19", isCorrect: true },
+                    { text: "PATA (IDE)", next: "q18_help", log: "Q18錯: 這是早期的排線並列傳輸，沒有熱插拔" },
+                    { text: "Centronics", next: "q18_help", log: "Q18錯: 這是早期的印表機並列介面" },
+                    { text: "IEEE-488 (GPIB)", next: "q18_help", log: "Q18錯: 這是儀表專用的並列介面" }
                 ]
             },
             "q18_help": {
-                tag: "💡 PBL 詞意解析：給個合理的說法",
-                text: "【解析任務】員工沒請假就遲到，經理要求他為這個行為「提出正當理由」。字根 just 有「公正、合理」的意思。",
+                tag: "📖 PBL 翻書任務：S 開頭的意義",
+                text: "【查閱任務】以前硬碟用的是很大一條扁平排線叫 ATA (並列)。後來改成細細的一條線，速度超快，叫做 Serial ATA (串列 ATA)。它的簡寫是？",
                 options: [
-                    { text: "justify (證明...是正當的)", next: "q18", isCorrect: true },
-                    { text: "magnify (放大)", next: "q18_help", log: "Q18救錯: 經理不是要他放大遲到的行為，是要他給個合理的解釋！" }
+                    { text: "SATA", next: "q18", isCorrect: true },
+                    { text: "PATA", next: "q18_help", log: "Q18救錯: PATA 的 P 就是 Parallel (並列)，速度比較慢而且線很粗喔！" }
                 ]
             },
 
+            // --- 第 19 關：通訊計算 ---
             "q19": {
-                tag: "第 19 關：字彙測驗 (產業利潤)",
-                text: "Because of the high demand for AI chips, manufacturing semiconductors has become a highly _____ industry.",
+                tag: "第 19 關：通訊速度計算",
+                text: "若一個 RS-232 介面的傳輸速度設為 9600 bps。假設資料格式包含 1 個起始位元、8 個資料位元、1 個結束位元 (沒有同位元)，傳送「一個字元」共需 10 bits。請問 1 秒鐘最多可以傳送幾個字元 (Bytes)？",
                 options: [
-                    { text: "lucrative", next: "q20", isCorrect: true },
-                    { text: "creative", next: "q19_help", log: "Q19錯: creative 是有創造力的" },
-                    { text: "sensitive", next: "q19_help", log: "Q19錯: sensitive 是敏感的" },
-                    { text: "destructive", next: "q19_help", log: "Q19錯: destructive 是破壞性的" }
+                    { text: "960 個", next: "q20", isCorrect: true },
+                    { text: "1200 個", next: "q19_help", log: "Q19錯: 這是把 9600 除以 8，沒算到頭尾包裝" },
+                    { text: "9600 個", next: "q19_help", log: "Q19錯: 這是 bit 的數量，不是 byte 的數量" },
+                    { text: "96 個", next: "q19_help", log: "Q19錯: 少算了一個零" }
                 ]
             },
             "q19_help": {
-                tag: "🧠 PBL 統測必背字：賺大錢",
-                text: "【推演任務】AI 晶片需求超高，所以製造半導體變成了一個「非常賺錢、有利可圖的」產業。這個字是 profitable 的同義進階字！",
+                tag: "🛠️ PBL 邏輯推演：包裹的重量",
+                text: "【推演任務】傳輸線一秒鐘可以送出 9600 個小零件 (bits)。因為每個完整的「包裹(字元)」是由 10 個小零件組裝成的。請問 9600 除以 10 是多少個包裹？",
                 options: [
-                    { text: "lucrative (賺錢的)", next: "q19", isCorrect: true },
-                    { text: "creative (有創造力的)", next: "q19_help", log: "Q19救錯: 雖然有創造力，但這句話的重點是因為高需求帶來的「高利潤」喔！" }
+                    { text: "960 個", next: "q19", isCorrect: true },
+                    { text: "1200 個", next: "q19_help", log: "Q19救錯: 不能只除以裡面的 8 個資料位元，外面的紙箱跟膠帶 (起始/結束位元) 也是要佔體積的！" }
                 ]
             },
 
+            // 🛑 第 20 關：交通法規 (輕軌路權)
             "q20": {
-                tag: "第 20 關：字彙測驗 (態度立場)",
-                text: "A judge must remain completely _____ when listening to both sides of a case, ignoring any personal feelings.",
+                tag: "🛑 第 20 關：大腦休息 (淡商交通日常)",
+                text: "【情境】搭乘淡海輕軌上下學是很多淡水商工學生的日常。當你騎車行經淡金路，遇到輕軌軌道與一般道路的「共用路口」時，根據法規，哪一種交通工具有「絕對優先通行權」？",
                 options: [
-                    { text: "objective", next: "q21", isCorrect: true },
-                    { text: "subjective", next: "q20_help", log: "Q20錯: subjective 是主觀的" },
-                    { text: "aggressive", next: "q20_help", log: "Q20錯: aggressive 是具攻擊性的" },
-                    { text: "defensive", next: "q20_help", log: "Q20錯: defensive 是防禦的" }
+                    { text: "大眾捷運系統 (輕軌車輛)", next: "q21", isCorrect: true },
+                    { text: "直行的一般汽機車", next: "q20_help", log: "Q20錯: 輕軌路權高於一般車輛" },
+                    { text: "先到路口的車輛先走", next: "q20_help", log: "Q20錯: 輕軌沒有在看先來後到的" },
+                    { text: "兩邊都要停下來等行人走完才能走", next: "q20_help", log: "Q20錯: 輕軌不會停下來等你" }
                 ]
             },
             "q20_help": {
-                tag: "🔍 PBL 邏輯推演：法官的態度",
-                text: "【推演任務】句子說法官(judge)必須「忽略個人感情(ignoring any personal feelings)」。這代表法官的態度必須是不偏袒的、基於事實的。這是主觀還是客觀？",
+                tag: "🚔 PBL 法規檢索：絕對路權",
+                text: "【檢索任務】為了確保大眾運輸的安全與順暢，大眾捷運法與交通法規賦予了輕軌列車在共用路口「絕對的優先權」。不管你是直行還是轉彎，只要輕軌來了，連紅綠燈都會配合它變燈，你只能乖乖讓它！",
                 options: [
-                    { text: "objective (客觀的)", next: "q20", isCorrect: true },
-                    { text: "subjective (主觀的)", next: "q20_help", log: "Q20救錯: 主觀是加入自己情緒的，法官必須是客觀的 (objective)！" }
+                    { text: "大眾捷運系統 (輕軌)", next: "q20", isCorrect: true },
+                    { text: "直行的汽機車", next: "q20_help", log: "Q20救錯: 敢跟輕軌搶路權，不僅會吃天價罰單，撞上去連賠都賠不完喔！" }
                 ]
             },
 
+            // --- 第 21 關：中斷機制 ---
             "q21": {
-                tag: "第 21 關：字彙測驗 (比賽資格)",
-                text: "To _____ for the final round of the singing competition, you must score at least 90 points in the semi-finals.",
+                tag: "第 21 關：I/O 控制",
+                text: "當 I/O 裝置準備好資料時，「主動」向 CPU 發出訊號請求服務，CPU 會暫停手邊工作去處理，處理完再回來繼續。這種有效率的 I/O 控制方式稱為？",
                 options: [
-                    { text: "qualify", next: "q22", isCorrect: true },
-                    { text: "quantify", next: "q21_help", log: "Q21錯: quantify 是量化" },
-                    { text: "modify", next: "q21_help", log: "Q21錯: modify 是修改" },
-                    { text: "identify", next: "q21_help", log: "Q21錯: identify 是辨認" }
+                    { text: "中斷式 I/O (Interrupt I/O)", next: "q22", isCorrect: true },
+                    { text: "輪詢式 I/O (Polling I/O)", next: "q21_help", log: "Q21錯: 輪詢是 CPU 不斷去問裝置好了沒，很浪費時間" },
+                    { text: "交握式 (Handshake)", next: "q21_help", log: "Q21錯: 這是雙方傳資料時互相打招呼的協定" },
+                    { text: "記憶體映像式 I/O", next: "q21_help", log: "Q21錯: 這是位址的規劃方式，不是控制流程" }
                 ]
             },
             "q21_help": {
-                tag: "💡 PBL 詞意解析：取得門票",
-                text: "【線索任務】你必須拿到 90 分，才能「取得資格」進入決賽。它的名詞 qualification 也很常考喔！",
+                tag: "🧠 PBL 邏輯推演：被動的服務生",
+                text: "【推演任務】輪詢(Polling)就像服務生每 10 秒跑來問你「點好餐了嗎」，很煩又浪費體力。另一種方法是：你點好餐後「按桌上的服務鈴」，把服務生「打斷」叫過來。這叫做什麼式？",
                 options: [
-                    { text: "qualify (取得資格)", next: "q21", isCorrect: true },
-                    { text: "identify (辨認)", next: "q21_help", log: "Q21救錯: 拿到分數是為了取得晉級的資格，不是為了辨認身分喔！" }
+                    { text: "中斷式 (Interrupt)", next: "q21", isCorrect: true },
+                    { text: "輪詢式 (Polling)", next: "q21_help", log: "Q21救錯: 輪詢式是 CPU 一直主動去問，效率是最低的喔！" }
                 ]
             },
 
+            // --- 第 22 關：DMA 特性 ---
             "q22": {
-                tag: "第 22 關：字彙測驗 (動植物生長)",
-                text: "Cactus plants _____ in dry environments because they are able to store large amounts of water in their thick stems.",
+                tag: "第 22 關：DMA 傳輸",
+                text: "當硬碟有超大量的高畫質影片資料要寫入主記憶體時，為了不讓 CPU 忙死，會請出一個代理人，讓硬碟跟記憶體「直接溝通、直接存取」。這種技術的縮寫是？",
                 options: [
-                    { text: "thrive", next: "q23", isCorrect: true },
-                    { text: "strive", next: "q22_help", log: "Q22錯: strive 是努力/奮鬥" },
-                    { text: "shrink", next: "q22_help", log: "Q22錯: shrink 是縮水" },
-                    { text: "starve", next: "q22_help", log: "Q22錯: starve 是挨餓" }
+                    { text: "DMA (Direct Memory Access)", next: "q23", isCorrect: true },
+                    { text: "INTR (Interrupt Request)", next: "q22_help", log: "Q22錯: 中斷還是需要 CPU 親自搬運資料" },
+                    { text: "NMI (Non-Maskable Interrupt)", next: "q22_help", log: "Q22錯: 這是用來處理停電等緊急狀況的中斷" },
+                    { text: "ISR (Interrupt Service Routine)", next: "q22_help", log: "Q22錯: 這是中斷服務程式" }
                 ]
             },
             "q22_help": {
-                tag: "🧠 PBL 邏輯推演：仙人掌的優勢",
-                text: "【推演任務】仙人掌(Cactus)可以在莖裡面儲存大量水分，所以它們在乾燥環境下不僅能活著，還能「茂盛生長、長得很好」。",
+                tag: "🔍 PBL 詞意解析：縮寫還原",
+                text: "【解析任務】直接 (Direct) 記憶體 (Memory) 存取 (Access)。把這三個英文字的字首拼起來，就是這項能繞過 CPU 直接搬磚的神奇技術！",
                 options: [
-                    { text: "thrive (茂盛生長)", next: "q22", isCorrect: true },
-                    { text: "starve (挨餓)", next: "q22_help", log: "Q22救錯: 仙人掌有存水，所以不會渴死，反而會長得很好喔！" }
+                    { text: "DMA", next: "q22", isCorrect: true },
+                    { text: "INTR", next: "q22_help", log: "Q22救錯: 中斷(INTR)每次只搬一個 byte 就會煩 CPU 一次，大量資料傳輸必須靠 DMA！" }
                 ]
             },
 
+            // --- 第 23 關：DMA IC 8237 ---
             "q23": {
-                tag: "第 23 關：字彙測驗 (會議決議)",
-                text: "After a long discussion, the committee reached a _____ decision to cancel the outdoor event due to the approaching typhoon.",
+                tag: "第 23 關：周邊晶片",
+                text: "在傳統的 IBM PC 架構中，負責掌控剛剛提到的「直接記憶體存取 (DMA)」大權的經典控制晶片，其編號是？",
                 options: [
-                    { text: "unanimous", next: "q24", isCorrect: true },
-                    { text: "anonymous", next: "q23_help", log: "Q23錯: anonymous 是匿名的" },
-                    { text: "enormous", next: "q23_help", log: "Q23錯: enormous 是巨大的" },
-                    { text: "ridiculous", next: "q23_help", log: "Q23錯: ridiculous 是荒謬的" }
+                    { text: "8237", next: "q24", isCorrect: true },
+                    { text: "8259", next: "q23_help", log: "Q23錯: 8259 是中斷控制器" },
+                    { text: "8255", next: "q23_help", log: "Q23錯: 8255 是可程式化並列 I/O 晶片" },
+                    { text: "8251", next: "q23_help", log: "Q23錯: 8251 是串列通訊晶片 (UART)" }
                 ]
             },
             "q23_help": {
-                tag: "🔍 PBL 字根字首：大家一條心",
-                text: "【解析任務】颱風要來了，委員會做出了取消活動的決定。字首 un- 來自 uni (單一)，anim 來自 mind (心/意見)。大家意見一致，叫做？",
+                tag: "📖 PBL 翻書任務：統測必背晶片",
+                text: "【查閱任務】微處理機有「三大經典輔助晶片」必考。8255 負責並列，8259 負責處理中斷插隊。負責當 CPU 代理人搬大量資料的 DMA 晶片，尾數是 7。是哪一顆？",
                 options: [
-                    { text: "unanimous (全體一致的)", next: "q23", isCorrect: true },
-                    { text: "anonymous (匿名的)", next: "q23_help", log: "Q23救錯: 會議決議通常是「全體一致」通過，不是匿名通過喔！" }
+                    { text: "8237", next: "q23", isCorrect: true },
+                    { text: "8259", next: "q23_help", log: "Q23救錯: 8259 是專門處理別人按服務鈴 (中斷) 的總管喔！" }
                 ]
             },
 
+            // --- 第 24 關：中斷優先權 ---
             "q24": {
-                tag: "第 24 關：字彙測驗 (交通與農業)",
-                text: "Drivers must _____ to pedestrians at crosswalks to ensure safety and avoid paying heavy fines.",
+                tag: "第 24 關：中斷控制器",
+                text: "承上題，如果同時有好幾個周邊裝置向 8259A (中斷控制器) 發出求救訊號，8259A 預設會優先處理哪一個腳位的請求？",
                 options: [
-                    { text: "yield", next: "q25", isCorrect: true },
-                    { text: "shield", next: "q24_help", log: "Q24錯: shield 是盾牌/保護" },
-                    { text: "wield", next: "q24_help", log: "Q24錯: wield 是揮舞(武器)" },
-                    { text: "field", next: "q24_help", log: "Q24錯: field 是田野/領域" }
+                    { text: "IR0 (第 0 號接腳)", next: "q25", isCorrect: true },
+                    { text: "IR7 (第 7 號接腳)", next: "q24_help", log: "Q24錯: 數字越大的預設優先權越低" },
+                    { text: "隨機處理", next: "q24_help", log: "Q24錯: 8259A 是一個非常有紀律的仲裁者" },
+                    { text: "最後發出請求的", next: "q24_help", log: "Q24錯: 不會看先來後到，看腳位編號" }
                 ]
             },
             "q24_help": {
-                tag: "💡 PBL 尋找線索：交通法規",
-                text: "【線索任務】駕駛(Drivers)在斑馬線必須對行人(pedestrians)做什麼動作以確保安全？這個字在農業指「出產」，在交通指「退讓、停讓」。",
+                tag: "🛠️ PBL 邏輯推演：數字越小越偉大",
+                text: "【推演任務】在電腦硬體的世界裡，編號通常是從 0 開始排。0 號就像是大師兄，擁有絕對的最高優先權 (通常接系統計時器)。所以誰最大？",
                 options: [
-                    { text: "yield (讓路)", next: "q24", isCorrect: true },
-                    { text: "shield (保護)", next: "q24_help", log: "Q24救錯: 法規是規定車輛必須「退讓」行人，搭配介系詞 to 喔！" }
+                    { text: "IR0", next: "q24", isCorrect: true },
+                    { text: "IR7", next: "q24_help", log: "Q24救錯: 7 號是小老弟，要等前面的大哥都處理完才輪得到他喔！" }
                 ]
             },
 
+            // 🛑 第 25 關：交通法規 (山路會車)
             "q25": {
-                tag: "第 25 關：字彙測驗 (工作態度)",
-                text: "The new marketing assistant is very _____ about his job; he always arrives early and brings up creative ideas during meetings.",
+                tag: "🛑 第 25 關：大腦休息 (淡商交通日常)",
+                text: "【情境】淡水商工位在山坡上。假設你騎著腳踏車上山，在狹窄且沒有劃設車道線的陡坡處，剛好遇到另一輛腳踏車要下山。路太窄無法同時通過，根據法規，誰必須讓誰？",
                 options: [
-                    { text: "zealous", next: "q26", isCorrect: true },
-                    { text: "jealous", next: "q25_help", log: "Q25錯: jealous 是嫉妒的" },
-                    { text: "reckless", next: "q25_help", log: "Q25錯: reckless 是魯莽的" },
-                    { text: "flawless", next: "q25_help", log: "Q25錯: flawless 是完美無瑕的" }
+                    { text: "下坡車 必須讓 上坡車 先行", next: "q26", isCorrect: true },
+                    { text: "上坡車 必須讓 下坡車 先行", next: "q25_help", log: "Q25錯: 剛好相反，上坡起步困難" },
+                    { text: "體積大的車 讓 體積小的車", next: "q25_help", log: "Q25錯: 法規是依據上下坡判斷，不是體積" },
+                    { text: "先按喇叭的人先走", next: "q25_help", log: "Q25錯: 這是逼車行為了" }
                 ]
             },
             "q25_help": {
-                tag: "🧠 PBL 邏輯推演：早到又積極",
-                text: "【推演任務】他提早到，而且在會議中一直提出創意點子。這代表他對這份工作非常「熱情、充滿熱忱的」。(小心不要跟長得很像的嫉妒搞混)",
+                tag: "🚔 PBL 法規檢索：體諒起步的困難",
+                text: "【檢索任務】請想像一下物理原理。上坡車如果停下來，要重新起步非常吃力，甚至可能會向後滑。下坡車有地心引力幫忙，踩煞車停下來比較容易。所以法規規定是誰要讓誰？",
                 options: [
-                    { text: "zealous (熱忱的)", next: "q25", isCorrect: true },
-                    { text: "jealous (嫉妒的)", next: "q25_help", log: "Q25救錯: Z開頭的是熱情(zeal)，J開頭的才是嫉妒(jealous)喔！" }
+                    { text: "下坡車 讓 上坡車", next: "q25", isCorrect: true },
+                    { text: "上坡車 讓 下坡車", next: "q25_help", log: "Q25救錯: 叫上坡車停下來，他等一下就騎不上去啦！" }
                 ]
             },
 
+            // --- 第 26 關：記憶體揮發性 ---
             "q26": {
-                tag: "第 26 關：字彙測驗 (資源條件)",
-                text: "Before going on a hiking trip in the mountains, make sure you have _____ supplies of food and water for emergencies.",
+                tag: "第 26 關：記憶體特性",
+                text: "電腦裡的主記憶體 (RAM) 有一個致命的弱點：只要一停電或把插頭拔掉，裡面儲存的資料就會瞬間完全消失。這種特性稱為什麼？",
                 options: [
-                    { text: "adequate", next: "q27", isCorrect: true },
-                    { text: "accurate", next: "q26_help", log: "Q26錯: accurate 是準確的" },
-                    { text: "absolute", next: "q26_help", log: "Q26錯: absolute 是絕對的" },
-                    { text: "awkward", next: "q26_help", log: "Q26錯: awkward 是尷尬的" }
+                    { text: "揮發性 (Volatile)", next: "q27", isCorrect: true },
+                    { text: "非揮發性 (Non-volatile)", next: "q26_help", log: "Q26錯: 這是 ROM 或隨身碟的特性" },
+                    { text: "唯讀性 (Read-only)", next: "q26_help", log: "Q26錯: RAM 是可讀可寫的" },
+                    { text: "循序性 (Sequential)", next: "q26_help", log: "Q26錯: RAM 是隨機存取的" }
                 ]
             },
             "q26_help": {
-                tag: "🔍 PBL 詞意解析：爬山的準備",
-                text: "【解析任務】去山上健行前，必須確保你有「足夠的」食物和水來應付緊急狀況。這個字等同於 sufficient 或 enough。",
+                tag: "🔍 PBL 詞意解析：像酒精一樣蒸發",
+                text: "【解析任務】就像把酒精倒在桌上，時間一到它就蒸發不見了。記憶體只要失去電力的滋潤，資料就會像這樣不見。這個名詞是？",
                 options: [
-                    { text: "adequate (足夠的)", next: "q26", isCorrect: true },
-                    { text: "accurate (準確的)", next: "q26_help", log: "Q26救錯: 食物和水需要的是「數量足夠」，不是「準確」喔！" }
+                    { text: "揮發性", next: "q26", isCorrect: true },
+                    { text: "非揮發性", next: "q26_help", log: "Q26救錯: ROM (唯讀記憶體) 才是不會揮發的，斷電資料還在！" }
                 ]
             },
 
+            // --- 第 27 關：SRAM vs DRAM ---
             "q27": {
-                tag: "第 27 關：字彙測驗 (交通意外)",
-                text: "The heavy fog caused two cars to _____ on the highway, resulting in a severe traffic jam that lasted for hours.",
+                tag: "第 27 關：RAM 的種類",
+                text: "主記憶體 DRAM (動態隨機存取記憶體) 的儲存單元是利用「極微小的電容器」來記憶 0 和 1。因為電容器會漏電，所以它必須依靠什麼動作來維持資料不消失？",
                 options: [
-                    { text: "collide", next: "q28", isCorrect: true },
-                    { text: "collapse", next: "q27_help", log: "Q27錯: collapse 是倒塌" },
-                    { text: "collect", next: "q27_help", log: "Q27錯: collect 是收集" },
-                    { text: "command", next: "q27_help", log: "Q27錯: command 是命令" }
+                    { text: "每隔幾毫秒就必須 更新/刷新 (Refresh) 一次充電", next: "q28", isCorrect: true },
+                    { text: "接上一顆水銀電池", next: "q27_help", log: "Q27錯: 這救不了 DRAM，這是早期 CMOS 存 BIOS 設定的作法" },
+                    { text: "放在極低溫的環境中", next: "q27_help", log: "Q27錯: 降溫能減緩漏電，但仍需刷新" },
+                    { text: "寫入時使用紫外線照射", next: "q27_help", log: "Q27錯: 這是清除 EPROM 資料的方法" }
                 ]
             },
             "q27_help": {
-                tag: "💡 PBL 尋找線索：濃霧惹的禍",
-                text: "【線索任務】大濃霧(heavy fog)導致高速公路上的兩台車發生了什麼事，進而造成嚴重塞車？",
+                tag: "🧠 PBL 邏輯推演：漏水的破水桶",
+                text: "【推演任務】DRAM 就像一個底部有破洞的水桶 (微小電容)。如果水桶有水代表 1，沒水代表 0。因為水一直漏，你要怎麼確保代表 1 的水桶不會變成 0？當然是派人一直不斷去「補水」！這個動作叫？",
                 options: [
-                    { text: "collide (相撞)", next: "q27", isCorrect: true },
-                    { text: "collapse (倒塌)", next: "q27_help", log: "Q27救錯: 車子是相撞，建築物才是倒塌喔！" }
+                    { text: "不斷更新/刷新 (Refresh)", next: "q27", isCorrect: true },
+                    { text: "接上水銀電池", next: "q27_help", log: "Q27救錯: 水銀電池撐不住 DRAM 這麼龐大的漏電量啦！" }
                 ]
             },
 
+            // --- 第 28 關：SRAM 速度 ---
             "q28": {
-                tag: "第 28 關：字彙測驗 (剝奪權利)",
-                text: "Using smartphones right before bedtime can _____ you of a good night's sleep, making you feel tired the next day.",
+                tag: "第 28 關：快取記憶體",
+                text: "因為 DRAM 必須一直停下來補水 (Refresh)，速度太慢跟不上 CPU。所以 CPU 內部會內建一種用「正反器 (Flip-Flop)」製作、不用充電、速度極快但造價昂貴的記憶體來當作快取 (Cache)。它是什麼？",
                 options: [
-                    { text: "deprive", next: "q29", isCorrect: true },
-                    { text: "derive", next: "q28_help", log: "Q28錯: derive 是源自於 (derive from)" },
-                    { text: "decline", next: "q28_help", log: "Q28錯: decline 是下降/婉拒" },
-                    { text: "deposit", next: "q28_help", log: "Q28錯: deposit 是存款" }
+                    { text: "SRAM (靜態隨機存取記憶體)", next: "q29", isCorrect: true },
+                    { text: "EEPROM", next: "q28_help", log: "Q28錯: 這是用電氣清除的唯讀記憶體，寫入極慢" },
+                    { text: "Flash Memory (快閃記憶體)", next: "q28_help", log: "Q28錯: 雖然叫快閃，但其實比 RAM 慢很多" },
+                    { text: "硬碟 (HDD)", next: "q28_help", log: "Q28錯: 這是最慢的輔助記憶體" }
                 ]
             },
             "q28_help": {
-                tag: "🧠 PBL 慣用語搭配：拿走你的睡眠",
-                text: "【推演任務】睡前滑手機會「剝奪」你擁有好睡眠的機會。英文常見用法是 _____ A of B (剝奪A的B)。",
+                tag: "📖 PBL 翻書任務：靜與動的對決",
+                text: "【查閱任務】DRAM 的 D 代表 Dynamic (動態)，因為水一直漏一直補，很忙碌。另一種用電晶體做的，只要通電資料就穩如泰山死死抓住的，S 代表 Static (靜態)。它是？",
                 options: [
-                    { text: "deprive (剝奪)", next: "q28", isCorrect: true },
-                    { text: "derive (源自於)", next: "q28_help", log: "Q28救錯: derive 是起源，這裡的意思是被手機「搶走」了睡眠喔！" }
+                    { text: "SRAM", next: "q28", isCorrect: true },
+                    { text: "Flash Memory", next: "q28_help", log: "Q28救錯: Flash 是隨身碟用的，雖然也不會掉資料，但速度遠遠跟不上 CPU 喔！" }
                 ]
             },
 
+            // --- 第 29 關：固態硬碟 ---
             "q29": {
-                tag: "第 29 關：字彙測驗 (執行法律)",
-                text: "The police will strictly _____ the new speed limit regulations to reduce the number of accidents on this dangerous road.",
+                tag: "第 29 關：輔助記憶體",
+                text: "近年來，傳統利用磁盤旋轉的笨重硬碟 (HDD)，逐漸被輕薄、抗震、速度飛快的「固態硬碟 (SSD)」取代。請問 SSD 主要是使用哪一種記憶體晶片來儲存資料？",
                 options: [
-                    { text: "enforce", next: "q30", isCorrect: true },
-                    { text: "endorse", next: "q29_help", log: "Q29錯: endorse 是背書/代言" },
-                    { text: "enclose", next: "q29_help", log: "Q29錯: enclose 是附上(信件)" },
-                    { text: "endure", next: "q29_help", log: "Q29錯: endure 是忍受" }
+                    { text: "Flash Memory (快閃記憶體)", next: "q30", isCorrect: true },
+                    { text: "SRAM", next: "q29_help", log: "Q29錯: SRAM 斷電資料就沒了，不能當硬碟" },
+                    { text: "DRAM", next: "q29_help", log: "Q29錯: DRAM 斷電資料也會消失" },
+                    { text: "ROM", next: "q29_help", log: "Q29錯: ROM 不能自由快速的寫入新檔案" }
                 ]
             },
             "q29_help": {
-                tag: "🔍 PBL 字根字首：賦予力量",
-                text: "【解析任務】警察會嚴格地對新法規做什麼事？字首 en- (使...) 加上 force (力量)，意思就是把力量加諸於法律上，也就是「強制執行」。",
+                tag: "🛠️ PBL 邏輯推演：隨身碟的進化版",
+                text: "【推演任務】其實 SSD 的底層技術，就跟我們掛在鑰匙圈上的「隨身碟」一模一樣，只是晶片裝得更多、控制器更強而已。隨身碟使用的那種不怕斷電、又可以重複擦寫的晶片叫什麼？",
                 options: [
-                    { text: "enforce (執行/實施)", next: "q29", isCorrect: true },
-                    { text: "endorse (代言)", next: "q29_help", log: "Q29救錯: 警察是負責「執法」，不是幫法律「代言」喔！" }
+                    { text: "Flash Memory (快閃記憶體)", next: "q29", isCorrect: true },
+                    { text: "SRAM", next: "q29_help", log: "Q29救錯: SRAM 是 CPU 裡面的超級 VIP 記憶體，貴到不可能拿來存好幾 GB 的遊戲啦！" }
                 ]
             },
 
+            // 🛑 第 30 關：交通法規 (考照年齡)
             "q30": {
-                tag: "第 30 關：字彙測驗 (情感吸引)",
-                text: "The little boy was completely _____ by the magic show and couldn't take his eyes off the magician's hands.",
+                tag: "🛑 第 30 關：大腦休息 (淡商交通日常)",
+                text: "【情境】淡水商工三年級的同學，很多人滿懷期待地準備考取人生第一張駕照。請問根據台灣法規，必須年滿幾歲才能報考「普通重型機車」(也就是大家常騎的 125cc 白牌機車) 駕照？",
                 options: [
-                    { text: "fascinated", next: "q31", isCorrect: true },
-                    { text: "frustrated", next: "q30_help", log: "Q30錯: frustrated 是感到挫折的" },
-                    { text: "frightened", next: "q30_help", log: "Q30錯: frightened 是感到害怕的" },
-                    { text: "forgiven", next: "q30_help", log: "Q30錯: forgiven 是被原諒的" }
+                    { text: "滿 18 歲", next: "q31", isCorrect: true },
+                    { text: "滿 16 歲", next: "q30_help", log: "Q30錯: 16歲還不能考駕照" },
+                    { text: "滿 20 歲", next: "q30_help", log: "Q30錯: 以前民法成年的年紀，但駕照 18 歲就能考" },
+                    { text: "沒有年齡限制，只要會騎腳踏車就可以", next: "q30_help", log: "Q30錯: 這絕對違法，無照駕駛罰超重" }
                 ]
             },
             "q30_help": {
-                tag: "💡 PBL 尋找線索：目不轉睛",
-                text: "【線索任務】小男孩「無法移開視線 (couldn't take his eyes off)」，代表他被這場魔術秀給深深「吸引、迷住」了。",
+                tag: "🚔 PBL 法規檢索：成年的禮物",
+                text: "【檢索任務】在台灣，高三學生最期待的生日禮物就是去監理站考駕照。不管是汽車還是普通重型機車，都必須跨過這個法定的「成年」門檻才能報考。是幾歲呢？",
                 options: [
-                    { text: "fascinated (著迷的)", next: "q30", isCorrect: true },
-                    { text: "frightened (害怕的)", next: "q30_help", log: "Q30救錯: 如果很害怕，他應該會遮住眼睛或逃跑，而不是盯著看喔！" }
+                    { text: "滿 18 歲", next: "q30", isCorrect: true },
+                    { text: "滿 20 歲", next: "q30_help", log: "Q30救錯: 20 歲是考大型重機 (黃牌/紅牌) 的門檻喔，普通的白牌 18 歲就可以了！" }
                 ]
             },
 
-            // ==========================================
-            // 第二部分：同義字測驗 (Q31 - Q45)
-            // ==========================================
+            // --- 第 31 關：組合語言 MOV ---
             "q31": {
-                tag: "第 31 關：同義字測驗",
-                text: "Water is absolutely <u>vital</u> for the survival of all living creatures on Earth. (請問畫底線單字的同義字為何？)",
+                tag: "第 31 關：組合語言指令",
+                text: "在 8086 組合語言中，哪一個指令的作用是「將資料進行複製、搬移」？（例如把暫存器 A 的資料複製給暫存器 B）",
                 options: [
-                    { text: "essential", next: "q32", isCorrect: true },
-                    { text: "optional", next: "q31_help", log: "Q31錯: optional 是可選擇的(非必要)" },
-                    { text: "doubtful", next: "q31_help", log: "Q31錯: doubtful 是令人懷疑的" },
-                    { text: "casual", next: "q31_help", log: "Q31錯: casual 是隨便的" }
+                    { text: "MOV", next: "q32", isCorrect: true },
+                    { text: "ADD", next: "q31_help", log: "Q31錯: 這是做加法" },
+                    { text: "SUB", next: "q31_help", log: "Q31錯: 這是做減法" },
+                    { text: "INC", next: "q31_help", log: "Q31錯: 這是把自己加一 (+1)" }
                 ]
             },
             "q31_help": {
-                tag: "🧠 PBL 同義字推敲：生命不可或缺",
-                text: "【推演任務】vital 這個字的字根 vit- 代表 life (生命)。對生存來說，水是「絕對必要、不可或缺的」。哪個選項有 essential (極重要的) 的意思？",
+                tag: "🔍 PBL 詞意解析：移動的英文",
+                text: "【解析任務】組合語言的指令都是英文單字的縮寫。要把資料從甲地「移動」到乙地，英文的 Move 縮寫成三個字母，就是這個最經典的指令！",
                 options: [
-                    { text: "essential (不可或缺的)", next: "q31", isCorrect: true },
-                    { text: "optional (可選擇的)", next: "q31_help", log: "Q31救錯: 水是活命必須的，不能「選擇」不喝喔！" }
+                    { text: "MOV", next: "q31", isCorrect: true },
+                    { text: "ADD", next: "q31_help", log: "Q31救錯: ADD 是 Add (加) 的縮寫，用來算數學的喔！" }
                 ]
             },
 
+            // --- 第 32 關：旗標暫存器 ZF ---
             "q32": {
-                tag: "第 32 關：同義字測驗",
-                text: "Because of the sudden rain, we had to <u>alter</u> our plans and hold the party indoors. (請問畫底線單字的同義字為何？)",
+                tag: "第 32 關：CPU 狀態旗標",
+                text: "當 CPU 執行算術運算 (例如 SUB 相減指令) 後，若「運算的最終結果恰好等於 0」，則 CPU 內的哪一個狀態旗標會被舉起 (設定為 1)？",
                 options: [
-                    { text: "change", next: "q33", isCorrect: true },
-                    { text: "maintain", next: "q32_help", log: "Q32錯: maintain 是維持" },
-                    { text: "abandon", next: "q32_help", log: "Q32錯: abandon 是放棄" },
-                    { text: "postpone", next: "q32_help", log: "Q32錯: postpone 是延期，但派對還是辦了只是改地點" }
+                    { text: "ZF (Zero Flag, 零旗標)", next: "q33", isCorrect: true },
+                    { text: "CF (Carry Flag, 進位旗標)", next: "q32_help", log: "Q32錯: 這是運算超出邊界產生進位或借位時用的" },
+                    { text: "SF (Sign Flag, 符號旗標)", next: "q32_help", log: "Q32錯: 這是看結果是正數還是負數的" },
+                    { text: "OF (Overflow Flag, 溢位旗標)", next: "q32_help", log: "Q32錯: 這是發生二補數溢位錯誤時用的" }
                 ]
             },
             "q32_help": {
-                tag: "🔍 PBL 同義字推敲：計畫趕不上變化",
-                text: "【線索任務】因為下雨，我們必須把派對改到室內。所以我們對原本的計畫做了「改變 (alter)」。",
+                tag: "🧠 PBL 邏輯推演：顧名思義",
+                text: "【推演任務】這題根本是送分題！當結果變成「零 (Zero)」的時候，專門負責監視「零」的旗標就會發出警報 (變成 1)。英文字母縮寫是？",
                 options: [
-                    { text: "change (改變)", next: "q32", isCorrect: true },
-                    { text: "maintain (維持)", next: "q32_help", log: "Q32救錯: 如果維持原計畫，派對就會在雨中進行啦！" }
+                    { text: "ZF (零旗標)", next: "q32", isCorrect: true },
+                    { text: "SF (符號旗標)", next: "q32_help", log: "Q32救錯: SF 是在看最高位元，用來判斷答案是正的還是負的喔！" }
                 ]
             },
 
+            // --- 第 33 關：移位乘法 ---
             "q33": {
-                tag: "第 33 關：同義字測驗",
-                text: "Colors like red and yellow are often used to <u>convey</u> a sense of danger or warning on traffic signs. (請問畫底線單字的同義字為何？)",
+                tag: "第 33 關：二進位運算",
+                text: "在微處理機中，若我們對一個暫存器內的二進位數值執行一次「向左移 1 位 (SHL)」的動作，且沒有發生溢位。在數學上，這個數值的變化等同於？",
                 options: [
-                    { text: "communicate", next: "q34", isCorrect: true },
-                    { text: "conceal", next: "q33_help", log: "Q33錯: conceal 是隱藏" },
-                    { text: "confuse", next: "q33_help", log: "Q33錯: confuse 是使困惑" },
-                    { text: "consume", next: "q33_help", log: "Q33錯: consume 是消耗" }
+                    { text: "乘以 2", next: "q34", isCorrect: true },
+                    { text: "除以 2", next: "q33_help", log: "Q33錯: 這是向右移位 (SHR) 的結果" },
+                    { text: "加上 2", next: "q33_help", log: "Q33錯: 移位是倍數關係，不是加法" },
+                    { text: "變成 2 的次方", next: "q33_help", log: "Q33錯: 不是自己平方" }
                 ]
             },
             "q33_help": {
-                tag: "💡 PBL 同義字推敲：傳遞訊息",
-                text: "【推演任務】交通標誌用紅色來「傳達 (convey)」危險的感覺給駕駛。這是一種傳遞訊息、溝通的方式。",
+                tag: "🛠️ PBL 邏輯推演：進位的奧秘",
+                text: "【推演任務】在十進位裡，把 5「向左移一位」後面補 0，變成 50，就是乘以 10。在「二進位」裡，底數是 2。所以把數字往左邊推一格，就等同於乘上它的底數。也就是乘以？",
                 options: [
-                    { text: "communicate (傳達/溝通)", next: "q33", isCorrect: true },
-                    { text: "conceal (隱藏)", next: "q33_help", log: "Q33救錯: 交通標誌是要把警告給別人看，不是要隱藏喔！" }
+                    { text: "乘以 2", next: "q33", isCorrect: true },
+                    { text: "除以 2", next: "q33_help", log: "Q33救錯: 向右移位 (數值變小) 才是除以 2 喔！" }
                 ]
             },
 
+            // --- 第 34 關：多核心架構 ---
             "q34": {
-                tag: "第 34 關：同義字測驗",
-                text: "Workers in the chemical factory must wear protective clothing to avoid exposure to <u>hazardous</u> substances. (請問畫底線單字的同義字為何？)",
+                tag: "第 34 關：多核心處理器",
+                text: "現代電腦常標榜「雙核心」、「四核心」甚至「八核心」。請問「多核心微處理機」的本質是什麼？",
                 options: [
-                    { text: "dangerous", next: "q35", isCorrect: true },
-                    { text: "valuable", next: "q34_help", log: "Q34錯: valuable 是有價值的" },
-                    { text: "mysterious", next: "q34_help", log: "Q34錯: mysterious 是神秘的" },
-                    { text: "numerous", next: "q34_help", log: "Q34錯: numerous 是許多的" }
+                    { text: "將多個獨立的運算核心 (ALU+CU) 封裝在『同一個』CPU 實體晶片中", next: "q35", isCorrect: true },
+                    { text: "在一塊主機板上，插上好幾顆獨立的 CPU 晶片", next: "q34_help", log: "Q34錯: 這是『多處理機 (Multi-Processor)』系統，不是多核心" },
+                    { text: "利用網路把全世界的電腦連起來一起算", next: "q34_help", log: "Q34錯: 這是分散式運算或雲端運算" },
+                    { text: "加大單一 CPU 的時脈頻率到好幾倍", next: "q34_help", log: "Q34錯: 這是超頻，核心數還是只有一個" }
                 ]
             },
             "q34_help": {
-                tag: "🧠 PBL 同義字推敲：保護衣的防禦",
-                text: "【線索任務】工廠員工必須穿防護衣，為的是避免接觸到化學物質。這些物質通常是「危險的、有害的 (hazardous)」。",
+                tag: "📖 PBL 翻書任務：單獨套房 vs 合租公寓",
+                text: "【查閱任務】請查閱第七章。多處理機是「很多棟房子(晶片)」。而多核心技術，是把好幾間獨立的套房(核心)，全部塞進「同一棟公寓(單一晶片)」裡面！",
                 options: [
-                    { text: "dangerous (危險的)", next: "q34", isCorrect: true },
-                    { text: "valuable (有價值的)", next: "q34_help", log: "Q34救錯: 化學物質也許有價值，但穿防護衣是因為它們很危險！" }
+                    { text: "多個核心封裝在同一個晶片中", next: "q34", isCorrect: true },
+                    { text: "主機板上插好幾顆 CPU 晶片", next: "q34_help", log: "Q34救錯: 主機板插很多顆 CPU 的那叫伺服器級的「多處理機」系統喔！" }
                 ]
             },
 
+            // 🛑 第 35 關：交通法規 (大型車視線死角)
             "q35": {
-                tag: "第 35 關：同義字測驗",
-                text: "The internet was <u>initially</u> created for military purposes, but now it is widely used by the public. (請問畫底線單字的同義字為何？)",
+                tag: "🛑 第 35 關：大腦休息 (淡商交通日常)",
+                text: "【情境】放學時，淡水市區車流繁忙，有許多大客車與聯結車。騎腳踏車或機車時，絕對不能跟這些大型車輛併行轉彎，因為它們有致命的「內輪差」與「視線死角」。請問何謂內輪差？",
                 options: [
-                    { text: "originally", next: "q36", isCorrect: true },
-                    { text: "finally", next: "q35_help", log: "Q35錯: finally 是最後" },
-                    { text: "partially", next: "q35_help", log: "Q35錯: partially 是部分地" },
-                    { text: "merely", next: "q35_help", log: "Q35錯: merely 是僅僅" }
+                    { text: "轉彎時，車輛『後輪』往內側偏移的軌跡，比前輪更靠近人行道", next: "q36", isCorrect: true },
+                    { text: "轉彎時，車輛的『前輪』會突然爆胎", next: "q35_help", log: "Q35錯: 這跟內輪差無關" },
+                    { text: "大車車輪比較大，會輾過小車", next: "q35_help", log: "Q35錯: 這不是內輪差的物理定義" },
+                    { text: "轉彎時，車尾會往外側大甩尾", next: "q35_help", log: "Q35錯: 這是外輪差，內輪差是往內捲" }
                 ]
             },
             "q35_help": {
-                tag: "🔍 PBL 同義字推敲：事情的開頭",
-                text: "【推演任務】句子有強烈的對比：____ 是為軍事目的，但「現在 (now)」大眾都在用。這代表 initial 是指「最初、一開始」。",
+                tag: "🚔 PBL 法規檢索：死神的鐮刀",
+                text: "【檢索任務】請回想宣導影片。大車轉彎時，前輪雖然過了，但因為車身很長，後輪會切西瓜「向內側偏移」。很多機車騎士以為車頭過了就安全，結果被後輪捲進去！這就是？",
                 options: [
-                    { text: "originally (起初地)", next: "q35", isCorrect: true },
-                    { text: "finally (最後)", next: "q35_help", log: "Q35救錯: now 才是後來的事，initial 指的是最前面的開頭喔！" }
+                    { text: "後輪軌跡向內側偏移", next: "q35", isCorrect: true },
+                    { text: "車尾向外側大甩尾", next: "q35_help", log: "Q35救錯: 外甩的是車尾，但最危險會把人捲進車底的是往內側切的「後輪」喔！" }
                 ]
             },
 
+            // --- 第 36 關：位址解碼器 ---
             "q36": {
-                tag: "第 36 關：同義字測驗",
-                text: "The teacher asked the students to <u>observe</u> the chemical reaction carefully and write down their findings. (請問畫底線單字的同義字為何？)",
+                tag: "第 36 關：位址解碼",
+                text: "在微電腦系統中，為了喚醒特定位置的記憶體晶片，我們常會使用「74138 (3對8解碼器)」。若 74138 的輸入端 C, B, A 給予訊號 1, 0, 1，請問哪一個輸出腳位 (Y0~Y7) 會產生低電位動作？",
                 options: [
-                    { text: "notice", next: "q37", isCorrect: true },
-                    { text: "ignore", next: "q36_help", log: "Q36錯: ignore 是忽略" },
-                    { text: "disturb", next: "q36_help", log: "Q36錯: disturb 是打擾" },
-                    { text: "prevent", next: "q36_help", log: "Q36錯: prevent 是預防" }
+                    { text: "Y5", next: "q37", isCorrect: true },
+                    { text: "Y1", next: "q36_help", log: "Q36錯: 這是輸入 001 的結果" },
+                    { text: "Y3", next: "q36_help", log: "Q36錯: 這是 011 的結果" },
+                    { text: "Y6", next: "q36_help", log: "Q36錯: 這是 110 的結果" }
                 ]
             },
             "q36_help": {
-                tag: "💡 PBL 同義字推敲：仔細看",
-                text: "【解析任務】老師要求學生 carefully (仔細地) 去 observe 化學反應並寫下結果。這個動作就是「觀察、注意到」。",
+                tag: "🛠️ PBL 邏輯推演：二進位轉十進位",
+                text: "【推演任務】解碼器就像個翻譯機。輸入端 CBA (1, 0, 1) 代表一個二進位數字 $101_2$。請把 101 換算成十進位：$1 \\times 4 + 0 \\times 2 + 1 \\times 1 = ?$，所以就是第幾號腳位？",
                 options: [
-                    { text: "notice (注意/觀察)", next: "q36", isCorrect: true },
-                    { text: "ignore (忽略)", next: "q36_help", log: "Q36救錯: 老師是要他們仔細看，不是要他們忽略喔！" }
+                    { text: "Y5", next: "q36", isCorrect: true },
+                    { text: "Y6", next: "q36_help", log: "Q36救錯: 110 (4+2=6) 才是 Y6 喔！101 是 5！" }
                 ]
             },
 
+            // --- 第 37 關：北橋與南橋 ---
             "q37": {
-                tag: "第 37 關：同義字測驗",
-                text: "All members are encouraged to <u>participate</u> in the upcoming charity run to help raise money for the hospital. (請問畫底線單字的同義字為何？)",
+                tag: "第 37 關：主機板架構",
+                text: "在傳統的個人電腦主機板上，晶片組分為「北橋」與「南橋」。下列哪一項硬體設備通常是連接在處理「低速訊號」的「南橋晶片」上？",
                 options: [
-                    { text: "join", next: "q38", isCorrect: true },
-                    { text: "quit", next: "q37_help", log: "Q37錯: quit 是退出" },
-                    { text: "avoid", next: "q37_help", log: "Q37錯: avoid 是避免" },
-                    { text: "invest", next: "q37_help", log: "Q37錯: invest 是投資(錢)" }
+                    { text: "USB 控制器 與 音效卡", next: "q38", isCorrect: true },
+                    { text: "主記憶體 (RAM)", next: "q37_help", log: "Q37錯: 主記憶體是最高速的，歸北橋管" },
+                    { text: "PCI-E 獨立顯示卡", next: "q37_help", log: "Q37錯: 顯示卡需要龐大頻寬，歸北橋管" },
+                    { text: "CPU 本身", next: "q37_help", log: "Q37錯: CPU 位於架構的最頂端" }
                 ]
             },
             "q37_help": {
-                tag: "🧠 PBL 同義字推敲：共襄盛舉",
-                text: "【線索任務】為了幫醫院募款，大家被鼓勵去「參加 (participate)」即將到來的慈善路跑。哪個字有參加、加入的意思？",
+                tag: "🔍 PBL 詞意解析：南北的快慢",
+                text: "【解析任務】北橋 (靠近 CPU) 專門管「跑得飛快」的高級零件，如主記憶體和顯示卡。南橋 (遠離 CPU) 就像里長伯，專管一些速度不快但很雜的周邊。滑鼠鍵盤用的 USB 算哪一種？",
                 options: [
-                    { text: "join (加入/參加)", next: "q37", isCorrect: true },
-                    { text: "invest (投資)", next: "q37_help", log: "Q37救錯: 路跑是用身體去參加(join)，雖然會募款，但不是叫你直接去投資(invest)醫院喔！" }
+                    { text: "USB 控制器", next: "q37", isCorrect: true },
+                    { text: "主記憶體 (RAM)", next: "q37_help", log: "Q37救錯: 記憶體如果被丟去給南橋管，整台電腦會卡到崩潰喔！" }
                 ]
             },
 
+            // --- 第 38 關：RISC 特性 ---
             "q38": {
-                tag: "第 38 關：同義字測驗",
-                text: "Technology is developing so <u>rapidly</u> that it is hard for many older people to keep up with the latest devices. (請問畫底線單字的同義字為何？)",
+                tag: "第 38 關：CPU 架構設計",
+                text: "目前市面上的手機處理器 (如 ARM 架構) 大多採用「RISC (精簡指令集)」設計。關於 RISC，下列敘述何者正確？",
                 options: [
-                    { text: "quickly", next: "q39", isCorrect: true },
-                    { text: "quietly", next: "q38_help", log: "Q38錯: quietly 是安靜地" },
-                    { text: "smoothly", next: "q38_help", log: "Q38錯: smoothly 是平順地" },
-                    { text: "barely", next: "q38_help", log: "Q38錯: barely 是幾乎不" }
+                    { text: "指令數量少、長度固定，且大多能在單一時脈週期內執行完畢", next: "q39", isCorrect: true },
+                    { text: "擁有極大量且複雜的指令", next: "q38_help", log: "Q38錯: 這是 CISC 的特徵" },
+                    { text: "使用微程式 (Micro-program) 來控制執行", next: "q38_help", log: "Q38錯: CISC 才是用微程式，RISC 是硬體直接連線" },
+                    { text: "指令長度變化很大，非常不固定", next: "q38_help", log: "Q38錯: 為了追求速度，RISC 的指令長度是固定的" }
                 ]
             },
             "q38_help": {
-                tag: "🔍 PBL 同義字推敲：跟不上腳步",
-                text: "【推演任務】科技發展得太「rapidly」，導致老年人很難跟上(keep up with)。代表它發展的速度非常「快速」。",
+                tag: "📖 PBL 翻書任務：Reduced 的真諦",
+                text: "【查閱任務】RISC 的 R 代表 Reduced (精簡)。為了讓 CPU 跑得飛快，工程師把那些很少用的複雜指令全部丟掉，只留下長度一樣、簡單暴力的基本招式，每一招都在一個瞬間(週期)打完！",
                 options: [
-                    { text: "quickly (快速地)", next: "q38", isCorrect: true },
-                    { text: "smoothly (平順地)", next: "q38_help", log: "Q38救錯: 重點是因為太快了所以跟不上，不是因為太平順喔！" }
+                    { text: "指令少、長度固定、單一週期執行", next: "q38", isCorrect: true },
+                    { text: "擁有極大量且複雜的指令", next: "q38_help", log: "Q38救錯: 複雜指令集叫做 CISC (Complex)，那是 Intel 電腦 CPU 在用的喔！" }
                 ]
             },
 
+            // --- 第 39 關：超純量架構 ---
             "q39": {
-                tag: "第 39 關：同義字測驗",
-                text: "Make sure you have gathered <u>sufficient</u> evidence before you present your argument to the committee. (請問畫底線單字的同義字為何？)",
+                tag: "第 39 關：進階 CPU 技術",
+                text: "為了突破執行速度的極限，現代微處理機引入了「超純量架構 (Superscalar)」。這項技術最核心的能力是什麼？",
                 options: [
-                    { text: "enough", next: "q40", isCorrect: true },
-                    { text: "fake", next: "q39_help", log: "Q39錯: fake 是假的" },
-                    { text: "scarce", next: "q39_help", log: "Q39錯: scarce 是稀少的" },
-                    { text: "ancient", next: "q39_help", log: "Q39錯: ancient 是古老的" }
+                    { text: "在「同一個」時脈週期內，可以「同時」執行多個指令", next: "q40", isCorrect: true },
+                    { text: "可以將時脈頻率超頻到極限", next: "q39_help", log: "Q39錯: 超頻只是加快時鐘，超純量是增加管線" },
+                    { text: "可以讓記憶體容量變大兩倍", next: "q39_help", log: "Q39錯: 這與記憶體容量無關" },
+                    { text: "能自動消滅程式的 Bug", next: "q39_help", log: "Q39錯: 世上沒有這種魔法硬體" }
                 ]
             },
             "q39_help": {
-                tag: "💡 PBL 同義字推敲：充足的準備",
-                text: "【線索任務】在向委員會提出論點前，你必須收集「充足的 (sufficient)」證據。哪個字是足夠的意思？",
+                tag: "🧠 PBL 邏輯推演：多條生產線",
+                text: "【推演任務】傳統的 CPU 就像一家工廠只有一條輸送帶，滴答一聲只能做一件事。超純量架構就是在工廠裡建了「好幾條平行的輸送帶」。所以滴答一聲，它可以？",
                 options: [
-                    { text: "enough (足夠的)", next: "q39", isCorrect: true },
-                    { text: "scarce (稀少的)", next: "q39_help", log: "Q39救錯: 證據如果很稀少，你的論點就會被打槍囉！" }
+                    { text: "在一個週期內同時執行多個指令", next: "q39", isCorrect: true },
+                    { text: "可以將時脈頻率超頻", next: "q39_help", log: "Q39救錯: 超頻是讓輸送帶轉快一點，而超純量是直接多蓋幾條輸送帶喔！" }
                 ]
             },
 
+            // 🛑 第 40 關：交通法規 (客運繫安全帶)
             "q40": {
-                tag: "第 40 關：同義字測驗",
-                text: "Every person’s fingerprints are entirely <u>unique</u>, which is why they are so useful for solving crimes. (請問畫底線單字的同義字為何？)",
+                tag: "🛑 第 40 關：大腦休息 (淡商交通日常)",
+                text: "【情境】搭乘淡水客運或是學校專車出門校外教學時，不論車輛是行駛在高速公路、快速公路或是「一般市區道路」，根據最新的法規，乘客對於「安全帶」的規定為何？",
                 options: [
-                    { text: "special", next: "q41", isCorrect: true },
-                    { text: "common", next: "q40_help", log: "Q40錯: common 是普通的" },
-                    { text: "identical", next: "q40_help", log: "Q40錯: identical 是完全相同的" },
-                    { text: "temporary", next: "q40_help", log: "Q40錯: temporary 是暫時的" }
+                    { text: "所有乘客(滿4歲以上)皆必須全程繫上安全帶，違者可依法開罰", next: "q41", isCorrect: true },
+                    { text: "只有開上高速公路才需要繫，在市區不用", next: "q40_help", log: "Q40錯: 最新法規已擴大到一般道路也要繫" },
+                    { text: "只有坐在第一排的乘客需要繫", next: "q40_help", log: "Q40錯: 全車都要繫" },
+                    { text: "大客車很安全，法規沒有強制規定", next: "q40_help", log: "Q40錯: 翻車事故頻傳，法規已經強制規定了" }
                 ]
             },
             "q40_help": {
-                tag: "🧠 PBL 同義字推敲：獨一無二",
-                text: "【推演任務】指紋可以用來破案，因為每個人的指紋都是「獨一無二的 (unique)」。字首 uni- 代表一。(這個字跟 special 意思最接近)。",
+                tag: "🚔 PBL 法規檢索：安全無死角",
+                text: "【檢索任務】近年來因為大客車翻覆造成嚴重死傷，立法院已經三讀通過修法！現在搭乘大客車，不管是走山路、市區還是國道，為了你的生命安全，上車第一件事就是？",
                 options: [
-                    { text: "special (特別的/獨特的)", next: "q40", isCorrect: true },
-                    { text: "identical (完全相同的)", next: "q40_help", log: "Q40救錯: 如果大家的指紋都相同，警察就抓不到犯人了啦！" }
+                    { text: "全車乘客皆須繫上安全帶", next: "q40", isCorrect: true },
+                    { text: "只有上高速公路才需要繫", next: "q40_help", log: "Q40救錯: 一般道路如果發生車禍，沒繫安全帶一樣會被拋飛出車外的！" }
                 ]
             },
 
+            // --- 第 41 關：交握式通訊 ---
             "q41": {
-                tag: "第 41 關：同義字測驗",
-                text: "The music festival is held <u>annually</u> in early spring, attracting thousands of fans from all over the country. (請問畫底線單字的同義字為何？)",
+                tag: "第 41 關：I/O 控制方式",
+                text: "當 CPU 與速度較慢的印表機傳送資料時，CPU 會先送出「資料準備好了(Strobe)」，印表機收到後回傳一個「我收到了(ACK)」，CPU 才會送下一筆。這種一來一往互相確認的機制稱為？",
                 options: [
-                    { text: "yearly", next: "q42", isCorrect: true },
-                    { text: "monthly", next: "q41_help", log: "Q41錯: monthly 是每月的" },
-                    { text: "rarely", next: "q41_help", log: "Q41錯: rarely 是罕見地" },
-                    { text: "lately", next: "q41_help", log: "Q41錯: lately 是最近地" }
+                    { text: "交握式 (Handshake)", next: "q42", isCorrect: true },
+                    { text: "直接記憶體存取 (DMA)", next: "q41_help", log: "Q41錯: 這是用來搬大量資料的" },
+                    { text: "輪詢式 (Polling)", next: "q41_help", log: "Q41錯: 這是 CPU 單方面一直問" },
+                    { text: "中斷式 (Interrupt)", next: "q41_help", log: "Q41錯: 這是周邊主動打斷 CPU" }
                 ]
             },
             "q41_help": {
-                tag: "🔍 PBL 字根字首：週年的單位",
-                text: "【解析任務】字根 ann- 或 enn- (例如 anniversary) 都是代表 year (年)。所以 annually 指的是「每年一次地」。",
+                tag: "🔍 PBL 詞意解析：握手言和",
+                text: "【解析任務】這就像兩個人在傳接球。我說「要丟囉！」，你回答「好，我準備好了！」。這種雙方透過控制訊號互相打招呼、確認狀態的行為，英文直譯就是「握手」。所以叫？",
                 options: [
-                    { text: "yearly (每年地)", next: "q41", isCorrect: true },
-                    { text: "monthly (每月地)", next: "q41_help", log: "Q41救錯: 這個音樂祭是「一年」辦一次喔！" }
+                    { text: "交握式 (Handshake)", next: "q41", isCorrect: true },
+                    { text: "輪詢式 (Polling)", next: "q41_help", log: "Q41救錯: 輪詢是只有單方面在查勤，沒有互相確認的禮貌機制喔！" }
                 ]
             },
 
+            // --- 第 42 關：RS-232 腳位 ---
             "q42": {
-                tag: "第 42 關：同義字測驗",
-                text: "The instruction manual was so poorly written that few users could <u>comprehend</u> how to assemble the furniture. (請問畫底線單字的同義字為何？)",
+                tag: "第 42 關：通訊介面",
+                text: "早期的工業機台或條碼掃描器常使用的 RS-232 串列通訊介面，它標準的硬體接頭外觀通常是什麼形狀，且擁有幾支接腳？",
                 options: [
-                    { text: "understand", next: "q43", isCorrect: true },
-                    { text: "purchase", next: "q42_help", log: "Q42錯: purchase 是購買" },
-                    { text: "produce", next: "q42_help", log: "Q42錯: produce 是生產" },
-                    { text: "overlook", next: "q42_help", log: "Q42錯: overlook 是忽略" }
+                    { text: "D 型接頭，25 支接腳 (或簡化為 9 支)", next: "q43", isCorrect: true },
+                    { text: "方型接頭，36 支接腳", next: "q42_help", log: "Q42錯: 這是並列的 Centronics 印表機介面" },
+                    { text: "長扁型，4 支接腳", next: "q42_help", log: "Q42錯: 這是 USB 介面" },
+                    { text: "圓形接頭，5 支接腳", next: "q42_help", log: "Q42錯: 這是早期鍵盤的 DIN 接頭" }
                 ]
             },
             "q42_help": {
-                tag: "💡 PBL 邏輯推演：看不懂說明書",
-                text: "【線索任務】說明書寫得太爛了，導致很少使用者能夠「了解、看懂」要怎麼組裝家具。comprehend 的同義字是？",
+                tag: "📖 PBL 翻書任務：老科技的形狀",
+                text: "【查閱任務】請查閱課本第四章。RS-232 接頭長得很像一個倒寫的英文字母 D，最古老的標準版本有高達 25 根針腳 (後來被簡化成 9 根的 COM port)。",
                 options: [
-                    { text: "understand (了解)", next: "q42", isCorrect: true },
-                    { text: "overlook (忽略)", next: "q42_help", log: "Q42救錯: 使用者是想要看懂，但是寫太爛所以看不懂，不是故意忽略喔！" }
+                    { text: "D 型接頭，25 支接腳", next: "q42", isCorrect: true },
+                    { text: "方型接頭，36 支接腳", next: "q42_help", log: "Q42救錯: 36 根針腳的超大方型接頭，是以前印表機用的並列介面喔！" }
                 ]
             },
 
+            // --- 第 43 關：BJT 組合語言 POP ---
             "q43": {
-                tag: "第 43 關：同義字測驗",
-                text: "During the presentation, the sales team used charts to <u>demonstrate</u> how the new strategy would boost revenue. (請問畫底線單字的同義字為何？)",
+                tag: "第 43 關：組合語言進階",
+                text: "在 8086 組合語言中，執行 `POP AX` 指令，會將堆疊頂端的資料彈出，並存入 AX 暫存器中。這時，記錄堆疊位置的「堆疊指標暫存器 (SP)」數值會如何變化？",
                 options: [
-                    { text: "show", next: "q44", isCorrect: true },
-                    { text: "hide", next: "q43_help", log: "Q43錯: hide 是隱藏" },
-                    { text: "deny", next: "q43_help", log: "Q43錯: deny 是否認" },
-                    { text: "delay", next: "q43_help", log: "Q43錯: delay 是延遲" }
+                    { text: "SP 的數值會 加 2 (+2)", next: "q44", isCorrect: true },
+                    { text: "SP 的數值會 減 2 (-2)", next: "q43_help", log: "Q43錯: 這是 PUSH (壓入) 時的動作" },
+                    { text: "SP 的數值維持不變", next: "q43_help", log: "Q43錯: 拿出東西，指標當然要移動" },
+                    { text: "SP 會歸零", next: "q43_help", log: "Q43錯: 這樣堆疊就全毀了" }
                 ]
             },
             "q43_help": {
-                tag: "🧠 PBL 同義字推敲：看圖說故事",
-                text: "【推演任務】業務團隊在簡報時，使用圖表來向大家「展示、示範 (demonstrate)」新策略會如何增加營收。也就是 display 或 _____。",
+                tag: "🛠️ PBL 邏輯推演：倒著長的塔",
+                text: "【推演任務】記憶體的位址是由下往上增加 (0000 到 FFFF)。但堆疊很奇怪，它是「從上面高樓層往地下室蓋」。放東西進去 (PUSH) 時，樓層變低 (減 2)。那把東西拿走 (POP) 時，指標會退回高樓層，所以是？",
                 options: [
-                    { text: "show (展示/顯示)", next: "q43", isCorrect: true },
-                    { text: "hide (隱藏)", next: "q43_help", log: "Q43救錯: 簡報就是要秀給大家看，怎麼會隱藏起來呢！" }
+                    { text: "數值加 2 (+2)", next: "q43", isCorrect: true },
+                    { text: "數值減 2 (-2)", next: "q43_help", log: "Q43救錯: 減 2 是往更深的地方壓進去 (PUSH)，POP 是要拿出來喔！" }
                 ]
             },
 
+            // --- 第 44 關：並列晶片 8255 ---
             "q44": {
-                tag: "第 44 關：同義字測驗",
-                text: "To stay within the tight budget, the manager decided to <u>eliminate</u> all unnecessary expenses from the project. (請問畫底線單字的同義字為何？)",
+                tag: "第 44 關：周邊晶片",
+                text: "為了讓 CPU 可以控制外部的紅綠燈 LED 或讀取多個開關狀態，常會使用編號「8255A」的可程式化晶片。請問這顆晶片的主要功能是什麼？",
                 options: [
-                    { text: "remove", next: "q45", isCorrect: true },
-                    { text: "include", next: "q44_help", log: "Q44錯: include 是包含" },
-                    { text: "expand", next: "q44_help", log: "Q44錯: expand 是擴張" },
-                    { text: "combine", next: "q44_help", log: "Q44錯: combine 是結合" }
+                    { text: "提供可擴充的「並列式」輸出入埠 (Parallel I/O Ports)", next: "q45", isCorrect: true },
+                    { text: "提供「串列式」資料通訊", next: "q44_help", log: "Q44錯: 這是 8251 (UART) 的功能" },
+                    { text: "負責仲裁多個中斷要求", next: "q44_help", log: "Q44錯: 這是 8259 的功能" },
+                    { text: "負責精準的計時與產生方波", next: "q44_help", log: "Q44錯: 這是 8253 或 8254 的功能" }
                 ]
             },
             "q44_help": {
-                tag: "🔍 PBL 邏輯推演：砍掉花費",
-                text: "【線索任務】因為預算很緊，經理決定把所有不必要的花費給「消除、剔除 (eliminate)」。這跟刪除 (delete / remove) 是同一個意思。",
+                tag: "📖 PBL 翻書任務：它有三個 Port",
+                text: "【查閱任務】8255 內部有 Port A、Port B、Port C 三個大門，每個門都有 8 條線可以「同時」送出或接收信號。這種多條線同時傳送的技術叫？",
                 options: [
-                    { text: "remove (移除)", next: "q44", isCorrect: true },
-                    { text: "include (包含)", next: "q44_help", log: "Q44救錯: 如果把不必要的花費也包進去，預算就會破表啦！" }
+                    { text: "並列式輸出入埠", next: "q44", isCorrect: true },
+                    { text: "串列式資料通訊", next: "q44_help", log: "Q44救錯: 串列是一次只排隊送一個 bit (像 USB)，8255 是一次送 8 個 bit 的並列喔！" }
                 ]
             },
 
-            // 🏆 第 45 關：同義字大魔王
+            // 🏆 第 45 關：最終大魔王 ---
             "q45": {
-                tag: "🏆 最終關：同義字大魔王",
-                text: "The peaceful atmosphere in the room was <u>abruptly</u> broken by the loud ringing of the fire alarm. (請問畫底線單字的同義字為何？)",
+                tag: "🏆 最終關：微處理機大魔王",
+                text: "最後一題大魔王！請綜合比較 CPU 對周邊裝置存取資料的三種控制方式，若單純比較「資料傳輸的效率與速度（不佔用 CPU 時間）」，由快到慢的排序為何？",
                 options: [
-                    { text: "suddenly", next: "end", isCorrect: true },
-                    { text: "gradually", next: "q45_help", log: "Q45錯: gradually 是逐漸地" },
-                    { text: "smoothly", next: "q45_help", log: "Q45錯: smoothly 是平順地" },
-                    { text: "politely", next: "q45_help", log: "Q45錯: politely 是有禮貌地" }
+                    { text: "DMA 傳輸 > 中斷式 (Interrupt) > 輪詢式 (Polling)", next: "end", isCorrect: true },
+                    { text: "輪詢式 > 中斷式 > DMA 傳輸", next: "q45_help", log: "Q45錯: 輪詢式是最慢最浪費 CPU 時間的" },
+                    { text: "中斷式 > DMA 傳輸 > 輪詢式", next: "q45_help", log: "Q45錯: DMA 繞過 CPU，絕對是最快的" },
+                    { text: "DMA 傳輸 > 輪詢式 > 中斷式", next: "q45_help", log: "Q45錯: 輪詢式墊底" }
                 ]
             },
             "q45_help": {
-                tag: "💡 PBL 最終挑戰：打破寧靜",
-                text: "【推演任務】火災警報器的巨響，「突然地、唐突地 (abruptly)」打破了房間裡的寧靜氣氛。哪個字是突然的意思？",
+                tag: "🧠 PBL 邏輯推演：老闆的辦事效率",
+                text: "【推演任務】輪詢：老闆(CPU)每五分鐘親自跑去工廠看貨做好了沒 (最沒效率)。中斷：貨做好了工人按鈴叫老闆來搬 (效率尚可)。DMA：老闆直接請貨運公司(DMA晶片)自己把貨搬進倉庫，完全不煩老闆 (效率最高)！所以排序是？",
                 options: [
-                    { text: "suddenly (突然地)", next: "q45", isCorrect: true },
-                    { text: "gradually (逐漸地)", next: "q45_help", log: "Q45救錯: 警報器是瞬間響起的，不會慢慢變大聲喔！" }
+                    { text: "DMA > 中斷 > 輪詢", next: "q45", isCorrect: true },
+                    { text: "中斷 > DMA > 輪詢", next: "q45_help", log: "Q45救錯: 中斷還是需要老闆親自去搬貨，沒有 DMA 這種專屬搬運工快喔！" }
                 ]
             }
         };
