@@ -176,7 +176,7 @@
 
     <div class="container">
         <div id="student-setup">
-            <h1>🎒 基本電學測驗大挑戰：抽卡特訓班！</h1>
+            <h1>🎒 C語言基礎大挑戰：抽卡特訓班！</h1>
             <div class="subtitle">連續答對 2 題即可抽卡！(滿5張特定卡可覺醒神卡)</div>
             
             <div class="warning-box">
@@ -401,708 +401,707 @@
                 ]
             }
         };
-
 // ==========================================
-        // 教師設定區：基本電學與實習 (交流電、RLC、諧振、功率) 35題 + 三國演義
+        // 教師設定區：C語言基礎特訓 (變數、運算、判斷、迴圈) 35題 + 救援題
         // ==========================================
         const quizData = {
-            // --- 第 1 題：電感瞬間特性 ---
+            // --- 第 1 題：分號 ---
             "q1": {
-                tag: "第 1 關：暫態電路",
-                text: "在一個 $R=50\\Omega$、$L=0.5H$ 的串聯電路中，接上 50V 的直流電源。在開關「剛閉合的瞬間 ($t=0^+$)」，電路中的充電電流為多少？",
+                tag: "第 1 關：基本語法",
+                text: "寫 C 語言程式時，幾乎所有的程式碼最後都必須加上一個什麼符號，來告訴電腦「這一行結束了」？",
                 options: [
-                    { text: "0 A", next: "q2", isCorrect: true },
-                    { text: "1 A", next: "q1_help", log: "Q1錯: 這是穩態 (t=∞) 時的電流" },
-                    { text: "2 A", next: "q1_help", log: "Q1錯: 數值計算錯誤" },
-                    { text: "4 A", next: "q1_help", log: "Q1錯: 數值計算錯誤" }
+                    { text: "分號 ( ; )", next: "q2", isCorrect: true },
+                    { text: "句號 ( . )", next: "q1_help", log: "Q1錯: 程式語言不用中文的句號" },
+                    { text: "冒號 ( : )", next: "q1_help", log: "Q1錯: 冒號通常用在 switch 或標籤" },
+                    { text: "逗號 ( , )", next: "q1_help", log: "Q1錯: 逗號是用來分隔變數的" }
                 ]
             },
             "q1_help": {
-                tag: "💊 PBL 救援任務：超重的飛輪",
-                text: "【物理直覺】電感器就像一個超重的鐵飛輪，它「反對電流的突變」。在剛通電的瞬間，飛輪還推不動，所以它會產生一個等大的反電動勢把電流擋住。所以瞬間電流是？",
+                tag: "💊 PBL 救援任務：程式的句點",
+                text: "【生活比喻】我們寫中文作文時，一句話說完會畫一個「小圈圈 (。)」。但在 C 語言的世界裡，外國人發明的程式是以「上面一點、下面一撇」的符號當作句點。是哪一個？",
                 options: [
-                    { text: "0 A", next: "q1", isCorrect: true },
-                    { text: "1 A", next: "q1_help", log: "Q1救錯: 一開始推不動，所以水流(電流)根本過不去，是 0A 喔！" }
+                    { text: "分號 ( ; )", next: "q1", isCorrect: true },
+                    { text: "冒號 ( : )", next: "q1_help", log: "Q1救錯: 冒號是兩點，我們要的是分號喔！" }
                 ]
             },
 
-            // --- 第 2 題：交流電壓轉換 ---
+            // --- 第 2 題：int ---
             "q2": {
-                tag: "第 2 關：交流波形",
-                text: "有一正弦波交流電壓，測得其有效值 ($V_{rms}$) 為 110V。請問其「峰對峰值 ($V_{p-p}$)」約為多少？",
+                tag: "第 2 關：變數宣告",
+                text: "在 C 語言中，要宣告一個專門用來裝「整數」(例如：1, 50, -100) 的變數，應該使用哪一個關鍵字？",
                 options: [
-                    { text: "311 V", next: "q3", isCorrect: true },
-                    { text: "155.5 V", next: "q2_help", log: "Q2錯: 這是單邊的最大值 (峰值 Vm)" },
-                    { text: "220 V", next: "q2_help", log: "Q2錯: 忘了乘上根號2" },
-                    { text: "141.4 V", next: "q2_help", log: "Q2錯: 這只是根號2的近似值乘以100" }
+                    { text: "int", next: "q3", isCorrect: true },
+                    { text: "float", next: "q2_help", log: "Q2錯: 這是用來裝小數的" },
+                    { text: "char", next: "q2_help", log: "Q2錯: 這是用來裝字元的" },
+                    { text: "double", next: "q2_help", log: "Q2錯: 這是裝超大精度的浮點數" }
                 ]
             },
             "q2_help": {
-                tag: "💊 PBL 救援任務：山頂到谷底",
-                text: "【公式推演】第一步：先算單邊最高點(峰值)，$110 \\times \\sqrt{2} \\approx 155.5V$。第二步：題目問的是「峰對峰 (山頂到谷底)」，所以要把單邊的高度乘以 2！",
+                tag: "💊 PBL 救援任務：整數的縮寫",
+                text: "【英文拆解】整數的英文是 Integer。在程式語言裡，工程師很懶，通常只取前三個英文字母作為關鍵字。請問是哪三個字母？",
                 options: [
-                    { text: "311 V", next: "q2", isCorrect: true },
-                    { text: "155.5 V", next: "q2_help", log: "Q2救錯: 155.5 只有從平地到山頂，還要加上谷底的深度所以要乘以 2 喔！" }
+                    { text: "int", next: "q2", isCorrect: true },
+                    { text: "char", next: "q2_help", log: "Q2救錯: char 是 Character (字元) 的縮寫喔！" }
                 ]
             },
 
-            // --- 第 3 題：波形因數 ---
+            // --- 第 3 題：float ---
             "q3": {
-                tag: "第 3 關：波形參數",
-                text: "交流正弦波經過「全波整流」之後，其波形因數 (Form Factor) 為何？",
+                tag: "第 3 關：變數宣告",
+                text: "如果要宣告一個用來裝「帶有小數點的數字」(例如：3.14) 的變數，最基本的關鍵字是哪一個？",
                 options: [
-                    { text: "1.11", next: "q4", isCorrect: true },
-                    { text: "1.414", next: "q3_help", log: "Q3錯: 這是正弦波的波峰因數" },
-                    { text: "1.57", next: "q3_help", log: "Q3錯: 這是半波整流的波形因數" },
-                    { text: "0.636", next: "q3_help", log: "Q3錯: 這是全波整流的平均值係數" }
+                    { text: "float", next: "q4", isCorrect: true },
+                    { text: "int", next: "q3_help", log: "Q3錯: 這是整數" },
+                    { text: "char", next: "q3_help", log: "Q3錯: 這是字元" },
+                    { text: "string", next: "q3_help", log: "Q3錯: 這是字串" }
                 ]
             },
             "q3_help": {
-                tag: "💊 PBL 救援任務：統測必背常數",
-                text: "【常數記憶】口訣「有效除以平均 ＝ 形狀」。全波整流的有效值是 $0.707 V_m$，平均值是 $0.636 V_m$。0.707 除以 0.636 就是電子學最經典的常數！",
+                tag: "💊 PBL 救援任務：漂浮的點點",
+                text: "【名詞直翻】小數點在電腦裡被稱為「浮動的點 (Floating point)」，因為小數點的位置是可以左右移動的。取前面浮動的英文單字，就是這個型態的名稱！",
                 options: [
-                    { text: "1.11", next: "q3", isCorrect: true },
-                    { text: "1.414", next: "q3_help", log: "Q3救錯: 1.414 (根號2) 是波峰因數，波形因數是三個 1 喔！" }
+                    { text: "float", next: "q3", isCorrect: true },
+                    { text: "int", next: "q3_help", log: "Q3救錯: int 是整數(Integer)，沒有小數點喔！" }
                 ]
             },
 
-            // --- 第 4 題：純元件功率 ---
+            // --- 第 4 題：char ---
             "q4": {
-                tag: "第 4 關：交流功率",
-                text: "在交流穩態情況下，下列關於 R、L、C 這三種元件特性的描述，何者正確？",
+                tag: "第 4 關：變數宣告",
+                text: "如果要宣告一個專門用來裝「單一個字元」(例如：'A', '?', '5') 的變數，應該使用哪一個關鍵字？",
                 options: [
-                    { text: "純電感與純電容都不會消耗實功率 (不會發熱)", next: "q5", isCorrect: true },
-                    { text: "電感的端電壓相位落後電流 90度", next: "q4_help", log: "Q4錯: 應該是電壓領先電流 (ELI)" },
-                    { text: "電容的端電壓相位領先電流 90度", next: "q4_help", log: "Q4錯: 應該是電流領先電壓 (ICE)" },
-                    { text: "電阻的端電壓相位領先電流 45度", next: "q4_help", log: "Q4錯: 電阻的電壓與電流是同相(0度)" }
+                    { text: "char", next: "q5", isCorrect: true },
+                    { text: "int", next: "q4_help", log: "Q4錯: 這是整數" },
+                    { text: "float", next: "q4_help", log: "Q4錯: 這是小數" },
+                    { text: "bool", next: "q4_help", log: "Q4錯: 這是布林值(真或假)" }
                 ]
             },
             "q4_help": {
-                tag: "💊 PBL 救援任務：誰在做白工",
-                text: "【觀念推演】電阻就像摩擦力，會把電能變成熱能「消耗」掉 (實功率)。但電感(磁場)和電容(電場)只會把能量存起來，下半週又還給電源。所以它們消耗的實功率是？",
+                tag: "💊 PBL 救援任務：字元的縮寫",
+                text: "【英文拆解】字元(字母/符號)的英文是 Character。取前四個英文字母，就是這個專門裝字元的容器名稱！",
                 options: [
-                    { text: "不會消耗實功率", next: "q4", isCorrect: true },
-                    { text: "端電壓領先 45度", next: "q4_help", log: "Q4救錯: 單一元件的夾角不是 0度 就是 90度，不會有 45度 喔！" }
+                    { text: "char", next: "q4", isCorrect: true },
+                    { text: "string", next: "q4_help", log: "Q4救錯: string 是一長串字(字串)，單一個字元要用 char 喔！" }
                 ]
             },
 
-            // --- 第 5 題：串聯電壓直角三角形 ---
+            // --- 第 5 題：main 函式 ---
             "q5": {
-                tag: "第 5 關：交流串聯電路",
-                text: "在 RL 串聯電路中，已知電阻兩端的電壓 $V_R = 48V$，電源總電壓 $V = 60V$。請問電感兩端的電壓 $V_L$ 為何？",
+                tag: "第 5 關：程式結構",
+                text: "在 C 語言中，程式執行時真正的「起點(入口)」是哪一個函式？所有的指令都會從這裡開始往下跑。",
                 options: [
-                    { text: "36 V", next: "q6", isCorrect: true },
-                    { text: "12 V", next: "q5_help", log: "Q5錯: 交流電壓不能直接用減法 (60-48)" },
-                    { text: "24 V", next: "q5_help", log: "Q5錯: 數值錯誤" },
-                    { text: "108 V", next: "q5_help", log: "Q5錯: 這相加了" }
+                    { text: "main()", next: "q6", isCorrect: true },
+                    { text: "start()", next: "q5_help", log: "Q5錯: 雖然意思是開始，但 C 語言不叫這個名字" },
+                    { text: "begin()", next: "q5_help", log: "Q5錯: 雖然意思是開始，但 C 語言不叫這個名字" },
+                    { text: "run()", next: "q5_help", log: "Q5錯: 這是執行，不是入口名稱" }
                 ]
             },
             "q5_help": {
-                tag: "💊 PBL 救援任務：商高的直角三角形",
-                text: "【數學推演】在交流電中，R 跟 L 相差 90 度，要用畢氏定理 $V^2 = V_R^2 + V_L^2$。也就是 $60^2 = 48^2 + V_L^2$。這剛好是經典的「3：4：5」直角三角形放大 12 倍！",
+                tag: "💊 PBL 救援任務：主要的大門",
+                text: "【字義解析】電腦很笨，它需要一個明確的「大門」才知道從哪裡開始讀你的程式。這個大門的英文意思就是「主要的」。",
                 options: [
-                    { text: "36 V", next: "q5", isCorrect: true },
-                    { text: "12 V", next: "q5_help", log: "Q5救錯: 它們有 90 度相位差，不能直接用 60-48 喔，必須用畢氏定理算！" }
+                    { text: "main()", next: "q5", isCorrect: true },
+                    { text: "start()", next: "q5_help", log: "Q5救錯: 電腦不認識 start，它只認得 main 這個主大門喔！" }
                 ]
             },
 
-            // 🌸 第 6 題：三國演義 ---
+            // --- 第 6 題：變數命名規則 ---
             "q6": {
-                tag: "🌸 第 6 關：大腦休息 (三國演義)",
-                text: "《三國演義》中，劉備、關羽、張飛三人為了共同打拼天下，在一個美麗的園子裡祭告天地，結為異姓兄弟。請問這段著名的典故稱為什麼？",
+                tag: "第 6 關：變數命名",
+                text: "在 C 語言中替變數取名字時，下列哪一個變數名稱是「不合法」會報錯的？",
                 options: [
-                    { text: "桃園三結義", next: "q7", isCorrect: true },
-                    { text: "竹林三結義", next: "q6_help", log: "Q6錯: 那是竹林七賢" },
-                    { text: "隆中三結義", next: "q6_help", log: "Q6錯: 隆中是諸葛亮住的地方" },
-                    { text: "長坂坡結義", next: "q6_help", log: "Q6錯: 長坂坡是張飛喝斷橋、趙雲救主的地方" }
+                    { text: "1st_number (開頭是數字)", next: "q7", isCorrect: true },
+                    { text: "_score (開頭是底線)", next: "q6_help", log: "Q6錯: 底線開頭是合法的" },
+                    { text: "player2 (包含數字)", next: "q6_help", log: "Q6錯: 數字在後面是合法的" },
+                    { text: "MyAge (大小寫混合)", next: "q6_help", log: "Q6錯: 大小寫混合是合法的(駝峰式命名)" }
                 ]
             },
             "q6_help": {
-                tag: "🎬 PBL 故事回憶：盛開的桃花",
-                text: "【故事回憶】當時正是春天，張飛家後院的「桃花」開得正燦爛，三人便在花樹下舉酒結拜，誓言「不求同年同月同日生，但願同年同月同日死」。",
+                tag: "💊 PBL 救援任務：名字不能像數學題",
+                text: "【規則推演】如果變數叫做 `123`，那電腦會搞不清楚它到底是一個「數字 123」還是一個「名字叫 123 的箱子」。所以變數名稱的「第一個字」絕對不能是什麼？",
                 options: [
-                    { text: "桃園三結義", next: "q6", isCorrect: true },
-                    { text: "隆中三結義", next: "q6_help", log: "Q6救錯: 隆中是後來請諸葛亮的地方，他們是在盛開的桃花園結拜的喔！" }
+                    { text: "不能是數字開頭", next: "q6", isCorrect: true },
+                    { text: "不能是底線開頭", next: "q6_help", log: "Q6救錯: 底線 `_` 就像文字一樣，放在開頭是可以的喔！" }
                 ]
             },
 
-            // --- 第 7 題：串聯電壓直角三角形 2 ---
+            // --- 第 7 題：stdio.h ---
             "q7": {
-                tag: "第 7 關：交流串聯電路",
-                text: "在一 RL 串聯電路中，測得電阻兩端電壓為 60V，電感兩端電壓為 80V，則電源總電壓為何？",
+                tag: "第 7 關：引入標頭檔",
+                text: "在程式最上方，我們常會寫 `#include <stdio.h>`。請問這行指令的作用是什麼？",
                 options: [
-                    { text: "100 V", next: "q8", isCorrect: true },
-                    { text: "140 V", next: "q7_help", log: "Q7錯: 不能直接相加 (60+80)" },
-                    { text: "20 V", next: "q7_help", log: "Q7錯: 不能直接相減" },
-                    { text: "70 V", next: "q7_help", log: "Q7錯: 計算錯誤" }
+                    { text: "載入標準輸入輸出的函式庫 (包含 printf, scanf)", next: "q8", isCorrect: true },
+                    { text: "告訴電腦這是一個 C 語言檔案", next: "q7_help", log: "Q7錯: 副檔名 .c 才是告訴電腦的" },
+                    { text: "宣告一個名為 stdio 的變數", next: "q7_help", log: "Q7錯: include 是引入，不是宣告" },
+                    { text: "結束程式執行", next: "q7_help", log: "Q7錯: 結束是 return 0;" }
                 ]
             },
             "q7_help": {
-                tag: "💊 PBL 救援任務：又是 345",
-                text: "【數學推演】一樣的畢氏定理！總電壓 $V = \\sqrt{60^2 + 80^2}$。這也是經典的「3：4：5」直角三角形放大 20 倍。底邊 60、高 80，斜邊就是？",
+                tag: "💊 PBL 救援任務：借工具箱",
+                text: "【縮寫還原】stdio 的全名是 **St**andard **I**nput **O**utput (標準輸入輸出)。就像你要寫字要先借一個有筆跟橡皮擦的「工具箱」，才能使用 `printf` (輸出) 和 `scanf` (輸入)！",
                 options: [
-                    { text: "100 V", next: "q7", isCorrect: true },
-                    { text: "140 V", next: "q7_help", log: "Q7救錯: 它們有 90 度相位差，不能直接加起來變成 140 喔！" }
+                    { text: "載入標準輸入輸出的函式庫", next: "q7", isCorrect: true },
+                    { text: "宣告一個變數", next: "q7_help", log: "Q7救錯: include 是「包含、借用」的意思，它是去借工具箱，不是做變數喔！" }
                 ]
             },
 
-            // --- 第 8 題：並聯電路總電流 ---
+            // --- 第 8 題：printf ---
             "q8": {
-                tag: "第 8 關：交流並聯電路",
-                text: "在 RC 並聯電路中，已知 $R = 15\\Omega$、$X_C = 20\\Omega$。若流過電阻的電流 $I_R = 12A$，試求電路的總電流 $I_T$ 為多少？",
+                tag: "第 8 關：輸出指令",
+                text: "要在螢幕上印出文字「Hello World!」，應該使用下列哪一個正確的指令格式？",
                 options: [
-                    { text: "15 A", next: "q9", isCorrect: true },
-                    { text: "9 A", next: "q8_help", log: "Q8錯: 這是流過電容的電流，不是總電流" },
-                    { text: "21 A", next: "q8_help", log: "Q8錯: 交流電流不能直接相加 (12+9)" },
-                    { text: "20 A", next: "q8_help", log: "Q8錯: 計算錯誤" }
+                    { text: "printf(\"Hello World!\");", next: "q9", isCorrect: true },
+                    { text: "print(\"Hello World!\");", next: "q8_help", log: "Q8錯: 這是 Python 的寫法" },
+                    { text: "echo(\"Hello World!\");", next: "q8_help", log: "Q8錯: 這是 PHP 的寫法" },
+                    { text: "cout << \"Hello World!\";", next: "q8_help", log: "Q8錯: 這是 C++ 的寫法" }
                 ]
             },
             "q8_help": {
-                tag: "💊 PBL 救援任務：兩步解題法",
-                text: "【公式推演】第一步：並聯電壓相等，總電壓 $V = I_R \\times R = 12 \\times 15 = 180V$。第二步：算電容電流 $I_C = V / X_C = 180 / 20 = 9A$。最後，總電流 $I_T = \\sqrt{12^2 + 9^2}$。",
+                tag: "💊 PBL 救援任務：印表機的功能",
+                text: "【名稱解析】印表機的英文是 print。在 C 語言中，負責把文字印在螢幕上的函式，後面多了一個 `f` 代表 function(功能) 或是 format(格式化)。拼起來是？",
                 options: [
-                    { text: "15 A", next: "q8", isCorrect: true },
-                    { text: "21 A", next: "q8_help", log: "Q8救錯: IR 跟 IC 夾角 90 度，必須用畢氏定理 $\\sqrt{12^2+9^2}$，不能直接加起來喔！" }
+                    { text: "printf", next: "q8", isCorrect: true },
+                    { text: "print", next: "q8_help", log: "Q8救錯: C 語言的列印指令尾巴必須要有 f 喔！" }
                 ]
             },
 
-            // --- 第 9 題：實功率計算 ---
+            // --- 第 9 題：換行字元 ---
             "q9": {
-                tag: "第 9 關：交流功率",
-                text: "如右圖所示(有一 $20\\Omega$ 電阻)，若電源 $v(t) = 141.4\\sin(377t)$ V。請問該電阻消耗的實功率 (P) 為多少？",
+                tag: "第 9 關：跳脫字元",
+                text: "在 `printf` 指令中，如果想要讓文字在螢幕上「換行 (跳到下一行)」，應該加入哪一個特殊的跳脫字元？",
                 options: [
-                    { text: "500 W", next: "q10", isCorrect: true },
-                    { text: "1000 W", next: "q9_help", log: "Q9錯: 錯把 141.4 當成有效值平方了" },
-                    { text: "0 W", next: "q9_help", log: "Q9錯: 只有電感電容才不消耗實功率" },
-                    { text: "-100 W", next: "q9_help", log: "Q9錯: 實功率不會是負的" }
+                    { text: "\\n", next: "q10", isCorrect: true },
+                    { text: "\\t", next: "q9_help", log: "Q9錯: 這是 Tab (縮排)" },
+                    { text: "\\r", next: "q9_help", log: "Q9錯: 這是回到行首 (Return)" },
+                    { text: "\\b", next: "q9_help", log: "Q9錯: 這是倒退一格 (Backspace)" }
                 ]
             },
             "q9_help": {
-                tag: "💊 PBL 救援任務：先找有效值",
-                text: "【公式推演】公式 $P = V_{rms}^2 / R$。公式裡前面的 141.4 是「最大值($V_m$)」。要先把它除以 $\\sqrt{2}$ 變成「有效值($V_{rms}$)」，大約是 100V。然後再代入公式 $100^2 / 20 = ?$。",
+                tag: "💊 PBL 救援任務：New Line",
+                text: "【英文縮寫】我們要告訴電腦開一個「新的一行」。新的英文是 New，取第一個字母，加上反斜線 `\\` 當作特殊標記，就成了換行符號！",
                 options: [
-                    { text: "500 W", next: "q9", isCorrect: true },
-                    { text: "1000 W", next: "q9_help", log: "Q9救錯: 算功率一定要用「有效值 (100V)」，不能直接拿 141.4 去平方喔！" }
+                    { text: "\\n", next: "q9", isCorrect: true },
+                    { text: "\\t", next: "q9_help", log: "Q9救錯: t 是 Tab(按鍵上的縮排)，n 才是 New line(換行) 喔！" }
                 ]
             },
 
-            // --- 第 10 題：視在功率與電流 ---
+            // --- 第 10 題：整數格式化 %d ---
             "q10": {
-                tag: "第 10 關：交流功率",
-                text: "有一家庭使用 110V 單相交流電源，取用 880W 的實功率，且已知功率因數為 0.8 落後。請問電源提供的總電流為多少？",
+                tag: "第 10 關：格式指定碼",
+                text: "如果我有一個整數變數 <div class='code-block'>int score = 100;</div> 想要把它印在螢幕上，`printf` 裡面的格式指定碼應該填什麼？ <br>(例如：`printf(\"得分：%__\", score);`)",
                 options: [
-                    { text: "10 A", next: "q11", isCorrect: true },
-                    { text: "8 A", next: "q10_help", log: "Q10錯: 這是把實功率直接除以 110V 得到的錯誤電流" },
-                    { text: "11 A", next: "q10_help", log: "Q10錯: 數值錯誤" },
-                    { text: "20 A", next: "q10_help", log: "Q10錯: 數值錯誤" }
+                    { text: "%d", next: "q11", isCorrect: true },
+                    { text: "%f", next: "q10_help", log: "Q10錯: 這是給 float 用的" },
+                    { text: "%c", next: "q10_help", log: "Q10錯: 這是給 char 用的" },
+                    { text: "%s", next: "q10_help", log: "Q10錯: 這是給字串(字元陣列)用的" }
                 ]
             },
             "q10_help": {
-                tag: "💊 PBL 救援任務：還原總容量",
-                text: "【公式推演】總電流是由「視在功率(S)」決定的。因為 $P = S \\times PF$，所以視在功率 $S = 880 / 0.8 = 1100 VA$。最後用 $S = V \\times I$，求出 $I = 1100 / 110 = ?$。",
+                tag: "💊 PBL 救援任務：十進位的代號",
+                text: "【名詞解析】這很容易搞混！印出 int(整數) 時，我們用的不是 i。因為我們印出的是「十進位」的數字，十進位的英文是 **d**ecimal。所以要用百分比符號加上哪個字母？",
                 options: [
-                    { text: "10 A", next: "q10", isCorrect: true },
-                    { text: "8 A", next: "q10_help", log: "Q10救錯: 880W 只是實功率，你必須先除以 0.8 找出包含無效功率的「總視在功率」喔！" }
+                    { text: "%d", next: "q10", isCorrect: true },
+                    { text: "%i", next: "q10_help", log: "Q10救錯: 雖然有 %i，但最正規且統測最愛考的十進位整數寫法是 %d 喔！" }
                 ]
             },
 
-            // --- 第 11 題：改善功率因數 ---
+            // --- 第 11 題：浮點數格式化 %f ---
             "q11": {
-                tag: "第 11 關：功率因數改善",
-                text: "交流電壓 $v(t) = 110\\sqrt{2}\\sin(100t)$ V 加在 $R=10\\Omega$ 及 $L=10H$ 的串聯電路上。若要並聯一顆電容器 C，讓總功率因數改善至 1 (完全諧振)，請問 C 值應為多少？",
+                tag: "第 11 關：格式指定碼",
+                text: "承上題，如果是要印出小數 (float) 變數，格式指定碼應該用哪一個？",
                 options: [
-                    { text: "$10 \\mu F$", next: "q12", isCorrect: true },
-                    { text: "$5 \\mu F$", next: "q11_help", log: "Q11錯: 數值計算錯誤" },
-                    { text: "$15 \\mu F$", next: "q11_help", log: "Q11錯: 數值計算錯誤" },
-                    { text: "$20 \\mu F$", next: "q11_help", log: "Q11錯: 數值計算錯誤" }
+                    { text: "%f", next: "q12", isCorrect: true },
+                    { text: "%d", next: "q11_help", log: "Q11錯: 這是給 int 用的" },
+                    { text: "%c", next: "q11_help", log: "Q11錯: 這是給 char 用的" },
+                    { text: "%s", next: "q11_help", log: "Q11錯: 這是給字串用的" }
                 ]
             },
             "q11_help": {
-                tag: "💊 PBL 救援任務：讓感抗等於容抗",
-                text: "【公式推演】功率因數為 1 代表發生諧振，$X_L = X_C$。先算感抗 $X_L = \\omega L = 100 \\times 10 = 1000\\Omega$。所以容抗 $X_C$ 也必須是 $1000\\Omega$。代入 $X_C = 1/(\\omega C)$，即 $1000 = 1/(100 \\times C)$，解出 C。",
+                tag: "💊 PBL 救援任務：顧名思義",
+                text: "【直接聯想】這題很直觀！float 這個字的第一個英文字母是什麼？加上百分比符號 `%` 就對了！",
                 options: [
-                    { text: "$10 \\mu F$", next: "q11", isCorrect: true },
-                    { text: "$5 \\mu F$", next: "q11_help", log: "Q11救錯: 要讓 $X_C$ 變成 1000 歐姆，算出來的 C 必須是 $10^{-5}$ 法拉，也就是 $10 \\mu F$ 喔！" }
+                    { text: "%f", next: "q11", isCorrect: true },
+                    { text: "%d", next: "q11_help", log: "Q11救錯: d 是十進位整數(decimal)，裝小數的 float 要用 f 喔！" }
                 ]
             },
 
-            // 🌸 第 12 題：三國演義 ---
+            // --- 第 12 題：字元單引號 ---
             "q12": {
-                tag: "🌸 第 12 關：大腦休息 (三國演義)",
-                text: "《三國演義》中，劉備為了尋求治國平天下的軍師，親自帶著關羽和張飛，去了諸葛亮的草廬幾次才終於見到他？",
+                tag: "第 12 關：字元賦值",
+                text: "在 C 語言中，如果要給字元變數賦值，例如將字母 A 存入變數，字母 A 的外面必須用什麼符號包起來？ <br><div class='code-block'>char grade = ___ A ___;</div>",
                 options: [
-                    { text: "三次 (三顧茅廬)", next: "q13", isCorrect: true },
-                    { text: "一次就見到了", next: "q12_help", log: "Q12錯: 諸葛亮哪有這麼好請" },
-                    { text: "兩次", next: "q12_help", log: "Q12錯: 前兩次都撲空" },
-                    { text: "七次", next: "q12_help", log: "Q12錯: 這是諸葛亮七擒孟獲的次數" }
+                    { text: "單引號 ( 'A' )", next: "q13", isCorrect: true },
+                    { text: "雙引號 ( \"A\" )", next: "q12_help", log: "Q12錯: 雙引號是用來包「字串」的" },
+                    { text: "大括號 ( {A} )", next: "q12_help", log: "Q12錯: 這是包程式區塊的" },
+                    { text: "小括號 ( (A) )", next: "q12_help", log: "Q12錯: 這是給運算或條件用的" }
                 ]
             },
             "q12_help": {
-                tag: "🎬 PBL 故事回憶：誠意感動天",
-                text: "【故事回憶】前兩次去，諸葛亮不是出門雲遊就是不在家。直到春天積雪融化，劉備不顧張飛的抱怨，堅持去了第「三」次，才終於見到正在睡午覺的孔明。這衍生了一句有名的成語。",
+                tag: "💊 PBL 救援任務：一個字用一撇",
+                text: "【數量聯想】char 只能裝「單一」個字元，所以我們只給它「單一」個引號。如果是一長串字(字串)，才需要給雙引號！",
                 options: [
-                    { text: "三次", next: "q12", isCorrect: true },
-                    { text: "兩次", next: "q12_help", log: "Q12救錯: 兩次還不夠展現誠意，是有名的「三」顧茅廬喔！" }
+                    { text: "單引號 ( 'A' )", next: "q12", isCorrect: true },
+                    { text: "雙引號 ( \"A\" )", next: "q12_help", log: "Q12救錯: 雙引號是給很多字的字串用的，單一個字只能用單引號喔！" }
                 ]
             },
 
-            // --- 第 13 題：銲接步驟 ---
+            // --- 第 13 題：scanf ---
             "q13": {
-                tag: "第 13 關：實習操作",
-                text: "在進行電子電路實習時，下列哪一個是正確的「銲接順序」？",
+                tag: "第 13 關：輸入指令",
+                text: "要讓使用者從鍵盤輸入一個整數，並存入變數 `age` 中，下列哪一個 `scanf` 寫法是正確的？",
                 options: [
-                    { text: "銲點先預熱 $\\rightarrow$ 加上銲錫 $\\rightarrow$ 銲錫離去 $\\rightarrow$ 烙鐵移去", next: "q14", isCorrect: true },
-                    { text: "銲點先加上銲錫 $\\rightarrow$ 加上烙鐵 $\\rightarrow$ 銲錫離去 $\\rightarrow$ 烙鐵移去", next: "q13_help", log: "Q13錯: 沒預熱銲錫會變成一坨球黏不上去 (冷銲)" },
-                    { text: "銲錫與烙鐵同時加上銲點 $\\rightarrow$ 銲錫離去 $\\rightarrow$ 烙鐵移去", next: "q13_help", log: "Q13錯: 必須先讓銅箔預熱" },
-                    { text: "銲錫與烙鐵同時加上銲點 $\\rightarrow$ 烙鐵移去 $\\rightarrow$ 銲錫離去", next: "q13_help", log: "Q13錯: 烙鐵先拿走銲錫會黏住拔不出來" }
+                    { text: "scanf(\"%d\", &age);", next: "q14", isCorrect: true },
+                    { text: "scanf(\"%d\", age);", next: "q13_help", log: "Q13錯: 忘記加上取址符號 & 了" },
+                    { text: "scanf(\"%f\", &age);", next: "q13_help", log: "Q13錯: age 是整數，不能用 %f" },
+                    { text: "scanf(\"%c\", age);", next: "q13_help", log: "Q13錯: %c 是字元，且沒有 &" }
                 ]
             },
             "q13_help": {
-                tag: "💊 PBL 救援任務：熱鍋才好煎蛋",
-                text: "【實作直覺】銲接的黃金法則：一定要先用烙鐵把銅墊「加熱」，銲錫碰到熱熱的銅才會像水一樣散開。最後收尾時，必須先拿走銲錫，再拿走烙鐵，否則銲錫瞬間冷卻會把整綑線黏在板子上！",
+                tag: "💊 PBL 救援任務：送貨要地址",
+                text: "【生活比喻】`scanf` 就像是送貨員，你請他把鍵盤打出來的數字「送進」變數的箱子裡。你要告訴送貨員箱子的「地址」，所以變數前面一定要加什麼符號？",
                 options: [
-                    { text: "先預熱，加錫，錫走，烙鐵走", next: "q13", isCorrect: true },
-                    { text: "同時加上去，烙鐵先走", next: "q13_help", log: "Q13救錯: 烙鐵絕對不能先走，不然溫度降下來你的錫線就拔不掉了！" }
+                    { text: "要加 & (取址符號)", next: "q13", isCorrect: true },
+                    { text: "不加任何符號", next: "q13_help", log: "Q13救錯: 沒有 & 地址，電腦會把數字亂丟，程式會當機喔！" }
                 ]
             },
 
-            // --- 第 14 題：並聯諧振特性 ---
+            // --- 第 14 題：相等運算子 == ---
             "q14": {
-                tag: "第 14 關：諧振電路",
-                text: "在 RLC 「並聯」交流電路發生諧振時，下列關於電路特性的敘述，何者錯誤？",
+                tag: "第 14 關：比較運算子",
+                text: "在 C 語言中，代表「等於」的比較運算子是哪一個？(用來判斷左邊有沒有跟右邊一樣)",
                 options: [
-                    { text: "總阻抗為最小值", next: "q15", isCorrect: true },
-                    { text: "總阻抗為最大值", next: "q14_help", log: "Q14錯: 這是正確的敘述" },
-                    { text: "總電流為最小值", next: "q14_help", log: "Q14錯: 因為阻抗最大，所以電流最小" },
-                    { text: "功率因數為最大值 (PF=1)", next: "q14_help", log: "Q14錯: 諧振時虛功抵消，實功最大，PF=1" }
+                    { text: "==", next: "q15", isCorrect: true },
+                    { text: "=", next: "q14_help", log: "Q14錯: 單一個等號是「把右邊放進左邊(賦值)」" },
+                    { text: "===", next: "q14_help", log: "Q14錯: 這是 JavaScript 判斷型態也相等的寫法" },
+                    { text: "=>", next: "q14_help", log: "Q14錯: 語法錯誤" }
                 ]
             },
             "q14_help": {
-                tag: "💊 PBL 救援任務：並聯是大水壩",
-                text: "【觀念推演】串聯諧振就像水管通了，阻抗最小。但「並聯」諧振時，L 和 C 會在內部自己循環丟能量，對外面的電源來說，它們就像一面推不動的高牆。所以並聯諧振時的總阻抗是？",
+                tag: "💊 PBL 救援任務：放進去 vs 比比看",
+                text: "【邏輯推演】單一個 `=` 叫做「指定」(把右邊的數字丟進左邊的箱子)。如果要叫電腦當裁判「比較兩邊有沒有一樣大」，必須用「兩個等號」連在一起！",
                 options: [
-                    { text: "總阻抗為最大值 (選錯誤選項：最小值)", next: "q14", isCorrect: true },
-                    { text: "總電流為最小值", next: "q14_help", log: "Q14救錯: 因為像高牆一樣阻力(阻抗)最大，所以外面的電流進不來，電流最小是正確的！要選錯誤的選項喔！" }
+                    { text: "==", next: "q14", isCorrect: true },
+                    { text: "=", next: "q14_help", log: "Q14救錯: 單一個 = 是丟進去，if(a=5) 會永遠成立而且破壞 a 的值喔！" }
                 ]
             },
 
-            // --- 第 15 題：Δ 與 Y 接功率轉換 ---
+            // --- 第 15 題：求餘數 % ---
             "q15": {
-                tag: "第 15 關：三相交流",
-                text: "將三個額定電壓為 220V 的負載連接成「$\\Delta$ (三角形)接法」，接於三相 3 線式電源時，消耗功率為 6 kW。若將這三個負載改接成「$Y$ (星形)接法」，則其消耗功率會變成多少？",
+                tag: "第 15 關：算術運算",
+                text: "如果要計算數學上的「除法求餘數」(例如：10 除以 3 餘 1)，應該使用哪一個運算子？",
                 options: [
-                    { text: "2 kW", next: "q16", isCorrect: true },
-                    { text: "1 kW", next: "q15_help", log: "Q15錯: 不是除以 6" },
-                    { text: "3 kW", next: "q15_help", log: "Q15錯: 不是除以 2" },
-                    { text: "18 kW", next: "q15_help", log: "Q15錯: Y接的電壓分壓變小，功率會變小，不會變大" }
+                    { text: "%", next: "q16", isCorrect: true },
+                    { text: " / ", next: "q15_help", log: "Q15錯: 這是求商數 (10/3會等於3)" },
+                    { text: "\\", next: "q15_help", log: "Q15錯: 這是跳脫字元用的" },
+                    { text: "*", next: "q15_help", log: "Q15錯: 這是乘法" }
                 ]
             },
             "q15_help": {
-                tag: "💊 PBL 救援任務：三分之一的魔力",
-                text: "【公式記憶】這是三相電路必考觀念！同一個負載，接成 Y 型時，加在每個負載上的電壓會縮小成 $\\frac{1}{\\sqrt{3}}$。因為功率與電壓的「平方」成正比，所以總功率會變成原本 $\\Delta$ 接法的 $\\frac{1}{3}$。6 kW 除以 3 等於？",
+                tag: "💊 PBL 救援任務：百分比的另一種身份",
+                text: "【符號轉換】在數學裡 `/` 是除法，算出來的是商數。在 C 語言中，要拿剩下的「餘數」，我們借用了原本代表「百分比」的符號來當計算工具！",
                 options: [
-                    { text: "2 kW", next: "q15", isCorrect: true },
-                    { text: "18 kW", next: "q15_help", log: "Q15救錯: Y 型接法比較省電(功率只剩 1/3)，不會變大成 18 kW 喔！" }
+                    { text: "%", next: "q15", isCorrect: true },
+                    { text: "/", next: "q15_help", log: "Q15救錯: / 會直接除下去，整數除整數會把小數點無條件捨去，拿不到餘數喔！" }
                 ]
             },
 
-            // --- 第 16 題：RL 時間常數 ---
+            // --- 第 16 題：單行註解 ---
             "q16": {
-                tag: "第 16 關：暫態電路",
-                text: "在一個包含電阻 R 與電感 L 的串聯直流暫態電路中，其決定充放電快慢的「時間常數 ($\\tau$)」公式為何？",
+                tag: "第 16 關：程式註解",
+                text: "在程式中，我們想寫註解 (寫給人看，電腦不執行的備忘錄)。「單行註解」的開頭符號是什麼？",
                 options: [
-                    { text: "$\\tau = L / R$", next: "q17", isCorrect: true },
-                    { text: "$\\tau = R \\times L$", next: "q16_help", log: "Q16錯: 這是瞎猜的" },
-                    { text: "$\\tau = R / L$", next: "q16_help", log: "Q16錯: 分子分母顛倒了" },
-                    { text: "$\\tau = 1 / (RL)$", next: "q16_help", log: "Q16錯: 這是頻率公式的變形" }
-                ]
-            },
-            "q16_help": {
-                tag: "💊 PBL 救援任務：電感在上",
-                text: "【公式記憶】RC 電路的時間常數是相乘 ($R \\times C$)。但 RL 電路因為電感 L 的單位亨利 (H) 在物理意義上比較「大」，所以 L 要放在分子的位置，用除法！",
-                options: [
-                    { text: "$\\tau = L / R$", next: "q16", isCorrect: true },
-                    { text: "$\\tau = R / L$", next: "q16_help", log: "Q16救錯: 記住，沉重的電感 L 要壓在上面(分子)喔！" }
+                    { text: "//", next: "q17", isCorrect: true },
+                    { text: "/*", next: "q16_help", log: "Q16錯: 這是多行註解的開頭，要配 */ 結尾" },
+                    { text: "#", next: "q16_help", log: "Q16錯: 這是 Python 的註解寫法" }
                 ]
             },
 
-            // --- 第 17 題：RC 充飽時間 ---
-            "q17": {
-                tag: "第 17 關：暫態電路",
-                text: "在 RC 直流充電電路中，電容器剛開始電壓為 0V。大約經過多少個「時間常數 ($\\tau$)」的時間後，我們可以認定電容器已經完全充飽 (達到穩態)？",
+"q16_help": {
+                tag: "💊 PBL 救援任務：兩把斜線刀",
+                text: "【符號記憶】要讓電腦「看不見」這行字，我們要在前面砍兩刀！畫上連續兩條「向右斜的斜線」，這行後面的字就會變成綠色(註解)了。",
                 options: [
-                    { text: "5 個 $\\tau$", next: "q18", isCorrect: true },
-                    { text: "1 個 $\\tau$", next: "q17_help", log: "Q17錯: 1個時間常數只充了 63.2%" },
-                    { text: "3 個 $\\tau$", next: "q17_help", log: "Q17錯: 3個時間常數充了 95%" },
-                    { text: "10 個 $\\tau$", next: "q17_help", log: "Q17錯: 不需要那麼久" }
+                    { text: "//", next: "q17", isCorrect: true },
+                    { text: "/*", next: "q16_help", log: "Q16救錯: `/*` 是包一大坨文字用的多行註解，單行只要 `//` 就可以了！" }
+                ]
+            },
+
+            // --- 第 17 題：遞增運算子 a++ ---
+            "q17": {
+                tag: "第 17 關：遞增運算",
+                text: "假設 <div class='code-block'>int a = 5;</div> 執行 `a++;` 之後，變數 a 裡面的數字會變成多少？",
+                options: [
+                    { text: "6", next: "q18", isCorrect: true },
+                    { text: "5", next: "q17_help", log: "Q17錯: a++ 已經改變了 a 的值" },
+                    { text: "4", next: "q17_help", log: "Q17錯: 這是 a-- 的結果" },
+                    { text: "1", next: "q17_help", log: "Q17錯: a 的值是往上加的" }
                 ]
             },
             "q17_help": {
-                tag: "💊 PBL 救援任務：爬山的五步",
-                text: "【常數記憶】電容充電就像爬一座沒有盡頭的山(指數曲線)。工程界公認的標準是，只要爬滿「5 個」時間常數的步伐，電量就會達到 99.3%，我們就當作它完全充飽了！",
+                tag: "💊 PBL 救援任務：加號的加倍版",
+                text: "【符號推演】`a++` 是一種偷懶的縮寫寫法，它真正的意思是 `a = a + 1` (把 a 自己加上 1 再放回箱子裡)。5 加 1 變成？",
                 options: [
-                    { text: "5 個 $\\tau$", next: "q17", isCorrect: true },
-                    { text: "1 個 $\\tau$", next: "q17_help", log: "Q17救錯: 1 步只爬了 63%，還有一大段距離喔，要走 5 步才算登頂！" }
+                    { text: "6", next: "q17", isCorrect: true },
+                    { text: "4", next: "q17_help", log: "Q17救錯: 減 1 的話符號是 `a--` 喔！" }
                 ]
             },
 
-            // 🌸 第 18 題：三國演義 ---
+            // --- 第 18 題：先乘除後加減 ---
             "q18": {
-                tag: "🌸 第 18 關：大腦休息 (三國演義)",
-                text: "赤壁之戰前夕，周瑜故意刁難諸葛亮，要他在三天內造出十萬支箭。諸葛亮利用大霧與幾十條紮滿稻草人的小船，成功完成了任務。此計謀稱為？",
+                tag: "第 18 關：算術優先權",
+                text: "在 C 語言的算術運算中，同樣遵守「先乘除後加減」的規則。請問 <div class='code-block'>int result = 2 + 3 * 4;</div> 算出來的 result 會是多少？",
                 options: [
-                    { text: "草船借箭", next: "q19", isCorrect: true },
-                    { text: "火燒連環船", next: "q18_help", log: "Q18錯: 這是正式開戰時用的" },
-                    { text: "借東風", next: "q18_help", log: "Q18錯: 這是為了放火而作法的" },
-                    { text: "連環計", next: "q18_help", log: "Q18錯: 這是龐統獻給曹操的計謀" }
+                    { text: "14", next: "q19", isCorrect: true },
+                    { text: "20", next: "q18_help", log: "Q18錯: 你先算 2+3=5，再乘 4，這是錯的順序" },
+                    { text: "24", next: "q18_help", log: "Q18錯: 計算錯誤" },
+                    { text: "9", next: "q18_help", log: "Q18錯: 計算錯誤" }
                 ]
             },
             "q18_help": {
-                tag: "🎬 PBL 故事回憶：謝謝丞相賜箭",
-                text: "【故事回憶】諸葛亮趁著大霧把船開到曹操軍營前敲鑼打鼓。曹軍看不清虛實，只好瘋狂射箭。箭全部插在稻草人上被諸葛亮「借」走了。這叫做？",
+                tag: "💊 PBL 救援任務：小學數學",
+                text: "【數學觀念】電腦跟人一樣，看到加號和乘號混在一起，要先算乘號！所以要先算 3 * 4 = 12，然後再把前面的 2 加上去。",
                 options: [
-                    { text: "草船借箭", next: "q18", isCorrect: true },
-                    { text: "火燒連環船", next: "q18_help", log: "Q18救錯: 火燒連環船是後來黃蓋去詐降放火的，那時候箭已經借完囉！" }
+                    { text: "14", next: "q18", isCorrect: true },
+                    { text: "20", next: "q18_help", log: "Q18救錯: 記住，先乘除後加減！要先算 3 * 4 喔！" }
                 ]
             },
 
-            // --- 第 19 題：全波平均值 ---
+            // --- 第 19 題：if 判斷式 ---
             "q19": {
-                tag: "第 19 關：交流波形",
-                text: "若一個正弦波交流電的峰值為 $V_m$。當它經過「全波整流 (Full-wave rectification)」後，其電壓的「平均值 ($V_{avg}$)」公式為何？",
+                tag: "第 19 關：條件判斷",
+                text: "如果希望「當分數(score)大於或等於60分」時，就印出及格，應該使用哪一個條件判斷語法？",
                 options: [
-                    { text: "$0.636 \\times V_m$ (或 $2V_m / \\pi$)", next: "q20", isCorrect: true },
-                    { text: "$0.318 \\times V_m$ (或 $V_m / \\pi$)", next: "q19_help", log: "Q19錯: 這是半波整流的平均值" },
-                    { text: "$0.707 \\times V_m$ (或 $V_m / \\sqrt{2}$)", next: "q19_help", log: "Q19錯: 這是未整流的有效值" },
-                    { text: "0 V", next: "q19_help", log: "Q19錯: 未整流的正弦波平均值才是 0" }
+                    { text: "if (score >= 60)", next: "q20", isCorrect: true },
+                    { text: "if (score => 60)", next: "q19_help", log: "Q19錯: 符號順序錯了，應該是大於再等於" },
+                    { text: "if (score > 60)", next: "q19_help", log: "Q19錯: 這樣 60 分剛好會被當作不及格" },
+                    { text: "if (score == 60)", next: "q19_help", log: "Q19錯: 這樣只有剛好 60 分才會過" }
                 ]
             },
             "q19_help": {
-                tag: "💊 PBL 救援任務：翻上來的下半週",
-                text: "【數值記憶】如果沒有整流，正負抵消平均是 0。如果只保留上半部 (半波)，平均是 0.318。全波整流是把下半部也「翻上來」，所以面積變兩倍。0.318 乘以 2 是？",
+                tag: "💊 PBL 救援任務：念法順序",
+                text: "【口訣記憶】我們中文念「大於等於」，所以符號的順序也要照著念法的順序：先寫大於 `>`，再寫等於 `=`。",
                 options: [
-                    { text: "$0.636 \\times V_m$", next: "q19", isCorrect: true },
-                    { text: "$0.318 \\times V_m$", next: "q19_help", log: "Q19救錯: 0.318 只有一半的心力，全波整流效率是它的兩倍喔！" }
+                    { text: ">= (大於等於)", next: "q19", isCorrect: true },
+                    { text: "=> (等於大於)", next: "q19_help", log: "Q19救錯: `=>` 會變成箭頭符號，會發生語法錯誤喔！" }
                 ]
             },
 
-            // --- 第 20 題：波峰因數 ---
+            // --- 第 20 題：else ---
             "q20": {
-                tag: "第 20 關：波形參數",
-                text: "在交流電中，將波形的「最大值 (峰值 $V_m$)」除以「有效值 ($V_{rms}$)」，這個比值稱為什麼？(正弦波為 1.414)",
+                tag: "第 20 關：條件分支",
+                text: "承上題，如果分數「沒有」大於等於60，我們希望它印出「不及格」，這個備用的路線應該接在哪一個關鍵字後面？",
                 options: [
-                    { text: "波峰因數 (Crest Factor)", next: "q21", isCorrect: true },
-                    { text: "波形因數 (Form Factor)", next: "q20_help", log: "Q20錯: 這是有效值除以平均值" },
-                    { text: "功率因數 (Power Factor)", next: "q20_help", log: "Q20錯: 這是實功率除以視在功率" },
-                    { text: "品質因數 (Q factor)", next: "q20_help", log: "Q20錯: 這是諧振電路的選擇性指標" }
+                    { text: "else", next: "q21", isCorrect: true },
+                    { text: "else if", next: "q20_help", log: "Q20錯: else if 後面還要再接新的條件，如果只是『其他所有狀況』用 else 即可" },
+                    { text: "then", next: "q20_help", log: "Q20錯: C 語言沒有 then 關鍵字" },
+                    { text: "otherwise", next: "q20_help", log: "Q20錯: 雖然意思是否則，但不是標準語法" }
                 ]
             },
             "q20_help": {
-                tag: "💊 PBL 救援任務：找最高的點",
-                text: "【名詞直觀】這個比值分子放的是「最大值」，也就是波形最尖銳的「山峰」。用來描述這個波的尖銳程度，所以我們叫它什麼因數？",
+                tag: "💊 PBL 救援任務：如果...否則...",
+                text: "【英文對應】`if` 的意思是「如果」。當所有的如果都不成立時，我們需要一個「否則(其他所有情況)」的出口。這個字的英文是 e 開頭的四個字母。",
                 options: [
-                    { text: "波峰因數", next: "q20", isCorrect: true },
-                    { text: "波形因數", next: "q20_help", log: "Q20救錯: 波形因數是看「平均」，波峰因數才是看「最大值(峰值)」喔！" }
+                    { text: "else", next: "q20", isCorrect: true },
+                    { text: "then", next: "q20_help", log: "Q20救錯: C 語言是用大括號 {} 來取代 then 的，備用路線是 else 喔！" }
                 ]
             },
 
-            // --- 第 21 題：純電感相位 ---
+            // --- 第 21 題：邏輯 AND ---
             "q21": {
-                tag: "第 21 關：交流元件",
-                text: "在「純電感 (L)」的交流電路中，端電壓 (V) 與流過的電流 (I) 相位關係為何？",
+                tag: "第 21 關：邏輯運算",
+                text: "在判斷條件時，如果我們希望「國文及格」【而且】「數學及格」才給獎品，兩個條件必須「同時成立」。用來表示【且 (AND)】的邏輯運算子是？",
                 options: [
-                    { text: "電壓領先電流 $90^\\circ$", next: "q22", isCorrect: true },
-                    { text: "電流領先電壓 $90^\\circ$", next: "q21_help", log: "Q21錯: 這是電容器的特性" },
-                    { text: "兩者同相 ($0^\\circ$)", next: "q21_help", log: "Q21錯: 這是電阻的特性" },
-                    { text: "電壓領先電流 $45^\\circ$", next: "q21_help", log: "Q21錯: 純元件只會差 90 度" }
+                    { text: "&&", next: "q22", isCorrect: true },
+                    { text: "||", next: "q21_help", log: "Q21錯: 這是 OR (或者)" },
+                    { text: "!", next: "q21_help", log: "Q21錯: 這是 NOT (相反)" },
+                    { text: "&", next: "q21_help", log: "Q21錯: 單一個是位元運算，邏輯要兩個" }
                 ]
             },
             "q21_help": {
-                tag: "💊 PBL 救援任務：ELI 口訣",
-                text: "【經典口訣】背誦電子學名言：「ELI the ICE man」。前三個字母 ELI 代表在電感 (L) 中，電壓 (E) 排在前面，電流 (I) 排在後面。所以是誰領先？",
+                tag: "💊 PBL 救援任務：雙重打結",
+                text: "【符號記憶】這個符號 `&` 在英文叫 Ampersand (And的符號)。因為是嚴格的邏輯判斷「兩個都要」，所以要寫兩個 `&` 連在一起！",
                 options: [
-                    { text: "電壓領先電流 90度", next: "q21", isCorrect: true },
-                    { text: "電流領先電壓 90度", next: "q21_help", log: "Q21救錯: 電流領先是 ICE (電容) 的特性啦，口訣要記清楚！" }
+                    { text: "&&", next: "q21", isCorrect: true },
+                    { text: "||", next: "q21_help", log: "Q21救錯: `||` 代表只要其中一個成立就好(或者)，`&&` 才是嚴格的「而且」！" }
                 ]
             },
 
-            // --- 第 22 題：純電容相位 ---
+            // --- 第 22 題：邏輯 OR ---
             "q22": {
-                tag: "第 22 關：交流元件",
-                text: "承上題，在「純電容 (C)」的交流電路中，端電壓 (V) 與流過的電流 (I) 相位關係為何？",
+                tag: "第 22 關：邏輯運算",
+                text: "如果條件是「下雨」【或者】「颱風」只要其中一個成立就放假，用來表示【或 (OR)】的邏輯運算子是？",
                 options: [
-                    { text: "電流領先電壓 $90^\\circ$", next: "q23", isCorrect: true },
-                    { text: "電壓領先電流 $90^\\circ$", next: "q22_help", log: "Q22錯: 這是電感器的特性" },
-                    { text: "兩者同相 ($0^\\circ$)", next: "q22_help", log: "Q22錯: 這是電阻的特性" },
-                    { text: "電壓落後電流 $45^\\circ$", next: "q22_help", log: "Q22錯: 純元件只會差 90 度" }
+                    { text: "||", next: "q23", isCorrect: true },
+                    { text: "&&", next: "q22_help", log: "Q22錯: 這是 AND (而且)" },
+                    { text: "!", next: "q22_help", log: "Q22錯: 這是 NOT (相反)" },
+                    { text: "|", next: "q22_help", log: "Q22錯: 單一個是位元運算" }
                 ]
             },
             "q22_help": {
-                tag: "💊 PBL 救援任務：ICE 口訣",
-                text: "【經典口訣】承接上一題的口訣：「ELI the ICE man」。後三個字母 ICE 代表在電容 (C) 中，電流 (I) 排在前面，電壓 (E) 排在後面。所以是誰領先？",
+                tag: "💊 PBL 救援任務：平行的管線",
+                text: "【符號記憶】鍵盤上在 Enter 鍵上方的那個直槓 `|` (通常跟反斜線同一顆按鍵)。畫出兩條平行的管線，代表「水走哪一條都能通 (只要一個成立即可)」。",
                 options: [
-                    { text: "電流領先電壓 90度", next: "q22", isCorrect: true },
-                    { text: "電壓領先電流 90度", next: "q22_help", log: "Q22救錯: 電壓領先是 ELI (電感) 的特性啦！" }
+                    { text: "||", next: "q22", isCorrect: true },
+                    { text: "&&", next: "q22_help", log: "Q22救錯: `&&` 是很嚴格的管線，要兩個都通才行喔！" }
                 ]
             },
 
-            // --- 第 23 題：功率因數定義 ---
+            // --- 第 23 題：不等於 != ---
             "q23": {
-                tag: "第 23 關：功率因數",
-                text: "在交流電路中，用來表示能源使用效率的「功率因數 (Power Factor, $\\cos\\theta$)」，是哪兩種功率的比值？",
+                tag: "第 23 關：比較運算子",
+                text: "用來表示「不等於」(只要兩邊不一樣就成立) 的比較運算子是哪一個？",
                 options: [
-                    { text: "實功率 / 視在功率 (P / S)", next: "q24", isCorrect: true },
-                    { text: "無效功率 / 實功率 (Q / P)", next: "q23_help", log: "Q23錯: 這是品質因數的觀念" },
-                    { text: "視在功率 / 實功率 (S / P)", next: "q23_help", log: "Q23錯: 顛倒了，這會大於1" },
-                    { text: "無效功率 / 視在功率 (Q / S)", next: "q23_help", log: "Q23錯: 這是 $\\sin\\theta$" }
+                    { text: "!=", next: "q24", isCorrect: true },
+                    { text: "<>", next: "q23_help", log: "Q23錯: 這是 SQL 或 VB 的寫法" },
+                    { text: "~=", next: "q23_help", log: "Q23錯: 這是 Lua 或 Matlab 的寫法" },
+                    { text: "!==", next: "q23_help", log: "Q23錯: 這是 JavaScript 的寫法" }
                 ]
             },
             "q23_help": {
-                tag: "💊 PBL 救援任務：啤酒的泡沫",
-                text: "【生活比喻】買一杯啤酒，整杯的容量是「視在功率 (S)」，但裡面真正能喝到的黃色液體是「實功率 (P)」，上面的泡沫是沒用的無效功率。功率因數就是在算：整杯(分母)裡面，有多少是真的酒(分子)！",
+                tag: "💊 PBL 救援任務：驚嘆號的魔力",
+                text: "【符號轉換】在程式語言中，驚嘆號 `!` 代表「相反 (NOT)」。所以把驚嘆號加上等於符號，合起來念就是「不等於」！",
                 options: [
-                    { text: "實功率 / 視在功率", next: "q23", isCorrect: true },
-                    { text: "視在功率 / 實功率", next: "q23_help", log: "Q23救錯: 分母要放最大的整杯容量 (視在)，分子放實際喝到的 (實)，才不會大於 1 喔！" }
+                    { text: "!=", next: "q23", isCorrect: true },
+                    { text: "<>", next: "q23_help", log: "Q23救錯: 雖然 `<>` 也是不等於的意思，但 C 語言是用 `!=` 喔！" }
                 ]
             },
 
-            // 🌸 第 24 題：三國演義 ---
+            // --- 第 24 題：變數交換 ---
             "q24": {
-                tag: "🌸 第 24 關：大腦休息 (三國演義)",
-                text: "諸葛亮面對司馬懿十五萬大軍壓境，自己城內卻空無兵力。他大開城門，自己坐在城樓上悠哉地彈琴，讓生性多疑的司馬懿以為城內有埋伏而退兵。此計謀為？",
+                tag: "第 24 關：程式邏輯",
+                text: "如果要將變數 A 和變數 B 裡面的數字「互換」(Swap)，我們通常需要怎麼做？",
                 options: [
-                    { text: "空城計", next: "q25", isCorrect: true },
-                    { text: "苦肉計", next: "q24_help", log: "Q24錯: 這是周瑜打黃蓋" },
-                    { text: "連環計", next: "q24_help", log: "Q24錯: 這是鐵索連舟" },
-                    { text: "美人計", next: "q24_help", log: "Q24錯: 這是貂蟬誘董卓" }
+                    { text: "宣告第三個暫存變數 C 來幫忙", next: "q25", isCorrect: true },
+                    { text: "直接寫 A = B; B = A;", next: "q24_help", log: "Q24錯: 第一步 A 被蓋掉後，A 原本的值就不見了，兩個會變成一樣的值" },
+                    { text: "用 printf 印出來就好", next: "q24_help", log: "Q24錯: 只是印出來，變數裡面並沒有真的交換" },
+                    { text: "電腦會自動幫我們換", next: "q24_help", log: "Q24錯: 電腦很笨，不會自動換" }
                 ]
             },
             "q24_help": {
-                tag: "🎬 PBL 故事回憶：一座沒有兵的城",
-                text: "【故事回憶】這題根本是送分題！城裡面空空的連一個守衛都沒有，城門還大開，這就是有名的什麼計？",
+                tag: "💊 PBL 救援任務：交換果汁",
+                text: "【生活比喻】假設 A 杯裝可樂，B 杯裝雪碧。你要把它們交換，如果直接倒過去一定會混在一起。你必須去廚房拿一個「空的杯子 (暫存變數 temp)」，先把可樂倒進空杯，才能開始換！",
                 options: [
-                    { text: "空城計", next: "q24", isCorrect: true },
-                    { text: "苦肉計", next: "q24_help", log: "Q24救錯: 諸葛亮彈琴彈得很爽，沒有受皮肉之苦啦！" }
+                    { text: "找第三個變數幫忙", next: "q24", isCorrect: true },
+                    { text: "直接寫 A = B; B = A;", next: "q24_help", log: "Q24救錯: A=B 的瞬間，可樂就被倒掉蓋過了，找不回來囉！" }
                 ]
             },
 
-            // --- 第 25 題：實功率單位 ---
+            // --- 第 25 題：迴圈概念 ---
             "q25": {
-                tag: "第 25 關：功率單位",
-                text: "在交流電路中，真正會做功、發熱的「有效功率 (又稱實功率、平均功率, $P$)」，其單位是什麼？",
+                tag: "第 25 關：迴圈概念",
+                text: "當有一段程式碼需要「重複執行好幾次」(例如印出 100 次我愛你) 時，我們會使用什麼結構來完成？",
                 options: [
-                    { text: "瓦特 (W)", next: "q26", isCorrect: true },
-                    { text: "乏 (VAR)", next: "q25_help", log: "Q25錯: 這是無效功率的單位" },
-                    { text: "伏安 (VA)", next: "q25_help", log: "Q25錯: 這是視在功率的單位" },
-                    { text: "焦耳 (J)", next: "q25_help", log: "Q25錯: 這是能量的單位" }
+                    { text: "迴圈 (Loop)", next: "q26", isCorrect: true },
+                    { text: "陣列 (Array)", next: "q25_help", log: "Q25錯: 陣列是拿來裝很多資料的箱子" },
+                    { text: "條件判斷 (if)", next: "q25_help", log: "Q25錯: if 跑完一次就結束了，不會回頭" },
+                    { text: "指標 (Pointer)", next: "q25_help", log: "Q25錯: 指標用來記記憶體位置" }
                 ]
             },
             "q25_help": {
-                tag: "💊 PBL 救援任務：家裡的電器",
-                text: "【生活常識】你去大賣場買吹風機或電風扇，上面標示這個電器有多耗電、會發多少熱，用的單位一定是英文大寫的 W，中文叫做？",
+                tag: "💊 PBL 救援任務：操場跑圈",
+                text: "【名詞直觀】重複做同一件事，就像在操場上一圈又一圈地跑步，跑到規定的圈數才停下來。這種程式結構的名字就叫做？",
                 options: [
-                    { text: "瓦特 (W)", next: "q25", isCorrect: true },
-                    { text: "伏安 (VA)", next: "q25_help", log: "Q25救錯: VA 包含了一些不會發熱的虛功，真正會發熱做功的是瓦特 (W) 喔！" }
+                    { text: "迴圈 (Loop)", next: "q25", isCorrect: true },
+                    { text: "條件判斷 (if)", next: "q25_help", log: "Q25救錯: if 只會像岔路一樣選邊走，走過就不會回頭囉！" }
                 ]
             },
 
-            // --- 第 26 題：無效功率單位 ---
+            // --- 第 26 題：for 迴圈第一部分 ---
             "q26": {
-                tag: "第 26 關：功率單位",
-                text: "承上題，電感器或電容器在交流電路中吸收又釋放、不會真正消耗能量的「無效功率 (虛功率, $Q$)」，其單位是什麼？",
+                tag: "第 26 關：for 迴圈",
+                text: "`for` 迴圈的括號裡面通常有三個部分，用分號隔開。第一部分 <div class='code-block'>for (int i = 0; ...; ...)</div> 的作用是什麼？",
                 options: [
-                    { text: "乏 (VAR)", next: "q27", isCorrect: true },
-                    { text: "瓦特 (W)", next: "q26_help", log: "Q26錯: 這是實功率的單位" },
-                    { text: "伏安 (VA)", next: "q26_help", log: "Q26錯: 這是視在功率的單位" },
-                    { text: "歐姆 ($\\Omega$)", next: "q26_help", log: "Q26錯: 這是電阻的單位" }
+                    { text: "設定變數的初始值 (從哪裡開始)", next: "q27", isCorrect: true },
+                    { text: "設定迴圈的執行條件 (跑到什麼時候停)", next: "q26_help", log: "Q26錯: 這是第二部分的功能" },
+                    { text: "設定變數的變化量 (每次走幾步)", next: "q26_help", log: "Q26錯: 這是第三部分的功能" },
+                    { text: "印出變數的內容", next: "q26_help", log: "Q26錯: 印出要寫在大括號裡面" }
                 ]
             },
             "q26_help": {
-                tag: "💊 PBL 救援任務：縮寫還原",
-                text: "【名詞解析】虛功率是由電壓 (Volt) 和電流 (Ampere) 產生的，但因為它是電感電容的「電抗 (Reactive)」造成的，所以字尾多了一個 R。拼起來是？",
+                tag: "💊 PBL 救援任務：起跑線",
+                text: "【語法拆解】`for (起點 ; 終點條件 ; 步伐)`。第一格 `int i = 0` 代表我們拿碼表開始計時，設定計數器從 0 開始算起。",
                 options: [
-                    { text: "乏 (VAR)", next: "q26", isCorrect: true },
-                    { text: "伏安 (VA)", next: "q26_help", log: "Q26救錯: VA 是總容量，少了代表電抗的 R 喔！" }
+                    { text: "設定初始值 (起點)", next: "q26", isCorrect: true },
+                    { text: "設定條件 (終點)", next: "q26_help", log: "Q26救錯: 終點條件是放在中間那一格喔！" }
                 ]
             },
 
-            // --- 第 27 題：視在功率單位 ---
+            // --- 第 27 題：for 跑幾次 ---
             "q27": {
-                tag: "第 27 關：功率單位",
-                text: "用來評估變壓器或發電機總容量大小的「視在功率 ($S$)」(即電壓有效值乘以電流有效值)，其單位是什麼？",
+                tag: "第 27 關：for 迴圈追蹤",
+                text: "下列哪一個 `for` 迴圈會剛好執行「5 次」？ (假設每次 i 增加 1)",
                 options: [
-                    { text: "伏安 (VA)", next: "q28", isCorrect: true },
-                    { text: "瓦特 (W)", next: "q27_help", log: "Q27錯: 這是實功率的單位" },
-                    { text: "乏 (VAR)", next: "q27_help", log: "Q27錯: 這是無效功率的單位" },
-                    { text: "法拉 (F)", next: "q27_help", log: "Q27錯: 這是電容的單位" }
+                    { text: "for (int i = 0; i < 5; i++)", next: "q28", isCorrect: true },
+                    { text: "for (int i = 1; i < 5; i++)", next: "q27_help", log: "Q27錯: i=1,2,3,4，只跑了 4 次" },
+                    { text: "for (int i = 0; i <= 5; i++)", next: "q27_help", log: "Q27錯: i=0,1,2,3,4,5，跑了 6 次" },
+                    { text: "for (int i = 1; i > 5; i++)", next: "q27_help", log: "Q27錯: 條件一開始就不成立，跑 0 次" }
                 ]
             },
             "q27_help": {
-                tag: "💊 PBL 救援任務：最直白的縮寫",
-                text: "【名詞解析】視在功率的公式最簡單，就是「電壓」乘上「電流」。電壓的單位是 Volt (V)，電流的單位是 Ampere (A)。直接把它們並排寫在一起就是了！",
+                tag: "💊 PBL 救援任務：數手指頭",
+                text: "【邏輯推演】我們從 0 開始數，每次加 1，當數字小於 5 的時候可以跑。也就是 i 等於 `0, 1, 2, 3, 4`。數數看，這樣總共是幾次？",
                 options: [
-                    { text: "伏安 (VA)", next: "q27", isCorrect: true },
-                    { text: "瓦特 (W)", next: "q27_help", log: "Q27救錯: 瓦特是扣除虛功後剩下的實功，我們現在要看的是包含一切的總容量喔！" }
+                    { text: "for (int i = 0; i < 5; i++)", next: "q27", isCorrect: true },
+                    { text: "for (int i = 0; i <= 5; i++)", next: "q27_help", log: "Q27救錯: 如果加上等於，連 5 都會跑進去，總共就變成 6 次了！" }
                 ]
             },
 
-            // --- 第 28 題：諧振頻率公式 ---
+            // --- 第 28 題：while 迴圈 ---
             "q28": {
-                tag: "第 28 關：諧振電路",
-                text: "在 RLC 串聯或並聯電路中，發生「諧振」時 (感抗等於容抗，$X_L = X_C$)，其諧振頻率 ($f_r$) 的公式為何？",
+                tag: "第 28 關：while 迴圈",
+                text: "除了 `for` 之外，還有一種迴圈是「只要條件成立，就會一直做下去」，通常用在不知道確切要跑幾次的時候 (例如：使用者猜密碼，猜中為止)。這是哪一種迴圈？",
                 options: [
-                    { text: "$1 / (2\\pi\\sqrt{LC})$", next: "q29", isCorrect: true },
-                    { text: "$1 / (2\\pi RC)$", next: "q28_help", log: "Q28錯: 這是 RC 濾波器的截止頻率" },
-                    { text: "$\\sqrt{LC} / 2\\pi$", next: "q28_help", log: "Q28錯: 公式顛倒了" },
-                    { text: "$2\\pi / \\sqrt{LC}$", next: "q28_help", log: "Q28錯: 公式顛倒了" }
+                    { text: "while", next: "q29", isCorrect: true },
+                    { text: "if", next: "q28_help", log: "Q28錯: if 不是迴圈，跑完就沒了" },
+                    { text: "switch", next: "q28_help", log: "Q28錯: switch 是用來選單分類的" },
+                    { text: "do-if", next: "q28_help", log: "Q28錯: 沒這種語法" }
                 ]
             },
             "q28_help": {
-                tag: "💊 PBL 救援任務：兩敗俱傷的根號",
-                text: "【公式推演】因為 $2\\pi f L = 1 / (2\\pi f C)$，把 f 移到同一邊會產生 $f^2$。要把平方消掉，最後的結果一定會帶有「根號」。而且頻率的 $2\\pi$ 永遠在分母！",
+                tag: "💊 PBL 救援任務：當...的時候",
+                text: "【英文直翻】這個迴圈的語法，英文直接翻譯就是「當 (某個條件成立時)」，就進入大括號裡面執行。它的英文單字是 W 開頭的！",
                 options: [
-                    { text: "$1 / (2\\pi\\sqrt{LC})$", next: "q28", isCorrect: true },
-                    { text: "$1 / (2\\pi RC)$", next: "q28_help", log: "Q28救錯: 諧振是電感(L)和電容(C)在打架，公式裡面不能只有 R 和 C 喔！" }
+                    { text: "while", next: "q28", isCorrect: true },
+                    { text: "if", next: "q28_help", log: "Q28救錯: if 是「如果」，而且它不是迴圈喔！" }
                 ]
             },
 
-            // --- 第 29 題：頻寬公式 ---
+            // --- 第 29 題：break ---
             "q29": {
-                tag: "第 29 關：諧振電路",
-                text: "諧振電路的「頻寬 (BW)」是指上限與下限半功率頻率之間的差值。頻寬與「諧振頻率 ($f_r$)」及「品質因數 ($Q$)」的關係公式為何？",
+                tag: "第 29 關：跳出迴圈",
+                text: "如果在迴圈裡面執行到 `break;` 這個指令，會發生什麼事？",
                 options: [
-                    { text: "$BW = f_r / Q$", next: "q30", isCorrect: true },
-                    { text: "$BW = f_r \\times Q$", next: "q29_help", log: "Q29錯: 品質因數越高，頻寬越窄" },
-                    { text: "$BW = Q / f_r$", next: "q29_help", log: "Q29錯: 公式顛倒了" },
-                    { text: "$BW = f_r + Q$", next: "q29_help", log: "Q29錯: 這不是加法關係" }
+                    { text: "立刻打破並跳出整個迴圈", next: "q30", isCorrect: true },
+                    { text: "跳過這一次，直接進入下一次", next: "q29_help", log: "Q29錯: 這是 continue 的功用" },
+                    { text: "程式會當機報錯", next: "q29_help", log: "Q29錯: 這是一個正常的控制指令" },
+                    { text: "暫停程式等使用者按鍵", next: "q29_help", log: "Q29錯: 這通常是 system(\"pause\") 的功用" }
                 ]
             },
             "q29_help": {
-                tag: "💊 PBL 救援任務：品質越好越尖銳",
-                text: "【邏輯推演】品質因數(Q)代表選擇性。Q值越高，波形越尖銳，能通過的頻帶寬度(BW)就越「窄」。兩者成反比，所以 f 要除以 Q 還是乘以 Q？",
+                tag: "💊 PBL 救援任務：敲破玻璃",
+                text: "【字義解析】break 的英文原意是「打破、中斷」。在迴圈裡使出這個指令，就像把操場的圍牆敲破，直接跑出去不玩了！",
                 options: [
-                    { text: "$BW = f_r / Q$", next: "q29", isCorrect: true },
-                    { text: "$BW = f_r \\times Q$", next: "q29_help", log: "Q29救錯: 如果乘以 Q，那品質越好頻寬就越寬(越平坦)了，這樣就不準確了喔！" }
+                    { text: "立刻跳出整個迴圈", next: "q29", isCorrect: true },
+                    { text: "跳過這一次進入下一次", next: "q29_help", log: "Q29救錯: 跳過一次繼續跑是 continue (繼續) 喔！break 是直接毀掉不跑了！" }
                 ]
             },
 
-            // 🌸 第 30 題：三國演義 ---
+            // --- 第 30 題：無窮迴圈 ---
             "q30": {
-                tag: "🌸 第 30 關：大腦休息 (三國演義)",
-                text: "赤壁之戰中，為了讓曹操相信東吳將領黃蓋是真的要投降，周瑜在大庭廣眾之下將黃蓋打得皮開肉綻。這是一個願打、一個願挨的什麼計謀？",
+                tag: "第 30 關：無窮迴圈",
+                text: "如果迴圈的條件「永遠都是對的 (例如寫：`while (1)` )」，而且裡面又沒有寫 `break` 讓它出來，這個迴圈會變成什麼？",
                 options: [
-                    { text: "苦肉計", next: "q31", isCorrect: true },
-                    { text: "美人計", next: "q30_help", log: "Q30錯: 美人計沒有人在挨打" },
-                    { text: "空城計", next: "q30_help", log: "Q30錯: 這是諸葛亮嚇退司馬懿的招數" },
-                    { text: "反間計", next: "q30_help", log: "Q30錯: 這是讓敵人互相猜忌的計謀" }
+                    { text: "無窮迴圈 (一直跑停不下來)", next: "q31", isCorrect: true },
+                    { text: "只會跑一次就停", next: "q30_help", log: "Q30錯: 條件永遠對，它不會自己停" },
+                    { text: "會跑 100 次然後當機", next: "q30_help", log: "Q30錯: 除非記憶體塞爆，否則它會跑超過一萬次" },
+                    { text: "根本不會跑", next: "q30_help", log: "Q30錯: 1 代表 True，一定會進去跑" }
                 ]
             },
             "q30_help": {
-                tag: "🎬 PBL 故事回憶：用肉體換信任",
-                text: "【故事回憶】老將黃蓋一大把年紀被打得屁股開花，受盡「皮肉之苦」，曹操的間諜看了深信不疑，這才讓火燒連環船的詐降計成功。這叫？",
+                tag: "💊 PBL 救援任務：永遠的True",
+                text: "【邏輯推演】電腦看到 1 就當作是 True (對的)。既然每次問它條件它都說「對」，那它就會永遠繞圈圈出不來，這叫什麼迴圈？",
                 options: [
-                    { text: "苦肉計", next: "q30", isCorrect: true },
-                    { text: "反間計", next: "q30_help", log: "Q30救錯: 蔣幹盜書才是反間計，黃蓋挨打是貨真價實的苦肉計喔！" }
+                    { text: "無窮迴圈", next: "q30", isCorrect: true },
+                    { text: "只跑一次", next: "q30_help", log: "Q30救錯: 除非遇到 break 敲破玻璃，不然它絕對不會只跑一次！" }
                 ]
             },
 
-            // --- 第 31 題：串聯諧振偏離 ---
+            // --- 第 31 題：continue ---
             "q31": {
-                tag: "第 31 關：諧振電路",
-                text: "在 RLC 「串聯」電路中，當外加電源的頻率「大於」諧振頻率 ($f > f_r$) 時，電路的整體性質會偏向哪一種？",
+                tag: "第 31 關：跳過當次",
+                text: "如果在迴圈裡面執行到 `continue;` 這個指令，會發生什麼事？",
                 options: [
-                    { text: "電感性 ($X_L > X_C$)", next: "q32", isCorrect: true },
-                    { text: "電容性 ($X_C > X_L$)", next: "q31_help", log: "Q31錯: 頻率變高，容抗會變小" },
-                    { text: "純電阻性 ($X_L = X_C$)", next: "q31_help", log: "Q31錯: 這是剛好在諧振點的狀態" },
-                    { text: "短路狀態", next: "q31_help", log: "Q31錯: 不會短路" }
+                    { text: "跳過目前這一次剩下的程式碼，直接進入迴圈的「下一次」", next: "q32", isCorrect: true },
+                    { text: "立刻打破並跳出整個迴圈", next: "q31_help", log: "Q31錯: 這是 break 的功用" },
+                    { text: "程式會當機報錯", next: "q31_help", log: "Q31錯: 這也是正常的控制指令" },
+                    { text: "程式會結束執行", next: "q31_help", log: "Q31錯: 這是 return 的功用" }
                 ]
             },
             "q31_help": {
-                tag: "💊 PBL 救援任務：頻率的贏家",
-                text: "【公式推演】感抗 $X_L = 2\\pi f L$ (與頻率成正比)；容抗 $X_C = 1/(2\\pi f C)$ (與頻率成反比)。當頻率 $f$ 變大時，$X_L$ 會變大，$X_C$ 會變小。串聯電路誰大誰就是老大，所以整體偏向？",
+                tag: "💊 PBL 救援任務：不玩這局了",
+                text: "【字義解析】continue 的英文是「繼續」。在迴圈裡，它的意思是「我不跑這局剩下的指令了，趕快讓我回到起點『繼續』跑下一局」。",
                 options: [
-                    { text: "電感性", next: "q31", isCorrect: true },
-                    { text: "電容性", next: "q31_help", log: "Q31救錯: 頻率越高，電容(高通)的阻力就越小，它當不了老大喔！" }
+                    { text: "跳過這一次，進入下一次", next: "q31", isCorrect: true },
+                    { text: "跳出整個迴圈", next: "q31_help", log: "Q31救錯: 整個跳出不玩的是 break 喔！continue 還會繼續跑完剩下的圈數。" }
                 ]
             },
 
-            // --- 第 32 題：並聯諧振偏離 ---
+            // --- 第 32 題：switch 多重選擇 ---
             "q32": {
-                tag: "第 32 關：諧振電路",
-                text: "承上題，若換成是 RLC 「並聯」電路，當電源頻率「大於」諧振頻率 ($f > f_r$) 時，電路的整體性質會偏向哪一種？",
+                tag: "第 32 關：多重選擇",
+                text: "假設有三個選項的選單，比起寫很多個 `if-else if`，C 語言提供了一個專門用來處理「多重選擇」的語法，它叫做什麼？",
                 options: [
-                    { text: "電容性", next: "q33", isCorrect: true },
-                    { text: "電感性", next: "q32_help", log: "Q32錯: 頻率變高感抗變大，在並聯中電流較小，無法成為主導" },
-                    { text: "純電阻性", next: "q32_help", log: "Q32錯: 這是剛好在諧振點的狀態" },
-                    { text: "斷路狀態", next: "q32_help", log: "Q32錯: 雖然總阻抗可能很大，但不一定完全斷路" }
+                    { text: "switch", next: "q33", isCorrect: true },
+                    { text: "while", next: "q32_help", log: "Q32錯: 這是迴圈" },
+                    { text: "for", next: "q32_help", log: "Q32錯: 這是迴圈" },
+                    { text: "choose", next: "q32_help", log: "Q32錯: C語言沒有這個關鍵字" }
                 ]
             },
             "q32_help": {
-                tag: "💊 PBL 救援任務：阻力小者得天下",
-                text: "【公式推演】一樣的，頻率變高 $X_L$ 變大、$X_C$ 變小。但在「並聯」電路裡，水流(電流)會往阻力小的地方鑽。誰的阻力小，流過去的電流就大，誰就是老大。所以整體偏向？",
+                tag: "💊 PBL 救援任務：鐵道轉轍器",
+                text: "【名詞直翻】這個字的英文意思是「開關、切換」。就像火車的軌道轉轍器，根據你輸入的數字，瞬間切換到對應的鐵軌(case)上去！",
                 options: [
-                    { text: "電容性", next: "q32", isCorrect: true },
-                    { text: "電感性", next: "q32_help", log: "Q32救錯: 電感抗變大了，大家都不想走那邊，所以電感無法主導並聯電路喔！" }
+                    { text: "switch", next: "q32", isCorrect: true },
+                    { text: "choose", next: "q32_help", log: "Q32救錯: 雖然意思是選擇，但 C 語言不認得 choose 這個字喔！" }
                 ]
             },
 
-            // --- 第 33 題：理想伏特計 ---
+            // --- 第 33 題：switch break ---
             "q33": {
-                tag: "第 33 關：基本儀表",
-                text: "在測量電路時，電壓表 (伏特計) 必須與待測元件並聯。為了不影響原電路的電流分佈，「理想的電壓表」其內阻應該為多少？",
+                tag: "第 33 關：switch 細節",
+                text: "在 `switch` 語法中，當匹配到符合的 `case` 執行完後，為了防止它「沒煞車」繼續往下執行其他不相干的 case，通常要在最後加上什麼指令？",
                 options: [
-                    { text: "無限大 ($\\infty$)", next: "q34", isCorrect: true },
-                    { text: "零 ($0\\Omega$)", next: "q33_help", log: "Q33錯: 如果是零，電路一接上去就短路燒掉了" },
-                    { text: "100 歐姆", next: "q33_help", log: "Q33錯: 仍會分走一部分電流" },
-                    { text: "等於待測元件的電阻", next: "q33_help", log: "Q33錯: 這樣會分走一半的電流，誤差極大" }
+                    { text: "break;", next: "q34", isCorrect: true },
+                    { text: "stop;", next: "q33_help", log: "Q33錯: C語言沒有 stop" },
+                    { text: "end;", next: "q33_help", log: "Q33錯: C語言沒有 end" },
+                    { text: "exit;", next: "q33_help", log: "Q33錯: 這會把整個程式關掉" }
                 ]
             },
             "q33_help": {
-                tag: "💊 PBL 救援任務：不偷喝水的測量員",
-                text: "【電路直覺】電壓表像是一個站在旁邊觀察的人。如果他的阻力不夠大，原本要流進機器的電流就會被他「偷喝」走一條分支，機器拿到的電就不準了。所以他必須要像一面牆一樣擋住電流，電阻要多大？",
+                tag: "💊 PBL 救援任務：拉下手煞車",
+                text: "【邏輯推演】就像剛剛在迴圈學到的，如果你想從目前的區塊「打破牆壁跳出去」，避免跌進下一個 case 的坑裡，你要使用的關鍵字是？",
                 options: [
-                    { text: "無限大", next: "q33", isCorrect: true },
-                    { text: "零", next: "q33_help", log: "Q33救錯: 如果電阻是零，電流會瞬間全部衝進電壓表，發生大短路喔！" }
+                    { text: "break;", next: "q33", isCorrect: true },
+                    { text: "stop;", next: "q33_help", log: "Q33救錯: 電腦不認識 stop，要用 break 敲破玻璃逃走喔！" }
                 ]
             },
 
-            // --- 第 34 題：理想安培計 ---
+            // --- 第 34 題：switch default ---
             "q34": {
-                tag: "第 34 關：基本儀表",
-                text: "承上題，電流表 (安培計) 必須與待測元件串聯。為了不阻礙原電路的電流流動，「理想的電流表」其內阻應該為多少？",
+                tag: "第 34 關：switch 細節",
+                text: "在 `switch` 語法中，如果所有的 `case` 都不符合(例如只提供 1,2,3，但使用者輸入 9)，就會執行哪一個預設的區塊？(類似 if-else 的 else)",
                 options: [
-                    { text: "零 ($0\\Omega$)", next: "q35", isCorrect: true },
-                    { text: "無限大 ($\\infty$)", next: "q34_help", log: "Q34錯: 這樣電流根本過不去，電路會斷路" },
-                    { text: "100 歐姆", next: "q34_help", log: "Q34錯: 會減少電路總電流" },
-                    { text: "等於待測元件的電阻", next: "q34_help", log: "Q34錯: 這樣總阻力變兩倍，電流剩一半" }
+                    { text: "default:", next: "q35", isCorrect: true },
+                    { text: "else:", next: "q34_help", log: "Q34錯: switch 裡面不寫 else" },
+                    { text: "other:", next: "q34_help", log: "Q34錯: 沒這個字" },
+                    { text: "none:", next: "q34_help", log: "Q34錯: 沒這個字" }
                 ]
             },
             "q34_help": {
-                tag: "💊 PBL 救援任務：透明的收費站",
-                text: "【電路直覺】電流表就像馬路上的收費站，所有的車子(電流)都必須從它肚子裡穿過去。如果它有阻力，車流就會變慢(不準)。所以它必須像不存在一樣通暢，電阻要是？",
+                tag: "💊 PBL 救援任務：預設值",
+                text: "【英文直翻】這個單字在電腦世界很常見，意思是「預設的、默認的」。當找不到客製化的路線時，電腦就會走這條「預設」的道路。",
                 options: [
-                    { text: "零", next: "q34", isCorrect: true },
-                    { text: "無限大", next: "q34_help", log: "Q34救錯: 無限大的話路就斷了，車子過不去，根本量不到電流喔！" }
+                    { text: "default:", next: "q34", isCorrect: true },
+                    { text: "else:", next: "q34_help", log: "Q34救錯: else 是跟 if 搭配的，在 switch 裡面要用 default 喔！" }
                 ]
             },
 
-            // 🏆 第 35 題：三國演義 (大魔王) ---
+            // --- 第 35 題：指定運算子縮寫 += ---
             "q35": {
-                tag: "🏆 最終關：三國大魔王",
-                text: "最後一題！《三國演義》中，關羽得知結拜大哥劉備的下落後，辭別曹操，一路保護兩位嫂嫂千里尋兄。途中因為沒有通行證，一連斬殺了曹操把守關隘的六名將領。此英雄事蹟被後人稱為什麼？",
+                tag: "🏆 最終關：進階運算",
+                text: "最後一題！若宣告 <div class='code-block'>int a = 10;</div> 執行 `a += 5;` 之後，a 的值會變多少？",
                 options: [
-                    { text: "過五關斬六將", next: "end", isCorrect: true },
-                    { text: "單騎救主", next: "q35_help", log: "Q35錯: 這是趙雲在長坂坡做的事" },
-                    { text: "溫酒斬華雄", next: "q35_help", log: "Q35錯: 這是在討伐董卓時的關羽事蹟" },
-                    { text: "水淹七軍", next: "q35_help", log: "Q35錯: 這是關羽後來在樊城之戰用的戰術" }
+                    { text: "15", next: "end", isCorrect: true },
+                    { text: "5", next: "q35_help", log: "Q35錯: 那是 a = 5" },
+                    { text: "10", next: "q35_help", log: "Q35錯: 沒有變化是不對的" },
+                    { text: "50", next: "q35_help", log: "Q35錯: 那是 a *= 5" }
                 ]
             },
             "q35_help": {
-                tag: "🎬 PBL 故事回憶：破關斬將",
-                text: "【故事回憶】這題的答案就在題目裡！他經過了五個關口，斬殺了六個不讓他通過的將領。這句話後來也用來形容克服重重困難，就像你即將通關這個題庫一樣！",
+                tag: "💊 PBL 最終挑戰：數學縮寫還原",
+                text: "【符號推演】`a += 5` 只是工程師偷懶的寫法，把它還原就是 `a = a + 5` (把 a 自己加上 5 再放回去)。原本的 10 加上 5 變成多少？",
                 options: [
-                    { text: "過五關斬六將", next: "q35", isCorrect: true },
-                    { text: "單騎救主", next: "q35_help", log: "Q35救錯: 單騎救主是趙子龍抱著小阿斗在敵軍中衝殺啦！" }
+                    { text: "15", next: "q35", isCorrect: true },
+                    { text: "5", next: "q35_help", log: "Q35救錯: 它不是蓋掉，是加上去喔！把 10 加上 5！" }
                 ]
             }
         };
