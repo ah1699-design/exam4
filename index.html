@@ -176,7 +176,7 @@
 
     <div class="container">
         <div id="student-setup">
-            <h1>🎒 數位邏輯考前衝刺大挑戰：抽卡特訓班！</h1>
+            <h1>🎒 程式設計考前衝刺大挑戰：抽卡特訓班！</h1>
             <div class="subtitle">連續答對 2 題即可抽卡！(滿5張特定卡可覺醒神卡)</div>
             
             <div class="warning-box">
@@ -402,706 +402,706 @@
             }
         };
 // ==========================================
-        // 教師設定區：數位邏輯設計考前衝刺 35題
+        // 教師設定區：程式設計實習考前衝刺 (變數、指標、OOP、資料結構) 35題
         // ==========================================
         const quizData = {
-            // --- 第 1 題：脈波上升時間 ---
+            // --- 第 1 題：語言處理程式 ---
             "q1": {
-                tag: "第 1 關：基本概念",
-                text: "在實際脈波信號的定義中，所謂的「上升時間 ($t_r$)」，是指波形的振幅從多少爬升到多少所經歷的時間？",
+                tag: "第 1 關：程式語言基礎",
+                text: "在語言處理程式中，負責將「組合語言」翻譯轉換為機器碼的程式稱為什麼？",
                 options: [
-                    { text: "10% 上升到 90%", next: "q2", isCorrect: true },
-                    { text: "0% 上升到 100%", next: "q1_help", log: "Q1錯: 這不是標準的上升時間定義" },
-                    { text: "10% 下降到 90%", next: "q1_help", log: "Q1錯: 下降是下降時間" },
-                    { text: "20% 上升到 80%", next: "q1_help", log: "Q1錯: 比例錯誤" }
+                    { text: "組譯程式 (Assembler)", next: "q2", isCorrect: true },
+                    { text: "編譯程式 (Compiler)", next: "q1_help", log: "Q1錯: 這是將高階語言轉為機器碼" },
+                    { text: "直譯程式 (Interpreter)", next: "q1_help", log: "Q1錯: 這是將高階語言逐行轉為機器碼" },
+                    { text: "聯結程式 (Linker)", next: "q1_help", log: "Q1錯: 這是將目的檔連結成執行檔" }
                 ]
             },
             "q1_help": {
-                tag: "💊 PBL 救援任務：掐頭去尾的衝刺",
-                text: "【定義記憶】實際的波形在最開頭起步和最後快到頂的時候，爬得比較慢且不穩定。所以工程上定義上升時間，是掐頭去尾，只看中間最陡的那一段，也就是從底部的 10% 爬到頂部的多少？",
+                tag: "💊 PBL 救援任務：專屬翻譯官",
+                text: "【名詞直觀】不同的語言有不同的翻譯官。高階語言交給「編譯」程式；而「組合」語言的專屬翻譯官，顧名思義就叫做「組譯」程式！",
                 options: [
-                    { text: "10% 到 90%", next: "q1", isCorrect: true },
-                    { text: "0% 到 100%", next: "q1_help", log: "Q1救錯: 0%和100%太難測量了，標準定義是 10% 到 90% 喔！" }
+                    { text: "組譯程式 (Assembler)", next: "q1", isCorrect: true },
+                    { text: "編譯程式 (Compiler)", next: "q1_help", log: "Q1救錯: 編譯程式是負責翻譯 C 或 C++ 這類「高階語言」的喔！" }
                 ]
             },
 
-            // --- 第 2 題：邏輯族比較 ---
+            // --- 第 2 題：工安標示 ---
             "q2": {
-                tag: "第 2 關：基本概念",
-                text: "比較常用的數位 IC 邏輯族，CMOS 相比於 TTL，其最主要且最被廣泛應用的「優點」是什麼？",
+                tag: "第 2 關：工場安全",
+                text: "在工業安全標示中，若看到形狀為「圓形」且顏色為「紅色」的標誌，這通常代表什麼意義？",
                 options: [
-                    { text: "消耗功率極低", next: "q3", isCorrect: true },
-                    { text: "運算速度最快", next: "q2_help", log: "Q2錯: 早期 CMOS 速度比 TTL 慢" },
-                    { text: "推動能力最強", next: "q2_help", log: "Q2錯: TTL 的推動能力通常較強" },
-                    { text: "包裝密度最低", next: "q2_help", log: "Q2錯: CMOS 包裝密度高" }
+                    { text: "禁止", next: "q3", isCorrect: true },
+                    { text: "警告", next: "q2_help", log: "Q2錯: 警告通常是正三角形或黃色" },
+                    { text: "注意", next: "q2_help", log: "Q2錯: 注意通常是三角形" },
+                    { text: "安全", next: "q2_help", log: "Q2錯: 安全通常是正方形與綠色" }
                 ]
             },
             "q2_help": {
-                tag: "💊 PBL 救援任務：省電的王者",
-                text: "【特性聯想】現代的手機、筆電CPU全都是用 CMOS 做的。如果是用 TTL 做手機，你的電池大概五分鐘就沒電而且會燙到起火。所以 CMOS 最大的優點是？",
+                tag: "💊 PBL 救援任務：馬路上的號誌",
+                text: "【生活經驗】想想馬路上的交通號誌！只要是「圓形」而且帶有「紅色」外框或斜線的（例如：禁止進入、禁止右轉），通通都是代表什麼意思？",
                 options: [
-                    { text: "消耗功率極低 (省電)", next: "q2", isCorrect: true },
-                    { text: "運算速度最快", next: "q2_help", log: "Q2救錯: 早期為了省電，CMOS 是犧牲了速度的，最大賣點是極低的消耗功率喔！" }
+                    { text: "禁止", next: "q2", isCorrect: true },
+                    { text: "安全", next: "q2_help", log: "Q2救錯: 紅色在工安裡面代表危險，絕對不是安全（綠色）喔！" }
                 ]
             },
 
-            // --- 第 3 題：卡諾圖化簡 ---
+            // --- 第 3 題：變數宣告 ---
             "q3": {
-                tag: "第 3 關：代數化簡",
-                text: "使用卡諾圖進行「積之和 (SOP)」化簡時，若將相鄰的 4 個 '1' 圈起來，可以消去幾個變數？",
+                tag: "第 3 關：變數與常數",
+                text: "在 C/C++ 中，如果要將某個變數宣告為「常數 (內容不能被修改)」，應該使用哪一個關鍵字？",
                 options: [
-                    { text: "2 個", next: "q4", isCorrect: true },
-                    { text: "1 個", next: "q3_help", log: "Q3錯: 這是圈 2 個 1 的結果" },
-                    { text: "3 個", next: "q3_help", log: "Q3錯: 這是圈 8 個 1 的結果" },
-                    { text: "4 個", next: "q3_help", log: "Q3錯: 這是圈 16 個 1 的結果" }
+                    { text: "const", next: "q4", isCorrect: true },
+                    { text: "int", next: "q3_help", log: "Q3錯: 這是宣告整數變數" },
+                    { text: "void", next: "q3_help", log: "Q3錯: 這是無回傳值型態" },
+                    { text: "static", next: "q3_help", log: "Q3錯: 這是靜態變數" }
                 ]
             },
             "q3_help": {
-                tag: "💊 PBL 救援任務：二的次方規律",
-                text: "【規律推演】卡諾圖的圈法跟 $2^n$ 有關。圈 $2^1=2$ 個可以消 1 個變數；圈 $2^2=4$ 個可以消 2 個變數；圈 $2^3=8$ 個可以消 3 個變數。所以圈 4 個可以消幾個？",
+                tag: "💊 PBL 救援任務：不變的承諾",
+                text: "【英文縮寫】常數的英文是 Constant，意思是「恆定不變的」。工程師取了前面五個字母當作關鍵字，用來把變數鎖死不准改！",
                 options: [
-                    { text: "2 個", next: "q3", isCorrect: true },
-                    { text: "4 個", next: "q3_help", log: "Q3救錯: 圈的數量是對數關係，圈 4 個只能消去 2 個變數喔！" }
+                    { text: "const", next: "q3", isCorrect: true },
+                    { text: "static", next: "q3_help", log: "Q3救錯: static 是讓變數活久一點，但內容還是可以改，要鎖死必須用 const 喔！" }
                 ]
             },
 
-            // --- 第 4 題：隨意條件 ---
+            // --- 第 4 題：錯誤種類 ---
             "q4": {
-                tag: "第 4 關：代數化簡",
-                text: "在數位電路中，有些輸入狀態在實際應用上「絕對不會發生」，這些狀態在卡諾圖中可以用 'X' 或 'd' 表示。請問這種條件稱為什麼？",
+                tag: "第 4 關：程式除錯",
+                text: "在程式開發時，如果「程式可以執行，但是算出來的結果卻是錯誤的」，這屬於哪一種錯誤？",
                 options: [
-                    { text: "隨意條件 (Don't care)", next: "q5", isCorrect: true },
-                    { text: "必要條件 (Must care)", next: "q4_help", log: "Q4錯: 沒有這種專有名詞" },
-                    { text: "初始條件", next: "q4_help", log: "Q4錯: 這是正反器用的名詞" },
-                    { text: "穩態條件", next: "q4_help", log: "Q4錯: 這是電路充放電的名詞" }
+                    { text: "語意錯誤 (邏輯錯誤)", next: "q5", isCorrect: true },
+                    { text: "語法錯誤 (Syntax Error)", next: "q4_help", log: "Q4錯: 語法錯誤連編譯都過不了，無法執行" },
+                    { text: "編譯錯誤", next: "q4_help", log: "Q4錯: 這跟語法錯誤一樣，無法執行" },
+                    { text: "系統錯誤", next: "q4_help", log: "Q4錯: 這是電腦硬體或OS的問題" }
                 ]
             },
             "q4_help": {
-                tag: "💊 PBL 救援任務：不在乎的 X",
-                text: "【名詞直翻】因為這個輸入狀態絕對不會發生，所以它輸出是 0 還是 1 我都「不在乎」，可以隨便我當作 0 或 1 來幫忙圈卡諾圖。英文叫做 Don't care，中文翻譯是？",
+                tag: "💊 PBL 救援任務：算錯帳的收銀機",
+                text: "【生活比喻】收銀機沒壞(能執行)，按鍵也正常，但結帳時找錯錢了。這代表機器的「運算邏輯」被寫錯了，雖然語法全對，但意思(語意)不符合我們的期待！",
                 options: [
-                    { text: "隨意條件", next: "q4", isCorrect: true },
-                    { text: "必要條件", next: "q4_help", log: "Q4救錯: 我都不在乎了，怎麼會是必要條件呢！是隨意條件喔！" }
+                    { text: "語意錯誤 (邏輯錯誤)", next: "q4", isCorrect: true },
+                    { text: "語法錯誤", next: "q4_help", log: "Q4救錯: 如果是語法錯誤(例如少打分號)，程式根本連跑都跑不起來喔！" }
                 ]
             },
 
-            // --- 第 5 題：布林代數定理 ---
+            // --- 第 5 題：資料型態 ---
             "q5": {
-                tag: "第 5 關：布林代數",
-                text: "根據布林代數定理，算式 $A + AB$ 經過化簡後，其結果會等於多少？",
+                tag: "第 5 關：資料型態",
+                text: "在常見的資料型態中，雙精密度浮點數 `double` 在記憶體中佔用了多少 Bytes 的空間？",
                 options: [
-                    { text: "A", next: "q6", isCorrect: true },
-                    { text: "B", next: "q5_help", log: "Q5錯: A 比較大，B 會被吸收" },
-                    { text: "A+B", next: "q5_help", log: "Q5錯: 這是 $A + \\bar{A}B$ 的結果" },
-                    { text: "1", next: "q5_help", log: "Q5錯: 錯誤" }
+                    { text: "8 Bytes", next: "q6", isCorrect: true },
+                    { text: "4 Bytes", next: "q5_help", log: "Q5錯: 這是 float (單精密度) 的大小" },
+                    { text: "2 Bytes", next: "q5_help", log: "Q5錯: 這是 short 的大小" },
+                    { text: "1 Byte", next: "q5_help", log: "Q5錯: 這是 char 或 bool 的大小" }
                 ]
             },
             "q5_help": {
-                tag: "💊 PBL 救援任務：大老闆與小跟班",
-                text: "【代數推演】這是著名的「吸收定理」。提出公因式 $A(1 + B)$。在 OR (加法) 的世界裡，任何東西加上 1 都會被 1 蓋掉變成 1。所以 $A \\times 1$ 等於？",
+                tag: "💊 PBL 救援任務：雙倍的容量",
+                text: "【數學推演】普通的浮點數 `float` 佔用 4 Bytes。既然叫「雙精密度 (double)」，容量當然也要 double (翻倍)！4 的兩倍是多少？",
                 options: [
-                    { text: "A", next: "q5", isCorrect: true },
-                    { text: "A+B", next: "q5_help", log: "Q5救錯: $A+B$ 是另一個公式，這裡的 B 已經被 1 吸收掉囉，只剩下 A！" }
+                    { text: "8 Bytes", next: "q5", isCorrect: true },
+                    { text: "4 Bytes", next: "q5_help", log: "Q5救錯: 4 Bytes 是普通的 float，double 要乘以 2 喔！" }
                 ]
             },
 
-            // --- 第 6 題：補數減法 ---
+            // --- 第 6 題：資料轉型 ---
             "q6": {
-                tag: "第 6 關：數字系統",
-                text: "使用「2 的補數」進行減法運算 ($A - B$) 的步驟是：先將減數 B 求出 2 的補數，然後與 A 相「加」。若相加後「有進位產生」，代表什麼意義？",
+                tag: "第 6 關：資料型態轉換",
+                text: "當不同型態的資料進行運算時，編譯器會自動將運算元轉換成相同的資料型態再做運算。這種不需要程式設計師手動加括號的轉換稱為？",
                 options: [
-                    { text: "答案為正數，直接捨棄進位即為解答", next: "q7", isCorrect: true },
-                    { text: "答案為負數，需再取一次 2 的補數", next: "q6_help", log: "Q6錯: 這是「無進位產生」時的處理方式" },
-                    { text: "發生溢位 (Overflow)，答案錯誤", next: "q6_help", log: "Q6錯: 進位不等於溢位" },
-                    { text: "答案為零", next: "q6_help", log: "Q6錯: 只有 A=B 時才會為零" }
+                    { text: "隱含式轉換 (Implicit conversion)", next: "q7", isCorrect: true },
+                    { text: "明確式轉換 (Explicit conversion)", next: "q6_help", log: "Q6錯: 明確式是手動加小括號強制轉型" },
+                    { text: "強制轉型 (Casting)", next: "q6_help", log: "Q6錯: 這是明確式轉換的另一種說法" },
+                    { text: "邏輯轉換", next: "q6_help", log: "Q6錯: 沒有這種專有名詞" }
                 ]
             },
             "q6_help": {
-                tag: "💊 PBL 救援任務：多出來的不用管",
-                text: "【邏輯推演】2的補數減法，如果 A 比較大 (大減小)，最後算完一定會滿出來「產生進位」。這個多出來的進位代表它是光明正大的「正數」，那個進位就當作垃圾丟掉，剩下的就是答案！",
+                tag: "💊 PBL 救援任務：默默幫你做好",
+                text: "【名詞直觀】電腦很聰明，看見整數和小數加在一起，它會「默默地、隱藏地」自動把整數變成小數再來算。這種沒寫在檯面上的轉換叫做？",
                 options: [
-                    { text: "答案為正數，捨棄進位", next: "q6", isCorrect: true },
-                    { text: "答案為負數，再取補數", next: "q6_help", log: "Q6救錯: 算出來「沒有進位」覺得怪怪的，那才是負數要再取一次補數喔！" }
+                    { text: "隱含式轉換", next: "q6", isCorrect: true },
+                    { text: "明確式轉換", next: "q6_help", log: "Q6救錯: 明確式(強制轉型)是你自己寫代碼去逼它轉，自動幫你做的是「隱含式」喔！" }
                 ]
             },
 
-            // --- 第 7 題：溢位判斷 ---
+            // --- 第 7 題：資訊安全 CIA ---
             "q7": {
-                tag: "第 7 關：數字系統",
-                text: "在並列加減法器中，如何判斷運算結果是否發生了「溢位 (Overflow)」？",
+                tag: "第 7 關：資訊安全",
+                text: "資訊安全是為了保護資訊的安全，其核心的三大要素 (CIA Triad) 是機密性、完整性與哪一項？",
                 options: [
-                    { text: "最高有效位元(MSB)的進位，與次高有效位元的進位，進行 XOR 運算結果為 1", next: "q8", isCorrect: true },
-                    { text: "直接看最後有沒有進位產生 (C=1)", next: "q7_help", log: "Q7錯: 單純進位不代表溢位，要用 XOR 判斷" },
-                    { text: "兩個正數相加變成正數", next: "q7_help", log: "Q7錯: 這是正常的，正加正變負才是溢位" },
-                    { text: "以上皆非", next: "q7_help", log: "Q7錯: 第一個選項是正確的" }
+                    { text: "可用性 (Availability)", next: "q8", isCorrect: true },
+                    { text: "存取性 (Accessibility)", next: "q7_help", log: "Q7錯: 雖然很像，但正式名稱是可用性" },
+                    { text: "真實性 (Authenticity)", next: "q7_help", log: "Q7錯: 真實性有時包含在廣義資安，但CIA的三本柱是可用性" },
+                    { text: "問責性 (Accountability)", next: "q7_help", log: "Q7錯: 這屬於延伸的安全屬性" }
                 ]
             },
             "q7_help": {
-                tag: "💊 PBL 救援任務：矛盾的訊號",
-                text: "【邏輯推演】溢位(Overflow)代表數字爆掉了，正加正變負，或負加負變正。在電路中，我們檢查最後兩個進位訊號。如果一個有進位，一個沒進位，兩者「不一樣」就代表出事了。判斷不一樣要用哪種邏輯閘？",
+                tag: "💊 PBL 救援任務：要能用才算數",
+                text: "【觀念聯想】系統就算再安全、資料再完整，如果你「想用的時候系統當機無法使用」，那也失去意義了。所以確保系統隨時能為合法使用者服務的特性叫做？",
                 options: [
-                    { text: "XOR (互斥或) 運算", next: "q7", isCorrect: true },
-                    { text: "看最後的進位", next: "q7_help", log: "Q7救錯: 單純進位是正常的算術行為，溢位必須要看最後兩個進位是否「矛盾(XOR)」喔！" }
+                    { text: "可用性", next: "q7", isCorrect: true },
+                    { text: "真實性", next: "q7_help", log: "Q7救錯: CIA 代表 Confidentiality(機密), Integrity(完整) 和 Availability(可用性) 喔！" }
                 ]
             },
 
-            // --- 第 8 題：全加器 ---
+            // --- 第 8 題：資訊安全 4D ---
             "q8": {
-                tag: "第 8 關：組合邏輯",
-                text: "一個「全加器 (Full Adder)」的電路，是由幾個半加器 (HA) 與一個 OR 閘所組合而成的？",
+                tag: "第 8 關：資訊安全",
+                text: "資訊安全的 4D 原則中，包含了嚇阻 (Deter)、偵測 (Detect)、延遲 (Delay) 以及下列哪一項？",
                 options: [
-                    { text: "2 個半加器", next: "q9", isCorrect: true },
-                    { text: "1 個半加器", next: "q8_help", log: "Q8錯: 1個無法處理前一級的進位" },
-                    { text: "3 個半加器", next: "q8_help", log: "Q8錯: 數量錯誤" },
-                    { text: "4 個半加器", next: "q8_help", log: "Q8錯: 數量錯誤" }
+                    { text: "拒絕 (Deny)", next: "q9", isCorrect: true },
+                    { text: "破壞 (Destroy)", next: "q8_help", log: "Q8錯: 破壞是駭客做的事" },
+                    { text: "刪除 (Delete)", next: "q8_help", log: "Q8錯: 刪除也是駭客的行為" },
+                    { text: "解碼 (Decode)", next: "q8_help", log: "Q8錯: 這是資料處理過程" }
                 ]
             },
             "q8_help": {
-                tag: "💊 PBL 救援任務：兩個一半變一個",
-                text: "【字義推演】這題用數學直覺想！半加器 (Half Adder) 是 0.5。你要拼成一個完整的全加器 (Full Adder, 1.0)，當然需要把幾個 0.5 加起來？",
+                tag: "💊 PBL 救援任務：把壞人擋在門外",
+                text: "【邏輯推演】防禦系統的目的是不讓壞人進來。如果發現壞人(Detect)，我們要堅定地向他說「不」，把他擋在門外。這在英文中對應的 D 開頭單字是？",
                 options: [
-                    { text: "2 個半加器", next: "q8", isCorrect: true },
-                    { text: "3 個半加器", next: "q8_help", log: "Q8救錯: 兩個一半就剛好是一個完整的啦，只需要 2 個半加器喔！" }
+                    { text: "拒絕 (Deny)", next: "q8", isCorrect: true },
+                    { text: "破壞 (Destroy)", next: "q8_help", log: "Q8救錯: 我們是防禦方，不能隨便破壞別人啦！是要「拒絕」對方的存取喔！" }
                 ]
             },
 
-            // --- 第 9 題：多工器 ---
+            // --- 第 9 題：演算法特性 ---
             "q9": {
-                tag: "第 9 關：組合邏輯",
-                text: "一個 $4 \\times 1$ 的「多工器 (Multiplexer, MUX)」中，它具備幾個輸入線、幾個選擇線以及幾個輸出線？",
+                tag: "第 9 關：演算法與流程圖",
+                text: "演算法 (Algorithm) 有五個重要特點。其中「必須在有限的時間與步驟內完成」，不會進入無窮迴圈的特點稱為什麼？",
                 options: [
-                    { text: "4個輸入、2個選擇線、1個輸出", next: "q10", isCorrect: true },
-                    { text: "2個輸入、4個選擇線、1個輸出", next: "q9_help", log: "Q9錯: 選擇線數量不對，應該是 $2^n = 4$" },
-                    { text: "1個輸入、2個選擇線、4個輸出", next: "q9_help", log: "Q9錯: 這是解多工器 (DeMUX) 的規格" },
-                    { text: "4個輸入、1個選擇線、4個輸出", next: "q9_help", log: "Q9錯: 多工器只有一個輸出" }
+                    { text: "有限性", next: "q10", isCorrect: true },
+                    { text: "明確性", next: "q9_help", log: "Q9錯: 明確性是指指令沒有歧義" },
+                    { text: "有效性", next: "q9_help", log: "Q9錯: 有效性是指步驟可以被實際執行" },
+                    { text: "輸出", next: "q9_help", log: "Q9錯: 演算法必須有至少一個輸出" }
                 ]
             },
             "q9_help": {
-                tag: "💊 PBL 救援任務：火車轉轍器",
-                text: "【元件直覺】多工器像火車轉轍器，多條鐵軌進來，只選一條出去 ($4 \\times 1$)。因為有 4 條路要選，你需要幾位元的控制訊號才能表示 0~3 號路？($2^n = 4$)",
+                tag: "💊 PBL 救援任務：不能永遠算不完",
+                text: "【名詞直觀】這題是送分題！題目說「必須在有限的時間內完成」，這個特點的名字就直接寫在題目裡面了！",
                 options: [
-                    { text: "4個輸入、2個選擇、1個輸出", next: "q9", isCorrect: true },
-                    { text: "1個輸入、4個輸出", next: "q9_help", log: "Q9救錯: 1進4出是把訊號分給大家的「解多工器」，多工器是多進一出喔！" }
+                    { text: "有限性", next: "q9", isCorrect: true },
+                    { text: "有效性", next: "q9_help", log: "Q9救錯: 有效性是指「人類拿紙筆也能算得出來」，保證時間內結束的是「有限性」！" }
                 ]
             },
 
-            // --- 第 10 題：解碼器實現布林代數 ---
+            // --- 第 10 題：流程圖符號 ---
             "q10": {
-                tag: "第 10 關：組合邏輯",
-                text: "若要使用「解碼器 (Decoder)」來實現一條「積之和 (SOP)」的布林代數式，最適合在解碼器的輸出端接上什麼邏輯閘來完成？",
+                tag: "第 10 關：演算法與流程圖",
+                text: "在繪製程式流程圖時，用來表示「條件判斷」(通常會有 Yes 和 No 兩條岔路) 的幾何圖形是什麼？",
                 options: [
-                    { text: "高動作解碼器配 OR 閘", next: "q11", isCorrect: true },
-                    { text: "高動作解碼器配 AND 閘", next: "q10_help", log: "Q10錯: SOP 是積之「和」，要把條件「加(OR)」起來" },
-                    { text: "低動作解碼器配 AND 閘", next: "q10_help", log: "Q10錯: 低動作應該配 NAND 閘" },
-                    { text: "高動作解碼器配 NOT 閘", next: "q10_help", log: "Q10錯: 這無法將多個項次組合起來" }
+                    { text: "菱形", next: "q11", isCorrect: true },
+                    { text: "矩形", next: "q10_help", log: "Q10錯: 矩形代表執行某個動作(處理)" },
+                    { text: "平行四邊形", next: "q10_help", log: "Q10錯: 平行四邊形代表資料的輸入/輸出" },
+                    { text: "橢圓形", next: "q10_help", log: "Q10錯: 橢圓形代表程式的起始與結束" }
                 ]
             },
             "q10_help": {
-                tag: "💊 PBL 救援任務：把條件加起來",
-                text: "【邏輯推演】解碼器的每一支腳代表一個「積(AND)」。你要實現積之「和 (SOP)」，當然就是把你要的那些腳位，用代表「加法(和)」的邏輯閘全部綁在一起！哪一個閘代表加法？",
+                tag: "💊 PBL 救援任務：尖尖的岔路",
+                text: "【圖形聯想】條件判斷就像站在岔路口。這個圖形上下左右都有尖尖的角，剛好可以讓箭頭從上面進來，然後從左邊(Yes)或右邊(No)岔出去！",
                 options: [
-                    { text: "高動作配 OR 閘", next: "q10", isCorrect: true },
-                    { text: "高動作配 AND 閘", next: "q10_help", log: "Q10救錯: AND 閘代表的是「積(乘法)」喔，積之和最後一步要用 OR 閘加起來！" }
+                    { text: "菱形", next: "q10", isCorrect: true },
+                    { text: "矩形", next: "q10_help", log: "Q10救錯: 矩形是四四方方乖乖做事(處理程序)用的，有岔路的是菱形喔！" }
                 ]
             },
 
-            // --- 第 11 題：RS正反器禁態 ---
+            // --- 第 11 題：列舉型態 ---
             "q11": {
-                tag: "第 11 關：正反器",
-                text: "在基本的 RS 正反器中，當輸入端 R 與 S 皆為 1 時 ($R=1, S=1$)，會發生什麼情況？",
+                tag: "第 11 關：列舉型態",
+                text: "在 C/C++ 中使用 `enum` 定義列舉時，若沒有特別指定數值，集合內的第一個元素預設對應的整數值是多少？",
                 options: [
-                    { text: "不允許的狀態 (禁態)，輸出不可預期", next: "q12", isCorrect: true },
-                    { text: "保持原來的狀態 (不變)", next: "q11_help", log: "Q11錯: 這是 R=0, S=0 的狀態" },
-                    { text: "輸出 Q 被設定為 1 (Set)", next: "q11_help", log: "Q11錯: 這是 R=0, S=1 的狀態" },
-                    { text: "輸出 Q 被清除為 0 (Reset)", next: "q11_help", log: "Q11錯: 這是 R=1, S=0 的狀態" }
+                    { text: "0", next: "q12", isCorrect: true },
+                    { text: "1", next: "q11_help", log: "Q11錯: 在程式世界中，計數通常不從 1 開始" },
+                    { text: "-1", next: "q11_help", log: "Q11錯: 預設值不會是負數" },
+                    { text: "記憶體亂數", next: "q11_help", log: "Q11錯: 列舉有明確的自動編碼規則" }
                 ]
             },
             "q11_help": {
-                tag: "💊 PBL 救援任務：矛盾的命令",
-                text: "【邏輯推演】S (Set) 是叫它設成1；R (Reset) 是叫它歸零。如果你同時輸入 1 叫它設成1，又叫它歸零。正反器會精神分裂不知道聽誰的，所以這是一個？",
+                tag: "💊 PBL 救援任務：電腦的起點",
+                text: "【程式常識】在電腦程式的世界裡（包含陣列的索引、列舉的預設值），所有的起點都不是從 1 開始，而是從一個代表「空」的數字開始算起！",
                 options: [
-                    { text: "不允許的禁態", next: "q11", isCorrect: true },
-                    { text: "保持原狀不變", next: "q11_help", log: "Q11救錯: 都不下命令 (R=0, S=0) 才會保持原狀，同時下命令它會錯亂當機喔！" }
+                    { text: "0", next: "q11", isCorrect: true },
+                    { text: "1", next: "q11_help", log: "Q11救錯: 人類習慣從 1 開始數，但電腦的預設編碼都是從 0 開始的喔！" }
                 ]
             },
 
-            // --- 第 12 題：JK正反器反轉 ---
+            // --- 第 12 題：遞增運算子 ---
             "q12": {
-                tag: "第 12 關：正反器",
-                text: "為了解決 RS 正反器的缺點，發明了 JK 正反器。當輸入 J=1, K=1 時，JK 正反器會執行什麼動作？",
+                tag: "第 12 關：運算子",
+                text: "關於遞增運算子 `++`，若宣告 `int a = 5; int b = ++a;` (前置遞增)，執行後 a 和 b 的值分別為何？",
                 options: [
-                    { text: "狀態反轉 (Toggle, Q變為 Q')", next: "q13", isCorrect: true },
-                    { text: "保持原狀 (不變)", next: "q12_help", log: "Q12錯: 這是 J=0, K=0 的動作" },
-                    { text: "不允許的狀態 (禁態)", next: "q12_help", log: "Q12錯: JK 已經解決了 RS 的禁態問題" },
-                    { text: "固定輸出 1", next: "q12_help", log: "Q12錯: 這是 J=1, K=0 的動作" }
+                    { text: "a=6, b=6", next: "q13", isCorrect: true },
+                    { text: "a=6, b=5", next: "q12_help", log: "Q12錯: 這是後置遞增 (a++) 的結果" },
+                    { text: "a=5, b=6", next: "q12_help", log: "Q12錯: a 的值一定會改變" },
+                    { text: "a=5, b=5", next: "q12_help", log: "Q12錯: 運算子已經作用了" }
                 ]
             },
             "q12_help": {
-                tag: "💊 PBL 救援任務：解決矛盾的方法",
-                text: "【邏輯推演】JK 解決了 RS 同時為 1 會當機的「禁態」。它的解決方法是：既然你同時下兩種命令，那我就「跟你現在的狀態唱反調」！0就變1，1就變0。這叫做？",
+                tag: "💊 PBL 救援任務：先加還是後加",
+                text: "【語法推演】符號寫在前面 (`++a`)，代表「先把自己加1，然後再把結果交給別人」。所以 a 先變成了 6，然後再把 6 丟進 b 的箱子裡。",
                 options: [
-                    { text: "狀態反轉 (Toggle)", next: "q12", isCorrect: true },
-                    { text: "不允許的禁態", next: "q12_help", log: "Q12救錯: JK 正反器最大的賣點就是把禁態變成了實用的「反轉」功能喔！" }
+                    { text: "a=6, b=6", next: "q12", isCorrect: true },
+                    { text: "a=6, b=5", next: "q12_help", log: "Q12救錯: 如果是 `b = a++` (後置)，b 才會拿到舊的 5。這題是前置，所以都會是 6！" }
                 ]
             },
 
-            // --- 第 13 題：D型正反器 ---
+            // --- 第 13 題：邏輯運算子 ---
             "q13": {
-                tag: "第 13 關：正反器",
-                text: "哪一種正反器被廣泛應用在記憶體與暫存器中，其特徵是「輸入什麼資料 (0或1)，在時脈觸發後，輸出 Q 就會跟著變成什麼」？",
+                tag: "第 13 關：運算子",
+                text: "在邏輯運算子中，哪一個運算子採用「只要條件之一成立，結果就為 True (真)」的規則？",
                 options: [
-                    { text: "D 型正反器", next: "q14", isCorrect: true },
-                    { text: "T 型正反器", next: "q13_help", log: "Q13錯: T型是做反轉計數用的" },
-                    { text: "RS 正反器", next: "q13_help", log: "Q13錯: RS 要控制兩支腳，不適合單純存資料" },
-                    { text: "JK 正反器", next: "q13_help", log: "Q13錯: JK 功能太複雜，不是最直接存資料的" }
+                    { text: "OR ( || )", next: "q14", isCorrect: true },
+                    { text: "AND ( && )", next: "q13_help", log: "Q13錯: AND 必須所有條件都成立才為真" },
+                    { text: "NOT ( ! )", next: "q13_help", log: "Q13錯: 這是將結果反轉" },
+                    { text: "XOR ( ^ )", next: "q13_help", log: "Q13錯: 這是位元運算子，且兩者不同才為真" }
                 ]
             },
             "q13_help": {
-                tag: "💊 PBL 救援任務：資料的搬運工",
-                text: "【元件直覺】這個正反器的工作就是乖乖把 Data (資料) 原封不動地搬過去。進來是 0 就存 0，進來是 1 就存 1。因為它是專門存 Data 的，所以用哪個英文字母命名？",
+                tag: "💊 PBL 救援任務：通融的守衛",
+                text: "【邏輯直覺】這個運算子非常通融，規定「你有會員卡【或者】你有邀請函」，只要符合其中一個條件就可以放行。這個代表「或者」的運算子是？",
                 options: [
-                    { text: "D 型正反器", next: "q13", isCorrect: true },
-                    { text: "T 型正反器", next: "q13_help", log: "Q13救錯: T 是 Toggle (反轉) 用的，專門存 Data 的是 D 型喔！" }
+                    { text: "OR ( || )", next: "q13", isCorrect: true },
+                    { text: "AND ( && )", next: "q13_help", log: "Q13救錯: AND 是超嚴格的守衛，必須兩個條件都符合才會放行喔！" }
                 ]
             },
 
-            // --- 第 14 題：正反器轉換 T型 ---
+            // --- 第 14 題：結構化程式 ---
             "q14": {
-                tag: "第 14 關：正反器互換",
-                text: "如果我們手邊只有一個 JK 正反器，但我們需要一個能執行「反轉」功能的 T 型正反器，應該如何接線來轉換？",
+                tag: "第 14 關：程式架構",
+                text: "結構化程式設計的三種基本結構為：循序結構、選擇結構與什麼結構？",
                 options: [
-                    { text: "將 J 與 K 兩端連接在一起，當作 T 輸入端", next: "q15", isCorrect: true },
-                    { text: "將 J 接 T，K 接地 (0)", next: "q14_help", log: "Q14錯: 這樣 T=1 時只會 Set，不會反轉" },
-                    { text: "將 J 接地 (0)，K 接 T", next: "q14_help", log: "Q14錯: 這樣 T=1 時只會 Reset，不會反轉" },
-                    { text: "將 J 接 1，K 接 0", next: "q14_help", log: "Q14錯: 這樣會永遠固定輸出 1" }
+                    { text: "重複結構 (迴圈)", next: "q15", isCorrect: true },
+                    { text: "跳躍結構 (GOTO)", next: "q14_help", log: "Q14錯: 結構化程式應避免使用 GOTO" },
+                    { text: "指標結構", next: "q14_help", log: "Q14錯: 這是資料處理工具，非流程結構" },
+                    { text: "遞迴結構", next: "q14_help", log: "Q14錯: 遞迴是函式的應用，非三大基本結構" }
                 ]
             },
             "q14_help": {
-                tag: "💊 PBL 救援任務：啟動反轉的條件",
-                text: "【邏輯推演】上一題提到，JK 正反器要發揮「反轉 (Toggle)」絕招的前提，是 J 和 K 必須「同時為 1」。所以我們只要把它們的腳位綁在一起，輸入 1 時就會同時為 1 啦！",
+                tag: "💊 PBL 救援任務：一直做同一件事",
+                text: "【觀念聯想】寫程式最常做的三件事：一直線往下做(循序)、遇到岔路選邊走(選擇)，還有就是「一直在同一個地方繞圈圈做同一件事」，這叫做什麼結構？",
                 options: [
-                    { text: "將 J 與 K 連接在一起", next: "q14", isCorrect: true },
-                    { text: "將 J 接 T，K 接地", next: "q14_help", log: "Q14救錯: 如果 K 接地，那 J 和 K 永遠不可能同時為 1，就永遠無法反轉囉！" }
+                    { text: "重複結構 (迴圈)", next: "q14", isCorrect: true },
+                    { text: "跳躍結構 (GOTO)", next: "q14_help", log: "Q14救錯: GOTO 會把程式碼弄成一團亂義大利麵，是結構化設計的大忌喔！" }
                 ]
             },
 
-            // --- 第 15 題：正反器轉換 D型 ---
+            // --- 第 15 題：迴圈比較 ---
             "q15": {
-                tag: "第 15 關：正反器互換",
-                text: "承上題，如果我們手邊只有一個 JK 正反器，想要把它改裝成專門存資料的「D 型正反器」，應該如何接線？",
+                tag: "第 15 關：流程控制",
+                text: "在 C/C++ 的迴圈指令中，哪一種迴圈屬於「後測試 (先執行再判斷)」，因此它的程式區塊『至少會被執行一次』？",
                 options: [
-                    { text: "將 J 接 D，K 端經過一個 NOT 閘後再接 D", next: "q16", isCorrect: true },
-                    { text: "將 J 與 K 連接在一起接 D", next: "q15_help", log: "Q15錯: 這會變成 T 型正反器" },
-                    { text: "將 J 接 1，K 接 D", next: "q15_help", log: "Q15錯: 這樣無法正確存取資料" },
-                    { text: "將 J 接 D，K 端懸空", next: "q15_help", log: "Q15錯: 邏輯閘不能懸空" }
+                    { text: "do-while", next: "q16", isCorrect: true },
+                    { text: "while", next: "q15_help", log: "Q15錯: 這是先測試，可能一次都不跑" },
+                    { text: "for", next: "q15_help", log: "Q15錯: 這是先測試，通常用於已知次數" },
+                    { text: "if-else", next: "q15_help", log: "Q15錯: 這是條件判斷，不是迴圈" }
                 ]
             },
             "q15_help": {
-                tag: "💊 PBL 救援任務：保證不當機",
-                text: "【邏輯推演】D 型的特徵是：輸入 1 就要 Set (J=1, K=0)；輸入 0 就要 Reset (J=0, K=1)。你會發現 J 和 K 永遠「剛好相反」，絕對不能一樣！要怎麼讓兩個輸入永遠相反？",
+                tag: "💊 PBL 救援任務：先做再說",
+                text: "【語法直觀】看它的英文就知道！開頭寫了一個大大的 `do` (做)。電腦看到 `do` 就會無腦先進去執行一次，做完出來才看 `while` 的條件。所以是哪一個？",
                 options: [
-                    { text: "中間加一個 NOT 閘 (反相器)", next: "q15", isCorrect: true },
-                    { text: "連接在一起", next: "q15_help", log: "Q15救錯: 連接在一起它們就永遠一樣了，這是 T 型的接法喔！" }
+                    { text: "do-while", next: "q15", isCorrect: true },
+                    { text: "while", next: "q15_help", log: "Q15救錯: 純 `while` 迴圈是先檢查票才放行，如果條件錯了，可能連一次都不會執行喔！" }
                 ]
             },
 
-            // --- 第 16 題：移位暫存器 SISO ---
+            // --- 第 16 題：陣列索引 ---
             "q16": {
-                tag: "第 16 關：暫存器",
-                text: "在移位暫存器中，「SISO」這個縮寫代表的是什麼樣的資料輸入與輸出方式？",
+                tag: "第 16 關：陣列",
+                text: "宣告一個一維陣列 `int score[5];`，請問這個陣列的「最後一個」元素的索引值 (Index) 是多少？",
                 options: [
-                    { text: "串列輸入、串列輸出", next: "q17", isCorrect: true },
-                    { text: "並列輸入、並列輸出", next: "q16_help", log: "Q16錯: 這是 PIPO" },
-                    { text: "串列輸入、並列輸出", next: "q16_help", log: "Q16錯: 這是 SIPO" },
-                    { text: "並列輸入、串列輸出", next: "q16_help", log: "Q16錯: 這是 PISO" }
+                    { text: "4", next: "q17", isCorrect: true },
+                    { text: "5", next: "q16_help", log: "Q16錯: 電腦是從 0 開始數，所以到 4 就結束了" },
+                    { text: "6", next: "q16_help", log: "Q16錯: 索引值不會超過大小" },
+                    { text: "0", next: "q16_help", log: "Q16錯: 這是第一個元素的索引" }
                 ]
             },
             "q16_help": {
-                tag: "💊 PBL 救援任務：字首解碼",
-                text: "【英文還原】第一個 S 是 Serial (串列：排隊一個一個進來)。最後一個 O 是 Output (輸出)。而中間的 I 是 Input。所以整個合起來是？",
+                tag: "💊 PBL 救援任務：從零開始數",
+                text: "【邏輯推演】有 5 個空位，但電腦的習慣是「從 0 開始編號」。所以編號依序是 0, 1, 2, 3... 請問第五個空位的編號是多少？",
                 options: [
-                    { text: "串列輸入、串列輸出", next: "q16", isCorrect: true },
-                    { text: "並列輸入、串列輸出", next: "q16_help", log: "Q16救錯: 並列的英文是 Parallel (P)，所以 PISO 才是並列輸入喔！" }
+                    { text: "4", next: "q16", isCorrect: true },
+                    { text: "5", next: "q16_help", log: "Q16救錯: `score[5]` 已經越界(Out of bounds)了，會造成程式當機喔！" }
                 ]
             },
 
-            // --- 第 17 題：計數器除數 ---
+            // --- 第 17 題：指標運算子 ---
             "q17": {
-                tag: "第 17 關：計數器",
-                text: "一個串接了 4 個正反器的「非同步計數器」，請問它最大可以數到多少 (即模數 MOD 為多少)？",
+                tag: "第 17 關：指標",
+                text: "在指標運算中，若要把某個變數的「記憶體位址」給取出來，應該在變數前面加上哪一個符號(取址運算子)？",
                 options: [
-                    { text: "MOD-16 (可數 0~15)", next: "q18", isCorrect: true },
-                    { text: "MOD-4 (可數 0~3)", next: "q17_help", log: "Q17錯: 這只是正反器的數量" },
-                    { text: "MOD-8 (可數 0~7)", next: "q17_help", log: "Q17錯: 這是 3 個正反器的數量" },
-                    { text: "MOD-10 (可數 0~9)", next: "q17_help", log: "Q17錯: 這是要特別設計的 BCD 計數器" }
+                    { text: "&", next: "q18", isCorrect: true },
+                    { text: "*", next: "q17_help", log: "Q17錯: 這是指位運算子(取內容)" },
+                    { text: "->", next: "q17_help", log: "Q17錯: 這是結構指標存取成員用的" },
+                    { text: "%", next: "q17_help", log: "Q17錯: 這是取餘數運算子" }
                 ]
             },
             "q17_help": {
-                tag: "💊 PBL 救援任務：二的次方大軍",
-                text: "【規律推演】一個正反器可以記 1 個 bit (0或1)。4 個正反器就是 4 個 bit。4 個二進位 bit 組合起來，總共有 $2^4$ 種不同的變化狀態。2 的 4 次方是？",
+                tag: "💊 PBL 救援任務：尋找地址",
+                text: "【生活比喻】你要找一間房子的「地址」。這個符號在英文裡叫 Ampersand (And的意思)，但在 C 語言中，它像一個打結的繩子，專門用來把變數的「地址」抓出來！",
                 options: [
-                    { text: "16 種狀態 (MOD-16)", next: "q17", isCorrect: true },
-                    { text: "8 種狀態", next: "q17_help", log: "Q17救錯: 2 的 3 次方才是 8，4 個正反器可以數到 16 喔！" }
+                    { text: "& (取址符號)", next: "q17", isCorrect: true },
+                    { text: "* (米字號)", next: "q17_help", log: "Q17救錯: 星號 `*` 是用鑰匙打開門「拿裡面的東西」用的，拿地址要用 `&` 喔！" }
                 ]
             },
 
-            // --- 第 18 題：環形計數器 ---
+            // --- 第 18 題：指標與陣列 ---
             "q18": {
-                tag: "第 18 關：特殊計數器",
-                text: "「環形計數器 (Ring Counter)」是將移位暫存器的最後一個輸出 Q，直接接回第一個輸入 D 所構成。請問使用 5 個正反器的環形計數器，其模數 (MOD) 為何？",
+                tag: "第 18 關：陣列與指標",
+                text: "在 C 語言中，當你宣告一個陣列 `int A[10];`，這個陣列的「名稱 (也就是 A)」本身代表什麼意義？",
                 options: [
-                    { text: "MOD-5", next: "q19", isCorrect: true },
-                    { text: "MOD-10", next: "q18_help", log: "Q18錯: 這是強生計數器 (Johnson) 的模數" },
-                    { text: "MOD-32", next: "q18_help", log: "Q18錯: 這是二進位非同步計數器的模數 ($2^5$)" },
-                    { text: "MOD-25", next: "q18_help", log: "Q18錯: 沒有這種算法" }
+                    { text: "相當於指向陣列第一個元素 (A[0]) 的指標", next: "q19", isCorrect: true },
+                    { text: "代表陣列的長度 (10)", next: "q18_help", log: "Q18錯: 長度要用 sizeof 來計算" },
+                    { text: "代表陣列裡所有元素的總和", next: "q18_help", log: "Q18錯: 陣列名稱不具備運算功能" },
+                    { text: "代表陣列最後一個元素的位址", next: "q18_help", log: "Q18錯: 是指向起點，不是終點" }
                 ]
             },
             "q18_help": {
-                tag: "💊 PBL 救援任務：只有一個 1 在跑",
-                text: "【元件直覺】環形計數器的特色是：裡面永遠「只有一個 1」在像跑馬燈一樣繞圈圈。5 個燈泡圍成一圈，那個 1 跑完一圈回到原點，總共需要走幾步？幾步就是 MOD 幾！",
+                tag: "💊 PBL 救援任務：火車頭的秘密",
+                text: "【生活比喻】陣列就像一列長長的火車。當你呼叫這台火車的名字 `A` 時，電腦其實是直接給你這台火車「火車頭 (第0節車廂)」的所在位置。有了車頭，就能找到整列火車。",
                 options: [
-                    { text: "MOD-5 (5步)", next: "q18", isCorrect: true },
-                    { text: "MOD-10 (10步)", next: "q18_help", log: "Q18救錯: MOD-10 是把訊號反相接回去的「強生計數器 (2N)」，普通的環形就是 N 喔！" }
+                    { text: "指向第一個元素的指標", next: "q18", isCorrect: true },
+                    { text: "代表陣列的長度", next: "q18_help", log: "Q18救錯: 陣列名稱是一把鑰匙(位址)，不是一個數字長度喔！" }
                 ]
             },
 
-            // --- 第 19 題：強生計數器 ---
+            // --- 第 19 題：搜尋法 ---
             "q19": {
-                tag: "第 19 關：特殊計數器",
-                text: "承上題，「強生計數器 (Johnson Counter)」是將最後一個正反器的「反相輸出 Q'」接回第一個輸入 D。請問使用 4 個正反器的強生計數器，其模數 (MOD) 為何？",
+                tag: "第 19 關：資料搜尋",
+                text: "「搜尋」的核心動作為「比對」。若資料**已經由小到大排序好**，我們從中間切一半來尋找，每次都能過濾掉一半資料的演算法稱為？",
                 options: [
-                    { text: "MOD-8", next: "q20", isCorrect: true },
-                    { text: "MOD-4", next: "q19_help", log: "Q19錯: 這是環形計數器的模數" },
-                    { text: "MOD-16", next: "q19_help", log: "Q19錯: 這是二進位非同步計數器的模數" },
-                    { text: "MOD-2", next: "q19_help", log: "Q19錯: 數值錯誤" }
+                    { text: "二分搜尋法 (Binary Search)", next: "q20", isCorrect: true },
+                    { text: "循序搜尋法 (Sequential Search)", next: "q19_help", log: "Q19錯: 這是一筆一筆從頭找，不用先排序" },
+                    { text: "氣泡排序法 (Bubble Sort)", next: "q19_help", log: "Q19錯: 這是排序，不是搜尋" },
+                    { text: "插入搜尋法", next: "q19_help", log: "Q19錯: 沒有這種搜尋法" }
                 ]
             },
             "q19_help": {
-                tag: "💊 PBL 救援任務：翻面再跑一次",
-                text: "【規律記憶】強生計數器因為接了「反相 Q'」，所以跑完一圈全變成 1 後，還要再跑第二圈全變成 0 才會回到原點。所以它的狀態數量是普通環形計數器的「兩倍 ($2N$)」！4 的兩倍是？",
+                tag: "💊 PBL 救援任務：終極密碼",
+                text: "【遊戲聯想】玩「終極密碼」猜 1~100 時，聰明的人第一步一定猜 50，因為這樣一刀切下去，立刻就能把範圍「砍掉一半」。這叫做什麼搜尋法？",
                 options: [
-                    { text: "MOD-8", next: "q19", isCorrect: true },
-                    { text: "MOD-16", next: "q19_help", log: "Q19救錯: 16 是 $2^N$ 的二進位計數器。強生計數器是 $2 \\times N$，所以是 8 喔！" }
+                    { text: "二分搜尋法", next: "q19", isCorrect: true },
+                    { text: "循序搜尋法", next: "q19_help", log: "Q19救錯: 循序搜尋是笨笨地從 1, 2, 3 一路猜上去，太慢了！" }
                 ]
             },
 
-            // --- 第 20 題：同步 vs 非同步 ---
+            // --- 第 20 題：排序法 ---
             "q20": {
-                tag: "第 20 關：計數器設計",
-                text: "比較「同步計數器」與「非同步計數器」，下列敘述何者正確？",
+                tag: "第 20 關：資料排序",
+                text: "將相鄰的兩個元素互相「比對」，若順序不對就「交換」，讓最大(或最小)的數字像泡泡一樣慢慢浮到最旁邊。這是哪一種排序演算法？",
                 options: [
-                    { text: "同步計數器的所有正反器共用同一個時脈 (CLK)，速度較快", next: "q21", isCorrect: true },
-                    { text: "非同步計數器的所有正反器共用同一個時脈 (CLK)", next: "q20_help", log: "Q20錯: 非同步是前一個的輸出接下一個的時脈" },
-                    { text: "非同步計數器不會產生時間延遲的問題", next: "q20_help", log: "Q20錯: 它的延遲會一路累積，非常嚴重" },
-                    { text: "同步計數器的電路設計比較簡單", next: "q20_help", log: "Q20錯: 同步需要複雜的組合邏輯閘來控制" }
+                    { text: "氣泡排序法 (Bubble Sort)", next: "q21", isCorrect: true },
+                    { text: "選擇排序法 (Selection Sort)", next: "q20_help", log: "Q20錯: 這是挑出最小的直接放到最前面" },
+                    { text: "插入排序法 (Insertion Sort)", next: "q20_help", log: "Q20錯: 這是像打牌一樣把數字插進排好的區塊" },
+                    { text: "循序排序法", next: "q20_help", log: "Q20錯: 沒有這個專有名詞" }
                 ]
             },
             "q20_help": {
-                tag: "💊 PBL 救援任務：大家一起聽口令",
-                text: "【名詞直觀】「同步」的意思就是大家動作一致。一個將軍(時脈 CLK) 喊口令，所有的小兵(正反器)同時動作。因為不用等前面的人傳話，所以它的速度會？",
+                tag: "💊 PBL 救援任務：水底的泡泡",
+                text: "【名詞直觀】這種演算法的特徵都寫在題目裡了！透過不斷交換，讓數字像水裡的「泡泡」一樣浮上來。對應的英文就是 Bubble。",
                 options: [
-                    { text: "共用時脈，速度較快", next: "q20", isCorrect: true },
-                    { text: "不會產生延遲", next: "q20_help", log: "Q20救錯: 「非同步」是像骨牌一樣一個推一個，時間延遲(Delay)會嚴重累積喔！" }
+                    { text: "氣泡排序法", next: "q20", isCorrect: true },
+                    { text: "選擇排序法", next: "q20_help", log: "Q20救錯: 選擇排序是當「選秀糾察隊」，直接把全場最小的抓出來擺第一，不會沿路交換喔！" }
                 ]
             },
 
-            // --- 第 21 題：RS正反器轉換（NOR）---
+            // --- 第 21 題：函式回傳值 ---
             "q21": {
-                tag: "第 21 關：正反器設計",
-                text: "使用基本邏輯閘來組成 RS 正反器時，若使用「交錯耦合的 NOR 閘」，此種 RS 正反器是屬於哪一種動作狀態？",
+                tag: "第 21 關：公用與自訂函式",
+                text: "當我們自訂一個函式，但這個函式只負責把字印在螢幕上，而「不需要回傳任何資料」給主程式時，其回傳值型態應該宣告為什麼？",
                 options: [
-                    { text: "高動作 (High Active) - 輸入 1 才有反應", next: "q22", isCorrect: true },
-                    { text: "低動作 (Low Active) - 輸入 0 才有反應", next: "q21_help", log: "Q21錯: 這是用 NAND 閘組成的特性" },
-                    { text: "邊緣觸發", next: "q21_help", log: "Q21錯: 基本 RS 只有準位觸發" },
-                    { text: "永遠保持 1", next: "q21_help", log: "Q21錯: 不對" }
+                    { text: "void", next: "q22", isCorrect: true },
+                    { text: "int", next: "q21_help", log: "Q21錯: 這是要回傳整數" },
+                    { text: "null", next: "q21_help", log: "Q21錯: C語言中這是指標空值，不能當作函式型態" },
+                    { text: "return", next: "q21_help", log: "Q21錯: 這是跳出函式的指令" }
                 ]
             },
             "q21_help": {
-                tag: "💊 PBL 救援任務：口訣 3HR",
-                text: "【口訣記憶】講義上的必背神級口訣：「3HR」。3 = NOR 閘(三個英文字母)；H = High (高動作)；R = 上面那支腳是 Reset。記住 3H，代表 NOR 閘是高動作還是低動作？",
+                tag: "💊 PBL 救援任務：空虛的黑洞",
+                text: "【英文直翻】我們需要一個代表「空無一物、無效」的英文單字，告訴電腦這個函式是個黑洞，不會吐任何東西出來。這個字是 V 開頭的。",
                 options: [
-                    { text: "高動作 (High Active)", next: "q21", isCorrect: true },
-                    { text: "低動作 (Low Active)", next: "q21_help", log: "Q21救錯: 這是 4LS 口訣，4個字母的 NAND 閘才是低動作 (Low Active) 喔！" }
+                    { text: "void", next: "q21", isCorrect: true },
+                    { text: "int", next: "q21_help", log: "Q21救錯: 如果宣告成 int，編譯器就會逼你一定要 return 一個數字給它喔！" }
                 ]
             },
 
-            // --- 第 22 題：RS正反器轉換（NAND）---
+            // --- 第 22 題：變數生命週期 ---
             "q22": {
-                tag: "第 22 關：正反器設計",
-                text: "承上題，若使用「交錯耦合的 NAND 閘」來組成 RS 正反器，此電路是屬於低動作。請問這時上面那支輸入接腳是什麼功能？",
+                tag: "第 22 關：變數生命週期",
+                text: "若將變數宣告在 `main()` 主程式以及所有自訂函式的「最外面(最上方)」，這種所有的函式都可以共用它的變數稱為什麼？",
                 options: [
-                    { text: "S (Set, 設定)", next: "q23", isCorrect: true },
-                    { text: "R (Reset, 清除)", next: "q22_help", log: "Q22錯: 這是 NOR 閘組成的接腳" },
-                    { text: "CLK (時脈)", next: "q22_help", log: "Q22錯: 基本 RS 沒有時脈" },
-                    { text: "Q (輸出)", next: "q22_help", log: "Q22錯: Q 是在右邊的輸出端" }
+                    { text: "全域變數 (Global Variable)", next: "q23", isCorrect: true },
+                    { text: "區域變數 (Local Variable)", next: "q22_help", log: "Q22錯: 這是宣告在大括號裡面的變數" },
+                    { text: "靜態變數 (Static Variable)", next: "q22_help", log: "Q22錯: 雖然活很久，但存取範圍還是看宣告位置" },
+                    { text: "常數 (Constant)", next: "q22_help", log: "Q22錯: 常數是指值不能改變" }
                 ]
             },
             "q22_help": {
-                tag: "💊 PBL 救援任務：口訣 4LS",
-                text: "【口訣記憶】講義口訣第二彈：「4LS」。4 = NAND 閘(四個英文字母)；L = Low (低動作)。最後的 S 代表什麼？沒錯，就是上面那支腳的功能是 Set！",
+                tag: "💊 PBL 救援任務：全球通用",
+                text: "【名詞直觀】這個變數就像放在廣場上的公用電話，沒有大括號的圍牆擋住，全世界(整個程式的所有函式)的人都可以跑來使用它。這叫做什麼變數？",
                 options: [
-                    { text: "S (Set)", next: "q22", isCorrect: true },
-                    { text: "R (Reset)", next: "q22_help", log: "Q22救錯: 這是 3HR 裡面的 R，NOR 閘上面才是 Reset 喔！" }
+                    { text: "全域變數", next: "q22", isCorrect: true },
+                    { text: "區域變數", next: "q22_help", log: "Q22救錯: 區域變數是放在函式大括號裡面的私人物品，函式結束它就死掉了！" }
                 ]
             },
 
-            // --- 第 23 題：比較器 1位元 ---
+            // --- 第 23 題：引數傳遞 ---
             "q23": {
-                tag: "第 23 關：組合邏輯",
-                text: "在一個 1 位元的數值比較器中，用來判斷「輸入 A 是否等於輸入 B ($A=B$)」的邏輯輸出，等於哪一種基本邏輯閘的運算結果？",
+                tag: "第 23 關：引數傳遞",
+                text: "當呼叫函式時，如果希望函式內部對參數的修改，能夠「真正改變到外面主程式的變數正本」，應該使用哪一種參數傳遞方式？",
                 options: [
-                    { text: "XNOR 閘 (反互斥或閘)", next: "q24", isCorrect: true },
-                    { text: "XOR 閘 (互斥或閘)", next: "q23_help", log: "Q23錯: XOR 是用來判斷 $A \\neq B$ 的" },
-                    { text: "AND 閘", next: "q23_help", log: "Q23錯: AND 不判斷相等" },
-                    { text: "OR 閘", next: "q23_help", log: "Q23錯: OR 不判斷相等" }
+                    { text: "傳址呼叫 (Call by Address) / 傳參考呼叫", next: "q24", isCorrect: true },
+                    { text: "傳值呼叫 (Call by Value)", next: "q23_help", log: "Q23錯: 傳值只是給影印本，不會影響正本" },
+                    { text: "傳名呼叫 (Call by Name)", next: "q23_help", log: "Q23錯: C語言沒有這個" },
+                    { text: "單向呼叫", next: "q23_help", log: "Q23錯: 沒有這種專有名詞" }
                 ]
             },
             "q23_help": {
-                tag: "💊 PBL 救援任務：同類相吸",
-                text: "【邏輯推演】XOR (互斥或) 的特性是「不一樣才亮 (A!=B)」。我們現在要判斷的是兩個人「一模一樣 (A=B)」。把 XOR 反過來，也就是在前面加一個 N，變成什麼閘？",
+                tag: "💊 PBL 救援任務：照片與地址",
+                text: "【生活比喻】你想請師傅修冷氣。如果你只傳冷氣的「照片 (Value)」給他，他在照片上畫畫，你家的冷氣不會修好。你必須傳你家的「地址 (Address)」給他，他才能改到正本！",
                 options: [
-                    { text: "XNOR 閘", next: "q23", isCorrect: true },
-                    { text: "AND 閘", next: "q23_help", log: "Q23救錯: AND 閘只有 1 和 1 會亮，但 0 和 0 也是相等呀！所以要用同相才亮的 XNOR 喔！" }
+                    { text: "傳址呼叫 (Call by Address)", next: "q23", isCorrect: true },
+                    { text: "傳值呼叫 (Call by Value)", next: "q23_help", log: "Q23救錯: 傳值就像傳影印本，在函式裡怎麼撕破都不會影響到外面的正本喔！" }
                 ]
             },
 
-            // --- 第 24 題：半加器進位 ---
+            // --- 第 24 題：遞迴函式 ---
             "q24": {
-                tag: "第 24 關：組合邏輯",
-                text: "一個「半加器 (Half Adder)」有兩個輸入 (A, B) 和兩個輸出：總和 (Sum) 與進位 (Carry)。請問「進位 (Carry)」的輸出，等於哪一種基本邏輯閘的運算結果？",
+                tag: "第 24 關：遞迴函式",
+                text: "在程式設計中，如果一個函式在自己的程式區塊內部，又「呼叫了自己本身」，這種技術稱為什麼？",
                 options: [
-                    { text: "AND 閘 ($A \\cdot B$)", next: "q25", isCorrect: true },
-                    { text: "XOR 閘 ($A \\oplus B$)", next: "q24_help", log: "Q24錯: 這是總和 Sum 的公式" },
-                    { text: "OR 閘 ($A + B$)", next: "q24_help", log: "Q24錯: 錯誤" },
-                    { text: "NAND 閘", next: "q24_help", log: "Q24錯: 錯誤" }
+                    { text: "遞迴 (Recursion)", next: "q25", isCorrect: true },
+                    { text: "多載 (Overload)", next: "q24_help", log: "Q24錯: 多載是同名函式不同參數" },
+                    { text: "覆寫 (Override)", next: "q24_help", log: "Q24錯: 覆寫是子類別改寫父類別的函式" },
+                    { text: "指標呼叫", next: "q24_help", log: "Q24錯: 這跟呼叫自己無關" }
                 ]
             },
             "q24_help": {
-                tag: "💊 PBL 救援任務：滿載才進位",
-                text: "【邏輯推演】二進位只有 0 和 1。什麼時候才會滿出來「進位」？只有當輸入 A 是 1，【而且】輸入 B 也是 1 的時候 (1+1=10，進位1)。「兩個都要」是哪一種邏輯閘？",
+                tag: "💊 PBL 救援任務：俄羅斯娃娃",
+                text: "【名詞解析】就像俄羅斯娃娃一樣，大娃娃打開裡面裝著小娃娃，小娃娃打開又是更小的娃娃。「傳遞」下去再「迴轉」回來，這就是有名的？",
                 options: [
-                    { text: "AND 閘", next: "q24", isCorrect: true },
-                    { text: "XOR 閘", next: "q24_help", log: "Q24救錯: XOR 是一大一小 (1+0=1) 的時候，那只會產生 Sum(總和)，還不會滿出來進位喔！" }
+                    { text: "遞迴 (Recursion)", next: "q24", isCorrect: true },
+                    { text: "多載 (Overload)", next: "q24_help", log: "Q24救錯: 多載是指「同名同姓但做不同事」的函式，自己叫自己的是遞迴喔！" }
                 ]
             },
 
-            // --- 第 25 題：半減器借位 ---
+            // --- 第 25 題：遞迴必備條件 ---
             "q25": {
-                tag: "第 25 關：組合邏輯",
-                text: "承上題，一個「半減器 (Half Subtractor)」用來計算 $A - B$。其「借位 (Borrow)」輸出的布林代數式為何？",
+                tag: "第 25 關：遞迴函式",
+                text: "承上題，為了避免遞迴函式變成無窮迴圈當機，在設計遞迴時「必定」要加入什麼條件？",
                 options: [
-                    { text: "$\\bar{A} \\cdot B$", next: "q26", isCorrect: true },
-                    { text: "$A \\cdot \\bar{B}$", next: "q25_help", log: "Q25錯: 被減數大，不需要借位" },
-                    { text: "$A \\cdot B$", next: "q25_help", log: "Q25錯: 這是加法器進位的公式" },
-                    { text: "$A \\oplus B$", next: "q25_help", log: "Q25錯: 這是差值 (Difference) 的公式" }
+                    { text: "終止條件 (結束遞迴的底線)", next: "q26", isCorrect: true },
+                    { text: "無窮迴圈", next: "q25_help", log: "Q25錯: 加上去就直接當機了" },
+                    { text: "全域變數", next: "q25_help", log: "Q25錯: 遞迴不一定要用全域變數" },
+                    { text: "指標運算", next: "q25_help", log: "Q25錯: 遞迴不一定要用指標" }
                 ]
             },
             "q25_help": {
-                tag: "💊 PBL 救援任務：小蝦米減大鯨魚",
-                text: "【邏輯推演】什麼時候減法會需要「借位」？只有當前面比較小(A=0)，要減掉後面比較大(B=1) 的時候才需要借位！要讓 A=0, B=1 這組密碼變成 True (1)，必須把 0 反相，也就是給 A 戴上反相帽子！",
+                tag: "💊 PBL 救援任務：剎車系統",
+                text: "【邏輯推演】如果你一直呼叫自己、一直呼叫自己，電腦的記憶體很快就會被撐爆！所以你必須寫一個 `if` 判斷式，告訴電腦什麼時候「停止呼叫」。這叫做？",
                 options: [
-                    { text: "$\\bar{A} \\cdot B$", next: "q25", isCorrect: true },
-                    { text: "$A \\cdot \\bar{B}$", next: "q25_help", log: "Q25救錯: A是1、B是0，大減小夠減了，根本不需要借位喔！" }
+                    { text: "終止條件", next: "q25", isCorrect: true },
+                    { text: "全域變數", next: "q25_help", log: "Q25救錯: 遞迴最怕停不下來，所以一定要有終止條件當作煞車！" }
                 ]
             },
 
-            // --- 第 26 題：解碼器與多工器比較 ---
+            // --- 第 26 題：結構預設存取權限 ---
             "q26": {
-                tag: "第 26 關：元件比較",
-                text: "關於「解碼器 (Decoder)」與「解多工器 (DeMUX)」的比較，下列敘述何者錯誤？",
+                tag: "第 26 關：結構與類別",
+                text: "在 C++ 中，`struct` (結構) 和 `class` (類別) 都可以把變數和函式包裝在一起。請問 `struct` 內部的成員，預設的存取權限是什麼？",
                 options: [
-                    { text: "解多工器可以將好幾個輸入訊號，合併成一個輸出訊號", next: "q27", isCorrect: true },
-                    { text: "解碼器有 N 個輸入，最大會有 $2^N$ 個輸出", next: "q26_help", log: "Q26錯: 這是解碼器的正確定義" },
-                    { text: "解多工器是 1 個輸入，分配給 $2^N$ 個輸出", next: "q26_help", log: "Q26錯: 這是正確的定義" },
-                    { text: "兩者的內部結構非常相似", next: "q26_help", log: "Q26錯: 它們都可以用 AND 閘陣列構成" }
+                    { text: "公用的 (public)", next: "q27", isCorrect: true },
+                    { text: "私有的 (private)", next: "q26_help", log: "Q26錯: 這是 class 的預設權限" },
+                    { text: "保護的 (protected)", next: "q26_help", log: "Q26錯: 這要手動設定，給繼承用的" },
+                    { text: "隱藏的 (hidden)", next: "q26_help", log: "Q26錯: C++沒有這種關鍵字" }
                 ]
             },
             "q26_help": {
-                tag: "💊 PBL 救援任務：De 代表解散",
-                text: "【名詞解析】MUX (多工) 是把多個人擠進一條路。前面加上 De (解多工)，就是把那一條路上的人，重新「解散分配」到很多條路去！所以解多工是 1進多出，還是多進1出？",
+                tag: "💊 PBL 救援任務：開放的傳統",
+                text: "【觀念聯想】`struct` 來自於古老的 C 語言，那時候沒有資料保護的概念。所以它就像一個沒有鎖的紙箱，裡面的資料預設是完全「對外開放」的！",
                 options: [
-                    { text: "多進1出是錯的 (選這個)", next: "q26", isCorrect: true },
-                    { text: "解碼器有 $2^N$ 輸出", next: "q26_help", log: "Q26救錯: 這是正確的！注意題目要選「錯誤」的選項喔！" }
+                    { text: "公用的 (public)", next: "q26", isCorrect: true },
+                    { text: "私有的 (private)", next: "q26_help", log: "Q26救錯: 私有的是高級保險箱 `class` 的專利！傳統的 `struct` 預設是公用 (public) 喔！" }
                 ]
             },
 
-            // --- 第 27 題：編碼器 ---
+            // --- 第 27 題：類別預設存取權限 ---
             "q27": {
-                tag: "第 27 關：組合邏輯",
-                text: "在電子計算機中，若我們按下鍵盤上的某個數字鍵 (0~9)，會有一個電路負責把它轉換成電腦看得懂的二進位碼 (如 BCD 碼)。這個負責轉換的電路是？",
+                tag: "第 27 關：結構與類別",
+                text: "承上題，如果是使用物件導向的 `class` (類別) 關鍵字，其內部的成員預設的存取權限是什麼？",
                 options: [
-                    { text: "編碼器 (Encoder)", next: "q28", isCorrect: true },
-                    { text: "解碼器 (Decoder)", next: "q27_help", log: "Q27錯: 解碼是把二進位轉回人類看的懂的燈號" },
-                    { text: "多工器 (MUX)", next: "q27_help", log: "Q27錯: 這是選路用的" },
-                    { text: "加法器 (Adder)", next: "q27_help", log: "Q27錯: 這是算術運算" }
+                    { text: "私有的 (private)", next: "q28", isCorrect: true },
+                    { text: "公用的 (public)", next: "q27_help", log: "Q27錯: 這是 struct 的預設權限" },
+                    { text: "保護的 (protected)", next: "q27_help", log: "Q27錯: 這不屬於預設權限" },
+                    { text: "靜態的 (static)", next: "q27_help", log: "Q27錯: 這是變數生命週期的屬性" }
                 ]
             },
             "q27_help": {
-                tag: "💊 PBL 救援任務：寫成密碼",
-                text: "【名詞直翻】人類看的懂的數字 0~9 (十進位)，要翻譯成電腦的 0101。這個動作就像特務在寫密碼信一樣，把明文「編寫成密碼」。這叫什麼器？",
+                tag: "💊 PBL 救援任務：高級保險箱",
+                text: "【邏輯推演】發明 `class` 就是為了保護資料不被亂改！如果你什麼鎖都不寫，電腦為了安全，會自動幫你把最高級的防護罩打開，把資料「藏起來」。這叫？",
                 options: [
-                    { text: "編碼器", next: "q27", isCorrect: true },
-                    { text: "解碼器", next: "q27_help", log: "Q27救錯: 解碼是把 0101 解開點亮七段顯示器讓你讀，我們現在是反過來要寫成電腦碼喔！" }
+                    { text: "私有的 (private)", next: "q27", isCorrect: true },
+                    { text: "公用的 (public)", next: "q27_help", log: "Q27救錯: `class` 是升級版，預設是全部上鎖的私有 (private) 喔！" }
                 ]
             },
 
-            // --- 第 28 題：正反器種類整理 ---
+            // --- 第 28 題：結構成員存取 ---
             "q28": {
-                tag: "第 28 關：正反器總複習",
-                text: "下列關於各種正反器特性的敘述，何者正確？",
+                tag: "第 28 關：結構存取",
+                text: "如果宣告了一個實體的結構變數 `Student s1;`，要存取 s1 裡面的公用成員變數 `score`，應該使用哪一個存取運算子？",
                 options: [
-                    { text: "T 型正反器常被用來設計除頻器或計數器", next: "q29", isCorrect: true },
-                    { text: "RS 正反器可以解決所有的禁態問題", next: "q28_help", log: "Q28錯: RS 最大的問題就是有禁態" },
-                    { text: "D 型正反器的輸入會隨時鐘信號發生反轉 (Toggle)", next: "q28_help", log: "Q28錯: D 型只負責原封不動存資料，不反轉" },
-                    { text: "JK 正反器沒有反轉功能", next: "q28_help", log: "Q28錯: JK 最大的特色就是有反轉功能" }
+                    { text: "小數點 ( . )", next: "q29", isCorrect: true },
+                    { text: "箭頭 ( -> )", next: "q28_help", log: "Q28錯: 這是透過「指標」存取時用的" },
+                    { text: "雙冒號 ( :: )", next: "q28_help", log: "Q28錯: 這是範圍解析運算子，用來定義類別外部的函式" },
+                    { text: "井字號 ( # )", next: "q28_help", log: "Q28錯: 這是前置處理器" }
                 ]
             },
             "q28_help": {
-                tag: "💊 PBL 救援任務：減半的魔法",
-                text: "【元件直覺】T 型正反器的特色是「每輸入一個波，就翻面一次」。波上上下下兩次，它才剛好翻回原位。等於把原本很急促的頻率給「減半 (除頻)」了！所以它最適合用來做什麼？",
+                tag: "💊 PBL 救援任務：實體的箱子",
+                text: "【語法直覺】s1 就結結實實地拿在你的手上(實體變數)，你不需要射箭，只需要在名字後面加一個最簡單的「小數點」，就能把它打開來！",
                 options: [
-                    { text: "做除頻器或計數器", next: "q28", isCorrect: true },
-                    { text: "D 型正反器會反轉", next: "q28_help", log: "Q28救錯: D 型是最老實的 Data 暫存器，不會自己翻面反轉喔！" }
+                    { text: "小數點 ( s1.score )", next: "q28", isCorrect: true },
+                    { text: "箭頭 ( s1->score )", next: "q28_help", log: "Q28救錯: 當你手上拿的是寫著地址的紙條(指標)時，才需要用箭頭遠端遙控喔！實體變數用小數點！" }
                 ]
             },
 
-            // --- 第 29 題：布林代數定理名稱 ---
+            // --- 第 29 題：結構指標存取 ---
             "q29": {
-                tag: "第 29 關：布林代數",
-                text: "在布林代數中，算式 $A(B+C) = AB + AC$ 所代表的是哪一個數學定律？",
+                tag: "第 29 關：結構與指標",
+                text: "承上題，如果宣告的是一個指向結構的指標 `Student *ptr;`，要透過這個指標去存取內部的 `score`，應該改用哪一個運算子？",
                 options: [
-                    { text: "分配律", next: "q30", isCorrect: true },
-                    { text: "交換律", next: "q29_help", log: "Q29錯: 交換律是 $A+B = B+A$" },
-                    { text: "結合律", next: "q29_help", log: "Q29錯: 結合律是 $A+(B+C) = (A+B)+C$" },
-                    { text: "吸收律", next: "q29_help", log: "Q29錯: 吸收律是 $A(A+B) = A$" }
+                    { text: "箭頭 ( -> )", next: "q30", isCorrect: true },
+                    { text: "小數點 ( . )", next: "q29_help", log: "Q29錯: 指標本身只是一串地址，不能直接用小數點" },
+                    { text: "星號 ( * )", next: "q29_help", log: "Q29錯: 單用星號只能解參考，還需要括號配小數點才能存取成員" },
+                    { text: "取址符號 ( & )", next: "q29_help", log: "Q29錯: 這是用來拿地址的" }
                 ]
             },
             "q29_help": {
-                tag: "💊 PBL 救援任務：發撲克牌",
-                text: "【國中數學】這跟一般的數學一模一樣！外面的 A 就像發牌員，把自己的點數「分別發給」括號裡面的 B 和 C。這種拆開括號的定律叫做？",
+                tag: "💊 PBL 救援任務：遠端射箭",
+                text: "【生活比喻】你手上現在只有一張寫著箱子地址的紙條 (指標)，箱子不在你手上。所以你不能直接開箱，你必須「射出一支箭」，遠遠地戳中那個屬性！",
                 options: [
-                    { text: "分配律", next: "q29", isCorrect: true },
-                    { text: "結合律", next: "q29_help", log: "Q29救錯: 結合律只是括號位置改變，不會把外面的字乘進去喔！" }
+                    { text: "箭頭 ( -> )", next: "q29", isCorrect: true },
+                    { text: "小數點 ( . )", next: "q29_help", log: "Q29救錯: 小數點是實體變數用的。遇到指標 `*ptr`，一定要用箭頭 `->` 喔！" }
                 ]
             },
 
-            // --- 第 30 題：第摩根定理 ---
+            // --- 第 30 題：建構子 ---
             "q30": {
-                tag: "第 30 關：第摩根定理",
-                text: "根據著名的「第摩根定理 (De Morgan's Laws)」，算式 $\\overline{A+B}$ 展開後會等於下列何者？",
+                tag: "第 30 關：物件導向",
+                text: "在類別 (class) 中，有一種特殊的函式，其「名稱與類別完全相同」，且會在建立物件時「自動被執行」用來初始化資料。這個函式稱為？",
                 options: [
-                    { text: "$\\bar{A} \\cdot \\bar{B}$", next: "q31", isCorrect: true },
-                    { text: "$\\bar{A} + \\bar{B}$", next: "q30_help", log: "Q30錯: 符號沒有變號" },
-                    { text: "$A \\cdot B$", next: "q30_help", log: "Q30錯: A和B必須戴上反相帽子" },
-                    { text: "$A + B$", next: "q30_help", log: "Q30錯: 這是雙重反相的結果" }
+                    { text: "建構子 (Constructor)", next: "q31", isCorrect: true },
+                    { text: "解構子 (Destructor)", next: "q30_help", log: "Q30錯: 這是物件死亡時執行的" },
+                    { text: "主函式 (Main)", next: "q30_help", log: "Q30錯: 這是整個程式的入口" },
+                    { text: "多載函式", next: "q30_help", log: "Q30錯: 這只是同名函式的統稱" }
                 ]
             },
             "q30_help": {
-                tag: "💊 PBL 救援任務：斬斷情絲",
-                text: "【口訣記憶】第摩根定理的口訣是：「把長長的屋頂(反相棒) 砍斷！然後把中間的加號變乘號，乘號變加號」。所以原本是相加 ($A+B$)，屋頂斷掉後，中間會變成什麼號？",
+                tag: "💊 PBL 救援任務：打好地基",
+                text: "【名詞直翻】蓋房子的第一步是把地基打好(初始化)。物件剛誕生、被「建造(Construct)」出來的那一瞬間，負責幫它打底的自動函式叫做什麼子？",
                 options: [
-                    { text: "乘號 ( $\\bar{A} \\cdot \\bar{B}$ )", next: "q30", isCorrect: true },
-                    { text: "加號 ( $\\bar{A} + \\bar{B}$ )", next: "q30_help", log: "Q30救錯: 砍斷屋頂後，運算符號一定要相反喔！加號要變乘號！" }
+                    { text: "建構子", next: "q30", isCorrect: true },
+                    { text: "解構子", next: "q30_help", log: "Q30救錯: 解構(Destroy)是物件被摧毀死亡時才執行的收尾動作喔！" }
                 ]
             },
 
-            // --- 第 31 題：同步計數器設計 ---
+            // --- 第 31 題：解構子符號 ---
             "q31": {
-                tag: "第 31 關：循序邏輯電路",
-                text: "若我們要利用 JK 正反器來設計一個「同步計數器」，除了畫出狀態圖與真值表之外，我們還必須利用哪一種表格來求出 J 與 K 腳位的布林方程式？",
+                tag: "第 31 關：物件導向",
+                text: "承上題，當物件不再使用時，用來釋放記憶體空間的「解構子 (Destructor)」，其名稱前面必須加上什麼符號來跟建構子作區分？",
                 options: [
-                    { text: "激勵表 (Excitation Table)", next: "q32", isCorrect: true },
-                    { text: "狀態表 (State Table)", next: "q31_help", log: "Q31錯: 狀態表是第一步，用來列出狀態變化" },
-                    { text: "特性表 (Characteristic Table)", next: "q31_help", log: "Q31錯: 特性表是給輸入求輸出" },
-                    { text: "羅斯表 (Routh Table)", next: "q31_help", log: "Q31錯: 這是自動控制判斷穩定性用的" }
+                    { text: "波浪符號 ( ~ )", next: "q32", isCorrect: true },
+                    { text: "減號 ( - )", next: "q31_help", log: "Q31錯: C++ 不使用減號" },
+                    { text: "米字號 ( * )", next: "q31_help", log: "Q31錯: 這是指標用的" },
+                    { text: "井字號 ( # )", next: "q31_help", log: "Q31錯: 這是前置處理器用的" }
                 ]
             },
             "q31_help": {
-                tag: "💊 PBL 救援任務：逆向工程",
-                text: "【邏輯推演】我們現在知道目標(希望從狀態 0 變成狀態 1)，我們要回頭去推算「到底要給 J 和 K 什麼刺激，它才會變成我們要的樣子」。這個反推輸入條件的表格，叫做？",
+                tag: "💊 PBL 救援任務：靈魂升天的煙霧",
+                text: "【符號聯想】解構子是物件「死亡」時執行的。你可以把鍵盤左上角這個彎彎曲曲的符號 `~`，想像成物件陣亡後，靈魂化作一縷波浪狀的青煙飄上天去了！",
                 options: [
-                    { text: "激勵表", next: "q31", isCorrect: true },
-                    { text: "特性表", next: "q31_help", log: "Q31救錯: 特性表是正常順序 (給JK求輸出)，逆向推算要用「激勵表」喔！" }
+                    { text: "波浪符號 ( ~ )", next: "q31", isCorrect: true },
+                    { text: "減號 ( - )", next: "q31_help", log: "Q31救錯: 雖然減號有扣除的感覺，但 C++ 規定解構子必須戴上波浪符號 `~` 喔！" }
                 ]
             },
 
-            // --- 第 32 題：1的補數減法 ---
+            // --- 第 32 題：物件導向三要素 ---
             "q32": {
-                tag: "第 32 關：數字系統",
-                text: "使用「1 的補數」進行減法運算，若相加後最後最高位有產生進位 (End-Around Carry, EAC)，這個進位必須如何處理？",
+                tag: "第 32 關：物件導向",
+                text: "物件導向程式設計 (OOP) 的三個最核心要素 (特性) 分別為：封裝 (Encapsulation)、繼承 (Inheritance) 以及哪一項？",
                 options: [
-                    { text: "將進位加回到結果的最低位元 (LSB)", next: "q33", isCorrect: true },
-                    { text: "直接捨棄不理它", next: "q32_help", log: "Q32錯: 這是 2 的補數減法" },
-                    { text: "再取一次 1 的補數", next: "q32_help", log: "Q32錯: 這是無進位(負數)時的處理" },
-                    { text: "代表發生錯誤，程式當機", next: "q32_help", log: "Q32錯: 這是正常現象" }
+                    { text: "多型 (Polymorphism)", next: "q33", isCorrect: true },
+                    { text: "多載 (Overload)", next: "q32_help", log: "Q32錯: 這是實現多型的一種技術，不是三要素之一" },
+                    { text: "指標 (Pointer)", next: "q32_help", log: "Q32錯: 這是記憶體管理工具" },
+                    { text: "遞迴 (Recursion)", next: "q32_help", log: "Q32錯: 這是演算法技巧" }
                 ]
             },
             "q32_help": {
-                tag: "💊 PBL 救援任務：不完美的1",
-                text: "【觀念推演】1的補數只是簡單把0變1、1變0，數學上會有落差。所以當算出來滿出來(進位)時，你必須把那個滿出來的 1「撿回來，加在屁股後面」補償它！這叫做 EAC 迴圈進位。",
+                tag: "💊 PBL 救援任務：多種型態的變身",
+                text: "【名詞直覺】物件導向最強大的地方，就是同一個指令叫「動物叫」，狗會汪汪叫，貓會喵喵叫。同一個介面，卻能表現出「多種不同的型態與行為」。這叫做？",
                 options: [
-                    { text: "加回到最低位元 (LSB)", next: "q32", isCorrect: true },
-                    { text: "直接捨棄", next: "q32_help", log: "Q32救錯: 直接丟掉那是比較完美的「2的補數」才有的特權喔！1的補數必須撿回來加！" }
+                    { text: "多型", next: "q32", isCorrect: true },
+                    { text: "多載", next: "q32_help", log: "Q32救錯: 多載(同名不同參數)只是工具之一。三本柱是「封裝、繼承、多型」喔！" }
                 ]
             },
 
-            // --- 第 33 題：基本邏輯閘轉換 ---
+            // --- 第 33 題：存取修飾詞 protected ---
             "q33": {
-                tag: "第 33 關：通用邏輯閘",
-                text: "只要使用單一種邏輯閘，就可以組合成所有其他種類的邏輯閘 (NOT, AND, OR 等)。請問下列哪一種邏輯閘具備這種「通用閘 (Universal Gate)」的特性？",
+                tag: "第 33 關：存取修飾詞",
+                text: "在類別的存取修飾詞中，哪一種型態的成員「只能在自己的類別」以及「繼承它的子類別 (小孩)」中存取，但外部程式無法使用？",
                 options: [
-                    { text: "NAND 閘", next: "q34", isCorrect: true },
-                    { text: "AND 閘", next: "q33_help", log: "Q33錯: AND 閘無法造出 NOT 的反相功能" },
-                    { text: "OR 閘", next: "q33_help", log: "Q33錯: OR 閘無法造出反相功能" },
-                    { text: "XOR 閘", next: "q33_help", log: "Q33錯: XOR 無法輕易組成 AND 閘" }
+                    { text: "保護型態 (protected)", next: "q34", isCorrect: true },
+                    { text: "私有型態 (private)", next: "q33_help", log: "Q33錯: private 連子類別(小孩)都不能看" },
+                    { text: "公用型態 (public)", next: "q33_help", log: "Q33錯: public 所有人都能看" },
+                    { text: "靜態型態 (static)", next: "q33_help", log: "Q33錯: 這是用來共用記憶體的" }
                 ]
             },
             "q33_help": {
-                tag: "💊 PBL 救援任務：萬能的積木",
-                text: "【元件直覺】在 IC 設計的領域，為了省錢，我們喜歡用同一種樂高積木拼出所有東西。具備這種「萬能特性」的積木有兩種：一種是 NOR，另一種就是？",
+                tag: "💊 PBL 救援任務：傳家之寶",
+                text: "【邏輯推演】`private` 是你私人的日記，連兒子都不給看。但有一種財產，外人(public)絕對碰不到，只「保護」在你們家族內部，只有你和兒子能碰。這叫做？",
                 options: [
-                    { text: "NAND 閘", next: "q33", isCorrect: true },
-                    { text: "AND 閘", next: "q33_help", log: "Q33救錯: 萬能積木一定要自帶「反相(N)」的特性，不然拼不出 NOT 閘喔！" }
+                    { text: "保護型態 (protected)", next: "q33", isCorrect: true },
+                    { text: "私有型態 (private)", next: "q33_help", log: "Q33救錯: 私有型態(private)太自私了，兒子也拿不到。給子類別繼承用的是 protected 喔！" }
                 ]
             },
 
-            // --- 第 34 題：BCD加法器 ---
+            // --- 第 34 題：堆疊 Stack ---
             "q34": {
-                tag: "第 34 關：BCD 碼",
-                text: "在設計 BCD 加法器時 (用四位元二進位表示 0~9)，如果兩個 BCD 碼相加的結果大於 9，電路必須進行「修正」。請問修正是要加上哪個數字？",
+                tag: "第 34 關：資料結構",
+                text: "在資料結構中，「堆疊 (Stack)」是一種只有一個出入口的結構。它的資料存取原則是什麼？",
                 options: [
-                    { text: "加上 6 (0110)", next: "q35", isCorrect: true },
-                    { text: "加上 10 (1010)", next: "q34_help", log: "Q34錯: 這是十進位的進位，不是二進位補償" },
-                    { text: "加上 1 (0001)", next: "q34_help", log: "Q34錯: 這是 1 的補數補償" },
-                    { text: "減去 6 (0110)", next: "q34_help", log: "Q34錯: 要往前推進位所以是加法" }
+                    { text: "先進後出 (FILO) / 後進先出 (LIFO)", next: "q35", isCorrect: true },
+                    { text: "先進先出 (FIFO)", next: "q34_help", log: "Q34錯: 這是佇列 (Queue) 的特性" },
+                    { text: "隨機存取 (Random Access)", next: "q34_help", log: "Q34錯: 堆疊只能從頂部(Top)存取" },
+                    { text: "後進後出", next: "q34_help", log: "Q34錯: 這跟先進先出是同義詞" }
                 ]
             },
             "q34_help": {
-                tag: "💊 PBL 救援任務：填補黑洞",
-                text: "【數學推演】四個 bit 最大可以數到 15。但 BCD 碼規定只准數到 9！中間有 10 到 15 這「6個」不准用的黑洞。如果不小心跨過去了，必須強行「加上 6」把它推到下一個位數去！",
+                tag: "💊 PBL 救援任務：疊盤子理論",
+                text: "【生活比喻】想像你在桌上「疊」盤子。第一個放上去的盤子被壓在最下面。當你要拿盤子時，一定是從最上面拿走「最後一個」放上去的。這代表？",
                 options: [
-                    { text: "加上 6", next: "q34", isCorrect: true },
-                    { text: "加上 10", next: "q34_help", log: "Q34救錯: 是要填補二進位和十進位之間那 6 個廢棄狀態的落差，所以是加 6 喔！" }
+                    { text: "先進後出 (最後放的最先拿)", next: "q34", isCorrect: true },
+                    { text: "先進先出", next: "q34_help", log: "Q34救錯: 先進先出是排隊買票(佇列)，堆疊就像一個很深的桶子，最先掉進去的只能最後出來喔！" }
                 ]
             },
 
-            // 🏆 第 35 題：邏輯閘符號 (大魔王) ---
+            // --- 第 35 題：佇列 Queue ---
             "q35": {
-                tag: "🏆 最終關：邏輯符號大魔王",
-                text: "最後一題！一個邏輯閘的符號畫著「像月亮一樣彎彎的盾牌」，而且前面還有加上「一顆小圓圈(泡泡)」。請問這是哪一種邏輯閘的符號？",
+                tag: "🏆 最終關：資料結構",
+                text: "最後一題！與堆疊不同，「佇列 (Queue)」有兩個出入口，一個負責進(rear)，一個負責出(front)。請問它的資料存取原則是什麼？",
                 options: [
-                    { text: "NOR 閘 (反或閘)", next: "end", isCorrect: true },
-                    { text: "NAND 閘 (反及閘)", next: "q35_help", log: "Q35錯: NAND 閘是平平的 D 型配圓圈" },
-                    { text: "OR 閘 (或閘)", next: "q35_help", log: "Q35錯: OR 閘沒有小圓圈" },
-                    { text: "XOR 閘 (互斥或閘)", next: "q35_help", log: "Q35錯: XOR 後面還多一條弧線，且沒有圓圈" }
+                    { text: "先進先出 (FIFO)", next: "end", isCorrect: true },
+                    { text: "先進後出 (FILO)", next: "q35_help", log: "Q35錯: 這是堆疊 (Stack) 的特性" },
+                    { text: "後進先出 (LIFO)", next: "q35_help", log: "Q35錯: 這跟先進後出是同義詞" },
+                    { text: "雙向存取", next: "q35_help", log: "Q35錯: 雖然有雙向佇列，但基本佇列是單向流動的" }
                 ]
             },
             "q35_help": {
-                tag: "💊 PBL 最終挑戰：拆解符號",
-                text: "【圖形記憶】平平的 D 字型是 AND；彎彎的盾牌型是 OR。至於前面那顆「小圓圈」，在數位邏輯裡永遠代表「相反(NOT)」。彎彎的盾牌配上相反的小圓圈，合起來就是？",
+                tag: "💊 PBL 最終挑戰：排隊買珍奶",
+                text: "【生活比喻】Queue 的英文意思就是「排隊」。大家排隊買珍珠奶茶，第一個乖乖排隊的人，一定會第一個買到奶茶離開。這個極度公平的原則叫作？",
                 options: [
-                    { text: "NOR 閘", next: "q35", isCorrect: true },
-                    { text: "NAND 閘", next: "q35_help", log: "Q35救錯: NAND 是平平直直的 D 字型喔！彎彎的代表 OR 的血統！" }
+                    { text: "先進先出 (First In, First Out)", next: "q35", isCorrect: true },
+                    { text: "先進後出", next: "q35_help", log: "Q35救錯: 先進後出大家會暴動啦！排隊(Queue)絕對是先來的人先買到(先進先出)！" }
                 ]
             }
         };
