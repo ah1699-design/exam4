@@ -400,313 +400,230 @@
             }
         };
 
-        // ==========================================
-        // 教師設定區：程式設計實習考前衝刺 15題
-        // ==========================================
-        const quizData = {
-            "q1": {
-                tag: "第 1 關：程式語言基礎",
-                text: "在語言處理程式中，負責將「組合語言」翻譯轉換為機器碼的程式稱為？",
-                options: [
-                    { text: "組譯程式 (Assembler)", next: "q2", isCorrect: true },
-                    { text: "編譯程式 (Compiler)", next: "q1_help", log: "Q1錯: 這是將高階語言轉為機器碼" },
-                    { text: "直譯程式 (Interpreter)", next: "q1_help", log: "Q1錯: 這是將高階語言逐行轉為機器碼" },
-                    { text: "聯結程式 (Linker)", next: "q1_help", log: "Q1錯: 這是將目的檔連結成執行檔" }
-                ]
-            },
-            "q1_help": {
-                tag: "💊 PBL 救援任務：專屬翻譯官",
-                text: "【名詞直觀】不同的語言有不同的翻譯官。高階語言交給「編譯」程式；而「組合」語言的專屬翻譯官，顧名思義就叫做「組譯」程式！",
-                aiPrompt: "我是學生，我在做程式設計測驗時錯了這題：『在語言處理程式中，負責將「組合語言」翻譯轉換為機器碼的程式稱為什麼？』。提示說組合語言的翻譯官是組譯程式（Assembler），請用好懂的比喻詳細跟我解釋什麼是「組合語言」與「組譯程式」，並告訴我它跟「高階語言、編譯程式」的差別在哪裡？",
-                aiUrl: "https://gemini.google.com/",
-                options: [
-                    { text: "組譯程式 (Assembler)", next: "q1", isCorrect: true },
-                    { text: "編譯程式 (Compiler)", next: "q1_help", log: "Q1救錯: 編譯程式是負責翻譯 C 或 C++ 這類「高階語言」的喔！" }
-                ]
-            },
-            "q2": {
-                tag: "第 2 關：工場安全",
-                text: "在工業安全標示中，若看到形狀為「圓形」且顏色為「紅色」的標誌，這通常代表什麼意義？",
-                options: [
-                    { text: "禁止", next: "q3", isCorrect: true },
-                    { text: "警告", next: "q2_help", log: "Q2錯: 警告通常是正三角形或黃色" },
-                    { text: "注意", next: "q2_help", log: "Q2錯: 注意通常是三角形" },
-                    { text: "安全", next: "q2_help", log: "Q2錯: 安全通常是正方形與綠色" }
-                ]
-            },
-            "q2_help": {
-                tag: "💊 PBL 救援任務：馬路上的號誌",
-                text: "【生活經驗】想想馬路上的交通號誌！只要是「圓形」而且帶有「紅色」外框或斜線的（例如：禁止進入、禁止右轉），通通都是代表什麼意思？",
-                aiPrompt: "請幫我詳細列出工業安全標示中，各個幾何圖形（圓形、三角形、正方形）與顏色（紅色、黃色、藍色、綠色）所代表的明確安全意義，並給我 3 個生活中常見的具體例子對照。",
-                aiUrl: "https://gemini.google.com/",
-                options: [
-                    { text: "禁止", next: "q2", isCorrect: true },
-                    { text: "安全", next: "q2_help", log: "Q2救錯: 紅色在工安裡面代表危險，絕對不是安全（綠色）喔！" }
-                ]
-            },
-            "q3": {
-                tag: "第 3 關：變數與常數",
-                text: "在 C/C++ 中，如果要將某個變數宣告為「常數 (內容不能被修改)」，應該使用哪一個關鍵字？",
-                options: [
-                    { text: "const", next: "q4", isCorrect: true },
-                    { text: "int", next: "q3_help", log: "Q3錯: 這是宣告整數變數" },
-                    { text: "void", next: "q3_help", log: "Q3錯: 這是無回傳值型態" },
-                    { text: "static", next: "q3_help", log: "Q3錯: 這是靜態變數" }
-                ]
-            },
-            "q3_help": {
-                tag: "💊 PBL 救援任務：不變的承諾",
-                text: "【英文縮寫】常數的英文是 Constant，意思是「恆定不變的」。工程師取了前面五個字母當作關鍵字，用來把變數鎖死不准改！",
-                aiPrompt: "請教我 C/C++ 中關鍵字 const 的用法。請提供具體的程式碼範例，說明宣告為 const 的變數如果試圖在後續程式碼中被修改會發生什麼事？它跟 #define 有何不同？",
-                aiUrl: "https://gemini.google.com/",
-                options: [
-                    { text: "const", next: "q3", isCorrect: true },
-                    { text: "static", next: "q3_help", log: "Q3救錯: static 是讓變數活久一點，但內容還是可以改，要鎖死必須用 const 喔！" }
-                ]
-            },
-            "q4": {
-                tag: "第 4 關：程式除錯",
-                text: "在程式開發時，如果「程式可以執行，但是算出來的結果卻是錯誤的」，這屬於哪一種錯誤？",
-                options: [
-                    { text: "語意錯誤 (邏輯錯誤)", next: "q5", isCorrect: true },
-                    { text: "語法錯誤 (Syntax Error)", next: "q4_help", log: "Q4錯: 語法錯誤連編譯都過不了，無法執行" },
-                    { text: "編譯錯誤", next: "q4_help", log: "Q4錯: 這跟語法錯誤一樣，無法執行" },
-                    { text: "系統錯誤", next: "q4_help", log: "Q4錯: 這是電腦硬體或OS的問題" }
-                ]
-            },
-            "q4_help": {
-                tag: "💊 PBL 救援任務：算錯帳的收銀機",
-                text: "【生活比喻】收銀機沒壞(能執行)，按鍵也正常，但結帳時找錯錢了。這代表機器的「運算邏輯」被寫錯了，雖然語法全對，但意思(語意)不符合我們的期待！",
-                aiPrompt: "在程式設計中，請詳細跟我解釋『語法錯誤 (Syntax Error)』、『語意錯誤/邏輯錯誤 (Logic Error)』與『執行時期錯誤 (Runtime Error)』這三者的根本差別，並各提供一個 C 語言範例。",
-                aiUrl: "https://gemini.google.com/",
-                options: [
-                    { text: "語意錯誤 (邏輯錯誤)", next: "q4", isCorrect: true },
-                    { text: "語法錯誤", next: "q4_help", log: "Q4救錯: 如果是語法錯誤(例如少打分號)，程式根本連跑都跑不起來喔！" }
-                ]
-            },
-            "q5": {
-                tag: "第 5 關：資料型態",
-                text: "在常見的資料型態中，雙精密度浮點數 `double` 在記憶體中佔用了多少 Bytes 的空間？",
-                options: [
-                    { text: "8 Bytes", next: "q6", isCorrect: true },
-                    { text: "4 Bytes", next: "q5_help", log: "Q5錯: 這是 float (單精密度) 的大小" },
-                    { text: "2 Bytes", next: "q5_help", log: "Q5錯: 這是 short 的大小" },
-                    { text: "1 Byte", next: "q5_help", log: "Q5錯: 這是 char 或 bool 的大小" }
-                ]
-            },
-            "q5_help": {
-                tag: "💊 PBL 救援任務：雙倍的容量",
-                text: "【數學推演】普通的浮點數 `float` 佔用 4 Bytes。既然叫「雙精密度 (double)」，容量當然也要 double (翻倍)！4 的兩倍是多少？",
-                aiPrompt: "請用表格列出 C/C++ 常見基本資料型態（char, short, int, long, float, double）在 32/64 位元系統下所佔用的記憶體空間（Bytes）與數值範圍，並解釋為什麼 double 的精確度比 float 高。",
-                aiUrl: "https://gemini.google.com/",
-                options: [
-                    { text: "8 Bytes", next: "q5", isCorrect: true },
-                    { text: "4 Bytes", next: "q5_help", log: "Q5救錯: 4 Bytes 是普通的 float，double 要乘以 2 喔！" }
-                ]
-            },
-            "q6": {
-                tag: "第 6 關：資料型態轉換",
-                text: "當不同型態的資料進行運算時，編譯器會自動將運算元轉換成相同的資料型態再做運算。這種不需要程式設計師手動加括號的轉換稱為？",
-                options: [
-                    { text: "隱含式轉換 (Implicit conversion)", next: "q7", isCorrect: true },
-                    { text: "明確式轉換 (Explicit conversion)", next: "q6_help", log: "Q6錯: 明確式是手動加小括號強制轉型" },
-                    { text: "強制轉型 (Casting)", next: "q6_help", log: "Q6錯: 這是明確式轉換的另一種說法" },
-                    { text: "邏輯轉換", next: "q6_help", log: "Q6錯: 沒有這種專有名詞" }
-                ]
-            },
-            "q6_help": {
-                tag: "💊 PBL 救援任務：默默幫你做好",
-                text: "【名詞直觀】電腦很聰明，看見整數和小數加在一起，它會「默默地、隱藏地」自動把整數變成小數再來算。這種沒寫在檯面上的轉換叫做？",
-                aiPrompt: "在 C++ 程式中，什麼是隱含式資料型態轉換（Implicit conversion）與明確式轉換（Explicit conversion/Casting）？請詳細解釋編譯器的『自動升級（Promotion）』規則，並說明型態轉換不當為何會導致資料流失（如 int 轉 char）。",
-                aiUrl: "https://gemini.google.com/",
-                options: [
-                    { text: "隱含式轉換", next: "q6", isCorrect: true },
-                    { text: "明確式轉換", next: "q6_help", log: "Q6救錯: 明確式(強制轉型)是你自己寫代碼去逼它轉，自動幫你做的是「隱含式」喔！" }
-                ]
-            },
-            "q7": {
-                tag: "第 7 關：資訊安全 CIA",
-                text: "資訊安全是為了保護資訊的安全，其核心的三大要素 (CIA Triad) 是機密性、完整性與哪一項？",
-                options: [
-                    { text: "可用性 (Availability)", next: "q8", isCorrect: true },
-                    { text: "存取性 (Accessibility)", next: "q7_help", log: "Q7錯: 雖然很像，但正式名稱是可用性" },
-                    { text: "真實性 (Authenticity)", next: "q7_help", log: "Q7錯: 真實性有時包含在廣義資安，但CIA的三本柱是可用性" },
-                    { text: "問責性 (Accountability)", next: "q7_help", log: "Q7錯: 這屬於延伸的安全屬性" }
-                ]
-            },
-            "q7_help": {
-                tag: "💊 PBL 救援任務：要能用才算數",
-                text: "【觀念聯想】系統就算再安全、資料再完整，如果你「想用的時候系統當機無法使用」，那也失去意義了。所以確保系統隨時能為合法使用者服務的特性叫做？",
-                aiPrompt: "請詳細解釋資訊安全核心『CIA 三要素』：機密性 (Confidentiality)、完整性 (Integrity)、可用性 (Availability) 的定義，並分別舉出一個破壞這三種特性的常見網路攻擊手法（例如：DDoS 破壞可用性）。",
-                aiUrl: "https://gemini.google.com/",
-                options: [
-                    { text: "可用性", next: "q7", isCorrect: true },
-                    { text: "真實性", next: "q7_help", log: "Q7救錯: CIA 代表 Confidentiality(機密), Integrity(完整) 和 Availability(可用性) 喔！" }
-                ]
-            },
-            "q8": {
-                tag: "第 8 關：資訊安全 4D",
-                text: "資訊安全的 4D 原則中，包含了嚇阻 (Deter)、偵測 (Detect)、延遲 (Delay) 以及下列哪一項？",
-                options: [
-                    { text: "拒絕 (Deny)", next: "q9", isCorrect: true },
-                    { text: "破壞 (Destroy)", next: "q8_help", log: "Q8錯: 破壞是駭客做的事" },
-                    { text: "刪除 (Delete)", next: "q8_help", log: "Q8錯: 刪除也是駭客的行為" },
-                    { text: "解碼 (Decode)", next: "q8_help", log: "Q8錯: 這是資料處理過程" }
-                ]
-            },
-            "q8_help": {
-                tag: "💊 PBL 救援任務：把壞人擋在門外",
-                text: "【邏輯推演】防禦系統的目的是不讓壞人進來。如果發現壞人(Detect)，我們要堅定地向他說「不」，把他擋在門外。這在英文中對應的 D 開頭單字是？",
-                aiPrompt: "在縱深防禦（Defense in Depth）架構中，資安防護的 4D 原則分別指什麼？請詳細說明嚇阻 (Deter)、偵測 (Detect)、延遲 (Delay) 與拒絕 (Deny) 的防禦層次與實際應用資安設備（如防火牆、IDS）。",
-                aiUrl: "https://gemini.google.com/",
-                options: [
-                    { text: "拒絕 (Deny)", next: "q8", isCorrect: true },
-                    { text: "破壞 (Destroy)", next: "q8_help", log: "Q8救錯: 我們是防禦方，不能隨便破壞別人啦！是要「拒絕」對方的存取喔！" }
-                ]
-            },
-            "q9": {
-                tag: "第 9 關：演算法與流程圖",
-                text: "演算法 (Algorithm) 有五個重要特點。其中「必須在有限的時間與步驟內完成」，不會進入無窮迴圈的特點稱為什麼？",
-                options: [
-                    { text: "有限性", next: "q10", isCorrect: true },
-                    { text: "明確性", next: "q9_help", log: "Q9錯: 明確性是指指令沒有歧義" },
-                    { text: "有效性", next: "q9_help", log: "Q9錯: 有效性是指步驟可以被實際執行" },
-                    { text: "輸出", next: "q9_help", log: "Q9錯: 演算法必須有至少一個輸出" }
-                ]
-            },
-            "q9_help": {
-                tag: "💊 PBL 救援任務：不能永遠算不完",
-                text: "【名詞直觀】這題是送分題！題目說「必須在有限的時間內完成」，這個特點的名字就直接寫在題目裡面了！",
-                aiPrompt: "請列出演算法（Algorithm）必須具備的五大基礎特性：輸入（Input）、輸出（Output）、明確性（Definiteness）、有限性（Finiteness）與有效性（Effectiveness），並逐一作深入的白話文解釋。",
-                aiUrl: "https://gemini.google.com/",
-                options: [
-                    { text: "有限性", next: "q9", isCorrect: true },
-                    { text: "有效性", next: "q9_help", log: "Q9救錯: 有效性是指「人類拿紙筆也能算得出來」，保證時間內結束的是「有限性」！" }
-                ]
-            },
-            "q10": {
-                tag: "第 10 關：演算法與流程圖",
-                text: "在繪製程式流程圖時，用來表示「條件判斷」(通常會有 Yes 和 No 兩條岔路) 的幾何圖形是什麼？",
-                options: [
-                    { text: "菱形", next: "q11", isCorrect: true },
-                    { text: "矩形", next: "q10_help", log: "Q10錯: 矩形代表執行某個動作(處理)" },
-                    { text: "平行四邊形", next: "q10_help", log: "Q10錯: 平行四邊形代表資料的輸入/輸出" },
-                    { text: "橢圓形", next: "q10_help", log: "Q10錯: 橢圓形代表程式的起始與結束" }
-                ]
-            },
-            "q10_help": {
-                tag: "💊 PBL 救援任務：尖尖的岔路",
-                text: "【圖形聯想】條件判斷就像站在岔路口。這個圖形上下左右都有尖尖的角，剛好可以讓箭頭從上面進來，然後從左邊(Yes)或右邊(No)岔出去！",
-                aiPrompt: "請向我介紹繪製標準程式流程圖（Flowchart）時所使用的幾何圖形規範。請至少列出：端點（橢圓）、處理（矩形）、決策/判斷（菱形）、輸入輸出（平行四邊形）的用途，並用這幾個符號為一個簡單的『判斷考試是否及格』繪製出對應的文字流程概念。",
-                aiUrl: "https://gemini.google.com/",
-                options: [
-                    { text: "菱形", next: "q10", isCorrect: true },
-                    { text: "矩形", next: "q10_help", log: "Q10救錯: 矩形是四四方方乖乖做事(處理程序)用的，有岔路的是菱形喔！" }
-                ]
-            },
-            "q11": {
-                tag: "第 11 關：列舉型態",
-                text: "在 C/C++ 中使用 `enum` 定義列舉時，若沒有特別指定數值，集合內的第一個元素預設對應的整數值是多少？",
-                options: [
-                    { text: "0", next: "q12", isCorrect: true },
-                    { text: "1", next: "q11_help", log: "Q11錯: 在程式世界中，計數通常不從 1 開始" },
-                    { text: "-1", next: "q11_help", log: "Q11錯: 預設值不會是負數" },
-                    { text: "記憶體亂數", next: "q11_help", log: "Q11錯: 列舉有明確的自動編碼規則" }
-                ]
-            },
-            "q11_help": {
-                tag: "💊 PBL 救援任務：電腦的起點",
-                text: "【程式常識】在電腦程式的世界裡（包含陣列的索引、列舉的預設值），所有的起點都不是從 1 開始，而是從一個代表「空」的數字開始算起！",
-                aiPrompt: "在 C/C++ 中，列舉型態（enum）的運作原理是什麼？請示範如何宣告一個一週七天的 enum，並說明如果手動把第二個元素的值設為 5，後續的元素會如何自動遞增編號？",
-                aiUrl: "https://gemini.google.com/",
-                options: [
-                    { text: "0", next: "q11", isCorrect: true },
-                    { text: "1", next: "q11_help", log: "Q11救錯: 人類習慣從 1 開始數，但電腦的預設編碼都是從 0 開始的喔！" }
-                ]
-            },
-            "q12": {
-                tag: "第 12 關：運算子",
-                text: "關於遞增運算子 `++`，若宣告 `int a = 5; int b = ++a;` (前置遞增)，執行後 a 和 b 的值分別為何？",
-                options: [
-                    { text: "a=6, b=6", next: "q13", isCorrect: true },
-                    { text: "a=6, b=5", next: "q12_help", log: "Q12錯: 這是後置遞增 (a++) 的結果" },
-                    { text: "a=5, b=6", next: "q12_help", log: "Q12錯: a 的值一定會改變" },
-                    { text: "a=5, b=5", next: "q12_help", log: "Q12錯: 運算子已經作用了" }
-                ]
-            },
-            "q12_help": {
-                tag: "💊 PBL 救援任務：先加還是後加",
-                text: "【語法推演】符號寫在前面 (`++a`)，代表「先把自己加1，然後再把結果交給別人」。所以 a 先變成了 6，然後再把 6 丟進 b 的箱子裡。",
-                aiPrompt: "請詳細剖析 C/C++ 中的前置遞增『b = ++a』與後置遞增『b = a++』在底層 CPU 與暫存器運作上的順序差別。請用白話文跟兩行拆解程式碼來說明為什麼裝著 b 的箱子最後拿到的值不一樣？",
-                aiUrl: "https://gemini.google.com/",
-                options: [
-                    { text: "a=6, b=6", next: "q12", isCorrect: true },
-                    { text: "a=6, b=5", next: "q12_help", log: "Q12救錯: 如果是 `b = a++` (後置)，b 才會拿到舊的 5。這題是前置，所以都會是 6！" }
-                ]
-            },
-            "q13": {
-                tag: "第 13 關：運算子",
-                text: "在邏輯運算子中，哪一個運算子採用「只要條件之一成立，結果就為 True (真)」的規則？",
-                options: [
-                    { text: "OR ( || )", next: "q14", isCorrect: true },
-                    { text: "AND ( && )", next: "q13_help", log: "Q13錯: AND 必須所有條件都成立才為真" },
-                    { text: "NOT ( ! )", next: "q13_help", log: "Q13錯: 這是將結果反轉" },
-                    { text: "XOR ( ^ )", next: "q13_help", log: "Q13錯: 這是位元運算子，且兩者不同才為真" }
-                ]
-            },
-            "q13_help": {
-                tag: "💊 PBL 救援任務：通融的守衛",
-                text: "【邏輯直覺】這個運算子非常通融，規定「你有會員卡【或者】你有邀請函」，只要符合其中一個條件就可以放行。這個代表「或者」的運算子是？",
-                aiPrompt: "在程式控制流程中，邏輯運算子 AND (&&)、OR (||)、NOT (!) 的真值表（Truth Table）分別為何？另外，請詳細解釋什麼是邏輯運算子的『短路求值（Short-circuit evaluation）』特性？",
-                aiUrl: "https://gemini.google.com/",
-                options: [
-                    { text: "OR ( || )", next: "q13", isCorrect: true },
-                    { text: "AND ( && )", next: "q13_help", log: "Q13救錯: AND 是超嚴格的守衛，必須兩個條件都符合才會放行喔！" }
-                ]
-            },
-            "q14": {
-                tag: "第 14 關：程式架構",
-                text: "結構化程式設計的三種基本結構為：循序結構、選擇結構與什麼結構？",
-                options: [
-                    { text: "重複結構 (迴圈)", next: "q15", isCorrect: true },
-                    { text: "跳躍結構 (GOTO)", next: "q14_help", log: "Q14錯: 結構化程式應避免使用 GOTO" },
-                    { text: "指標結構", next: "q14_help", log: "Q14錯: 這是資料處理工具，非流程結構" },
-                    { text: "遞迴結構", next: "q14_help", log: "Q14錯: 遞迴是函式的應用，非三大基本結構" }
-                ]
-            },
-            "q14_help": {
-                tag: "💊 PBL 救援任務：一直做同一件事",
-                text: "【觀念聯想】寫程式最常做的三件事：一直線往下做(循序)、遇到岔路選邊走(選擇)，還有就是「一直在同一個地方繞圈圈做同一件事」，這叫做什麼結構？",
-                aiPrompt: "結構化程式設計（Structured Programming）的三大黃金架構：循序（Sequence）、選擇（Selection）、重複（Iteration/Loop）的核心定義為何？為什麼現代軟體工程強烈反對使用 GOTO 這種跳躍結構？",
-                aiUrl: "https://gemini.google.com/",
-                options: [
-                    { text: "重複結構 (迴圈)", next: "q14", isCorrect: true },
-                    { text: "跳躍結構 (GOTO)", next: "q14_help", log: "Q14救錯: GOTO 會把程式碼弄成一團亂義大利麵，是結構化設計的大忌喔！" }
-                ]
-            },
-            "q15": {
-                tag: "第 15 關：流程控制",
-                text: "在 C/C++ 的迴圈指令中，哪一種迴圈屬於「後測試 (先執行再判斷)」，因此它的程式區塊『至少會被執行一次』？",
-                options: [
-                    { text: "do-while", next: "q16", isCorrect: true },
-                    { text: "while", next: "q15_help", log: "Q15錯: 這是先測試，可能一次都不跑" },
-                    { text: "for", next: "q15_help", log: "Q15錯: 這是先測試，通常用於已知次數" },
-                    { text: "if-else", next: "q15_help", log: "Q15錯: 這是條件判斷，不是迴圈" }
-                ]
-            },
-            "q15_help": {
-                tag: "💊 PBL 救援任務：先做再說",
-                text: "【語法直觀】看它的英文就知道！開頭寫了一個大大的 `do` (做)。電腦看到 `do` 就會無腦先進去執行一次，做完出來才看 `while` 的條件。所以是哪一個？",
-                aiPrompt: "在 C/C++ 語言中，for 迴圈、while 迴圈與 do-while 迴圈這三者在『執行前測試』與『執行後測試』的邏輯上有何根本差異？請特別針對 do-while 的語法特性與保證執行至少一次的場景給予說明。",
-                aiUrl: "https://gemini.google.com/",
-                options: [
-                    { text: "do-while", next: "q15", isCorrect: true },
-                    { text: "while", next: "q15_help", log: "Q15救錯: 純 `while` 迴圈是先檢查票才放行，如果條件錯了，可能連一次都不會執行喔！" }
-                ]
-            },
-            "q16": { tag: "第 16 關：暫時封包", text: "恭喜挑戰完成前哨關卡！後續大魔王關卡建置中！", options: [{ text: "直接進入結算", next: "end", isCorrect: true }] }
-        };
+// ==========================================
+// 數位邏輯設計特訓：布林代數化簡 10 題完整題庫
+// ==========================================
+const quizData = {
+    // --- 第 1 題 ---
+    "q1": {
+        tag: "布林代數特訓：分配律與互補律",
+        text: "請化簡布林代數式：$F = A\\cdot B + A\\cdot\\bar{B}$，其最簡式為何？",
+        options: [
+            { text: "A", next: "q2", isCorrect: true },
+            { text: "B", next: "q1_help", log: "Q1錯：未掌握分配律提公因式或互補律" },
+            { text: "$A\\cdot B$", next: "q1_help", log: "Q1錯：化簡不夠徹底" },
+            { text: "1", next: "q1_help", log: "Q1錯: 誤將邏輯相加當成互補直接消去" }
+        ]
+    },
+    "q1_help": {
+        tag: "💊 PBL 救援任務：提取公因式",
+        text: "【救援提示】觀察算式 $A\\cdot B + A\\cdot\\bar{B}$，兩項都有相同的變數 $A$，可以利用分配律把 $A$ 提出來變成 $A\\cdot(B + \\bar{B})$。想想看，根據互補律，$B + \\bar{B}$ 會等於多少呢？",
+        aiPrompt: "我是高職電子科/資訊科學生，我在數位邏輯的布林代數化簡錯了這題：『$F = A\\cdot B + A\\cdot\\bar{B}$』。請扮演教學引導者的角色，絕對不要直接告訴我最終答案。請先用生活化的比喻解釋什麼是布林代數的「分配律」與「互補律」，並給出線索引導我自己算出最簡式。",
+        aiUrl: "https://gemini.google.com/",
+        options: [
+            { text: "A", next: "q1", isCorrect: true },
+            { text: "B", next: "q1_help", log: "Q1救援錯：提示後仍無法正確套用互補律 $B+\\bar{B}=1$" }
+        ]
+    },
 
+    // --- 第 2 題 ---
+    "q2": {
+        tag: "布林代數特訓：吸收律基礎",
+        text: "請化簡布林代數式：$F = A + \\bar{A}\\cdot B$，其最簡式為何？",
+        options: [
+            { text: "A + B", next: "q3", isCorrect: true },
+            { text: "A", next: "q2_help", log: "Q2錯：誤以為 $\\bar{A}\\cdot B$ 會直接被 $A$ 吸收" },
+            { text: "B", next: "q2_help", log: "Q2錯：誤將主項 $A$ 直接消去" },
+            { text: "$A\\cdot B$", next: "q2_help", log: "Q2錯：邏輯運算子混淆" }
+        ]
+    },
+    "q2_help": {
+        tag: "💊 PBL 救援任務：神奇的展開法",
+        text: "【救援提示】這題可以用分配律反向展開！將 $A + \\bar{A}\\cdot B$ 展開成 $(A + \\bar{A})\\cdot(A + B)$。接著，利用互補律 $(A + \\bar{A}) = 1$，算式就一目了然囉！",
+        aiPrompt: "我在數位邏輯中錯了布林代數重要公式：『$A + \\bar{A}\\cdot B = A + B$』。請扮演我個人的 AI 教學鷹架，不要直接給我答案。請用引導的方式，教我如何利用分配律反向展開這個算式，並告訴我這個公式在數位電路化簡中為什麼這麼常用？",
+        aiUrl: "https://gemini.google.com/",
+        options: [
+            { text: "A + B", next: "q2", isCorrect: true },
+            { text: "A", next: "q2_help", log: "Q2救援錯：展開後仍不理解 $(A+\\bar{A})=1$ 的消去規則" }
+        ]
+    },
+
+    // --- 第 3 題 ---
+    "q3": {
+        tag: "布林代數特訓：笛摩根定理 (及閘)",
+        text: "根據笛摩根定理（De Morgan's laws），邏輯式 $\\overline{A\\cdot B}$ 可以轉換為下列何者？",
+        options: [
+            { text: "$\\bar{A} + \\bar{B}$", next: "q4", isCorrect: true },
+            { text: "$\\bar{A}\\cdot\\bar{B}$", next: "q3_help", log: "Q3錯：忘記反相時運算子（及閘變或閘）要改變" },
+            { text: "$A + B$", next: "q3_help", log: "Q3錯：漏掉了個別變數的反相（Bar）" },
+            { text: "$\\overline{A+B}$", next: "q3_help", log: "Q3錯：直接將運算子轉換但外框未拆開" }
+        ]
+    },
+    "q3_help": {
+        tag: "💊 PBL 救援任務：口訣是「拆大變小」",
+        text: "【救援提示】笛摩根定理的口訣是：『拆大長線，改變符號』。當你把上面的長線 $\\overline{\\quad}$ 砍斷時，中間的乘號（$\\cdot$）必須要變成長線斷開後的加號（$+$），且兩邊的變數都要各自戴上帽子（Bar）。",
+        aiPrompt: "我正在學習數位邏輯設計的笛摩根定理（De Morgan's Laws），我卡在 $\\overline{A\\cdot B}$ 的轉換。請扮演嚴格的引導式 AI 老師，不要直接寫出答案。請用白話文跟我解釋『及閘反相（NAND）等於反相或閘（Inverted OR）』的電路觀念，引導我理解符號轉換的秘密。",
+        aiUrl: "https://gemini.google.com/",
+        options: [
+            { text: "$\\bar{A} + \\bar{B}$", next: "q3", isCorrect: true },
+            { text: "$\\bar{A}\\cdot\\bar{B}$", next: "q3_help", log: "Q3救援錯：經口訣提示後，依然忘記及閘（\\cdot）要換成或閘（+）" }
+        ]
+    },
+
+    // --- 第 4 題 ---
+    "q4": {
+        tag: "布林代數特訓：重疊律與吸收律",
+        text: "請化簡布林代數式：$F = A\\cdot(A + B)$，其最簡式為何？",
+        options: [
+            { text: "A", next: "q5", isCorrect: true },
+            { text: "B", next: "q4_help", log: "Q4錯：誤以為 $A$ 乘進去後會被完全消去" },
+            { text: "$A + A\\cdot B$", next: "q4_help", log: "Q4錯：只有展開，沒有進行最簡化" },
+            { text: "$A\\cdot B$", next: "q4_help", log: "Q4錯：落入普通代數 $A \\times A = A^2$ 的思維陷阱" }
+        ]
+    },
+    "q4_help": {
+        tag: "💊 PBL 救援任務：真值表的真理",
+        text: "【救援提示】如果我們用分配律展開會得到 $A\\cdot A + A\\cdot B$。根據重疊律，$A\\cdot A = A$，所以算式變成 $A + A\\cdot B$。此時再提出 $A$，得到 $A\\cdot(1 + B)$。想想看，任何東西加上 1 邏輯上會變成什麼？",
+        aiPrompt: "我正在做布林代數的吸收律練習，我不懂為什麼 $A\\cdot(A + B) = A$。請扮演引導者（Scaffold），千萬不要直接給我答案。請用真值表（Truth Table）的邏輯思維或輸入訊號（0與1）的狀態，一步步引導我發現為什麼 $B$ 的狀態完全不會影響輸出結果。",
+        aiUrl: "https://gemini.google.com/",
+        options: [
+            { text: "A", next: "q4", isCorrect: true },
+            { text: "$A\\cdot B$", next: "q4_help", log: "Q4救援錯：提示 $(1+B)=1$ 後，仍舊無法算出 $A \\cdot 1 = A$" }
+        ]
+    },
+
+    // --- 第 5 題 ---
+    "q5": {
+        tag: "布林代數特訓：兩括號分配律",
+        text: "請化簡布林代數式：$F = (A + B)\\cdot(A + \\bar{B})$，其最簡式為何？",
+        options: [
+            { text: "A", next: "q6", isCorrect: true },
+            { text: "B", next: "q5_help", log: "Q5錯：可能在括號展開時正負號運算子混淆" },
+            { text: "$A + B$", next: "q5_help", log: "Q5錯：未能將 $B\\cdot\\bar{B}$ 化簡為 0" },
+            { text: "$A + B\\cdot\\bar{B}$", next: "q5_help", log: "Q5錯：化簡進行到一半，未完成最後一哩路" }
+        ]
+    },
+    "q5_help": {
+        tag: "💊 PBL 救援任務：乘法公式反向思考",
+        text: "【救援提示】這題可以用分配律把括號拆開，也可以反向思考：這就像數學的 $(X+Y)(X+Z) = X + Y\\cdot Z$。對照一下，算式會變成 $A + B\\cdot\\bar{B}$。別忘了，一個訊號與自己的反相訊號做「及（AND）」運算（$B\\cdot\\bar{B}$），結果一定是多少？",
+        aiPrompt: "我在化簡 $(A + B)\\cdot(A + \\bar{B})$ 時遇到了困難。請扮演 AI 教學助理，不要直接提供解答。請帶領我回顧布林代數的互補律中，關於『$B \\text{ AND } \\text{NOT } B$』的規則，並引導我完成最後的化簡。",
+        aiUrl: "https://gemini.google.com/",
+        options: [
+            { text: "A", next: "q5", isCorrect: true },
+            { text: "$A+B$", next: "q5_help", log: "Q5救援錯：依然未能理解 $B\\cdot\\bar{B} = 0$，導致算式無法變成 $A+0$" }
+        ]
+    },
+
+    // --- 第 6 題 ---
+    "q6": {
+        tag: "布林代數特訓：或閘提公因式",
+        text: "請化簡布林代數式：$F = A\\cdot B + \\bar{A}\\cdot B$，其最簡式為何？",
+        options: [
+            { text: "B", next: "q7", isCorrect: true },
+            { text: "A", next: "q6_help", log: "Q6錯：誤提取了不同的變數" },
+            { text: "$A + \\bar{A}$", next: "q6_help", log: "Q6錯：化簡邏輯錯誤，留下了被消去的項" },
+            { text: "1", next: "q6_help", log: "Q6錯：誤以為整串式子可以互相抵消" }
+        ]
+    },
+    "q6_help": {
+        tag: "💊 PBL 救援任務：誰才是主角？",
+        text: "【救援提示】看一下算式 $A\\cdot B + \\bar{A}\\cdot B$，前後兩項都有共同的變數 $B$！用分配律把 $B$ 提出來後，會得到 $(A + \\bar{A})\\cdot B$。括號裡面的 $A + \\bar{A}$ 根據互補律會變成 1，那 $1\\cdot B$ 會是多少呢？",
+        aiPrompt: "請扮演我的數位邏輯導師，指導我化簡 $A\\cdot B + \\bar{A}\\cdot B$，但不要給我最終答案。請給我提示，告訴我如何透過提取共同項 $B$ 來簡化式子，並用白話文解釋 $(A + \\bar{A})$ 為什麼等於 1 的硬體電路含義。",
+        aiUrl: "https://gemini.google.com/",
+        options: [
+            { text: "B", next: "q6", isCorrect: true },
+            { text: "1", next: "q6_help", log: "Q6救援錯：提示後仍舊搞不懂 $1 \\cdot B$ 在邏輯及閘（AND）中輸出會隨 $B$ 改變的特性" }
+        ]
+    },
+
+    // --- 第 7 題 ---
+    "q7": {
+        tag: "布林代數特訓：吸收律進階變形",
+        text: "請化簡布林代數式：$F = A\\cdot\\bar{B} + B$，其最簡式為何？",
+        options: [
+            { text: "A + B", next: "q8", isCorrect: true },
+            { text: "A", next: "q7_help", log: "Q7錯：誤以為 $B$ 會把前面的 $\\bar{B}$ 完全吃掉而不留下痕跡" },
+            { text: "$A \\cdot B$", next: "q7_help", log: "Q7錯：運算子在化簡過程中被錯誤置換" },
+            { text: "B", next: "q7_help", log: "Q7錯: 忽略了 $A$ 項的存在" }
+        ]
+    },
+    "q7_help": {
+                tag: "💊 PBL 救援任務：位置調換看秩序",
+                text: "【救援提示】布林代數有交換律！我們可以把 $A\\cdot\\bar{B} + B$ 重新排成 $B + \\bar{B}\\cdot A$。這跟我們在第 2 關學到的 $A + \\bar{A}\\cdot B = A + B$ 架構完全一樣！現在把主角換成 $B$，答案是不是呼之欲出了呢？",
+        aiPrompt: "我在數位邏輯中遇到 $A\\cdot\\bar{B} + B$ 的化簡卡關了。請扮演引導者給予我線索，絕對不要透露最終答案。請指導我如何利用邏輯交換律將算式重排，並提示我如何對照標準吸收律公式來解題。",
+        aiUrl: "https://gemini.google.com/",
+        options: [
+            { text: "A + B", next: "q7", isCorrect: true },
+            { text: "B", next: "q7_help", log: "Q7救援錯：對調位置提示後，仍無法將標準公式對應到不同的變數符號上" }
+        ]
+    },
+
+    // --- 第 8 題 ---
+    "q8": {
+        tag: "布林代數特訓：笛摩根定理 (或閘)",
+        text: "根據笛摩根定理，邏輯式 $\\overline{A + B}$ 可以轉換為下列何者？",
+        options: [
+            { text: "$\\bar{A}\\cdot\\bar{B}$", next: "q9", isCorrect: true },
+            { text: "$\\bar{A} + \\bar{B}$", next: "q8_help", log: "Q8錯：忘記反相時運算子（或閘變及閘）要改變" },
+            { text: "$A\\cdot B$", next: "q8_help", log: "Q8錯：漏掉了個別變數的反相 Bar" },
+            { text: "$\\overline{A\\cdot B}$", next: "q8_help", log: "Q8錯：符號變了但長線未拆開" }
+        ]
+    },
+    "q8_help": {
+        tag: "💊 PBL 救援任務：或閘反相的秘密",
+        text: "【救援提示】再次回想笛摩根的精髓：『砍斷大長線，加號變乘號』。當你把 $\\overline{A + B}$ 的屋頂砍斷時，原本的或閘（$+$）就會掉下來變成及閘（$\\cdot$），兩邊的變數則各自帶走斷掉的短線帽子。",
+        aiPrompt: "請擔任數位邏輯設計的導師，以引架（Scaffolding）方式引導我，不要給我答案。請用電路圖的邏輯跟我解釋為什麼『或非閘（NOR）在功能上等同於反相輸入的及閘（And with Inverted Inputs）』？",
+        aiUrl: "https://gemini.google.com/",
+        options: [
+            { text: "$\\bar{A}\\cdot\\bar{B}$", next: "q8", isCorrect: true },
+            { text: "$\\bar{A} + \\bar{B}$", next: "q8_help", log: "Q8救援錯：反覆提示後，仍舊將或閘反相（NOR）與及閘反相（NAND）的轉換公式搞混" }
+        ]
+    },
+
+    // --- 第 9 題 ---
+    "q9": {
+        tag: "布林代數特訓：贅項消去與吸收",
+        text: "請化簡布林代數式：$F = A\\cdot B + A\\cdot B\\cdot C$，其最簡式為何？",
+        options: [
+            { text: "A\\cdot B", next: "q10", isCorrect: true },
+            { text: "A", next: "q9_help", log: "Q9錯：消去過頭，把核心的 $B$ 也拿掉了" },
+            { text: "C", next: "q9_help", log: "Q9錯：誤以為後面長長的一串才是答案" },
+            { text: "$A\\cdot(B + C)$", next: "q9_help", log: "Q9錯：因式分解提取錯誤" }
+        ]
+    },
+    "q9_help": {
+        tag: "💊 PBL 救援任務：多餘的條件",
+        text: "【救援提示】看看這兩項 $A\\cdot B$ 與 $A\\cdot B\\cdot C$。前後都有公因式 $A\\cdot B$，提出來後會得到 $A\\cdot B\\cdot(1 + C)$。在邏輯世界中，任何變數加上 1（$1 + C$）永遠都等於 1。所以算式最後會剩下什麼？",
+        aiPrompt: "我遇到了布林代數吸收律公式 $A + A\\cdot B = A$ 的進階變形題 $A\\cdot B + A\\cdot B\\cdot C$。請扮演 AI 教練提供線索，絕對不能直接揭曉答案。請用白話文跟我解釋布林代數中『$1 + \text{任何項} = 1$』這個至關重要的概念。",
+        aiUrl: "https://gemini.google.com/",
+        options: [
+            { text: "A\\cdot B", next: "q9", isCorrect: true },
+            { text: "A", next: "q9_help", log: "Q9救援錯：知道了 $(1+C)=1$ 之後，依然無法推導出 $A\\cdot B \\cdot 1 = A\\cdot B$" }
+        ]
+    },
+
+    // --- 第 10 題 ---
+    "q10": {
+        tag: "布林代數特訓：最經典的吸收律",
+        text: "最後一題！請化簡最經典的布林代數式：$F = A + A\\cdot B$，其最簡式為何？",
+        options: [
+            { text: "A", next: "end", isCorrect: true },
+            { text: "B", next: "q10_help", log: "Q10錯：完全誤解了吸收律，留下了被吸收的贅項" },
+            { text: "$A + B$", next: "q10_help", log: "Q10錯：將吸收律公式與 $A + \\bar{A}\\cdot B$ 的變形公式記混了" },
+            { text: "$A\\cdot B$", next: "q10_help", log: "Q10錯：將邏輯相加（OR）與邏輯相乘（AND）的概念混淆" }
+        ]
+    },
+    "q10_help": {
+        tag: "🏆 終極救援任務：大魔王吸收律",
+        text: "【救援提示】這是數位邏輯最最最重要的基礎公式！把 $A + A\\cdot B$ 改寫成 $A\\cdot 1 + A\\cdot B$，接著提出公因式 $A$，得到 $A\\cdot(1 + B)$。因為 $1 + B = 1$，所以最後的主角就只剩下...？",
+        aiPrompt: "這是特訓最後一題，但我卡在最基礎的吸收律公式 $A + A\\cdot B = A$。請扮演引導者（Scaffold），千萬不要直接給我答案。請用邏輯邏輯電路中『或閘（OR）只要有一端輸入為1，輸出即為1』的硬體原理，引導我理解這條經典公式。",
+        aiUrl: "https://gemini.google.com/",
+        options: [
+            { text: "A", next: "q10", isCorrect: true },
+            { text: "$A + B$", next: "q10_help", log: "Q10救援錯：最後一題在完整因式分解提示下，依然將其與有反相（Bar）的公式搞混" }
+        ]
+    }
+};
         // ==========================================
         // 系統變數與遊戲邏輯
         // ==========================================
